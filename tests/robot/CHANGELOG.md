@@ -1,5 +1,11 @@
 # robot-framework
 
+## 2.0.3
+
+### Patch Changes
+
+- 96778be: feat: altera o caminho dos resultados dos testes do projeto de testes Robot Framework
+
 ## 2.0.2
 
 ### Patch Changes

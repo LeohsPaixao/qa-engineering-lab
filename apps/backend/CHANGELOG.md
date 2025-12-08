@@ -1,5 +1,11 @@
 # backend
 
+## 2.0.4
+
+### Patch Changes
+
+- fed49fc: feat: reconfigura o jest, adicionando um reporter e configurando o caminho de saida dos resultados
+
 ## 2.0.3
 
 ### Patch Changes

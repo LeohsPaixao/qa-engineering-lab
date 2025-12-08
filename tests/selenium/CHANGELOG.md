@@ -1,5 +1,11 @@
 # selenium-ui-tests
 
+## 2.0.2
+
+### Patch Changes
+
+- ab34955: test: cria uma propriedade no build.gradle para ser utilizada na execução dos testes e salvar os xml dos resultados na pasta padrão criada
+
 ## 2.0.1
 
 ### Patch Changes

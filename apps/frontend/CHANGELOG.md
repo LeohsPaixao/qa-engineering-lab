@@ -1,5 +1,11 @@
 # frontend
 
+## 2.0.4
+
+### Patch Changes
+
+- f66d5c1: feat: reconfigura o reporter e output dos resultados do framework vitest no frontend
+
 ## 2.0.3
 
 ### Patch Changes

@@ -1,5 +1,12 @@
 # cypress-ui-tests
 
+## 2.1.1
+
+### Patch Changes
+
+- 9a382c1: feat: envia os resultados em JSONs para a pasta padrão dos resultados dos testes dos frameworks
+- 8b54176: feat: instala e configura o reporter mochawesome no cypress
+
 ## 2.1.0
 
 ### Minor Changes
