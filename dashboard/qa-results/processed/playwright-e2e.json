@@ -1,20 +1,20 @@
 {
   "framework": "playwright-e2e",
-  "timestamp": "2025-12-06-20-44-52",
+  "timestamp": "2025-12-08-20-30-25",
   "type": "e2e",
   "summary": {
     "total": 37,
     "passed": 37,
     "failed": 0,
     "skipped": 0,
-    "duration_s": 21.640000000000004
+    "duration_s": 20.274
   },
   "tests": [
     {
       "id": "listUsers.spec:deveria-ser-possvel-visualizar-os-elementos-da-tela-de-listagem-de-usurios",
       "name": "Deveria ser possível visualizar os elementos da tela de listagem de Usuários",
       "status": "passed",
-      "duration_s": 1.974,
+      "duration_s": 1.899,
       "file": "listUsers.spec.ts",
       "tags": [],
       "error": null
@@ -23,7 +23,7 @@
       "id": "listUsers.spec:deveria-ser-possvel-selecionar-todos-os-usurios",
       "name": "Deveria ser possível selecionar todos os usuários",
       "status": "passed",
-      "duration_s": 0.558,
+      "duration_s": 0.493,
       "file": "listUsers.spec.ts",
       "tags": [],
       "error": null
@@ -32,7 +32,7 @@
       "id": "listUsers.spec:deveria-ser-possvel-selecionar-um-usurio-e-exclu-lo",
       "name": "Deveria ser possível selecionar um usuário e excluí-lo",
       "status": "passed",
-      "duration_s": 0.742,
+      "duration_s": 0.699,
       "file": "listUsers.spec.ts",
       "tags": [],
       "error": null
@@ -41,7 +41,7 @@
       "id": "login.spec:deveria-ser-possvel-visualizar-os-elementos-da-tela",
       "name": "Deveria ser possível visualizar os elementos da tela",
       "status": "passed",
-      "duration_s": 0.434,
+      "duration_s": 0.4,
       "file": "login.spec.ts",
       "tags": [],
       "error": null
@@ -50,7 +50,7 @@
       "id": "login.spec:no-deveria-ser-possvel-fazer-login-com-credenciais-invlidas",
       "name": "Não deveria ser possível fazer login com credenciais inválidas",
       "status": "passed",
-      "duration_s": 0.595,
+      "duration_s": 0.579,
       "file": "login.spec.ts",
       "tags": [],
       "error": null
@@ -59,7 +59,7 @@
       "id": "login.spec:no-deveria-ser-possvel-fazer-login-com-a-senha-invlida",
       "name": "Não deveria ser possível fazer login com a senha inválida",
       "status": "passed",
-      "duration_s": 0.578,
+      "duration_s": 0.561,
       "file": "login.spec.ts",
       "tags": [],
       "error": null
@@ -68,7 +68,7 @@
       "id": "login.spec:deveria-ser-possvel-fazer-login-com-credenciais-vlidas",
       "name": "Deveria ser possível fazer login com credenciais válidas",
       "status": "passed",
-      "duration_s": 0.796,
+      "duration_s": 0.547,
       "file": "login.spec.ts",
       "tags": [],
       "error": null
@@ -77,7 +77,7 @@
       "id": "login.spec:deveria-ser-possivel-visualizar-o-erro-de-email-invalido-embaixo-do-input-de-email",
       "name": "Deveria ser possivel visualizar o erro de email invalido embaixo do input de email",
       "status": "passed",
-      "duration_s": 0.526,
+      "duration_s": 0.511,
       "file": "login.spec.ts",
       "tags": [],
       "error": null
@@ -86,7 +86,7 @@
       "id": "login.spec:deveria-ser-possvel-visualizar-a-mensagem-de-erro-embaixo-dos-inputs-de-email-e-senha-quando-esto-vazios",
       "name": "Deveria ser possível visualizar a mensagem de erro embaixo dos inputs de email e senha quando estão vazios",
       "status": "passed",
-      "duration_s": 0.505,
+      "duration_s": 0.428,
       "file": "login.spec.ts",
       "tags": [],
       "error": null
@@ -95,7 +95,7 @@
       "id": "login.spec:deveria-ser-possvel-ir-para-a-tela-de-cadastro",
       "name": "Deveria ser possível ir para a tela de cadastro",
       "status": "passed",
-      "duration_s": 0.619,
+      "duration_s": 0.561,
       "file": "login.spec.ts",
       "tags": [],
       "error": null
@@ -104,7 +104,7 @@
       "id": "login.spec:deveria-ser-possvel-ir-para-a-tela-de-esqueci-a-senha",
       "name": "Deveria ser possível ir para a tela de esqueci a senha",
       "status": "passed",
-      "duration_s": 0.576,
+      "duration_s": 0.577,
       "file": "login.spec.ts",
       "tags": [],
       "error": null
@@ -113,7 +113,7 @@
       "id": "profile.spec:deveria-ser-possvel-visualizar-os-elementos-da-tela-de-perfil",
       "name": "Deveria ser possível visualizar os elementos da tela de Perfil",
       "status": "passed",
-      "duration_s": 0.491,
+      "duration_s": 0.443,
       "file": "profile.spec.ts",
       "tags": [],
       "error": null
@@ -122,7 +122,7 @@
       "id": "profile.spec:no-deveria-ser-possvel-salvar-a-alterao-sem-colocar-algum-dado-no-nome-completo",
       "name": "Não deveria ser possível salvar a alteração sem colocar algum dado no Nome Completo",
       "status": "passed",
-      "duration_s": 0.547,
+      "duration_s": 0.561,
       "file": "profile.spec.ts",
       "tags": [],
       "error": null
@@ -131,7 +131,7 @@
       "id": "profile.spec:no-deveria-ser-possvel-salvar-a-alterao-com-apenas-o-nome",
       "name": "Não deveria ser possível salvar a alteração com apenas o nome",
       "status": "passed",
-      "duration_s": 0.577,
+      "duration_s": 0.548,
       "file": "profile.spec.ts",
       "tags": [],
       "error": null
@@ -140,7 +140,7 @@
       "id": "profile.spec:no-deveria-ser-possvel-salvar-a-alterao-com-letras-no-telefone",
       "name": "Não deveria ser possível salvar a alteração com letras no telefone",
       "status": "passed",
-      "duration_s": 0.596,
+      "duration_s": 0.545,
       "file": "profile.spec.ts",
       "tags": [],
       "error": null
@@ -149,7 +149,7 @@
       "id": "profile.spec:no-deveria-ser-possvel-salvar-a-alterao-com-mais-de-11-dgitos-no-telefone",
       "name": "Não deveria ser possível salvar a alteração com mais de 11 dígitos no telefone",
       "status": "passed",
-      "duration_s": 0.596,
+      "duration_s": 0.531,
       "file": "profile.spec.ts",
       "tags": [],
       "error": null
@@ -158,7 +158,7 @@
       "id": "profile.spec:no-deveria-ser-possvel-salvar-a-alterao-com-menos-de-10-dgitos-no-telefone",
       "name": "Não deveria ser possível salvar a alteração com menos de 10 dígitos no telefone",
       "status": "passed",
-      "duration_s": 0.589,
+      "duration_s": 0.528,
       "file": "profile.spec.ts",
       "tags": [],
       "error": null
@@ -167,7 +167,7 @@
       "id": "profile.spec:deveria-ser-possvel-salvar-a-alterao",
       "name": "Deveria ser possível salvar a alteração",
       "status": "passed",
-      "duration_s": 0.629,
+      "duration_s": 0.627,
       "file": "profile.spec.ts",
       "tags": [],
       "error": null
@@ -185,7 +185,7 @@
       "id": "recoverPassword.spec:no-deveria-ser-possvel-aparecer-o-toast-de-feedback-para-usurio-apenas-clicando-no-boto",
       "name": "Não deveria ser possível aparecer o toast de feedback para usuário apenas clicando no botão",
       "status": "passed",
-      "duration_s": 0.429,
+      "duration_s": 0.43,
       "file": "recoverPassword.spec.ts",
       "tags": [],
       "error": null
@@ -194,7 +194,7 @@
       "id": "recoverPassword.spec:deveria-ser-possvel-aparecer-um-toast-de-feedback-caso-coloque-um-email-invlido",
       "name": "Deveria ser possível aparecer um toast de feedback caso coloque um email inválido",
       "status": "passed",
-      "duration_s": 0.561,
+      "duration_s": 0.512,
       "file": "recoverPassword.spec.ts",
       "tags": [],
       "error": null
@@ -203,7 +203,7 @@
       "id": "recoverPassword.spec:deveria-ser-possvel-enviar-o-email-de-recuperao-de-senha",
       "name": "Deveria ser possível enviar o email de recuperação de senha",
       "status": "passed",
-      "duration_s": 0.547,
+      "duration_s": 0.531,
       "file": "recoverPassword.spec.ts",
       "tags": [],
       "error": null
@@ -212,7 +212,7 @@
       "id": "recoverPassword.spec:deveria-ser-possvel-voltar-para-a-tela-de-login-pelo-link",
       "name": "Deveria ser possível voltar para a tela de login pelo link",
       "status": "passed",
-      "duration_s": 0.462,
+      "duration_s": 0.445,
       "file": "recoverPassword.spec.ts",
       "tags": [],
       "error": null
@@ -221,7 +221,7 @@
       "id": "registerUser.spec:deveria-ser-possivel-visualizar-os-elementos-da-tela-de-cadastro",
       "name": "Deveria ser possivel visualizar os elementos da tela de cadastro",
       "status": "passed",
-      "duration_s": 0.425,
+      "duration_s": 0.394,
       "file": "registerUser.spec.ts",
       "tags": [],
       "error": null
@@ -230,7 +230,7 @@
       "id": "registerUser.spec:no-deveria-ser-possivel-criar-o-usurio-com-o-nome-completo-errado",
       "name": "Não deveria ser possivel criar o usuário com o Nome Completo errado",
       "status": "passed",
-      "duration_s": 0.529,
+      "duration_s": 0.412,
       "file": "registerUser.spec.ts",
       "tags": [],
       "error": null
@@ -239,7 +239,7 @@
       "id": "registerUser.spec:no-deveria-ser-possivel-criar-o-usurio-com-o-cpf-invlido",
       "name": "Não deveria ser possivel criar o usuário com o CPF inválido",
       "status": "passed",
-      "duration_s": 0.531,
+      "duration_s": 0.429,
       "file": "registerUser.spec.ts",
       "tags": [],
       "error": null
@@ -248,7 +248,7 @@
       "id": "registerUser.spec:no-deveria-ser-possivel-criar-o-usurio-com-o-cnpj-invlido",
       "name": "Não deveria ser possivel criar o usuário com o CNPJ inválido",
       "status": "passed",
-      "duration_s": 0.543,
+      "duration_s": 0.528,
       "file": "registerUser.spec.ts",
       "tags": [],
       "error": null
@@ -257,7 +257,7 @@
       "id": "registerUser.spec:no-deveria-ser-possivel-colocar-letras-no-campo-de-telefone",
       "name": "Não deveria ser possivel colocar letras no campo de telefone",
       "status": "passed",
-      "duration_s": 0.53,
+      "duration_s": 0.413,
       "file": "registerUser.spec.ts",
       "tags": [],
       "error": null
@@ -266,7 +266,7 @@
       "id": "registerUser.spec:no-deveria-ser-possivel-colocar-mais-do-que-11-dgitos-no-campo-de-telefone",
       "name": "Não deveria ser possivel colocar mais do que 11 dígitos no campo de telefone",
       "status": "passed",
-      "duration_s": 0.462,
+      "duration_s": 0.512,
       "file": "registerUser.spec.ts",
       "tags": [],
       "error": null
@@ -275,7 +275,7 @@
       "id": "registerUser.spec:no-deveria-ser-possivel-colocar-menos-do-que-10-dgitos-no-campo-de-telefone",
       "name": "Não deveria ser possivel colocar menos do que 10 dígitos no campo de telefone",
       "status": "passed",
-      "duration_s": 0.513,
+      "duration_s": 0.496,
       "file": "registerUser.spec.ts",
       "tags": [],
       "error": null
@@ -284,7 +284,7 @@
       "id": "registerUser.spec:no-deveria-ser-possivel-criar-o-usurio-com-o-email-invlido",
       "name": "Não deveria ser possivel criar o usuário com o email inválido",
       "status": "passed",
-      "duration_s": 0.511,
+      "duration_s": 0.527,
       "file": "registerUser.spec.ts",
       "tags": [],
       "error": null
@@ -293,7 +293,7 @@
       "id": "registerUser.spec:no-deveria-ser-possivel-criar-o-usurio-com-uma-senha-com-menos-de-6-caracteres",
       "name": "Não deveria ser possivel criar o usuário com uma senha com menos de 6 caracteres",
       "status": "passed",
-      "duration_s": 0.528,
+      "duration_s": 0.531,
       "file": "registerUser.spec.ts",
       "tags": [],
       "error": null
@@ -311,7 +311,7 @@
       "id": "registerUser.spec:deveria-ser-possvel-visualizar-os-erros-embaixo-dos-inputs-ao-adicionar-um-valor-e-remover",
       "name": "Deveria ser possível visualizar os erros embaixo dos inputs ao adicionar um valor e remover",
       "status": "passed",
-      "duration_s": 0.529,
+      "duration_s": 0.512,
       "file": "registerUser.spec.ts",
       "tags": [],
       "error": null
@@ -320,7 +320,7 @@
       "id": "registerUser.spec:deveria-ser-possvel-visualizar-o-erro-de-senha-e-senha-de-confirmao-diferentes",
       "name": "Deveria ser possível visualizar o erro de senha e senha de confirmação diferentes",
       "status": "passed",
-      "duration_s": 0.53,
+      "duration_s": 0.529,
       "file": "registerUser.spec.ts",
       "tags": [],
       "error": null
@@ -329,7 +329,7 @@
       "id": "registerUser.spec:deveria-ser-possivel-cadastrar-um-usurio",
       "name": "Deveria ser possivel cadastrar um usuário",
       "status": "passed",
-      "duration_s": 0.677,
+      "duration_s": 0.662,
       "file": "registerUser.spec.ts",
       "tags": [],
       "error": null
@@ -338,7 +338,7 @@
       "id": "registerUser.spec:deveria-ser-possivel-ir-para-a-tela-de-login-ao-clicar-no-link",
       "name": "Deveria ser possivel ir para a tela de login ao clicar no link",
       "status": "passed",
-      "duration_s": 0.497,
+      "duration_s": 0.465,
       "file": "registerUser.spec.ts",
       "tags": [],
       "error": null

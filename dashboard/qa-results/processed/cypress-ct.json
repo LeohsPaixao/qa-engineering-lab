@@ -1,20 +1,20 @@
 {
   "framework": "cypress-ct",
-  "timestamp": "2025-12-06-20-42-16",
+  "timestamp": "2025-12-08-20-27-47",
   "type": "ct",
   "summary": {
     "total": 68,
     "passed": 68,
     "failed": 0,
     "skipped": 0,
-    "duration_s": 9.544999999999998
+    "duration_s": 9.611
   },
   "tests": [
     {
       "id": "AppFooter.cy:deveria-ser-possivel-visualizar-a-mensagem-de-copyright",
       "name": "Deveria ser possivel visualizar a mensagem de copyright",
       "status": "passed",
-      "duration_s": 0.064,
+      "duration_s": 0.063,
       "file": "AppFooter.cy.ts",
       "tags": [],
       "error": null
@@ -23,7 +23,7 @@
       "id": "AppFooter.cy:deveria-ser-possivel-visualizar-o-link-do-github",
       "name": "Deveria ser possivel visualizar o link do GitHub",
       "status": "passed",
-      "duration_s": 0.041,
+      "duration_s": 0.04,
       "file": "AppFooter.cy.ts",
       "tags": [],
       "error": null
@@ -32,7 +32,7 @@
       "id": "AppFooter.cy:deveria-ser-possivel-visualizar-o-estilo-e-o-layout-do-footer",
       "name": "Deveria ser possivel visualizar o estilo e o layout do footer",
       "status": "passed",
-      "duration_s": 0.039,
+      "duration_s": 0.04,
       "file": "AppFooter.cy.ts",
       "tags": [],
       "error": null
@@ -41,7 +41,7 @@
       "id": "AppFooter.cy:deveria-ser-possivel-visualizar-o-estilo-do-cone-do-github",
       "name": "Deveria ser possivel visualizar o estilo do ícone do GitHub",
       "status": "passed",
-      "duration_s": 0.029,
+      "duration_s": 0.026,
       "file": "AppFooter.cy.ts",
       "tags": [],
       "error": null
@@ -59,7 +59,7 @@
       "id": "AppFooter.cy:deveria-ser-possivel-visualizar-o-estilo-do-link-do-github",
       "name": "Deveria ser possivel visualizar o estilo do link do GitHub",
       "status": "passed",
-      "duration_s": 0.018,
+      "duration_s": 0.019,
       "file": "AppFooter.cy.ts",
       "tags": [],
       "error": null
@@ -68,7 +68,7 @@
       "id": "AppFooter.cy:deveria-ser-possivel-visualizar-o-texto-alternativo-do-cone-do-github",
       "name": "Deveria ser possivel visualizar o texto alternativo do ícone do GitHub",
       "status": "passed",
-      "duration_s": 0.02,
+      "duration_s": 0.021,
       "file": "AppFooter.cy.ts",
       "tags": [],
       "error": null
@@ -77,7 +77,7 @@
       "id": "AppHeader.cy:deveria-ser-possivel-visualizar-os-links-de-navegao",
       "name": "Deveria ser possivel visualizar os links de navegação",
       "status": "passed",
-      "duration_s": 0.117,
+      "duration_s": 0.103,
       "file": "AppHeader.cy.ts",
       "tags": [],
       "error": null
@@ -86,7 +86,7 @@
       "id": "AppHeader.cy:deveria-ser-possivel-visualizar-o-dropdown-do-usurio",
       "name": "Deveria ser possivel visualizar o dropdown do usuário",
       "status": "passed",
-      "duration_s": 0.044,
+      "duration_s": 0.04,
       "file": "AppHeader.cy.ts",
       "tags": [],
       "error": null
@@ -95,7 +95,7 @@
       "id": "AppHeader.cy:deveria-ser-possivel-alternar-o-dropdown-do-usurio",
       "name": "Deveria ser possivel alternar o dropdown do usuário",
       "status": "passed",
-      "duration_s": 0.203,
+      "duration_s": 0.197,
       "file": "AppHeader.cy.ts",
       "tags": [],
       "error": null
@@ -104,7 +104,7 @@
       "id": "AppHeader.cy:deveria-ser-possivel-visualizar-as-opes-do-dropdown-do-usurio",
       "name": "Deveria ser possivel visualizar as opções do dropdown do usuário",
       "status": "passed",
-      "duration_s": 0.104,
+      "duration_s": 0.1,
       "file": "AppHeader.cy.ts",
       "tags": [],
       "error": null
@@ -113,7 +113,7 @@
       "id": "AppHeader.cy:deveria-ser-possivel-visualizar-o-efeito-de-hover-nos-itens-do-dropdown-do-usurio",
       "name": "Deveria ser possivel visualizar o efeito de hover nos itens do dropdown do usuário",
       "status": "passed",
-      "duration_s": 0.117,
+      "duration_s": 0.119,
       "file": "AppHeader.cy.ts",
       "tags": [],
       "error": null
@@ -122,7 +122,7 @@
       "id": "AppHeader.cy:deveria-ser-possivel-visualizar-o-estilo-e-o-layout-do-header",
       "name": "Deveria ser possivel visualizar o estilo e o layout do header",
       "status": "passed",
-      "duration_s": 0.033,
+      "duration_s": 0.032,
       "file": "AppHeader.cy.ts",
       "tags": [],
       "error": null
@@ -131,7 +131,7 @@
       "id": "ListUsers.cy:deveria-ser-possivel-visualizar-o-componente",
       "name": "Deveria ser possivel visualizar o componente",
       "status": "passed",
-      "duration_s": 0.15,
+      "duration_s": 0.145,
       "file": "ListUsers.cy.ts",
       "tags": [],
       "error": null
@@ -140,7 +140,7 @@
       "id": "ListUsers.cy:deveria-ser-possivel-visualizar-todos-os-elementos-do-componente",
       "name": "Deveria ser possivel visualizar todos os elementos do componente",
       "status": "passed",
-      "duration_s": 0.068,
+      "duration_s": 0.078,
       "file": "ListUsers.cy.ts",
       "tags": [],
       "error": null
@@ -149,7 +149,7 @@
       "id": "ListUsers.cy:deveria-ser-possivel-desabilitar-o-boto-de-deletar-ao-no-selecionar-nenhum-usurio",
       "name": "Deveria ser possivel desabilitar o botão de deletar ao não selecionar nenhum usuário",
       "status": "passed",
-      "duration_s": 0.03,
+      "duration_s": 0.032,
       "file": "ListUsers.cy.ts",
       "tags": [],
       "error": null
@@ -158,7 +158,7 @@
       "id": "ListUsers.cy:deveria-ser-possivel-habilitar-o-boto-de-deletar-ao-selecionar-pelo-menos-um-usurio",
       "name": "Deveria ser possivel habilitar o botão de deletar ao selecionar pelo menos um usuário",
       "status": "passed",
-      "duration_s": 0.125,
+      "duration_s": 0.116,
       "file": "ListUsers.cy.ts",
       "tags": [],
       "error": null
@@ -167,7 +167,7 @@
       "id": "ListUsers.cy:no-deveria-ser-possivel-desabilitar-o-boto-de-deletar-ao-selecionar-o-usurio-logado",
       "name": "Não deveria ser possivel desabilitar o botão de deletar ao selecionar o usuário logado",
       "status": "passed",
-      "duration_s": 0.102,
+      "duration_s": 0.108,
       "file": "ListUsers.cy.ts",
       "tags": [],
       "error": null
@@ -176,7 +176,7 @@
       "id": "ListUsers.cy:deveria-ser-possivel-habilitar-o-boto-de-deletar-ao-selecionar-todos-os-usurios",
       "name": "Deveria ser possivel habilitar o botão de deletar ao selecionar todos os usuários",
       "status": "passed",
-      "duration_s": 0.1,
+      "duration_s": 0.101,
       "file": "ListUsers.cy.ts",
       "tags": [],
       "error": null
@@ -185,7 +185,7 @@
       "id": "ListUsers.cy:deveria-ser-possivel-visualizar-o-checkbox-de-seleo-do-usurio-logado-desabilitado-ao-selecionar-todos-os-usurios",
       "name": "Deveria ser possivel visualizar o checkbox de seleção do usuário logado desabilitado ao selecionar todos os usuários",
       "status": "passed",
-      "duration_s": 0.105,
+      "duration_s": 0.103,
       "file": "ListUsers.cy.ts",
       "tags": [],
       "error": null
@@ -194,7 +194,7 @@
       "id": "LoadingErrorState.cy:deveria-exibir-o-estado-de-carregamento-quando-isloading-for-true",
       "name": "Deveria exibir o estado de carregamento quando isLoading for true",
       "status": "passed",
-      "duration_s": 0.078,
+      "duration_s": 0.091,
       "file": "LoadingErrorState.cy.ts",
       "tags": [],
       "error": null
@@ -203,7 +203,7 @@
       "id": "LoadingErrorState.cy:deveria-exibir-o-estado-de-erro-quando-iserror-for-true",
       "name": "Deveria exibir o estado de erro quando isError for true",
       "status": "passed",
-      "duration_s": 0.03,
+      "duration_s": 0.033,
       "file": "LoadingErrorState.cy.ts",
       "tags": [],
       "error": null
@@ -212,7 +212,7 @@
       "id": "LoadingErrorState.cy:deveria-exibir-nada-quando-ambos-isloading-e-iserror-forem-false",
       "name": "Deveria exibir nada quando ambos isLoading e isError forem false",
       "status": "passed",
-      "duration_s": 0.024,
+      "duration_s": 0.02,
       "file": "LoadingErrorState.cy.ts",
       "tags": [],
       "error": null
@@ -221,7 +221,7 @@
       "id": "LoadingErrorState.cy:deveria-priorizar-o-carregamento-sobre-o-erro-quando-ambos-forem-true",
       "name": "Deveria priorizar o carregamento sobre o erro quando ambos forem true",
       "status": "passed",
-      "duration_s": 0.022,
+      "duration_s": 0.026,
       "file": "LoadingErrorState.cy.ts",
       "tags": [],
       "error": null
@@ -230,7 +230,7 @@
       "id": "LoadingErrorState.cy:deveria-ter-o-estilo-correto-para-o-estado-de-carregamento",
       "name": "Deveria ter o estilo correto para o estado de carregamento",
       "status": "passed",
-      "duration_s": 0.033,
+      "duration_s": 0.039,
       "file": "LoadingErrorState.cy.ts",
       "tags": [],
       "error": null
@@ -239,7 +239,7 @@
       "id": "LoadingErrorState.cy:deveria-ter-o-estilo-correto-para-o-estado-de-erro",
       "name": "Deveria ter o estilo correto para o estado de erro",
       "status": "passed",
-      "duration_s": 0.028,
+      "duration_s": 0.031,
       "file": "LoadingErrorState.cy.ts",
       "tags": [],
       "error": null
@@ -248,7 +248,7 @@
       "id": "LoadingErrorState.cy:deveria-ter-o-spinner-animado",
       "name": "Deveria ter o spinner animado",
       "status": "passed",
-      "duration_s": 0.025,
+      "duration_s": 0.028,
       "file": "LoadingErrorState.cy.ts",
       "tags": [],
       "error": null
@@ -257,7 +257,7 @@
       "id": "LoadingErrorState.cy:deveria-ter-as-dimenses-e-o-estilo-corretos-para-o-spinner",
       "name": "Deveria ter as dimensões e o estilo corretos para o spinner",
       "status": "passed",
-      "duration_s": 0.025,
+      "duration_s": 0.026,
       "file": "LoadingErrorState.cy.ts",
       "tags": [],
       "error": null
@@ -266,7 +266,7 @@
       "id": "Login.cy:deveria-exibir-o-componente-de-login",
       "name": "Deveria exibir o componente de login",
       "status": "passed",
-      "duration_s": 0.11,
+      "duration_s": 0.183,
       "file": "Login.cy.ts",
       "tags": [],
       "error": null
@@ -275,7 +275,7 @@
       "id": "Login.cy:deveria-exibir-todas-as-informaes-do-componente-de-login",
       "name": "Deveria exibir todas as informações do componente de login",
       "status": "passed",
-      "duration_s": 0.091,
+      "duration_s": 0.11,
       "file": "Login.cy.ts",
       "tags": [],
       "error": null
@@ -284,7 +284,7 @@
       "id": "Login.cy:deveria-exibir-mensagem-de-erro-quando-o-email-estiver-vazio",
       "name": "Deveria exibir mensagem de erro quando o email estiver vazio",
       "status": "passed",
-      "duration_s": 0.393,
+      "duration_s": 0.387,
       "file": "Login.cy.ts",
       "tags": [],
       "error": null
@@ -293,7 +293,7 @@
       "id": "Login.cy:deveria-exibir-mensagem-de-erro-quando-a-senha-estiver-vazia",
       "name": "Deveria exibir mensagem de erro quando a senha estiver vazia",
       "status": "passed",
-      "duration_s": 0.252,
+      "duration_s": 0.253,
       "file": "Login.cy.ts",
       "tags": [],
       "error": null
@@ -302,7 +302,7 @@
       "id": "Login.cy:deveria-exibir-mensagem-de-erro-quando-o-email-for-invlido",
       "name": "Deveria exibir mensagem de erro quando o email for inválido",
       "status": "passed",
-      "duration_s": 0.315,
+      "duration_s": 0.319,
       "file": "Login.cy.ts",
       "tags": [],
       "error": null
@@ -311,7 +311,7 @@
       "id": "Login.cy:deveria-renderizar-o-link-de-recuperao-de-senha-com-o-href-correto",
       "name": "Deveria renderizar o link de recuperação de senha com o href correto",
       "status": "passed",
-      "duration_s": 0.022,
+      "duration_s": 0.023,
       "file": "Login.cy.ts",
       "tags": [],
       "error": null
@@ -320,7 +320,7 @@
       "id": "Login.cy:deveria-renderizar-o-link-de-cadastro-com-o-href-correto",
       "name": "Deveria renderizar o link de cadastro com o href correto",
       "status": "passed",
-      "duration_s": 0.02,
+      "duration_s": 0.021,
       "file": "Login.cy.ts",
       "tags": [],
       "error": null
@@ -329,7 +329,7 @@
       "id": "RegisterUser.cy:deveria-ser-possvel-visualizar-o-componente",
       "name": "Deveria ser possível visualizar o componente",
       "status": "passed",
-      "duration_s": 0.127,
+      "duration_s": 0.12,
       "file": "RegisterUser.cy.ts",
       "tags": [],
       "error": null
@@ -338,7 +338,7 @@
       "id": "RegisterUser.cy:deveria-ser-possvel-visualizar-todos-os-elementos-do-componente",
       "name": "Deveria ser possível visualizar todos os elementos do componente",
       "status": "passed",
-      "duration_s": 0.112,
+      "duration_s": 0.121,
       "file": "RegisterUser.cy.ts",
       "tags": [],
       "error": null
@@ -347,7 +347,7 @@
       "id": "RegisterUser.cy:deveria-ser-possvel-visualizar-o-erro-no-campo-de-nome-completo-quando-tiver-apenas-um-nome",
       "name": "Deveria ser possível visualizar o erro no campo de Nome Completo quando tiver apenas um nome",
       "status": "passed",
-      "duration_s": 0.199,
+      "duration_s": 0.196,
       "file": "RegisterUser.cy.ts",
       "tags": [],
       "error": null
@@ -356,7 +356,7 @@
       "id": "RegisterUser.cy:deveria-ser-possvel-visualizar-o-erro-no-campo-de-nome-completo-quando-estiver-vazio",
       "name": "Deveria ser possível visualizar o erro no campo de Nome Completo quando estiver vazio",
       "status": "passed",
-      "duration_s": 0.264,
+      "duration_s": 0.26,
       "file": "RegisterUser.cy.ts",
       "tags": [],
       "error": null
@@ -374,7 +374,7 @@
       "id": "RegisterUser.cy:deveria-ser-possvel-visualizar-o-erro-no-campo-de-cpf-quando-o-valor-for-invlido",
       "name": "Deveria ser possível visualizar o erro no campo de CPF quando o valor for inválido",
       "status": "passed",
-      "duration_s": 0.191,
+      "duration_s": 0.181,
       "file": "RegisterUser.cy.ts",
       "tags": [],
       "error": null
@@ -383,7 +383,7 @@
       "id": "RegisterUser.cy:deveria-ser-possvel-visualizar-o-erro-no-campo-de-cnpj-quando-o-valor-for-invlido",
       "name": "Deveria ser possível visualizar o erro no campo de CNPJ quando o valor for inválido",
       "status": "passed",
-      "duration_s": 0.313,
+      "duration_s": 0.312,
       "file": "RegisterUser.cy.ts",
       "tags": [],
       "error": null
@@ -392,7 +392,7 @@
       "id": "RegisterUser.cy:deveria-ser-possvel-visualizar-o-erro-no-campo-de-telefone-quando-o-valor-for-invlido",
       "name": "Deveria ser possível visualizar o erro no campo de Telefone quando o valor for inválido",
       "status": "passed",
-      "duration_s": 0.181,
+      "duration_s": 0.176,
       "file": "RegisterUser.cy.ts",
       "tags": [],
       "error": null
@@ -401,7 +401,7 @@
       "id": "RegisterUser.cy:deveria-ser-possvel-visualizar-o-erro-no-campo-de-telefone-quando-tiver-menos-de-10-dgitos",
       "name": "Deveria ser possível visualizar o erro no campo de Telefone quando tiver menos de 10 dígitos",
       "status": "passed",
-      "duration_s": 0.18,
+      "duration_s": 0.179,
       "file": "RegisterUser.cy.ts",
       "tags": [],
       "error": null
@@ -410,7 +410,7 @@
       "id": "RegisterUser.cy:deveria-ser-possvel-visualizar-o-erro-no-campo-de-telefone-quando-tiver-mais-de-11-dgitos",
       "name": "Deveria ser possível visualizar o erro no campo de Telefone quando tiver mais de 11 dígitos",
       "status": "passed",
-      "duration_s": 0.18,
+      "duration_s": 0.179,
       "file": "RegisterUser.cy.ts",
       "tags": [],
       "error": null
@@ -437,7 +437,7 @@
       "id": "RegisterUser.cy:deveria-ser-possvel-visualizar-o-erro-no-campo-de-senha-quando-estiver-vazio",
       "name": "Deveria ser possível visualizar o erro no campo de Senha quando estiver vazio",
       "status": "passed",
-      "duration_s": 0.245,
+      "duration_s": 0.243,
       "file": "RegisterUser.cy.ts",
       "tags": [],
       "error": null
@@ -446,7 +446,7 @@
       "id": "RegisterUser.cy:deveria-ser-possvel-visualizar-o-erro-no-campo-de-senha-quando-tiver-menos-de-6-caracteres",
       "name": "Deveria ser possível visualizar o erro no campo de Senha quando tiver menos de 6 caracteres",
       "status": "passed",
-      "duration_s": 0.176,
+      "duration_s": 0.177,
       "file": "RegisterUser.cy.ts",
       "tags": [],
       "error": null
@@ -455,7 +455,7 @@
       "id": "RegisterUser.cy:deveria-ser-possvel-visualizar-o-erro-no-campo-de-senha-quando-tiver-mais-de-20-caracteres",
       "name": "Deveria ser possível visualizar o erro no campo de Senha quando tiver mais de 20 caracteres",
       "status": "passed",
-      "duration_s": 0.184,
+      "duration_s": 0.185,
       "file": "RegisterUser.cy.ts",
       "tags": [],
       "error": null
@@ -464,7 +464,7 @@
       "id": "RegisterUser.cy:deveria-ser-possvel-visualizar-o-erro-no-campo-de-confirmao-de-senha-quando-estiver-vazio",
       "name": "Deveria ser possível visualizar o erro no campo de Confirmação de Senha quando estiver vazio",
       "status": "passed",
-      "duration_s": 0.247,
+      "duration_s": 0.25,
       "file": "RegisterUser.cy.ts",
       "tags": [],
       "error": null
@@ -473,7 +473,7 @@
       "id": "RegisterUser.cy:deveria-ser-possvel-visualizar-o-erro-no-campo-de-confirmao-de-senha-quando-as-senhas-no-coincidem",
       "name": "Deveria ser possível visualizar o erro no campo de Confirmação de Senha quando as senhas não coincidem",
       "status": "passed",
-      "duration_s": 0.306,
+      "duration_s": 0.303,
       "file": "RegisterUser.cy.ts",
       "tags": [],
       "error": null
@@ -482,7 +482,7 @@
       "id": "RegisterUser.cy:deveria-ser-possvel-visualizar-o-erro-no-campo-de-confirmao-de-senha-quando-o-valor-for-invlido",
       "name": "Deveria ser possível visualizar o erro no campo de Confirmação de Senha quando o valor for inválido",
       "status": "passed",
-      "duration_s": 0.249,
+      "duration_s": 0.25,
       "file": "RegisterUser.cy.ts",
       "tags": [],
       "error": null
@@ -491,7 +491,7 @@
       "id": "RegisterUser.cy:deveria-ter-o-link-de-voltar-ao-login",
       "name": "Deveria ter o link de voltar ao login",
       "status": "passed",
-      "duration_s": 0.025,
+      "duration_s": 0.026,
       "file": "RegisterUser.cy.ts",
       "tags": [],
       "error": null
@@ -500,7 +500,7 @@
       "id": "UserProfile.cy:deveria-exibir-o-componente-de-perfil-de-usurio",
       "name": "Deveria exibir o componente de perfil de usuário",
       "status": "passed",
-      "duration_s": 0.138,
+      "duration_s": 0.134,
       "file": "UserProfile.cy.ts",
       "tags": [],
       "error": null
@@ -518,7 +518,7 @@
       "id": "UserProfile.cy:deveria-ter-o-campo-cpfcnpj-desabilitado",
       "name": "Deveria ter o campo CPF/CNPJ desabilitado",
       "status": "passed",
-      "duration_s": 0.034,
+      "duration_s": 0.037,
       "file": "UserProfile.cy.ts",
       "tags": [],
       "error": null
@@ -527,7 +527,7 @@
       "id": "UserProfile.cy:deveria-exibir-mensagens-de-erro-quando-campos-obrigatrios-esto-vazios",
       "name": "Deveria exibir mensagens de erro quando campos obrigatórios estão vazios",
       "status": "passed",
-      "duration_s": 0.387,
+      "duration_s": 0.383,
       "file": "UserProfile.cy.ts",
       "tags": [],
       "error": null
@@ -536,7 +536,7 @@
       "id": "UserProfile.cy:deveria-exibir-mensagem-de-erro-quando-o-telefone-for-invlido",
       "name": "Deveria exibir mensagem de erro quando o telefone for inválido",
       "status": "passed",
-      "duration_s": 0.295,
+      "duration_s": 0.298,
       "file": "UserProfile.cy.ts",
       "tags": [],
       "error": null
@@ -545,7 +545,7 @@
       "id": "UserProfile.cy:deveria-exibir-mensagem-de-erro-quando-o-telefone-tiver-menos-de-10-dgitos",
       "name": "Deveria exibir mensagem de erro quando o telefone tiver menos de 10 dígitos",
       "status": "passed",
-      "duration_s": 0.348,
+      "duration_s": 0.354,
       "file": "UserProfile.cy.ts",
       "tags": [],
       "error": null
@@ -563,7 +563,7 @@
       "id": "UserProfile.cy:deveria-exibir-todos-os-labels-corretamente",
       "name": "Deveria exibir todos os labels corretamente",
       "status": "passed",
-      "duration_s": 0.038,
+      "duration_s": 0.039,
       "file": "UserProfile.cy.ts",
       "tags": [],
       "error": null
@@ -572,7 +572,7 @@
       "id": "UserProfile.cy:deveria-exibir-placeholders-corretos-nos-campos",
       "name": "Deveria exibir placeholders corretos nos campos",
       "status": "passed",
-      "duration_s": 0.037,
+      "duration_s": 0.038,
       "file": "UserProfile.cy.ts",
       "tags": [],
       "error": null
@@ -581,7 +581,7 @@
       "id": "recoverPassword.cy:deveria-exibir-o-componente-de-recuperao-de-senha",
       "name": "Deveria exibir o componente de recuperação de senha",
       "status": "passed",
-      "duration_s": 0.093,
+      "duration_s": 0.09,
       "file": "recoverPassword.cy.ts",
       "tags": [],
       "error": null
@@ -590,7 +590,7 @@
       "id": "recoverPassword.cy:deveria-exibir-todas-as-informaes-do-componente-de-recuperao-de-senha",
       "name": "Deveria exibir todas as informações do componente de recuperação de senha",
       "status": "passed",
-      "duration_s": 0.056,
+      "duration_s": 0.05,
       "file": "recoverPassword.cy.ts",
       "tags": [],
       "error": null
@@ -599,7 +599,7 @@
       "id": "recoverPassword.cy:deveria-exibir-mensagem-de-erro-quando-o-e-mail-invlido",
       "name": "Deveria exibir mensagem de erro quando o e-mail é inválido",
       "status": "passed",
-      "duration_s": 0.338,
+      "duration_s": 0.337,
       "file": "recoverPassword.cy.ts",
       "tags": [],
       "error": null
@@ -608,7 +608,7 @@
       "id": "recoverPassword.cy:deveria-exibir-mensagem-de-sucesso-quando-o-campo-e-mail-est-vazio",
       "name": "Deveria exibir mensagem de sucesso quando o campo e-mail está vazio",
       "status": "passed",
-      "duration_s": 0.455,
+      "duration_s": 0.453,
       "file": "recoverPassword.cy.ts",
       "tags": [],
       "error": null
@@ -617,7 +617,7 @@
       "id": "recoverPassword.cy:deveria-ter-o-link-de-voltar-ao-login",
       "name": "Deveria ter o link de voltar ao login",
       "status": "passed",
-      "duration_s": 0.024,
+      "duration_s": 0.021,
       "file": "recoverPassword.cy.ts",
       "tags": [],
       "error": null
@@ -635,7 +635,7 @@
       "code": true
     },
     "margeOptions": {
-      "reportDir": "/home/runner/work/qa-solar/qa-solar/qa-results/raw/cypress-ct/2025-12-06-20-42-16",
+      "reportDir": "/home/runner/work/qa-solar/qa-solar/qa-results/raw/cypress-ct/2025-12-08-20-27-47",
       "overwrite": false,
       "html": false,
       "json": true
