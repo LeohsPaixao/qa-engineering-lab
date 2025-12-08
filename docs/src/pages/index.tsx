@@ -4,12 +4,13 @@ import HomepageFeatures from '@site/src/components/HomepageFeatures';
 import Heading from '@theme/Heading';
 import Layout from '@theme/Layout';
 import clsx from 'clsx';
-import type { ReactNode } from 'react';
+import { type ReactNode } from 'react';
 
 import styles from './index.module.css';
 
 function HomepageHeader() {
   const {siteConfig} = useDocusaurusContext();
+  const dashboardUrl = `${siteConfig.url}/qa-solar/dashboard/`;
   return (
     <header className={clsx('hero hero--primary', styles.heroBanner)}>
       <div className="container">
@@ -22,6 +23,11 @@ function HomepageHeader() {
             className="button button--secondary button--lg"
             to="/docs/intro">
             Ver Documentação 📚
+          </Link>
+          <Link
+            className="button button--primary button--lg"
+            to={dashboardUrl}>
+            Ver Dashboard 📊
           </Link>
         </div>
       </div>

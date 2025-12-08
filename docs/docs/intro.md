@@ -11,7 +11,7 @@ sidebar_position: 1
 
 ## 🚀 Sobre o Projeto
 
-O **QA Solar** é um projeto monorepo desenvolvido para fins de estudo e aprimoramento de conhecimentos em programação, tanto no backend quanto no frontend. O foco principal do projeto está no desenvolvimento e na prática de testes, explorando frameworks amplamente conhecidos, como **Cypress**, **Playwright** e **Robot Framework**, para criar testes de interface de usuário (UI Tests), componentes e, possivelmente, APIs.
+O **QA Solar** é um projeto monorepo desenvolvido para fins de estudo e aprimoramento de conhecimentos em programação, tanto no backend quanto no frontend. O foco principal do projeto está no desenvolvimento e na prática de testes, explorando frameworks amplamente conhecidos, como **Cypress**, **Playwright** e **Robot Framework**, para criar testes de E2E, componentes, unitários, performance e APIs.
 
 ## 🎯 Propósito
 
@@ -19,10 +19,11 @@ O objetivo deste projeto é servir como uma base para aprender, experimentar e e
 
 ## 🛠 Estrutura do Monorepo
 
-O monorepo está dividido em três áreas principais:
+O monorepo está dividido em quatro áreas principais:
 
 - **Frontend**: Implementação utilizando **Vue 3** e **Composition API**
 - **Backend**: Construído com **TypeScript** e **NestJS**, conectado a um banco de dados **PostgreSQL**
+- **Dashboard**: Interface de visualização de resultados de testes construída com **Vue 3**, **Pinia** e **Chart.js**
 - **Testes**: Foco em automação de testes E2E e outros tipos, com frameworks robustos e atuais
 
 ## 🔖 Padrão de Commits e Atualizações
