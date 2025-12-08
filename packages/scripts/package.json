@@ -1,0 +1,17 @@
+{
+  "name": "scripts",
+  "version": "1.0.0",
+  "description": "Shared scripts for QA Solar project",
+  "main": "index.ts",
+  "author": "Leonardo Paixão",
+  "license": "MIT",
+  "private": true,
+  "scripts": {
+    "create-changeset": "tsx create-changeset.ts"
+  },
+  "devDependencies": {
+    "@types/node": "22.19.1",
+    "tsx": "4.20.6",
+    "typescript": "5.8.3"
+  }
+}

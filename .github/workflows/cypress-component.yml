@@ -28,3 +28,9 @@ jobs:
         with:
           working-directory: tests/cypress
           command: npx cypress run --component --config-file cypress.config.ts
+
+      - name: Upload raw results (Cypress CT)
+        uses: actions/upload-artifact@v4.4.0
+        with:
+          name: cypress-ct
+          path: qa-results/raw/cypress-ct

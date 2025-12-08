@@ -7,7 +7,7 @@ const config: Config = {
   tagline: 'QA Solar',
   favicon: 'img/logoqae2e_white.ico',
   url: 'https://leohspaixao.github.io',
-  baseUrl: '/qa-solar/',
+  baseUrl: '/qa-solar/docs/',
   organizationName: 'LeohsPaixao',
   projectName: 'qa-solar',
   deploymentBranch: 'gh-pages',

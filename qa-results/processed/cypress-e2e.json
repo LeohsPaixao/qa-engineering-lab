@@ -1,0 +1,257 @@
+{
+  "framework": "cypress-e2e",
+  "timestamp": "2025-12-03-16-02-25",
+  "type": "e2e",
+  "summary": {
+    "total": 25,
+    "passed": 24,
+    "failed": 1,
+    "skipped": 0,
+    "duration_s": 74.893
+  },
+  "tests": [
+    {
+      "id": "listUsers.cy:deveria-ser-possivel-visualizar-os-elementos-da-tela-de-listagem-de-usurios",
+      "name": "Deveria ser possivel visualizar os elementos da tela de listagem de Usuários",
+      "status": "passed",
+      "duration_s": 7.865,
+      "file": "listUsers.cy.ts",
+      "tags": [],
+      "error": null
+    },
+    {
+      "id": "listUsers.cy:deveria-ser-possivel-selecionar-todos-os-usurios",
+      "name": "Deveria ser possivel selecionar todos os usuários",
+      "status": "passed",
+      "duration_s": 2.403,
+      "file": "listUsers.cy.ts",
+      "tags": [],
+      "error": null
+    },
+    {
+      "id": "listUsers.cy:deveria-ser-possivel-selecionar-um-usurio-e-exclui-lo",
+      "name": "Deveria ser possivel selecionar um usuário e exclui-lo",
+      "status": "failed",
+      "duration_s": 6.877,
+      "file": "listUsers.cy.ts",
+      "tags": [],
+      "error": "CypressError: Timed out retrying after 4050ms: `cy.click()` failed because this element is `disabled`:\n\n`<button data-testid=\"btn-delete-user\" class=\"btn-delete\" disabled=\"\" aria-label=\"Excluir usuários selecionados\">Excluir</button>`\n\nFix this problem, or use `{force: true}` to disable error checking.\n\nhttps://on.cypress.io/element-cannot-be-interacted-with"
+    },
+    {
+      "id": "login.cy:deveria-ser-possivel-visualizar-os-elementos-da-tela",
+      "name": "Deveria ser possivel visualizar os elementos da tela",
+      "status": "passed",
+      "duration_s": 3.062,
+      "file": "login.cy.ts",
+      "tags": [],
+      "error": null
+    },
+    {
+      "id": "login.cy:no-deveria-ser-possivel-fazer-login-com-credenciais-invlidas",
+      "name": "Não deveria ser possivel fazer login com credenciais inválidas",
+      "status": "passed",
+      "duration_s": 5.399,
+      "file": "login.cy.ts",
+      "tags": [],
+      "error": null
+    },
+    {
+      "id": "login.cy:no-deveria-ser-possivel-fazer-login-com-a-senha-invlida",
+      "name": "Não deveria ser possivel fazer login com a senha inválida",
+      "status": "passed",
+      "duration_s": 2.461,
+      "file": "login.cy.ts",
+      "tags": [],
+      "error": null
+    },
+    {
+      "id": "login.cy:deveria-ser-possivel-fazer-login-com-credenciais-vlidas",
+      "name": "Deveria ser possivel fazer login com credenciais válidas",
+      "status": "passed",
+      "duration_s": 2.643,
+      "file": "login.cy.ts",
+      "tags": [],
+      "error": null
+    },
+    {
+      "id": "login.cy:deveria-ser-possivel-ir-para-a-tela-de-cadastro",
+      "name": "Deveria ser possivel ir para a tela de cadastro",
+      "status": "passed",
+      "duration_s": 2.336,
+      "file": "login.cy.ts",
+      "tags": [],
+      "error": null
+    },
+    {
+      "id": "login.cy:deveria-ser-possivel-ir-para-a-tela-de-esqueci-a-senha",
+      "name": "Deveria ser possivel ir para a tela de esqueci a senha",
+      "status": "passed",
+      "duration_s": 2.174,
+      "file": "login.cy.ts",
+      "tags": [],
+      "error": null
+    },
+    {
+      "id": "profile.cy:deveria-ser-possivel-visualizar-os-elementos-da-tela-de-perfil",
+      "name": "Deveria ser possivel visualizar os elementos da tela de Perfil",
+      "status": "passed",
+      "duration_s": 2.806,
+      "file": "profile.cy.ts",
+      "tags": [],
+      "error": null
+    },
+    {
+      "id": "profile.cy:no-deveria-ser-possivel-salvar-a-alterao-sem-colocar-algum-dado-no-nome-completo",
+      "name": "Não deveria ser possivel salvar a alteração sem colocar algum dado no Nome Completo",
+      "status": "passed",
+      "duration_s": 2.083,
+      "file": "profile.cy.ts",
+      "tags": [],
+      "error": null
+    },
+    {
+      "id": "profile.cy:no-deveria-ser-possivel-salvar-a-alterao-com-apenas-o-nome",
+      "name": "Não deveria ser possivel salvar a alteração com apenas o nome",
+      "status": "passed",
+      "duration_s": 2.244,
+      "file": "profile.cy.ts",
+      "tags": [],
+      "error": null
+    },
+    {
+      "id": "profile.cy:no-deveria-ser-possivel-salvar-a-alterao-com-letras-no-telefone",
+      "name": "Não deveria ser possivel salvar a alteração com letras no telefone",
+      "status": "passed",
+      "duration_s": 1.902,
+      "file": "profile.cy.ts",
+      "tags": [],
+      "error": null
+    },
+    {
+      "id": "profile.cy:no-deveria-ser-possivel-salvar-a-alterao-com-mais-de-11-dgitos-no-telefone",
+      "name": "Não deveria ser possivel salvar a alteração com mais de 11 dígitos no telefone",
+      "status": "passed",
+      "duration_s": 1.981,
+      "file": "profile.cy.ts",
+      "tags": [],
+      "error": null
+    },
+    {
+      "id": "profile.cy:no-deveria-ser-possivel-salvar-a-alterao-com-menos-de-10-dgitos-no-telefone",
+      "name": "Não deveria ser possivel salvar a alteração com menos de 10 dígitos no telefone",
+      "status": "passed",
+      "duration_s": 1.825,
+      "file": "profile.cy.ts",
+      "tags": [],
+      "error": null
+    },
+    {
+      "id": "profile.cy:deveria-ser-possivel-salvar-a-alterao",
+      "name": "Deveria ser possivel salvar a alteração",
+      "status": "passed",
+      "duration_s": 5.153,
+      "file": "profile.cy.ts",
+      "tags": [],
+      "error": null
+    },
+    {
+      "id": "recoveryPassword.cy:deveria-ser-possivel-visulizar-os-elementos-da-tela-de-recuperao-de-senha",
+      "name": "Deveria ser possivel visulizar os elementos da tela de Recuperação de Senha",
+      "status": "passed",
+      "duration_s": 2.69,
+      "file": "recoveryPassword.cy.ts",
+      "tags": [],
+      "error": null
+    },
+    {
+      "id": "recoveryPassword.cy:no-deveria-ser-possivel-aparecer-o-toast-de-feedback-para-usurio-apenas-clicando-no-boto",
+      "name": "Não deveria ser possivel aparecer o toast de feedback para usuário apenas clicando no botão",
+      "status": "passed",
+      "duration_s": 1.764,
+      "file": "recoveryPassword.cy.ts",
+      "tags": [],
+      "error": null
+    },
+    {
+      "id": "recoveryPassword.cy:deveria-ser-possivel-aparecer-um-toast-de-feedback-caso-coloque-um-email-invlido",
+      "name": "Deveria ser possivel aparecer um toast de feedback caso coloque um email inválido",
+      "status": "passed",
+      "duration_s": 2.375,
+      "file": "recoveryPassword.cy.ts",
+      "tags": [],
+      "error": null
+    },
+    {
+      "id": "recoveryPassword.cy:deveria-ser-possivel-enviar-o-email-de-recuperao-de-senha",
+      "name": "Deveria ser possivel enviar o email de recuperação de senha",
+      "status": "passed",
+      "duration_s": 2.13,
+      "file": "recoveryPassword.cy.ts",
+      "tags": [],
+      "error": null
+    },
+    {
+      "id": "recoveryPassword.cy:deveria-ser-possivel-voltar-para-a-tela-de-login-pelo-link",
+      "name": "Deveria ser possivel voltar para a tela de login pelo link",
+      "status": "passed",
+      "duration_s": 1.63,
+      "file": "recoveryPassword.cy.ts",
+      "tags": [],
+      "error": null
+    },
+    {
+      "id": "registerUser.cy:deveria-ser-possivel-visualizar-os-elementos-da-tela-de-cadastro",
+      "name": "Deveria ser possivel visualizar os elementos da tela de cadastro",
+      "status": "passed",
+      "duration_s": 2.895,
+      "file": "registerUser.cy.ts",
+      "tags": [],
+      "error": null
+    },
+    {
+      "id": "registerUser.cy:deveria-ser-possvel-visualizar-os-erros-nos-campos-do-formulrio",
+      "name": "Deveria ser possível visualizar os erros nos campos do formulário",
+      "status": "passed",
+      "duration_s": 3.017,
+      "file": "registerUser.cy.ts",
+      "tags": [],
+      "error": null
+    },
+    {
+      "id": "registerUser.cy:deveria-ser-possivel-cadastrar-um-usurio",
+      "name": "Deveria ser possivel cadastrar um usuário",
+      "status": "passed",
+      "duration_s": 3.475,
+      "file": "registerUser.cy.ts",
+      "tags": [],
+      "error": null
+    },
+    {
+      "id": "registerUser.cy:deveria-ser-possivel-ir-para-a-tela-de-login-ao-clicar-no-link",
+      "name": "Deveria ser possivel ir para a tela de login ao clicar no link",
+      "status": "passed",
+      "duration_s": 1.703,
+      "file": "registerUser.cy.ts",
+      "tags": [],
+      "error": null
+    }
+  ],
+  "metadata": {
+    "mochawesomeVersion": "7.1.4",
+    "mochawesomeOptions": {
+      "quiet": false,
+      "reportFilename": "mochawesome",
+      "saveHtml": false,
+      "saveJson": true,
+      "consoleReporter": "spec",
+      "useInlineDiffs": false,
+      "code": true
+    },
+    "margeOptions": {
+      "reportDir": "/home/leopaixao/Documentos/Projetos/qa-solar/qa-results/raw/cypress-e2e/2025-12-03-16-02-25",
+      "overwrite": false,
+      "html": false,
+      "json": true
+    }
+  }
+}

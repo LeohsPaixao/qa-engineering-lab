@@ -18,7 +18,7 @@ test.describe('Tela de Recuperação de Senha', {
   test('Não deveria ser possível aparecer o toast de feedback para usuário apenas clicando no botão', async ({ page }) => {
     await expect(page.locator('[data-testid="btn-recover-password"]')).toBeEnabled();
     await page.locator('[data-testid="btn-recover-password"]').click();
-    await expect(page.locator('[data-testid="toast-content"]')).not.toBeVisible();
+    await expect(page.locator('[data-testid="toast-content"]')).toBeHidden();
   });
 
   test('Deveria ser possível aparecer um toast de feedback caso coloque um email inválido', async ({ page }) => {

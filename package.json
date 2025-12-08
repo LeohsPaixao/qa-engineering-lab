@@ -21,6 +21,7 @@
     "stop-n8n": "docker compose -f docker-compose.n8n.yml down",
     "restart-n8n": "docker compose -f docker-compose.n8n.yml restart",
     "dev": "turbo run dev",
+    "start": "turbo run start --filter=./apps/*",
     "build": "turbo run build",
     "test": "turbo run test",
     "lint": "turbo run lint",
@@ -56,6 +57,7 @@
     "@tsconfig/node22": "22.0.5",
     "@types/node": "22.19.1",
     "lint-staged": "16.1.2",
+    "tsx": "4.20.6",
     "turbo": "2.5.2",
     "typescript": "5.8.3"
   },

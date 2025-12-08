@@ -1,0 +1,45 @@
+{
+  "compilerOptions": {
+    "baseUrl": ".",
+    "outDir": "./dist",
+    "target": "ES2021",
+    "module": "ESNext",
+    "moduleResolution": "bundler",
+    "sourceMap": true,
+    "declaration": true,
+    "incremental": true,
+    "skipLibCheck": true,
+    "noImplicitAny": true,
+    "removeComments": true,
+    "esModuleInterop": true,
+    "strictNullChecks": true,
+    "strictBindCallApply": false,
+    "emitDecoratorMetadata": true,
+    "experimentalDecorators": true,
+    "noFallthroughCasesInSwitch": true,
+    "allowSyntheticDefaultImports": true,
+    "forceConsistentCasingInFileNames": true,
+    "lib": [
+      "ES2021",
+      "dom"
+    ],
+    "types": [
+      "playwright",
+      "node"
+    ],
+    "paths": {
+      "@/*": [
+        "./tests/playwright/*"
+      ],
+      "@frontend/*": [
+        "../../apps/frontend/src/*"
+      ]
+    }
+  },
+  "include": [
+    "tests",
+  ],
+  "exclude": [
+    "node_modules",
+  ]
+}

@@ -1,14 +1,16 @@
+import path from 'path';
 import { mergeConfig } from 'vite';
+import { timestamp } from '../../packages/scripts/timestamp';
 import viteConfig from './vite.config';
 
 export default mergeConfig(viteConfig, {
   test: {
     environment: 'jsdom',
     globals: true,
-    reporters: 'verbose',
     outputFile: 'coverage/index.html',
     testTimeout: 5000,
     retry: process.env.CI ? 2 : 0,
+    reporters: ['default', ['json', { outputFile: path.resolve(__dirname, '../../qa-results/raw/vitest', timestamp(), 'results.json') }]],
     include: ['src/**/*.spec.ts'],
     exclude: ['node_modules', 'dist', 'test/**/*', 'src/router/index.ts'],
     setupFiles: ['./test/vitest-setup.ts'],

@@ -15,7 +15,7 @@ repositories {
 
 ext {
     seleniumVersion = '4.35.0'
-    webdriverManagerVersion = '5.7.0'
+    webdriverManagerVersion = '6.3.3'
     junitVersion = '5.10.2'
     junitPlatformLauncherVersion = '1.10.2'
     assertjVersion = '3.25.3'
@@ -60,10 +60,14 @@ test {
     systemProperty 'logback.configurationFile', 'logback.xml'
     systemProperty 'logback.statusListenerClass', 'ch.qos.logback.core.status.NopStatusListener'
 
+    def outputDir = project.hasProperty('test.report.dir') ? file(project.property('test.report.dir')) : file("$buildDir/test-results/test")
+    
+    outputDir.mkdirs()
+
     reports {
-        html.required = true
         junitXml.required = true
         junitXml.outputPerTestCase = true
+        junitXml.outputLocation.set(outputDir)
     }
 
     testLogging {

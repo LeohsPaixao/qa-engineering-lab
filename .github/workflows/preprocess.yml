@@ -1,0 +1,38 @@
+on:
+  workflow_call:
+
+jobs:
+  preprocess:
+    name: Preprocessamento de resultados de testes QA-Solar
+    runs-on: ubuntu-latest
+    timeout-minutes: 10
+    env:
+      TURBO_TELEMETRY_DISABLED: 1
+
+    steps:
+      - name: Checkout do repositório
+        uses: actions/checkout@v4
+
+      - name: Baixar todos os artifacts (raw)
+        uses: actions/download-artifact@v6.0.0
+        with:
+          path: qa-results/raw
+
+      - name: Configurar Node.js
+        uses: actions/setup-node@v4.4.0
+        with:
+          node-version: 22.19.0
+          cache: "yarn"
+
+      - name: Instalar dependências do Monorepo
+        run: yarn install --frozen-lockfile
+
+      - name: Executar preprocessamento
+        working-directory: packages/preprocessor
+        run: yarn preprocess
+
+      - name: Salvar resultados de testes
+        uses: actions/upload-artifact@v4.4.0
+        with:
+          name: qa-results
+          path: qa-results/processed

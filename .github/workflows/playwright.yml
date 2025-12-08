@@ -69,10 +69,8 @@ jobs:
           PLAY_API_URL: http://localhost:3001
           PLAY_BASE_URL: http://localhost:8181
 
-      - name: Upload de relatório Playwright
-        if: ${{ failure() }}
-        uses: actions/upload-artifact@v4
+      - name: Upload raw results (Playwright E2E)
+        uses: actions/upload-artifact@v4.4.0
         with:
-          name: playwright-report
-          path: tests/playwright/playwright-report/
-          retention-days: 10
+          name: playwright-e2e
+          path: qa-results/raw/playwright-e2e

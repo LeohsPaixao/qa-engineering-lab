@@ -20,9 +20,9 @@ export async function login(page: Page, email: string, password: string): Promis
       email,
       password
     }
-  })
+  });
 
-  const { token } = JSON.parse(await response.text())
+  const { token } = JSON.parse(await response.text());
 
   await page.evaluate(({ token }) => {
     localStorage.setItem('user-token', token);

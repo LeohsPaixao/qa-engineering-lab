@@ -8,7 +8,7 @@ test.describe('Tela de Perfil', {
 
   test.beforeEach(async ({ page }) => {
     login(page, 'generic@example.com', '123456');
-    await page.goto('/profile')
+    await page.goto('/profile');
     await page.waitForURL('/profile');
   });
 

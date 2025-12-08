@@ -1,0 +1,145 @@
+.overview-page {
+  max-width: 1400px;
+  margin: 0 auto;
+}
+
+.page-header {
+  margin-bottom: 2rem;
+}
+
+.page-subtitle {
+  color: var(--text-secondary);
+  font-size: 1.125rem;
+  margin-top: 0.5rem;
+}
+
+.overview-content {
+  display: flex;
+  flex-direction: column;
+  gap: 2rem;
+}
+
+.summary-cards {
+  margin-bottom: 1rem;
+}
+
+.charts-row {
+  margin-bottom: 1rem;
+}
+
+.chart-card {
+  min-height: 400px;
+  max-height: 600px;
+  display: flex;
+  flex-direction: column;
+  overflow: hidden;
+}
+
+.chart-header {
+  margin-bottom: 1rem;
+  display: flex;
+  flex-direction: column;
+  gap: 1rem;
+  flex-shrink: 0;
+}
+
+.chart-title {
+  margin: 0;
+  font-size: 1.125rem;
+  font-weight: 600;
+  color: var(--text-primary);
+}
+
+.chart-controls {
+  display: flex;
+  gap: 1rem;
+  align-items: center;
+  flex-wrap: wrap;
+}
+
+.view-mode-label {
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+  cursor: pointer;
+  font-size: 0.875rem;
+  color: var(--text-secondary);
+  user-select: none;
+}
+
+.view-mode-label:hover {
+  color: var(--text-primary);
+}
+
+.view-mode-radio {
+  cursor: pointer;
+  accent-color: var(--primary);
+}
+
+.framework-select {
+  width: 100%;
+  padding: 0.5rem;
+  border: 1px solid var(--border-color);
+  border-radius: var(--radius-md);
+  background: var(--bg-primary);
+  color: var(--text-primary);
+  font-size: 0.875rem;
+  cursor: pointer;
+  max-height: 120px;
+  overflow-y: auto;
+}
+
+.framework-select:focus {
+  outline: 2px solid var(--primary);
+  outline-offset: 2px;
+}
+
+.framework-select option {
+  padding: 0.5rem;
+  cursor: pointer;
+}
+
+.framework-select option:checked {
+  background: var(--primary);
+  color: white;
+}
+
+.frameworks-section h2 {
+  margin-bottom: 1.5rem;
+  font-size: 1.75rem;
+}
+
+.frameworks-grid {
+  gap: 1.5rem;
+}
+
+.retry-btn {
+  margin-top: 1rem;
+  background: var(--primary);
+  color: white;
+  border: none;
+}
+
+.retry-btn:hover {
+  background: var(--primary-hover);
+}
+
+@media (max-width: 1024px) {
+  .charts-row {
+    grid-template-columns: 1fr;
+  }
+  
+  .frameworks-grid {
+    grid-template-columns: repeat(2, 1fr);
+  }
+}
+
+@media (max-width: 768px) {
+  .summary-cards {
+    grid-template-columns: repeat(2, 1fr);
+  }
+  
+  .frameworks-grid {
+    grid-template-columns: 1fr;
+  }
+}

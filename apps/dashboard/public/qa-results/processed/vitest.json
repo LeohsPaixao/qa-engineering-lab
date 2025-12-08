@@ -1,0 +1,1556 @@
+{
+  "framework": "vitest",
+  "timestamp": "2025-11-21-23-36-14",
+  "type": "unit",
+  "summary": {
+    "total": 171,
+    "passed": 170,
+    "failed": 0,
+    "skipped": 1,
+    "duration_s": 9.345299114999992
+  },
+  "tests": [
+    {
+      "id": "AppFooter.spec:appfooter-renderizao-deveria-renderizar-o-componente-corretamente",
+      "name": "AppFooter Renderização Deveria renderizar o componente corretamente",
+      "status": "passed",
+      "duration_s": 0.13227978799999981,
+      "file": "AppFooter.spec.ts",
+      "tags": [],
+      "error": null
+    },
+    {
+      "id": "AppFooter.spec:appfooter-renderizao-deveria-exibir-o-ano-atual-no-texto-do-footer",
+      "name": "AppFooter Renderização Deveria exibir o ano atual no texto do footer",
+      "status": "passed",
+      "duration_s": 0.027994940000000496,
+      "file": "AppFooter.spec.ts",
+      "tags": [],
+      "error": null
+    },
+    {
+      "id": "AppFooter.spec:appfooter-renderizao-deveria-renderizar-o-link-do-github-com-atributos-corretos",
+      "name": "AppFooter Renderização Deveria renderizar o link do GitHub com atributos corretos",
+      "status": "passed",
+      "duration_s": 0.022932480999999824,
+      "file": "AppFooter.spec.ts",
+      "tags": [],
+      "error": null
+    },
+    {
+      "id": "AppFooter.spec:appfooter-renderizao-deveria-renderizar-o-cone-do-github-com-atributos-corretos",
+      "name": "AppFooter Renderização Deveria renderizar o ícone do GitHub com atributos corretos",
+      "status": "passed",
+      "duration_s": 0.007118800000000192,
+      "file": "AppFooter.spec.ts",
+      "tags": [],
+      "error": null
+    },
+    {
+      "id": "AppFooter.spec:appfooter-estrutura-html-deveria-ter-a-estrutura-correta-do-footer",
+      "name": "AppFooter Estrutura HTML Deveria ter a estrutura correta do footer",
+      "status": "passed",
+      "duration_s": 0.01402940099999978,
+      "file": "AppFooter.spec.ts",
+      "tags": [],
+      "error": null
+    },
+    {
+      "id": "AppFooter.spec:appfooter-estrutura-html-deveria-ter-as-classes-css-corretas",
+      "name": "AppFooter Estrutura HTML Deveria ter as classes CSS corretas",
+      "status": "passed",
+      "duration_s": 0.009124512999999751,
+      "file": "AppFooter.spec.ts",
+      "tags": [],
+      "error": null
+    },
+    {
+      "id": "AppFooter.spec:appfooter-acessibilidade-deveria-ter-aria-label-no-link-do-github",
+      "name": "AppFooter Acessibilidade Deveria ter aria-label no link do GitHub",
+      "status": "passed",
+      "duration_s": 0.011577357999999548,
+      "file": "AppFooter.spec.ts",
+      "tags": [],
+      "error": null
+    },
+    {
+      "id": "AppFooter.spec:appfooter-acessibilidade-deveria-ter-alt-text-no-cone-do-github",
+      "name": "AppFooter Acessibilidade Deveria ter alt text no ícone do GitHub",
+      "status": "passed",
+      "duration_s": 0.004017859000000499,
+      "file": "AppFooter.spec.ts",
+      "tags": [],
+      "error": null
+    },
+    {
+      "id": "AppFooter.spec:appfooter-interaes-deveria-abrir-o-link-do-github-em-nova-aba",
+      "name": "AppFooter Interações Deveria abrir o link do GitHub em nova aba",
+      "status": "passed",
+      "duration_s": 0.006280359999999746,
+      "file": "AppFooter.spec.ts",
+      "tags": [],
+      "error": null
+    },
+    {
+      "id": "AppFooter.spec:appfooter-responsividade-deveria-aplicar-estilos-responsivos-em-telas-pequenas",
+      "name": "AppFooter Responsividade Deveria aplicar estilos responsivos em telas pequenas",
+      "status": "passed",
+      "duration_s": 0.0069452650000002905,
+      "file": "AppFooter.spec.ts",
+      "tags": [],
+      "error": null
+    },
+    {
+      "id": "AppHeader.spec:appheader-renderizao-deveria-renderizar-o-componente-corretamente",
+      "name": "AppHeader Renderização Deveria renderizar o componente corretamente",
+      "status": "passed",
+      "duration_s": 0.20448353499999938,
+      "file": "AppHeader.spec.ts",
+      "tags": [],
+      "error": null
+    },
+    {
+      "id": "AppHeader.spec:appheader-renderizao-deveria-renderizar-os-links-de-navegao",
+      "name": "AppHeader Renderização Deveria renderizar os links de navegação",
+      "status": "passed",
+      "duration_s": 0.03273498599999948,
+      "file": "AppHeader.spec.ts",
+      "tags": [],
+      "error": null
+    },
+    {
+      "id": "AppHeader.spec:appheader-renderizao-deveria-renderizar-o-avatar-e-nome-do-usurio",
+      "name": "AppHeader Renderização Deveria renderizar o avatar e nome do usuário",
+      "status": "passed",
+      "duration_s": 0.02083075199999985,
+      "file": "AppHeader.spec.ts",
+      "tags": [],
+      "error": null
+    },
+    {
+      "id": "AppHeader.spec:appheader-dropdown-do-usurio-deveria-abrir-o-dropdown-quando-clicado",
+      "name": "AppHeader Dropdown do Usuário Deveria abrir o dropdown quando clicado",
+      "status": "passed",
+      "duration_s": 0.036495676999999886,
+      "file": "AppHeader.spec.ts",
+      "tags": [],
+      "error": null
+    },
+    {
+      "id": "AppHeader.spec:appheader-dropdown-do-usurio-deveria-fechar-o-dropdown-quando-clicado-novamente",
+      "name": "AppHeader Dropdown do Usuário Deveria fechar o dropdown quando clicado novamente",
+      "status": "passed",
+      "duration_s": 0.03725381899999956,
+      "file": "AppHeader.spec.ts",
+      "tags": [],
+      "error": null
+    },
+    {
+      "id": "AppHeader.spec:appheader-dropdown-do-usurio-deveria-exibir-as-opes-do-dropdown",
+      "name": "AppHeader Dropdown do Usuário Deveria exibir as opções do dropdown",
+      "status": "passed",
+      "duration_s": 0.03345983799999976,
+      "file": "AppHeader.spec.ts",
+      "tags": [],
+      "error": null
+    },
+    {
+      "id": "AppHeader.spec:appheader-navegao-deveria-navegar-para-o-perfil-quando-clicado",
+      "name": "AppHeader Navegação Deveria navegar para o perfil quando clicado",
+      "status": "passed",
+      "duration_s": 0.0330228560000005,
+      "file": "AppHeader.spec.ts",
+      "tags": [],
+      "error": null
+    },
+    {
+      "id": "AppHeader.spec:appheader-navegao-deveria-executar-logout-quando-clicado",
+      "name": "AppHeader Navegação Deveria executar logout quando clicado",
+      "status": "passed",
+      "duration_s": 0.04610095199999978,
+      "file": "AppHeader.spec.ts",
+      "tags": [],
+      "error": null
+    },
+    {
+      "id": "AppHeader.spec:appheader-props-do-usurio-deveria-usar-o-usurio-passado-como-prop-quando-fornecido",
+      "name": "AppHeader Props do Usuário Deveria usar o usuário passado como prop quando fornecido",
+      "status": "passed",
+      "duration_s": 0.023985783000000083,
+      "file": "AppHeader.spec.ts",
+      "tags": [],
+      "error": null
+    },
+    {
+      "id": "AppHeader.spec:appheader-props-do-usurio-deveria-usar-o-usurio-padro-quando-nenhuma-prop-for-fornecida",
+      "name": "AppHeader Props do Usuário Deveria usar o usuário padrão quando nenhuma prop for fornecida",
+      "status": "passed",
+      "duration_s": 0.01844667500000014,
+      "file": "AppHeader.spec.ts",
+      "tags": [],
+      "error": null
+    },
+    {
+      "id": "AppHeader.spec:appheader-clique-fora-do-dropdown-deveria-fechar-o-dropdown-quando-clicar-fora-dele",
+      "name": "AppHeader Clique fora do dropdown Deveria fechar o dropdown quando clicar fora dele",
+      "status": "passed",
+      "duration_s": 0.024579662999999526,
+      "file": "AppHeader.spec.ts",
+      "tags": [],
+      "error": null
+    },
+    {
+      "id": "AppHeader.spec:appheader-clique-fora-do-dropdown-deveria-manter-o-dropdown-aberto-quando-clicar-no-dropdown",
+      "name": "AppHeader Clique fora do dropdown Deveria manter o dropdown aberto quando clicar no dropdown",
+      "status": "passed",
+      "duration_s": 0.021326020999999855,
+      "file": "AppHeader.spec.ts",
+      "tags": [],
+      "error": null
+    },
+    {
+      "id": "AppHeader.spec:appheader-clique-fora-do-dropdown-deveria-fechar-o-dropdown-quando-clicar-em-um-item-do-dropdown",
+      "name": "AppHeader Clique fora do dropdown Deveria fechar o dropdown quando clicar em um item do dropdown",
+      "status": "passed",
+      "duration_s": 0.020580307999999603,
+      "file": "AppHeader.spec.ts",
+      "tags": [],
+      "error": null
+    },
+    {
+      "id": "AppHeader.spec:appheader-toasts-do-logout-deveria-exibir-toast-de-sucesso-quando-logout-for-bem-sucedido",
+      "name": "AppHeader Toasts do Logout Deveria exibir toast de sucesso quando logout for bem-sucedido",
+      "status": "passed",
+      "duration_s": 0.02374066100000073,
+      "file": "AppHeader.spec.ts",
+      "tags": [],
+      "error": null
+    },
+    {
+      "id": "AppHeader.spec:appheader-toasts-do-logout-deveria-exibir-toast-de-sucesso-com-mensagem-padro-quando-no-houver-mensagem-na-resposta",
+      "name": "AppHeader Toasts do Logout Deveria exibir toast de sucesso com mensagem padrão quando não houver mensagem na resposta",
+      "status": "passed",
+      "duration_s": 0.021690967000000456,
+      "file": "AppHeader.spec.ts",
+      "tags": [],
+      "error": null
+    },
+    {
+      "id": "AppHeader.spec:appheader-toasts-do-logout-deveria-exibir-toast-de-erro-quando-logout-falhar",
+      "name": "AppHeader Toasts do Logout Deveria exibir toast de erro quando logout falhar",
+      "status": "passed",
+      "duration_s": 0.023334390999999413,
+      "file": "AppHeader.spec.ts",
+      "tags": [],
+      "error": null
+    },
+    {
+      "id": "AppHeader.spec:appheader-toasts-do-logout-deveria-exibir-toast-de-erro-com-mensagem-padro-quando-no-houver-mensagem-de-erro",
+      "name": "AppHeader Toasts do Logout Deveria exibir toast de erro com mensagem padrão quando não houver mensagem de erro",
+      "status": "passed",
+      "duration_s": 0.03407676600000013,
+      "file": "AppHeader.spec.ts",
+      "tags": [],
+      "error": null
+    },
+    {
+      "id": "AppHome.spec:apphome-renderizao-deveria-renderizar-o-componente-corretamente",
+      "name": "AppHome Renderização Deveria renderizar o componente corretamente",
+      "status": "passed",
+      "duration_s": 0.1505590710000006,
+      "file": "AppHome.spec.ts",
+      "tags": [],
+      "error": null
+    },
+    {
+      "id": "AppHome.spec:apphome-renderizao-deveria-exibir-o-logo-da-aplicao",
+      "name": "AppHome Renderização Deveria exibir o logo da aplicação",
+      "status": "passed",
+      "duration_s": 0.042441117000000306,
+      "file": "AppHome.spec.ts",
+      "tags": [],
+      "error": null
+    },
+    {
+      "id": "AppHome.spec:apphome-renderizao-deveria-exibir-a-descrio-do-projeto",
+      "name": "AppHome Renderização Deveria exibir a descrição do projeto",
+      "status": "passed",
+      "duration_s": 0.03361703600000055,
+      "file": "AppHome.spec.ts",
+      "tags": [],
+      "error": null
+    },
+    {
+      "id": "AppHome.spec:apphome-estrutura-html-deveria-ter-a-estrutura-correta-do-componente",
+      "name": "AppHome Estrutura HTML Deveria ter a estrutura correta do componente",
+      "status": "passed",
+      "duration_s": 0.030467634999999972,
+      "file": "AppHome.spec.ts",
+      "tags": [],
+      "error": null
+    },
+    {
+      "id": "LoadingErrorState.spec:loadingerrorstate-estado-de-carregamento-deveria-renderizar-o-estado-de-carregamento-quando-isloading-for-true",
+      "name": "LoadingErrorState Estado de Carregamento Deveria renderizar o estado de carregamento quando isLoading for true",
+      "status": "passed",
+      "duration_s": 0.14438469799999984,
+      "file": "LoadingErrorState.spec.ts",
+      "tags": [],
+      "error": null
+    },
+    {
+      "id": "LoadingErrorState.spec:loadingerrorstate-estado-de-carregamento-deveria-exibir-a-mensagem-de-carregamento-correta",
+      "name": "LoadingErrorState Estado de Carregamento Deveria exibir a mensagem de carregamento correta",
+      "status": "passed",
+      "duration_s": 0.01838651300000038,
+      "file": "LoadingErrorState.spec.ts",
+      "tags": [],
+      "error": null
+    },
+    {
+      "id": "LoadingErrorState.spec:loadingerrorstate-estado-de-erro-deveria-renderizar-o-estado-de-erro-quando-iserror-for-true",
+      "name": "LoadingErrorState Estado de Erro Deveria renderizar o estado de erro quando isError for true",
+      "status": "passed",
+      "duration_s": 0.019559881000000133,
+      "file": "LoadingErrorState.spec.ts",
+      "tags": [],
+      "error": null
+    },
+    {
+      "id": "LoadingErrorState.spec:loadingerrorstate-estado-de-erro-deveria-exibir-a-mensagem-de-erro-padro",
+      "name": "LoadingErrorState Estado de Erro Deveria exibir a mensagem de erro padrão",
+      "status": "passed",
+      "duration_s": 0.01335193900000013,
+      "file": "LoadingErrorState.spec.ts",
+      "tags": [],
+      "error": null
+    },
+    {
+      "id": "LoadingErrorState.spec:loadingerrorstate-estado-de-erro-deveria-exibir-mensagem-de-erro-customizada",
+      "name": "LoadingErrorState Estado de Erro Deveria exibir mensagem de erro customizada",
+      "status": "passed",
+      "duration_s": 0.016187831999999618,
+      "file": "LoadingErrorState.spec.ts",
+      "tags": [],
+      "error": null
+    },
+    {
+      "id": "LoadingErrorState.spec:loadingerrorstate-estado-inativo-deveria-no-renderizar-nada-quando-ambos-isloading-e-iserror-forem-false",
+      "name": "LoadingErrorState Estado Inativo Deveria não renderizar nada quando ambos isLoading e isError forem false",
+      "status": "passed",
+      "duration_s": 0.007256945000000087,
+      "file": "LoadingErrorState.spec.ts",
+      "tags": [],
+      "error": null
+    },
+    {
+      "id": "LoadingErrorState.spec:loadingerrorstate-priorizao-de-estados-deveria-priorizar-o-carregamento-sobre-o-erro-quando-ambos-forem-true",
+      "name": "LoadingErrorState Priorização de Estados Deveria priorizar o carregamento sobre o erro quando ambos forem true",
+      "status": "passed",
+      "duration_s": 0.009856756000000131,
+      "file": "LoadingErrorState.spec.ts",
+      "tags": [],
+      "error": null
+    },
+    {
+      "id": "useDeleteUser.spec:usedeleteuser-deveria-ser-uma-funo",
+      "name": "useDeleteUser Deveria ser uma função",
+      "status": "passed",
+      "duration_s": 0.007477102999999261,
+      "file": "useDeleteUser.spec.ts",
+      "tags": [],
+      "error": null
+    },
+    {
+      "id": "useDeleteUser.spec:usedeleteuser-deveria-chamar-api-delete-e-retornar-os-dados",
+      "name": "useDeleteUser Deveria chamar API delete e retornar os dados",
+      "status": "skipped",
+      "duration_s": 0,
+      "file": "useDeleteUser.spec.ts",
+      "tags": [],
+      "error": null
+    },
+    {
+      "id": "useDeleteUser.spec:usedeleteuser-deveria-invalidar-queries-quando-mutation-for-bem-sucedida",
+      "name": "useDeleteUser Deveria invalidar queries quando mutation for bem-sucedida",
+      "status": "passed",
+      "duration_s": 0.01992857600000025,
+      "file": "useDeleteUser.spec.ts",
+      "tags": [],
+      "error": null
+    },
+    {
+      "id": "useDeleteUser.spec:usedeleteuser-deveria-retornar-sucesso-ao-excluir-usurio",
+      "name": "useDeleteUser Deveria retornar sucesso ao excluir usuário",
+      "status": "passed",
+      "duration_s": 0.005660394000000451,
+      "file": "useDeleteUser.spec.ts",
+      "tags": [],
+      "error": null
+    },
+    {
+      "id": "useDeleteUser.spec:usedeleteuser-deveria-retornar-um-erro-se-a-requisio-falhar",
+      "name": "useDeleteUser Deveria retornar um erro se a requisição falhar",
+      "status": "passed",
+      "duration_s": 0.003416678000000502,
+      "file": "useDeleteUser.spec.ts",
+      "tags": [],
+      "error": null
+    },
+    {
+      "id": "useFetchUser.spec:usefetchuser-deveria-ser-uma-funo",
+      "name": "useFetchUser Deveria ser uma função",
+      "status": "passed",
+      "duration_s": 0.00763828999999987,
+      "file": "useFetchUser.spec.ts",
+      "tags": [],
+      "error": null
+    },
+    {
+      "id": "useFetchUser.spec:usefetchuser-deveria-chamar-api-get-e-retornar-os-dados",
+      "name": "useFetchUser Deveria chamar API get e retornar os dados",
+      "status": "passed",
+      "duration_s": 0.007994416,
+      "file": "useFetchUser.spec.ts",
+      "tags": [],
+      "error": null
+    },
+    {
+      "id": "useFetchUser.spec:usefetchuser-deveria-setar-os-dados-do-usurio-no-query-client-quando-data-for-retornada",
+      "name": "useFetchUser Deveria setar os dados do usuário no query client quando data for retornada",
+      "status": "passed",
+      "duration_s": 0.01283283100000017,
+      "file": "useFetchUser.spec.ts",
+      "tags": [],
+      "error": null
+    },
+    {
+      "id": "useFetchUser.spec:usefetchuser-deveria-retornar-os-dados-do-usurio-em-caso-de-sucesso",
+      "name": "useFetchUser Deveria retornar os dados do usuário em caso de sucesso",
+      "status": "passed",
+      "duration_s": 0.0028294260000002397,
+      "file": "useFetchUser.spec.ts",
+      "tags": [],
+      "error": null
+    },
+    {
+      "id": "useFetchUser.spec:usefetchuser-deveria-retornar-um-erro-se-a-requisio-falhar",
+      "name": "useFetchUser Deveria retornar um erro se a requisição falhar",
+      "status": "passed",
+      "duration_s": 0.0038939399999999296,
+      "file": "useFetchUser.spec.ts",
+      "tags": [],
+      "error": null
+    },
+    {
+      "id": "useFetchUsers.spec:usefetchusers-deveria-ser-uma-funo",
+      "name": "useFetchUsers Deveria ser uma função",
+      "status": "passed",
+      "duration_s": 0.006497774000000391,
+      "file": "useFetchUsers.spec.ts",
+      "tags": [],
+      "error": null
+    },
+    {
+      "id": "useFetchUsers.spec:usefetchusers-deveria-chamar-api-get-e-retornar-os-dados",
+      "name": "useFetchUsers Deveria chamar API get e retornar os dados",
+      "status": "passed",
+      "duration_s": 0.008071305999999822,
+      "file": "useFetchUsers.spec.ts",
+      "tags": [],
+      "error": null
+    },
+    {
+      "id": "useFetchUsers.spec:usefetchusers-deveria-setar-os-dados-da-lista-de-usurios-no-query-client-quando-data-for-retornada",
+      "name": "useFetchUsers Deveria setar os dados da lista de usuários no query client quando data for retornada",
+      "status": "passed",
+      "duration_s": 0.012697674000000006,
+      "file": "useFetchUsers.spec.ts",
+      "tags": [],
+      "error": null
+    },
+    {
+      "id": "useFetchUsers.spec:usefetchusers-deveria-retornar-os-dados-da-lista-de-usurios-em-caso-de-sucesso",
+      "name": "useFetchUsers Deveria retornar os dados da lista de usuários em caso de sucesso",
+      "status": "passed",
+      "duration_s": 0.00309092899999996,
+      "file": "useFetchUsers.spec.ts",
+      "tags": [],
+      "error": null
+    },
+    {
+      "id": "useForgotPassword.spec:useforgotpassword-deveria-ser-uma-funo",
+      "name": "useForgotPassword Deveria ser uma função",
+      "status": "passed",
+      "duration_s": 0.006994265000000268,
+      "file": "useForgotPassword.spec.ts",
+      "tags": [],
+      "error": null
+    },
+    {
+      "id": "useForgotPassword.spec:useforgotpassword-deveria-chamar-api-post-e-retornar-os-dados",
+      "name": "useForgotPassword Deveria chamar API post e retornar os dados",
+      "status": "passed",
+      "duration_s": 0.00897425899999962,
+      "file": "useForgotPassword.spec.ts",
+      "tags": [],
+      "error": null
+    },
+    {
+      "id": "useForgotPassword.spec:useforgotpassword-deveria-retornar-sucesso-ao-enviar-email-de-recuperao-de-senha",
+      "name": "useForgotPassword Deveria retornar sucesso ao enviar email de recuperação de senha",
+      "status": "passed",
+      "duration_s": 0.0033883849999997435,
+      "file": "useForgotPassword.spec.ts",
+      "tags": [],
+      "error": null
+    },
+    {
+      "id": "useForgotPassword.spec:useforgotpassword-deveria-retornar-erro-ao-enviar-email-de-recuperao-de-senha",
+      "name": "useForgotPassword Deveria retornar erro ao enviar email de recuperação de senha",
+      "status": "passed",
+      "duration_s": 0.0019992839999999888,
+      "file": "useForgotPassword.spec.ts",
+      "tags": [],
+      "error": null
+    },
+    {
+      "id": "useLoginUser.spec:useloginuser-deveria-ser-uma-funo",
+      "name": "useLoginUser Deveria ser uma função",
+      "status": "passed",
+      "duration_s": 0.0027215949999999794,
+      "file": "useLoginUser.spec.ts",
+      "tags": [],
+      "error": null
+    },
+    {
+      "id": "useLoginUser.spec:useloginuser-deveria-chamar-api-post-e-retornar-os-dados",
+      "name": "useLoginUser Deveria chamar API post e retornar os dados",
+      "status": "passed",
+      "duration_s": 0.0050241560000004026,
+      "file": "useLoginUser.spec.ts",
+      "tags": [],
+      "error": null
+    },
+    {
+      "id": "useLoginUser.spec:useloginuser-deveria-invalidar-e-resetar-queries-quando-mutation-for-bem-sucedida",
+      "name": "useLoginUser Deveria invalidar e resetar queries quando mutation for bem-sucedida",
+      "status": "passed",
+      "duration_s": 0.007816310999999587,
+      "file": "useLoginUser.spec.ts",
+      "tags": [],
+      "error": null
+    },
+    {
+      "id": "useLoginUser.spec:useloginuser-deveria-retornar-sucesso-ao-fazer-login",
+      "name": "useLoginUser Deveria retornar sucesso ao fazer login",
+      "status": "passed",
+      "duration_s": 0.0021671809999998003,
+      "file": "useLoginUser.spec.ts",
+      "tags": [],
+      "error": null
+    },
+    {
+      "id": "useLoginUser.spec:useloginuser-deveria-retornar-erro-ao-falhar-o-login",
+      "name": "useLoginUser Deveria retornar erro ao falhar o login",
+      "status": "passed",
+      "duration_s": 0.002133343999999852,
+      "file": "useLoginUser.spec.ts",
+      "tags": [],
+      "error": null
+    },
+    {
+      "id": "useLogoutUser.spec:uselogoutuser-deveria-ser-uma-funo",
+      "name": "useLogoutUser Deveria ser uma função",
+      "status": "passed",
+      "duration_s": 0.007488777000000027,
+      "file": "useLogoutUser.spec.ts",
+      "tags": [],
+      "error": null
+    },
+    {
+      "id": "useLogoutUser.spec:uselogoutuser-deveria-chamar-api-post-e-retornar-os-dados",
+      "name": "useLogoutUser Deveria chamar API post e retornar os dados",
+      "status": "passed",
+      "duration_s": 0.011080781999999999,
+      "file": "useLogoutUser.spec.ts",
+      "tags": [],
+      "error": null
+    },
+    {
+      "id": "useLogoutUser.spec:uselogoutuser-deveria-invalidar-queries-quando-mutation-for-bem-sucedida",
+      "name": "useLogoutUser Deveria invalidar queries quando mutation for bem-sucedida",
+      "status": "passed",
+      "duration_s": 0.011186507999999776,
+      "file": "useLogoutUser.spec.ts",
+      "tags": [],
+      "error": null
+    },
+    {
+      "id": "useLogoutUser.spec:uselogoutuser-deveria-retornar-sucesso-ao-deslogar-o-usurio",
+      "name": "useLogoutUser Deveria retornar sucesso ao deslogar o usuário",
+      "status": "passed",
+      "duration_s": 0.0033714899999999944,
+      "file": "useLogoutUser.spec.ts",
+      "tags": [],
+      "error": null
+    },
+    {
+      "id": "useLogoutUser.spec:uselogoutuser-deveria-retornar-erro-ao-falhar-o-logout",
+      "name": "useLogoutUser Deveria retornar erro ao falhar o logout",
+      "status": "passed",
+      "duration_s": 0.0028749320000001715,
+      "file": "useLogoutUser.spec.ts",
+      "tags": [],
+      "error": null
+    },
+    {
+      "id": "useRegisterUser.spec:useregisteruser-deveria-ser-uma-funo",
+      "name": "useRegisterUser Deveria ser uma função",
+      "status": "passed",
+      "duration_s": 0.011510224000000107,
+      "file": "useRegisterUser.spec.ts",
+      "tags": [],
+      "error": null
+    },
+    {
+      "id": "useRegisterUser.spec:useregisteruser-deveria-chamar-api-post-e-retornar-os-dados",
+      "name": "useRegisterUser Deveria chamar API post e retornar os dados",
+      "status": "passed",
+      "duration_s": 0.009475070999999844,
+      "file": "useRegisterUser.spec.ts",
+      "tags": [],
+      "error": null
+    },
+    {
+      "id": "useRegisterUser.spec:useregisteruser-deveria-invalidar-e-resetar-queries-quando-mutation-for-bem-sucedida",
+      "name": "useRegisterUser Deveria invalidar e resetar queries quando mutation for bem-sucedida",
+      "status": "passed",
+      "duration_s": 0.011762154000000009,
+      "file": "useRegisterUser.spec.ts",
+      "tags": [],
+      "error": null
+    },
+    {
+      "id": "useRegisterUser.spec:useregisteruser-deveria-retornar-sucesso-ao-registrar-usurio",
+      "name": "useRegisterUser Deveria retornar sucesso ao registrar usuário",
+      "status": "passed",
+      "duration_s": 0.0032158519999998135,
+      "file": "useRegisterUser.spec.ts",
+      "tags": [],
+      "error": null
+    },
+    {
+      "id": "useRegisterUser.spec:useregisteruser-deveria-retornar-erro-ao-falhar-ao-registrar-usurio",
+      "name": "useRegisterUser Deveria retornar erro ao falhar ao registrar usuário",
+      "status": "passed",
+      "duration_s": 0.003057574999999815,
+      "file": "useRegisterUser.spec.ts",
+      "tags": [],
+      "error": null
+    },
+    {
+      "id": "useUpdateUser.spec:useupdateuser-deveria-ser-uma-funo",
+      "name": "useUpdateUser Deveria ser uma função",
+      "status": "passed",
+      "duration_s": 0.004927102000000104,
+      "file": "useUpdateUser.spec.ts",
+      "tags": [],
+      "error": null
+    },
+    {
+      "id": "useUpdateUser.spec:useupdateuser-deveria-chamar-api-patch-e-retornar-os-dados",
+      "name": "useUpdateUser Deveria chamar API patch e retornar os dados",
+      "status": "passed",
+      "duration_s": 0.007214285000000018,
+      "file": "useUpdateUser.spec.ts",
+      "tags": [],
+      "error": null
+    },
+    {
+      "id": "useUpdateUser.spec:useupdateuser-deveria-setar-os-dados-do-usurio-no-query-client-quando-mutation-for-bem-sucedida",
+      "name": "useUpdateUser Deveria setar os dados do usuário no query client quando mutation for bem-sucedida",
+      "status": "passed",
+      "duration_s": 0.00946017299999994,
+      "file": "useUpdateUser.spec.ts",
+      "tags": [],
+      "error": null
+    },
+    {
+      "id": "useUpdateUser.spec:useupdateuser-deveria-retornar-sucesso-ao-alterar-perfil-do-usurio",
+      "name": "useUpdateUser Deveria retornar sucesso ao alterar perfil do usuário",
+      "status": "passed",
+      "duration_s": 0.0024593039999999747,
+      "file": "useUpdateUser.spec.ts",
+      "tags": [],
+      "error": null
+    },
+    {
+      "id": "useUpdateUser.spec:useupdateuser-deveria-retornar-erro-ao-falhar-a-alterao-do-perfil-do-usurio",
+      "name": "useUpdateUser Deveria retornar erro ao falhar a alteração do perfil do usuário",
+      "status": "passed",
+      "duration_s": 0.0019362919999998667,
+      "file": "useUpdateUser.spec.ts",
+      "tags": [],
+      "error": null
+    },
+    {
+      "id": "api.spec:api-deveria-ser-uma-funo",
+      "name": "api Deveria ser uma função",
+      "status": "passed",
+      "duration_s": 0.00847133199999962,
+      "file": "api.spec.ts",
+      "tags": [],
+      "error": null
+    },
+    {
+      "id": "api.spec:api-deveria-retornar-uma-instncia-do-axios-com-o-baseurl-correto",
+      "name": "api Deveria retornar uma instância do axios com o baseURL correto",
+      "status": "passed",
+      "duration_s": 0.002253131000000394,
+      "file": "api.spec.ts",
+      "tags": [],
+      "error": null
+    },
+    {
+      "id": "api.spec:api-deveria-retornar-uma-instncia-do-axios-com-o-timeout-correto",
+      "name": "api Deveria retornar uma instância do axios com o timeout correto",
+      "status": "passed",
+      "duration_s": 0.0010628630000001067,
+      "file": "api.spec.ts",
+      "tags": [],
+      "error": null
+    },
+    {
+      "id": "api.spec:api-deveria-retornar-uma-instncia-do-axios-com-o-headers-correto",
+      "name": "api Deveria retornar uma instância do axios com o headers correto",
+      "status": "passed",
+      "duration_s": 0.0012287029999997685,
+      "file": "api.spec.ts",
+      "tags": [],
+      "error": null
+    },
+    {
+      "id": "api.spec:api-requestinterceptor-deveria-adicionar-o-token-de-autenticao-ao-header-da-requisio",
+      "name": "api requestInterceptor Deveria adicionar o token de autenticação ao header da requisição",
+      "status": "passed",
+      "duration_s": 0.0019554950000001555,
+      "file": "api.spec.ts",
+      "tags": [],
+      "error": null
+    },
+    {
+      "id": "api.spec:api-requestinterceptor-deveria-retornar-a-configurao-da-requisio-sem-o-token-de-autenticao-se-no-houver-token-no-localstorage",
+      "name": "api requestInterceptor Deveria retornar a configuração da requisição sem o token de autenticação se não houver token no localStorage",
+      "status": "passed",
+      "duration_s": 0.0016719640000001164,
+      "file": "api.spec.ts",
+      "tags": [],
+      "error": null
+    },
+    {
+      "id": "api.spec:api-responseinterceptor-deveria-retornar-a-resposta-da-requisio",
+      "name": "api responseInterceptor Deveria retornar a resposta da requisição",
+      "status": "passed",
+      "duration_s": 0.0010935739999999895,
+      "file": "api.spec.ts",
+      "tags": [],
+      "error": null
+    },
+    {
+      "id": "api.spec:api-errorinterceptor-deveria-rejeitar-a-promise-com-o-erro-da-requisio",
+      "name": "api errorInterceptor Deveria rejeitar a Promise com o erro da requisição",
+      "status": "passed",
+      "duration_s": 0.0034482880000000476,
+      "file": "api.spec.ts",
+      "tags": [],
+      "error": null
+    },
+    {
+      "id": "api.spec:api-errorinterceptor-deveria-remover-o-token-quando-status-for-401-e-no-for-rota-de-login",
+      "name": "api errorInterceptor Deveria remover o token quando status for 401 e não for rota de login",
+      "status": "passed",
+      "duration_s": 0.002464190000000144,
+      "file": "api.spec.ts",
+      "tags": [],
+      "error": null
+    },
+    {
+      "id": "api.spec:api-errorinterceptor-deveria-manter-o-token-quando-status-for-401-mas-for-rota-de-login",
+      "name": "api errorInterceptor Deveria manter o token quando status for 401 mas for rota de login",
+      "status": "passed",
+      "duration_s": 0.0018554810000000544,
+      "file": "api.spec.ts",
+      "tags": [],
+      "error": null
+    },
+    {
+      "id": "authGuards.spec:authguard-deveria-ser-uma-funo",
+      "name": "authGuard Deveria ser uma função",
+      "status": "passed",
+      "duration_s": 0.0035428440000000593,
+      "file": "authGuards.spec.ts",
+      "tags": [],
+      "error": null
+    },
+    {
+      "id": "authGuards.spec:authguard-deveria-permitir-acesso-se-o-usurio-est-autenticado",
+      "name": "authGuard Deveria permitir acesso se o usuário está autenticado",
+      "status": "passed",
+      "duration_s": 0.0018352409999997689,
+      "file": "authGuards.spec.ts",
+      "tags": [],
+      "error": null
+    },
+    {
+      "id": "authGuards.spec:authguard-deveria-bloquear-acesso-se-o-usurio-no-est-autenticado",
+      "name": "authGuard Deveria bloquear acesso se o usuário não está autenticado",
+      "status": "passed",
+      "duration_s": 0.001772291000000223,
+      "file": "authGuards.spec.ts",
+      "tags": [],
+      "error": null
+    },
+    {
+      "id": "authGuards.spec:authguard-deveria-permitir-acesso-se-a-rota-no-requer-autenticao",
+      "name": "authGuard Deveria permitir acesso se a rota não requer autenticação",
+      "status": "passed",
+      "duration_s": 0.0007562290000000758,
+      "file": "authGuards.spec.ts",
+      "tags": [],
+      "error": null
+    },
+    {
+      "id": "formData.spec:formdata-deveria-ser-uma-funo",
+      "name": "formData Deveria ser uma função",
+      "status": "passed",
+      "duration_s": 0.003891569999999774,
+      "file": "formData.spec.ts",
+      "tags": [],
+      "error": null
+    },
+    {
+      "id": "formData.spec:formdata-deveria-formatar-a-data-corretamente",
+      "name": "formData Deveria formatar a data corretamente",
+      "status": "passed",
+      "duration_s": 0.036157830000000106,
+      "file": "formData.spec.ts",
+      "tags": [],
+      "error": null
+    },
+    {
+      "id": "formData.spec:formdata-deveria-retornar---se-a-data-for-invlida",
+      "name": "formData Deveria retornar \"-\" se a data for inválida",
+      "status": "passed",
+      "duration_s": 0.00039816599999994653,
+      "file": "formData.spec.ts",
+      "tags": [],
+      "error": null
+    },
+    {
+      "id": "formData.spec:formdata-deveria-retornar---se-a-data-for-undefined",
+      "name": "formData Deveria retornar \"-\" se a data for undefined",
+      "status": "passed",
+      "duration_s": 0.00034371699999974223,
+      "file": "formData.spec.ts",
+      "tags": [],
+      "error": null
+    },
+    {
+      "id": "isAuthenticated.spec:isauthenticated-deveria-retornar-true-se-o-usurio-est-autenticado",
+      "name": "isAuthenticated Deveria retornar true se o usuário está autenticado",
+      "status": "passed",
+      "duration_s": 0.004130019000000175,
+      "file": "isAuthenticated.spec.ts",
+      "tags": [],
+      "error": null
+    },
+    {
+      "id": "isAuthenticated.spec:isauthenticated-deveria-retornar-false-se-o-usurio-no-est-autenticado",
+      "name": "isAuthenticated Deveria retornar false se o usuário não está autenticado",
+      "status": "passed",
+      "duration_s": 0.0007968720000003486,
+      "file": "isAuthenticated.spec.ts",
+      "tags": [],
+      "error": null
+    },
+    {
+      "id": "isAuthenticated.spec:isauthenticated-deveria-retornar-o-token-do-localstorage",
+      "name": "isAuthenticated Deveria retornar o token do localStorage",
+      "status": "passed",
+      "duration_s": 0.0005599369999999908,
+      "file": "isAuthenticated.spec.ts",
+      "tags": [],
+      "error": null
+    },
+    {
+      "id": "isAuthenticated.spec:isauthenticated-deveria-remover-o-token-do-localstorage",
+      "name": "isAuthenticated Deveria remover o token do localStorage",
+      "status": "passed",
+      "duration_s": 0.00046066899999959785,
+      "file": "isAuthenticated.spec.ts",
+      "tags": [],
+      "error": null
+    },
+    {
+      "id": "validateCpfCnpj.spec:validatecpfcnpj-deveria-ser-uma-funo",
+      "name": "validateCpfCnpj Deveria ser uma função",
+      "status": "passed",
+      "duration_s": 0.0032215759999999136,
+      "file": "validateCpfCnpj.spec.ts",
+      "tags": [],
+      "error": null
+    },
+    {
+      "id": "validateCpfCnpj.spec:validatecpfcnpj-deveria-validar-um-cpf-vlido",
+      "name": "validateCpfCnpj Deveria validar um CPF válido",
+      "status": "passed",
+      "duration_s": 0.0011456519999997,
+      "file": "validateCpfCnpj.spec.ts",
+      "tags": [],
+      "error": null
+    },
+    {
+      "id": "validateCpfCnpj.spec:validatecpfcnpj-deveria-validar-um-cnpj-vlido",
+      "name": "validateCpfCnpj Deveria validar um CNPJ válido",
+      "status": "passed",
+      "duration_s": 0.0007019440000003669,
+      "file": "validateCpfCnpj.spec.ts",
+      "tags": [],
+      "error": null
+    },
+    {
+      "id": "validateCpfCnpj.spec:validatecpfcnpj-deveria-validar-se-cpf-possui-11-dgitos",
+      "name": "validateCpfCnpj Deveria validar se CPF possui 11 dígitos",
+      "status": "passed",
+      "duration_s": 0.00037255599999980405,
+      "file": "validateCpfCnpj.spec.ts",
+      "tags": [],
+      "error": null
+    },
+    {
+      "id": "validateCpfCnpj.spec:validatecpfcnpj-deveria-validar-se-cnpj-possui-14-dgitos",
+      "name": "validateCpfCnpj Deveria validar se CNPJ possui 14 dígitos",
+      "status": "passed",
+      "duration_s": 0.00021373399999993125,
+      "file": "validateCpfCnpj.spec.ts",
+      "tags": [],
+      "error": null
+    },
+    {
+      "id": "validateCpfCnpj.spec:validatecpfcnpj-deveria-validar-um-cpf-invlido",
+      "name": "validateCpfCnpj Deveria validar um CPF inválido",
+      "status": "passed",
+      "duration_s": 0.00032213799999999536,
+      "file": "validateCpfCnpj.spec.ts",
+      "tags": [],
+      "error": null
+    },
+    {
+      "id": "validateCpfCnpj.spec:validatecpfcnpj-deveria-validar-um-cnpj-invlido",
+      "name": "validateCpfCnpj Deveria validar um CNPJ inválido",
+      "status": "passed",
+      "duration_s": 0.00033255300000018906,
+      "file": "validateCpfCnpj.spec.ts",
+      "tags": [],
+      "error": null
+    },
+    {
+      "id": "validateProfile.spec:validateprofile-deveria-ser-uma-funo",
+      "name": "validateProfile Deveria ser uma função",
+      "status": "passed",
+      "duration_s": 0.004644960999999967,
+      "file": "validateProfile.spec.ts",
+      "tags": [],
+      "error": null
+    },
+    {
+      "id": "validateProfile.spec:validateprofile-full-name-deveria-validar-o-full-name-com-dados-vlidos",
+      "name": "validateProfile Full Name Deveria validar o Full Name com dados válidos",
+      "status": "passed",
+      "duration_s": 0.0033630190000003496,
+      "file": "validateProfile.spec.ts",
+      "tags": [],
+      "error": null
+    },
+    {
+      "id": "validateProfile.spec:validateprofile-full-name-deveria-validar-se-o-full-name-obrigatrio",
+      "name": "validateProfile Full Name Deveria validar se o Full Name é obrigatório",
+      "status": "passed",
+      "duration_s": 0.0013702899999998408,
+      "file": "validateProfile.spec.ts",
+      "tags": [],
+      "error": null
+    },
+    {
+      "id": "validateProfile.spec:validateprofile-full-name-deveria-validar-se-o-full-name-deve-conter-pelo-menos-nome-e-sobrenome",
+      "name": "validateProfile Full Name Deveria validar se o Full Name deve conter pelo menos Nome e Sobrenome",
+      "status": "passed",
+      "duration_s": 0.0017037540000001171,
+      "file": "validateProfile.spec.ts",
+      "tags": [],
+      "error": null
+    },
+    {
+      "id": "validateProfile.spec:validateprofile-full-name-deveria-aceitar-nomes-com-acentos-e-caracteres-especiais",
+      "name": "validateProfile Full Name Deveria aceitar nomes com acentos e caracteres especiais",
+      "status": "passed",
+      "duration_s": 0.0010915640000002894,
+      "file": "validateProfile.spec.ts",
+      "tags": [],
+      "error": null
+    },
+    {
+      "id": "validateProfile.spec:validateprofile-phone-deveria-validar-o-phone-com-dados-vlidos",
+      "name": "validateProfile Phone Deveria validar o Phone com dados válidos",
+      "status": "passed",
+      "duration_s": 0.0013113100000000486,
+      "file": "validateProfile.spec.ts",
+      "tags": [],
+      "error": null
+    },
+    {
+      "id": "validateProfile.spec:validateprofile-phone-deveria-rejeitar-phone-com-letras",
+      "name": "validateProfile Phone Deveria rejeitar Phone com letras",
+      "status": "passed",
+      "duration_s": 0.0012398020000000543,
+      "file": "validateProfile.spec.ts",
+      "tags": [],
+      "error": null
+    },
+    {
+      "id": "validateProfile.spec:validateprofile-phone-deveria-rejeitar-phone-com-mais-de-11-dgitos",
+      "name": "validateProfile Phone Deveria rejeitar Phone com mais de 11 dígitos",
+      "status": "passed",
+      "duration_s": 0.0009772449999995842,
+      "file": "validateProfile.spec.ts",
+      "tags": [],
+      "error": null
+    },
+    {
+      "id": "validateProfile.spec:validateprofile-phone-deveria-rejeitar-phone-com-menos-de-10-dgitos",
+      "name": "validateProfile Phone Deveria rejeitar Phone com menos de 10 dígitos",
+      "status": "passed",
+      "duration_s": 0.0014779419999999845,
+      "file": "validateProfile.spec.ts",
+      "tags": [],
+      "error": null
+    },
+    {
+      "id": "LoginTemplate.spec:logintemplate-deveria-ser-possvel-preencher-os-campos-de-email-e-senha",
+      "name": "LoginTemplate Deveria ser possível preencher os campos de email e senha",
+      "status": "passed",
+      "duration_s": 0.24582920000000014,
+      "file": "LoginTemplate.spec.ts",
+      "tags": [],
+      "error": null
+    },
+    {
+      "id": "LoginTemplate.spec:logintemplate-deveria-ser-possvel-visualizar-os-erros-de-validao-abaixo-dos-inputs-de-email-e-senha-quando-o-formulrio-for-submetido-com-campos-vazios",
+      "name": "LoginTemplate Deveria ser possível visualizar os erros de validação abaixo dos inputs de email e senha quando o formulário for submetido com campos vazios",
+      "status": "passed",
+      "duration_s": 0.136543944,
+      "file": "LoginTemplate.spec.ts",
+      "tags": [],
+      "error": null
+    },
+    {
+      "id": "LoginTemplate.spec:logintemplate-deveria-ser-possvel-visualizar-o-erro-de-email-invlido-embaixo-do-input-de-email",
+      "name": "LoginTemplate Deveria ser possível visualizar o erro de email inválido embaixo do input de email",
+      "status": "passed",
+      "duration_s": 0.20031066499999997,
+      "file": "LoginTemplate.spec.ts",
+      "tags": [],
+      "error": null
+    },
+    {
+      "id": "RecoverPasswordTemplate.spec:recoverpasswordtemplate-renderizao-deveria-renderizar-o-componente-corretamente",
+      "name": "RecoverPasswordTemplate Renderização Deveria renderizar o componente corretamente",
+      "status": "passed",
+      "duration_s": 0.2808865300000007,
+      "file": "RecoverPasswordTemplate.spec.ts",
+      "tags": [],
+      "error": null
+    },
+    {
+      "id": "RecoverPasswordTemplate.spec:recoverpasswordtemplate-renderizao-deveria-renderizar-todos-os-elementos-do-formulrio",
+      "name": "RecoverPasswordTemplate Renderização Deveria renderizar todos os elementos do formulário",
+      "status": "passed",
+      "duration_s": 0.07118772799999988,
+      "file": "RecoverPasswordTemplate.spec.ts",
+      "tags": [],
+      "error": null
+    },
+    {
+      "id": "RecoverPasswordTemplate.spec:recoverpasswordtemplate-renderizao-deveria-renderizar-a-mensagem-de-ateno",
+      "name": "RecoverPasswordTemplate Renderização Deveria renderizar a mensagem de atenção",
+      "status": "passed",
+      "duration_s": 0.1364934459999995,
+      "file": "RecoverPasswordTemplate.spec.ts",
+      "tags": [],
+      "error": null
+    },
+    {
+      "id": "RecoverPasswordTemplate.spec:recoverpasswordtemplate-preenchimento-de-campos-deveria-ser-possvel-preencher-o-campo-de-email",
+      "name": "RecoverPasswordTemplate Preenchimento de Campos Deveria ser possível preencher o campo de email",
+      "status": "passed",
+      "duration_s": 0.11521471900000052,
+      "file": "RecoverPasswordTemplate.spec.ts",
+      "tags": [],
+      "error": null
+    },
+    {
+      "id": "RecoverPasswordTemplate.spec:recoverpasswordtemplate-validao-de-campos-obrigatrios-deveria-exibir-erro-quando-o-campo-email-estiver-vazio",
+      "name": "RecoverPasswordTemplate Validação de Campos Obrigatórios Deveria exibir erro quando o campo Email estiver vazio",
+      "status": "passed",
+      "duration_s": 0.0777401230000005,
+      "file": "RecoverPasswordTemplate.spec.ts",
+      "tags": [],
+      "error": null
+    },
+    {
+      "id": "RecoverPasswordTemplate.spec:recoverpasswordtemplate-validao-de-email-deveria-exibir-erro-quando-o-email-for-invlido",
+      "name": "RecoverPasswordTemplate Validação de Email Deveria exibir erro quando o email for inválido",
+      "status": "passed",
+      "duration_s": 0.06383850799999982,
+      "file": "RecoverPasswordTemplate.spec.ts",
+      "tags": [],
+      "error": null
+    },
+    {
+      "id": "RecoverPasswordTemplate.spec:recoverpasswordtemplate-validao-de-email-deveria-aceitar-um-email-vlido-sem-exibir-erros",
+      "name": "RecoverPasswordTemplate Validação de Email Deveria aceitar um email válido sem exibir erros",
+      "status": "passed",
+      "duration_s": 0.04290613699999994,
+      "file": "RecoverPasswordTemplate.spec.ts",
+      "tags": [],
+      "error": null
+    },
+    {
+      "id": "RecoverPasswordTemplate.spec:recoverpasswordtemplate-submit-do-formulrio-deveria-chamar-a-funo-onsubmit-quando-o-formulrio-for-submetido",
+      "name": "RecoverPasswordTemplate Submit do Formulário Deveria chamar a função onSubmit quando o formulário for submetido",
+      "status": "passed",
+      "duration_s": 0.0736830259999997,
+      "file": "RecoverPasswordTemplate.spec.ts",
+      "tags": [],
+      "error": null
+    },
+    {
+      "id": "RecoverPasswordTemplate.spec:recoverpasswordtemplate-texto-do-boto-deveria-exibir-enviar-instrues-quando-no-estiver-carregando",
+      "name": "RecoverPasswordTemplate Texto do Botão Deveria exibir \"Enviar instruções\" quando não estiver carregando",
+      "status": "passed",
+      "duration_s": 0.08706239600000026,
+      "file": "RecoverPasswordTemplate.spec.ts",
+      "tags": [],
+      "error": null
+    },
+    {
+      "id": "RecoverPasswordTemplate.spec:recoverpasswordtemplate-link-de-navegao-deveria-renderizar-o-link-para-voltar-ao-login",
+      "name": "RecoverPasswordTemplate Link de Navegação Deveria renderizar o link para voltar ao login",
+      "status": "passed",
+      "duration_s": 0.03768562199999997,
+      "file": "RecoverPasswordTemplate.spec.ts",
+      "tags": [],
+      "error": null
+    },
+    {
+      "id": "ProfileTemplate.spec:profiletemplate-deveria-renderizar-o-componente-quando-os-dados-do-usurio-esto-disponveis",
+      "name": "ProfileTemplate Deveria renderizar o componente quando os dados do usuário estão disponíveis",
+      "status": "passed",
+      "duration_s": 0.4119853969999995,
+      "file": "ProfileTemplate.spec.ts",
+      "tags": [],
+      "error": null
+    },
+    {
+      "id": "ProfileTemplate.spec:profiletemplate-deveria-ser-possvel-visualizar-os-dados-do-usurios-no-perfil",
+      "name": "ProfileTemplate Deveria ser possível visualizar os dados do usuários no perfil",
+      "status": "passed",
+      "duration_s": 0.06825744599999962,
+      "file": "ProfileTemplate.spec.ts",
+      "tags": [],
+      "error": null
+    },
+    {
+      "id": "ProfileTemplate.spec:profiletemplate-deveria-ser-possvel-visualizar-o-erro-de-validao-quando-o-nome-completo-est-vazio",
+      "name": "ProfileTemplate Deveria ser possível visualizar o erro de validação quando o nome completo está vazio",
+      "status": "passed",
+      "duration_s": 0.24608152700000027,
+      "file": "ProfileTemplate.spec.ts",
+      "tags": [],
+      "error": null
+    },
+    {
+      "id": "ProfileTemplate.spec:profiletemplate-deveria-ser-possvel-visualizar-o-erro-de-validao-quando-o-telefone-estiver-vazio",
+      "name": "ProfileTemplate Deveria ser possível visualizar o erro de validação quando o telefone estiver vazio",
+      "status": "passed",
+      "duration_s": 0.1881665010000006,
+      "file": "ProfileTemplate.spec.ts",
+      "tags": [],
+      "error": null
+    },
+    {
+      "id": "ProfileTemplate.spec:profiletemplate-deveria-ser-possvel-visualizar-o-erro-de-validao-quando-o-telefone-estiver-invlido",
+      "name": "ProfileTemplate Deveria ser possível visualizar o erro de validação quando o telefone estiver inválido",
+      "status": "passed",
+      "duration_s": 0.11247169100000065,
+      "file": "ProfileTemplate.spec.ts",
+      "tags": [],
+      "error": null
+    },
+    {
+      "id": "ProfileTemplate.spec:profiletemplate-deveria-ser-possvel-visualizar-o-erro-de-validao-quando-o-telefone-tiver-menos-de-10-dgitos",
+      "name": "ProfileTemplate Deveria ser possível visualizar o erro de validação quando o telefone tiver menos de 10 dígitos",
+      "status": "passed",
+      "duration_s": 0.09714556900000025,
+      "file": "ProfileTemplate.spec.ts",
+      "tags": [],
+      "error": null
+    },
+    {
+      "id": "ProfileTemplate.spec:profiletemplate-deveria-ser-possvel-visualizar-o-erro-de-validao-quando-o-telefone-tiver-mais-de-11-dgitos",
+      "name": "ProfileTemplate Deveria ser possível visualizar o erro de validação quando o telefone tiver mais de 11 dígitos",
+      "status": "passed",
+      "duration_s": 0.04877286999999887,
+      "file": "ProfileTemplate.spec.ts",
+      "tags": [],
+      "error": null
+    },
+    {
+      "id": "ProfileTemplate.spec:profiletemplate-deveria-usar-os-dados-do-usurio-passado-via-props-quando-propsuser-um-objeto",
+      "name": "ProfileTemplate Deveria usar os dados do usuário passado via props quando props.user é um objeto",
+      "status": "passed",
+      "duration_s": 0.06116614799999843,
+      "file": "ProfileTemplate.spec.ts",
+      "tags": [],
+      "error": null
+    },
+    {
+      "id": "ProfileTemplate.spec:profiletemplate-deveria-usar-o-primeiro-elemento-do-array-quando-propsuser-um-array",
+      "name": "ProfileTemplate Deveria usar o primeiro elemento do array quando props.user é um array",
+      "status": "passed",
+      "duration_s": 0.041159373000000415,
+      "file": "ProfileTemplate.spec.ts",
+      "tags": [],
+      "error": null
+    },
+    {
+      "id": "RegisterTemplate.spec:registertemplate-renderizao-deveria-renderizar-o-componente-corretamente",
+      "name": "RegisterTemplate Renderização Deveria renderizar o componente corretamente",
+      "status": "passed",
+      "duration_s": 0.31152963399999956,
+      "file": "RegisterTemplate.spec.ts",
+      "tags": [],
+      "error": null
+    },
+    {
+      "id": "RegisterTemplate.spec:registertemplate-renderizao-deveria-renderizar-todos-os-campos-do-formulrio",
+      "name": "RegisterTemplate Renderização Deveria renderizar todos os campos do formulário",
+      "status": "passed",
+      "duration_s": 0.11799211000000014,
+      "file": "RegisterTemplate.spec.ts",
+      "tags": [],
+      "error": null
+    },
+    {
+      "id": "RegisterTemplate.spec:registertemplate-preenchimento-de-campos-deveria-ser-possvel-preencher-todos-os-campos-do-formulrio",
+      "name": "RegisterTemplate Preenchimento de Campos Deveria ser possível preencher todos os campos do formulário",
+      "status": "passed",
+      "duration_s": 0.16293933800000013,
+      "file": "RegisterTemplate.spec.ts",
+      "tags": [],
+      "error": null
+    },
+    {
+      "id": "RegisterTemplate.spec:registertemplate-validao-de-campos-obrigatrios-deveria-exibir-erro-quando-o-campo-nome-completo-estiver-vazio",
+      "name": "RegisterTemplate Validação de Campos Obrigatórios Deveria exibir erro quando o campo Nome Completo estiver vazio",
+      "status": "passed",
+      "duration_s": 0.42186380199999984,
+      "file": "RegisterTemplate.spec.ts",
+      "tags": [],
+      "error": null
+    },
+    {
+      "id": "RegisterTemplate.spec:registertemplate-validao-de-campos-obrigatrios-deveria-exibir-erro-quando-o-campo-cpfcnpj-estiver-vazio",
+      "name": "RegisterTemplate Validação de Campos Obrigatórios Deveria exibir erro quando o campo CPF/CNPJ estiver vazio",
+      "status": "passed",
+      "duration_s": 0.19058671799999866,
+      "file": "RegisterTemplate.spec.ts",
+      "tags": [],
+      "error": null
+    },
+    {
+      "id": "RegisterTemplate.spec:registertemplate-validao-de-campos-obrigatrios-deveria-exibir-erro-quando-o-campo-email-estiver-vazio",
+      "name": "RegisterTemplate Validação de Campos Obrigatórios Deveria exibir erro quando o campo Email estiver vazio",
+      "status": "passed",
+      "duration_s": 0.13025590700000067,
+      "file": "RegisterTemplate.spec.ts",
+      "tags": [],
+      "error": null
+    },
+    {
+      "id": "RegisterTemplate.spec:registertemplate-validao-de-campos-obrigatrios-deveria-exibir-erro-quando-o-campo-senha-estiver-vazio",
+      "name": "RegisterTemplate Validação de Campos Obrigatórios Deveria exibir erro quando o campo Senha estiver vazio",
+      "status": "passed",
+      "duration_s": 0.12135683999999855,
+      "file": "RegisterTemplate.spec.ts",
+      "tags": [],
+      "error": null
+    },
+    {
+      "id": "RegisterTemplate.spec:registertemplate-validao-de-campos-obrigatrios-deveria-exibir-erro-quando-o-campo-confirmar-senha-estiver-vazio",
+      "name": "RegisterTemplate Validação de Campos Obrigatórios Deveria exibir erro quando o campo Confirmar Senha estiver vazio",
+      "status": "passed",
+      "duration_s": 0.13111187699999938,
+      "file": "RegisterTemplate.spec.ts",
+      "tags": [],
+      "error": null
+    },
+    {
+      "id": "RegisterTemplate.spec:registertemplate-validao-de-nome-completo-deveria-exibir-erro-quando-o-nome-completo-no-tiver-sobrenome",
+      "name": "RegisterTemplate Validação de Nome Completo Deveria exibir erro quando o Nome Completo não tiver sobrenome",
+      "status": "passed",
+      "duration_s": 0.1385721229999999,
+      "file": "RegisterTemplate.spec.ts",
+      "tags": [],
+      "error": null
+    },
+    {
+      "id": "RegisterTemplate.spec:registertemplate-validao-de-cpfcnpj-deveria-exibir-erro-quando-o-cpf-for-invlido",
+      "name": "RegisterTemplate Validação de CPF/CNPJ Deveria exibir erro quando o CPF for inválido",
+      "status": "passed",
+      "duration_s": 0.14351788900000065,
+      "file": "RegisterTemplate.spec.ts",
+      "tags": [],
+      "error": null
+    },
+    {
+      "id": "RegisterTemplate.spec:registertemplate-validao-de-cpfcnpj-deveria-exibir-erro-quando-o-cnpj-for-invlido",
+      "name": "RegisterTemplate Validação de CPF/CNPJ Deveria exibir erro quando o CNPJ for inválido",
+      "status": "passed",
+      "duration_s": 0.17460521199999857,
+      "file": "RegisterTemplate.spec.ts",
+      "tags": [],
+      "error": null
+    },
+    {
+      "id": "RegisterTemplate.spec:registertemplate-validao-de-cpfcnpj-deveria-limpar-o-campo-documento-ao-mudar-o-tipo-de-documento",
+      "name": "RegisterTemplate Validação de CPF/CNPJ Deveria limpar o campo documento ao mudar o tipo de documento",
+      "status": "passed",
+      "duration_s": 0.1291362599999993,
+      "file": "RegisterTemplate.spec.ts",
+      "tags": [],
+      "error": null
+    },
+    {
+      "id": "RegisterTemplate.spec:registertemplate-validao-de-telefone-deveria-exibir-erro-quando-o-telefone-contiver-letras",
+      "name": "RegisterTemplate Validação de Telefone Deveria exibir erro quando o telefone contiver letras",
+      "status": "passed",
+      "duration_s": 0.13270624399999906,
+      "file": "RegisterTemplate.spec.ts",
+      "tags": [],
+      "error": null
+    },
+    {
+      "id": "RegisterTemplate.spec:registertemplate-validao-de-telefone-deveria-exibir-erro-quando-o-telefone-tiver-menos-de-10-dgitos",
+      "name": "RegisterTemplate Validação de Telefone Deveria exibir erro quando o telefone tiver menos de 10 dígitos",
+      "status": "passed",
+      "duration_s": 0.11367521300000044,
+      "file": "RegisterTemplate.spec.ts",
+      "tags": [],
+      "error": null
+    },
+    {
+      "id": "RegisterTemplate.spec:registertemplate-validao-de-telefone-deveria-exibir-erro-quando-o-telefone-tiver-mais-de-11-dgitos",
+      "name": "RegisterTemplate Validação de Telefone Deveria exibir erro quando o telefone tiver mais de 11 dígitos",
+      "status": "passed",
+      "duration_s": 0.12718036399999982,
+      "file": "RegisterTemplate.spec.ts",
+      "tags": [],
+      "error": null
+    },
+    {
+      "id": "RegisterTemplate.spec:registertemplate-validao-de-email-deveria-exibir-erro-quando-o-email-for-invlido",
+      "name": "RegisterTemplate Validação de Email Deveria exibir erro quando o email for inválido",
+      "status": "passed",
+      "duration_s": 0.09590789399999994,
+      "file": "RegisterTemplate.spec.ts",
+      "tags": [],
+      "error": null
+    },
+    {
+      "id": "RegisterTemplate.spec:registertemplate-validao-de-senha-deveria-exibir-erro-quando-a-senha-comear-com-espao",
+      "name": "RegisterTemplate Validação de Senha Deveria exibir erro quando a senha começar com espaço",
+      "status": "passed",
+      "duration_s": 0.06834025199999996,
+      "file": "RegisterTemplate.spec.ts",
+      "tags": [],
+      "error": null
+    },
+    {
+      "id": "RegisterTemplate.spec:registertemplate-validao-de-senha-deveria-exibir-erro-quando-a-senha-tiver-menos-de-6-caracteres",
+      "name": "RegisterTemplate Validação de Senha Deveria exibir erro quando a senha tiver menos de 6 caracteres",
+      "status": "passed",
+      "duration_s": 0.09769378199999847,
+      "file": "RegisterTemplate.spec.ts",
+      "tags": [],
+      "error": null
+    },
+    {
+      "id": "RegisterTemplate.spec:registertemplate-validao-de-senha-deveria-exibir-erro-quando-a-senha-tiver-mais-de-20-caracteres",
+      "name": "RegisterTemplate Validação de Senha Deveria exibir erro quando a senha tiver mais de 20 caracteres",
+      "status": "passed",
+      "duration_s": 0.1039615159999994,
+      "file": "RegisterTemplate.spec.ts",
+      "tags": [],
+      "error": null
+    },
+    {
+      "id": "RegisterTemplate.spec:registertemplate-validao-de-senha-deveria-exibir-erro-quando-as-senhas-no-coincidirem",
+      "name": "RegisterTemplate Validação de Senha Deveria exibir erro quando as senhas não coincidirem",
+      "status": "passed",
+      "duration_s": 0.1203901480000004,
+      "file": "RegisterTemplate.spec.ts",
+      "tags": [],
+      "error": null
+    },
+    {
+      "id": "RegisterTemplate.spec:registertemplate-submit-do-formulrio-deveria-chamar-a-funo-onsubmit-quando-o-formulrio-for-submetido",
+      "name": "RegisterTemplate Submit do Formulário Deveria chamar a função onSubmit quando o formulário for submetido",
+      "status": "passed",
+      "duration_s": 0.08349469500000123,
+      "file": "RegisterTemplate.spec.ts",
+      "tags": [],
+      "error": null
+    },
+    {
+      "id": "RegisterTemplate.spec:registertemplate-placeholder-dinmico-deveria-exibir-placeholder-de-cpf-quando-doctype-for-cpf",
+      "name": "RegisterTemplate Placeholder Dinâmico Deveria exibir placeholder de CPF quando doc_type for cpf",
+      "status": "passed",
+      "duration_s": 0.04932781699999941,
+      "file": "RegisterTemplate.spec.ts",
+      "tags": [],
+      "error": null
+    },
+    {
+      "id": "RegisterTemplate.spec:registertemplate-placeholder-dinmico-deveria-exibir-placeholder-de-cnpj-quando-doctype-for-cnpj",
+      "name": "RegisterTemplate Placeholder Dinâmico Deveria exibir placeholder de CNPJ quando doc_type for cnpj",
+      "status": "passed",
+      "duration_s": 0.044282796999999846,
+      "file": "RegisterTemplate.spec.ts",
+      "tags": [],
+      "error": null
+    },
+    {
+      "id": "RegisterTemplate.spec:registertemplate-texto-do-boto-deveria-exibir-cadastrar-quando-no-estiver-carregando",
+      "name": "RegisterTemplate Texto do Botão Deveria exibir \"Cadastrar\" quando não estiver carregando",
+      "status": "passed",
+      "duration_s": 0.03600374499999998,
+      "file": "RegisterTemplate.spec.ts",
+      "tags": [],
+      "error": null
+    },
+    {
+      "id": "ListUsersTemplate.spec:listuserstemplate-deveria-ser-possivel-visualizar-o-componente",
+      "name": "ListUsersTemplate Deveria ser possivel visualizar o componente",
+      "status": "passed",
+      "duration_s": 0.3643589389999997,
+      "file": "ListUsersTemplate.spec.ts",
+      "tags": [],
+      "error": null
+    },
+    {
+      "id": "ListUsersTemplate.spec:listuserstemplate-deveria-ser-possivel-visualizar-todos-os-elementos-do-componente",
+      "name": "ListUsersTemplate Deveria ser possivel visualizar todos os elementos do componente",
+      "status": "passed",
+      "duration_s": 0.06989702000000034,
+      "file": "ListUsersTemplate.spec.ts",
+      "tags": [],
+      "error": null
+    },
+    {
+      "id": "ListUsersTemplate.spec:listuserstemplate-deveria-ser-possvel-selecionar-um-usurio",
+      "name": "ListUsersTemplate Deveria ser possível selecionar um usuário",
+      "status": "passed",
+      "duration_s": 0.07192037100000016,
+      "file": "ListUsersTemplate.spec.ts",
+      "tags": [],
+      "error": null
+    },
+    {
+      "id": "ListUsersTemplate.spec:listuserstemplate-deveria-ser-possvel-selecionar-todos-os-usurios",
+      "name": "ListUsersTemplate Deveria ser possível selecionar todos os usuários",
+      "status": "passed",
+      "duration_s": 0.09545056000000023,
+      "file": "ListUsersTemplate.spec.ts",
+      "tags": [],
+      "error": null
+    },
+    {
+      "id": "ListUsersTemplate.spec:listuserstemplate-deveria-limpar-a-seleo-quando-desmarcar-o-checkbox-selecionar-todos-else-do-toggleselectall",
+      "name": "ListUsersTemplate Deveria limpar a seleção quando desmarcar o checkbox \"selecionar todos\" (else do toggleSelectAll)",
+      "status": "passed",
+      "duration_s": 0.17277576599999975,
+      "file": "ListUsersTemplate.spec.ts",
+      "tags": [],
+      "error": null
+    },
+    {
+      "id": "ListUsersTemplate.spec:listuserstemplate-deveria-limpar-a-seleo-quando-toggleselectall-chamado-com-selectall-false-else-do-toggleselectall",
+      "name": "ListUsersTemplate Deveria limpar a seleção quando toggleSelectAll é chamado com selectAll false (else do toggleSelectAll)",
+      "status": "passed",
+      "duration_s": 0.28252878899999906,
+      "file": "ListUsersTemplate.spec.ts",
+      "tags": [],
+      "error": null
+    },
+    {
+      "id": "ListUsersTemplate.spec:listuserstemplate-deveria-limpar-a-seleo-quando-toggleselectall-chamado-sem-loggedinuser-else-do-toggleselectall---caso-loggedinuser-null",
+      "name": "ListUsersTemplate Deveria limpar a seleção quando toggleSelectAll é chamado sem loggedInUser (else do toggleSelectAll - caso loggedInUser null)",
+      "status": "passed",
+      "duration_s": 0.14221036100000128,
+      "file": "ListUsersTemplate.spec.ts",
+      "tags": [],
+      "error": null
+    },
+    {
+      "id": "ListUsersTemplate.spec:listuserstemplate-deveria-ser-possvel-excluir-um-usurio",
+      "name": "ListUsersTemplate Deveria ser possível excluir um usuário",
+      "status": "passed",
+      "duration_s": 0.14800295899999946,
+      "file": "ListUsersTemplate.spec.ts",
+      "tags": [],
+      "error": null
+    },
+    {
+      "id": "ListUsersTemplate.spec:listuserstemplate-deveria-ser-possvel-ver-a-mensagem-de-erro-ao-tentar-excluir-um-usurio",
+      "name": "ListUsersTemplate Deveria ser possível ver a mensagem de erro ao tentar excluir um usuário",
+      "status": "passed",
+      "duration_s": 0.13620208199999978,
+      "file": "ListUsersTemplate.spec.ts",
+      "tags": [],
+      "error": null
+    },
+    {
+      "id": "ListUsersTemplate.spec:listuserstemplate-deveria-ser-possvel-usar-os-dados-do-usurio-passado-via-props-quando-propsuser-um-objeto",
+      "name": "ListUsersTemplate Deveria ser possível usar os dados do usuário passado via props quando props.user é um objeto",
+      "status": "passed",
+      "duration_s": 0.022117336999999678,
+      "file": "ListUsersTemplate.spec.ts",
+      "tags": [],
+      "error": null
+    },
+    {
+      "id": "ListUsersTemplate.spec:listuserstemplate-deveria-ser-possvel-usar-o-primeiro-elemento-do-array-quando-propsuser-um-array",
+      "name": "ListUsersTemplate Deveria ser possível usar o primeiro elemento do array quando props.user é um array",
+      "status": "passed",
+      "duration_s": 0.016391266000000543,
+      "file": "ListUsersTemplate.spec.ts",
+      "tags": [],
+      "error": null
+    }
+  ],
+  "metadata": {
+    "startTime": 1763768174655
+  }
+}

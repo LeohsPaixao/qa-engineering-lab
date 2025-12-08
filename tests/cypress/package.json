@@ -1,6 +1,6 @@
 {
   "name": "cypress-ui-tests",
-  "version": "2.1.0",
+  "version": "2.1.1",
   "description": "Project Tests Cypress",
   "author": "Leonardo Paixao <leonardohspaixao@gmail.com>",
   "license": "MIT",
@@ -8,10 +8,10 @@
   "scripts": {
     "test": "yarn cy:component:run && yarn cy:e2e:run",
     "cy:open": "yarn cy:clean && npx cypress open --config-file cypress.config.ts",
-    "cy:clean": "rimraf .nyc_output && rimraf coverage",
+    "cy:clean": "rimraf .nyc_output && rimraf coverage && rimraf tests/misc/*",
     "cy:coverage": "c8 report --temp-directory=.nyc_output --reporter=html --reporter=text-summary",
-    "cy:e2e:run": "yarn cy:clean && npx cypress run --browser chrome --config-file cypress.config.ts",
-    "cy:component:run": "yarn cy:clean && npx cypress run --component --browser chrome --config-file cypress.config.ts",
+    "cy:e2e:run": "npx cypress run --config-file cypress.config.ts",
+    "cy:component:run": "npx cypress run --component --config-file cypress.config.ts",
     "lint": "eslint --fix"
   },
   "dependencies": {
@@ -35,8 +35,22 @@
     "eslint-config-prettier": "10.1.5",
     "eslint-plugin-cypress": "4.1.0",
     "eslint-plugin-import": "2.31.0",
+    "mocha": "11.7.5",
+    "mochawesome": "7.1.4",
+    "mochawesome-merge": "5.0.0",
+    "mochawesome-report-generator": "6.3.2",
     "rimraf": "6.0.1",
     "typescript": "5.8.3",
     "webpack": "5.97.1"
+  },
+  "workspaces": {
+    "nohoist": [
+      "**/mochawesome",
+      "**/mochawesome/**",
+      "**/mochawesome-merge",
+      "**/mochawesome-merge/**",
+      "**/mochawesome-report-generator",
+      "**/mochawesome-report-generator/**"
+    ]
   }
 }

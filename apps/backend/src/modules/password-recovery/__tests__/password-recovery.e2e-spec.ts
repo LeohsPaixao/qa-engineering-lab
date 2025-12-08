@@ -2,7 +2,7 @@ import { faker } from '@faker-js/faker';
 import { INestApplication } from '@nestjs/common';
 import { Test, TestingModule } from '@nestjs/testing';
 import { User } from '@prisma/client';
-import * as request from 'supertest';
+import request from 'supertest';
 import { AppModule } from '../../../app.module';
 import { generateValidCPF } from '../../../utils/generatedValidCPF';
 import { PrismaService } from '../../prisma/prisma.service';

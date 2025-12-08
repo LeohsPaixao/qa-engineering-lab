@@ -1,16 +1,26 @@
 {
-  "$schema": "https://json.schemastore.org/tsconfig",
-  "extends": [
-    "../node_modules/@docusaurus/tsconfig/tsconfig.json",
-    "../node_modules/@tsconfig/node22/tsconfig.json"
-  ],
   "compilerOptions": {
-    "allowJs": true,
-    "esModuleInterop": true,
-    "noEmit": true,
-    "noImplicitAny": false,
+    "jsx": "react-jsx",
     "baseUrl": ".",
-    "jsx": "react",
+    "outDir": "./dist",
+    "target": "ES2021",
+    "module": "ESNext",
+    "moduleResolution": "bundler",
+    "allowJs": true,
+    "sourceMap": true,
+    "declaration": true,
+    "incremental": true,
+    "skipLibCheck": true,
+    "noImplicitAny": true,
+    "removeComments": true,
+    "esModuleInterop": true,
+    "strictNullChecks": true,
+    "strictBindCallApply": false,
+    "emitDecoratorMetadata": true,
+    "experimentalDecorators": true,
+    "noFallthroughCasesInSwitch": true,
+    "allowSyntheticDefaultImports": true,
+    "forceConsistentCasingInFileNames": true,
     "lib": [
       "DOM"
     ],
@@ -24,5 +34,10 @@
         "./*"
       ]
     }
-  }
+  },
+  "include": [
+    "src/**/*.ts",
+    "src/**/*.d.ts",
+    "src/**/*.tsx"
+  ]
 }

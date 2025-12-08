@@ -7,7 +7,7 @@ test.describe('Tela de Cadastro de Usuários', {
 }, () => {
 
   test.beforeEach(async ({ page }) => {
-    await page.goto('/signup')
+    await page.goto('/signup');
   });
 
   test('Deveria ser possivel visualizar os elementos da tela de cadastro', async ({ page }) => {
@@ -27,10 +27,10 @@ test.describe('Tela de Cadastro de Usuários', {
     await page.locator('[data-testid="input-document"]').fill('123.456.789-10');
     await page.locator('[data-testid="input-document"]').blur();
     await expect(page.locator('[data-testid="input-error-cpfcnpj"]')).toHaveText('CPF inválido.');
-  })
+  });
 
   test('Não deveria ser possivel criar o usuário com o CNPJ inválido', async ({ page }) => {
-    await page.locator('[data-testid="select-document-type"]').selectOption('cnpj')
+    await page.locator('[data-testid="select-document-type"]').selectOption('cnpj');
     await page.locator('[data-testid="input-document"]').fill('12.456.789/1110-60');
     await page.locator('[data-testid="input-document"]').blur();
     await expect(page.locator('[data-testid="input-error-cpfcnpj"]')).toHaveText('CNPJ inválido.');
@@ -102,7 +102,7 @@ test.describe('Tela de Cadastro de Usuários', {
   });
 
   test('Deveria ser possivel cadastrar um usuário', async ({ page }) => {
-    const cpf = generateValidCPF()
+    const cpf = generateValidCPF();
 
     await page.locator('[data-testid="input-fullname"]').fill(faker.person.fullName({ lastName: 'Teste' }));
     await page.locator('[data-testid="input-socialname"]').fill(faker.person.middleName());
@@ -113,8 +113,8 @@ test.describe('Tela de Cadastro de Usuários', {
     await page.locator('[data-testid="input-password-confirmation"]').fill('123456');
     await page.locator('[data-testid="btn-register"]').click();
 
-    const toast = page.locator('[data-testid="toast-content"]')
-    await toast.waitFor({ state: 'visible' })
+    const toast = page.locator('[data-testid="toast-content"]');
+    await toast.waitFor({ state: 'visible' });
     await expect(toast).toHaveText('Usuário criado com sucesso!');
   });
 
@@ -123,4 +123,4 @@ test.describe('Tela de Cadastro de Usuários', {
     await expect(page.locator('[data-testid="form-login"]')).toBeVisible();
     await expect(page.locator('[data-testid="btn-login"]')).toBeVisible();
   });
-})
+});

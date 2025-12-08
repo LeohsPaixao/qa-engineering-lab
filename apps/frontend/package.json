@@ -1,20 +1,20 @@
 {
   "name": "frontend",
-  "version": "2.0.3",
+  "version": "2.0.4",
   "description": "frontend for QA Solar Project",
   "author": "Leonardo Paixao <leonardohspaixao@gmail.com>",
   "license": "MIT",
   "type": "module",
   "private": true,
   "scripts": {
-    "dev": "rimraf dist && vite --host 127.0.0.1",
-    "build": "rimraf dist && vite build",
-    "preview": "vite preview",
+    "dev": "vite --host 127.0.0.1",
+    "start": "yarn build && yarn dev",
+    "build": "rimraf dist && vue-tsc -b && vite build",
     "type-check": "vue-tsc --noEmit",
     "test": "vitest run",
     "test:coverage": "vitest run --coverage",
-    "lint": "eslint --fix",
-    "format": "prettier --write src/"
+    "lint": "eslint --fix \"src/**/*.{js,ts,vue}\"",
+    "format": "prettier --write \"src/**/*.{js,ts,vue}\""
   },
   "dependencies": {
     "@jamescoyle/vue-icon": "0.1.2",
@@ -24,7 +24,6 @@
     "axios": "1.8.3",
     "dotenv": "16.4.5",
     "prettier": "3.3.3",
-    "typescript": "5.8.3",
     "vee-validate": "4.15.1",
     "vue": "3.5.12",
     "vue-router": "4.4.5",
@@ -41,7 +40,7 @@
     "@vue/eslint-config-prettier": "10.1.0",
     "@vue/eslint-config-typescript": "14.5.0",
     "@vue/test-utils": "2.4.6",
-    "@vue/tsconfig": "0.5.1",
+    "@vue/tsconfig": "0.8.1",
     "c8": "10.1.3",
     "eslint": "9.20.0",
     "eslint-plugin-vue": "10.2.0",
@@ -54,6 +53,7 @@
     "vite-plugin-vue-devtools": "7.5.4",
     "vitest": "3.2.4",
     "vue-eslint-parser": "10.1.3",
-    "vue-tsc": "2.1.10"
+    "vue-tsc": "3.1.4",
+    "typescript": "5.8.3"
   }
 }

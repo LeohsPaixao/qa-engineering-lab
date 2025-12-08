@@ -1,0 +1,78 @@
+on:
+  workflow_call:
+
+permissions:
+  contents: write
+
+jobs:
+  deploy:
+    name: Deploy Pages
+    runs-on: ubuntu-latest
+    timeout-minutes: 10
+    env:
+      TURBO_TELEMETRY_DISABLED: 1
+
+    steps:
+      - name: Checkout repo
+        uses: actions/checkout@v4
+        with:
+          fetch-depth: 0
+
+      - name: Setup Node.js
+        uses: actions/setup-node@v4.4.0
+        with:
+          node-version: 22.19.0
+          cache: "yarn"
+
+      - name: Instalar dependências do Monorepo
+        run: yarn install --frozen-lockfile
+
+      - name: Baixar resultados processados do Preprocessamento
+        uses: actions/download-artifact@v6.0.0
+        with:
+          name: qa-results
+          path: qa-results/processed
+
+      - name: Sincronizar resultados processados com o Dashboard
+        run: |
+          rm -rf apps/dashboard/public/qa-results/processed
+          cp -R qa-results/processed apps/dashboard/public/qa-results/processed
+
+      - name: Construir site do Docusaurus
+        run: yarn workspace docs build
+
+      - name: Construir Dashboard
+        run: yarn workspace dashboard build
+
+      - name: Criar redirecionamento para a página inicial
+        run: |
+          rm -rf public
+          mkdir -p public
+          cat <<EOF > public/index.html
+          <!DOCTYPE html>
+          <html>
+            <head>
+              <meta charset="UTF-8" />
+              <meta http-equiv="refresh" content="0; url=/qa-solar/docs/" />
+              <script>
+                location.replace('/qa-solar/docs/');
+              </script>
+            </head>
+            <body></body>
+          </html>
+          EOF
+
+      - name: Preparar pasta public
+        run: |
+          mkdir -p public/docs
+          mkdir -p public/dashboard
+
+          cp -R docs/build/* public/docs/
+          cp -R apps/dashboard/dist/* public/dashboard/
+
+      - name: Deploy para GitHub Pages
+        uses: peaceiris/actions-gh-pages@v4
+        with:
+          github_token: ${{ secrets.GITHUB_TOKEN }}
+          publish_dir: public
+          publish_branch: gh-pages

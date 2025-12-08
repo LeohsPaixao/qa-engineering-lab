@@ -14,7 +14,6 @@ module.exports = {
     'prettier': prettier,
   },
   rules: {
-    '@typescript-eslint/interface-name-prefix': 'off',
     '@typescript-eslint/no-unused-vars': ['error', { 'argsIgnorePattern': '^_' }],
     'prettier/prettier': ['error', {}, { 'usePrettierrc': true }],
     'no-console': ['warn', { allow: ['warn', 'error'] }],

@@ -43,3 +43,9 @@ jobs:
         env:
           DATABASE_URL: postgresql://postgres:postgres@localhost:5432/tests_base?schema=public
           JWT_SECRET: jwt_secret
+
+      - name: Upload raw results (Jest)
+        uses: actions/upload-artifact@v4.4.0
+        with:
+          name: jest
+          path: qa-results/raw/jest

@@ -1,5 +1,11 @@
 # docs
 
+## 1.1.0
+
+### Minor Changes
+
+- 25e4784: docs: adiciona documentação completa do Dashboard e atualiza página inicial com novos ícones SVG
+
 ## 1.0.1
 
 ### Patch Changes

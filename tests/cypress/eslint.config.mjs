@@ -23,6 +23,7 @@ export default {
     cypress: eslintPluginCypress,
   },
   rules: {
+    ...eslintPluginCypress.configs['recommended'].rules,
     '@typescript-eslint/no-empty-function': 'off',
     '@typescript-eslint/no-namespace': 'off',
     '@typescript-eslint/no-var-requires': 'off',
@@ -31,6 +32,7 @@ export default {
     'no-shadow': 'off',
     'no-empty-function': 'off',
     'cypress/assertion-before-screenshot': 'warn',
+    'cypress/unsafe-to-chain-command': 'off',
     'cypress/no-force': 'warn',
     'cypress/no-pause': 'error',
   }

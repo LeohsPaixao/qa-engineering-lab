@@ -8,103 +8,72 @@ on:
   workflow_dispatch:
 
 jobs:
-  filter:
-    name: Filtrar arquivos alterados
-    runs-on: ubuntu-latest
-    outputs:
-      docs: ${{ steps.filter.outputs.docs }}
-      backend: ${{ steps.filter.outputs.backend }}
-      frontend: ${{ steps.filter.outputs.frontend }}
-      cypress-component-tests: ${{ steps.filter.outputs.cypress-component-tests }}
-    steps:
-      - name: Filtrar arquivos alterados
-        id: filter
-        uses: dorny/paths-filter@v2
-        with:
-          filters: |
-            docs:
-              - 'docs/**'
-            backend:
-              - 'apps/backend/**'
-            frontend:
-              - 'apps/frontend/**'
-            cypress-component-tests:
-              - 'tests/cypress/tests/component/**'
-
   backend-unit-tests:
-    needs: [filter]
-    if: needs.filter.outputs.backend == 'true'
     uses: ./.github/workflows/backend.yml
 
   frontend-unit-tests:
-    needs: [filter]
-    if: needs.filter.outputs.frontend == 'true'
     uses: ./.github/workflows/frontend.yml
 
   cypress-component-tests:
-    needs: [filter]
-    if: needs.filter.outputs.cypress-component-tests == 'true'
     uses: ./.github/workflows/cypress-component.yml
 
   cypress-tests:
-    needs: [filter, backend-unit-tests, frontend-unit-tests, cypress-component-tests]
+    needs: [backend-unit-tests, frontend-unit-tests, cypress-component-tests]
     if: >-
       always() &&
-      (needs.backend-unit-tests.result == 'success' || needs.backend-unit-tests.result == 'skipped') &&
-      (needs.frontend-unit-tests.result == 'success' || needs.frontend-unit-tests.result == 'skipped') &&
-      (needs.cypress-component-tests.result == 'success' || needs.cypress-component-tests.result == 'skipped')
+      (needs.backend-unit-tests.result == 'success' &&
+      needs.frontend-unit-tests.result == 'success' &&
+      needs.cypress-component-tests.result == 'success')
     uses: ./.github/workflows/cypress.yml
 
   playwright-tests:
-    needs: [filter, backend-unit-tests, frontend-unit-tests, cypress-component-tests]
+    needs: [backend-unit-tests, frontend-unit-tests, cypress-component-tests]
     if: >-
       always() &&
-      (needs.backend-unit-tests.result == 'success' || needs.backend-unit-tests.result == 'skipped') &&
-      (needs.frontend-unit-tests.result == 'success' || needs.frontend-unit-tests.result == 'skipped') &&
-      (needs.cypress-component-tests.result == 'success' || needs.cypress-component-tests.result == 'skipped')
+      (needs.backend-unit-tests.result == 'success' &&
+      needs.frontend-unit-tests.result == 'success' &&
+      needs.cypress-component-tests.result == 'success')
     uses: ./.github/workflows/playwright.yml
 
   robot-framework-tests:
-    needs: [filter, backend-unit-tests, frontend-unit-tests, cypress-component-tests]
+    needs: [backend-unit-tests, frontend-unit-tests, cypress-component-tests]
     if: >-
       always() &&
-      (needs.backend-unit-tests.result == 'success' || needs.backend-unit-tests.result == 'skipped') &&
-      (needs.frontend-unit-tests.result == 'success' || needs.frontend-unit-tests.result == 'skipped') &&
-      (needs.cypress-component-tests.result == 'success' || needs.cypress-component-tests.result == 'skipped')
+      (needs.backend-unit-tests.result == 'success' &&
+      needs.frontend-unit-tests.result == 'success' &&
+      needs.cypress-component-tests.result == 'success')
     uses: ./.github/workflows/robot.yml
 
   selenium-tests:
-    needs: [filter, backend-unit-tests, frontend-unit-tests, cypress-component-tests]
+    needs: [backend-unit-tests, frontend-unit-tests, cypress-component-tests]
     if: >-
       always() &&
-      (needs.backend-unit-tests.result == 'success' || needs.backend-unit-tests.result == 'skipped') &&
-      (needs.frontend-unit-tests.result == 'success' || needs.frontend-unit-tests.result == 'skipped') &&
-      (needs.cypress-component-tests.result == 'success' || needs.cypress-component-tests.result == 'skipped')
+      (needs.backend-unit-tests.result == 'success' &&
+      needs.frontend-unit-tests.result == 'success' &&
+      needs.cypress-component-tests.result == 'success')
     uses: ./.github/workflows/selenium.yml
 
-  docker-deploy:
-    if: github.base_ref == 'main'
+  preprocess:
     needs:
-      [
-        cypress-tests,
-        playwright-tests,
-        robot-framework-tests,
-        selenium-tests,
-      ]
+      [cypress-tests, playwright-tests, robot-framework-tests, selenium-tests]
+    if: >-
+      always() &&
+      (needs.cypress-tests.result == 'success' &&
+      needs.playwright-tests.result == 'success' &&
+      needs.robot-framework-tests.result == 'success' &&
+      needs.selenium-tests.result == 'success')
+    uses: ./.github/workflows/preprocess.yml
+
+  docker-deploy:
+    if: github.base_ref == 'main' && needs.preprocess.result == 'success'
+    needs: [preprocess]
     uses: ./.github/workflows/docker-deploy.yml
     secrets:
       DOCKERHUB_TOKEN: ${{ secrets.DOCKERHUB_TOKEN }}
 
-  docs-deploy:
-    needs:
-      [
-        filter,
-        cypress-tests,
-        playwright-tests,
-        robot-framework-tests,
-        selenium-tests,
-      ]
-    if: github.base_ref == 'main' && needs.filter.outputs.docs == 'true'
-    uses: ./.github/workflows/docs-deploy.yml
+  pages-deploy:
+    if: needs.preprocess.result == 'success'
+    needs: [preprocess]
+    uses: ./.github/workflows/pages-deploy.yml
     permissions:
       contents: write

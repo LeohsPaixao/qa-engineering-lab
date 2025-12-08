@@ -30,10 +30,8 @@ jobs:
         working-directory: apps/frontend
         run: yarn test
 
-      - name: Salvar relatórios de testes do Frontend
-        if: ${{ failure() }}
+      - name: Upload raw results (Vitest)
         uses: actions/upload-artifact@v4.4.0
         with:
-          name: frontend-tests
-          path: apps/frontend/coverage
-          retention-days: 7
+          name: vitest
+          path: qa-results/raw/vitest

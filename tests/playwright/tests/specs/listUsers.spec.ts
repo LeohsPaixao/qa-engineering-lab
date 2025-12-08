@@ -11,7 +11,7 @@ test.describe('Tela de listagem de Usuários', {
 
   test.beforeEach(async ({ page }) => {
     login(page, 'generic@example.com', '123456');
-    await page.goto('/listusers')
+    await page.goto('/listusers');
     await page.waitForURL('/listusers');
   });
 

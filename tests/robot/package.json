@@ -1,11 +1,11 @@
 {
   "name": "robot-framework-ui-tests",
-  "version": "2.0.2",
+  "version": "2.0.3",
   "description": "Project Tests Robot Framework",
   "author": "Leonardo Paixao <leonardohspaixao@gmail.com>",
   "license": "MIT",
   "private": true,
   "scripts": {
-    "test": "make test-all"
+    "test": "make test"
   }
 }

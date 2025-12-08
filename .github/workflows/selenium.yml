@@ -84,10 +84,8 @@ jobs:
         env:
           HEADLESS: true
 
-      - name: Salvar relatórios Selenium
-        if: ${{ failure() }}
+      - name: Upload raw results (Selenium E2E)
         uses: actions/upload-artifact@v4.4.0
         with:
-          name: selenium-tests
-          path: tests/selenium/build/reports/tests/test
-          retention-days: 7
+          name: selenium-e2e
+          path: qa-results/raw/selenium-e2e

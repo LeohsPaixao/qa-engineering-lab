@@ -46,7 +46,8 @@ describe('AppHeader Component', () => {
     cy.mount(AppHeader);
 
     cy.get('[data-testid="user-dropdown"]').click();
-    cy.get('[data-testid="dropdown-profile-update"]').trigger('mouseover').should('have.css', 'background-color', 'rgba(0, 0, 0, 0)');
+    cy.get('[data-testid="dropdown-profile-update"]').trigger('mouseover');
+    cy.get('[data-testid="dropdown-profile-update"]').should('have.css', 'background-color').and('eq', 'rgba(0, 0, 0, 0)');
   });
 
   it('Deveria ser possivel visualizar o estilo e o layout do header', () => {

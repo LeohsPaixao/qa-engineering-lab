@@ -3,7 +3,7 @@ import { INestApplication } from '@nestjs/common';
 import { Test, TestingModule } from '@nestjs/testing';
 import { User } from '@prisma/client';
 import * as jwt from 'jsonwebtoken';
-import * as request from 'supertest';
+import request from 'supertest';
 import { AppModule } from '../../../app.module';
 import { generateValidCPF } from '../../../utils/generatedValidCPF';
 import { PrismaService } from '../../prisma/prisma.service';
@@ -36,7 +36,8 @@ describe('Users', () => {
       },
     });
 
-    token = jwt.sign({ sub: createdUser.id }, process.env.JWT_SECRET);
+    const jwtSecret = process.env.JWT_SECRET as string;
+    token = jwt.sign({ sub: createdUser.id }, jwtSecret);
   });
 
   afterEach(() => {
@@ -172,7 +173,7 @@ describe('Users', () => {
     });
 
     test('Deve retornar 404 para usuário não encontrado', async () => {
-      jest.spyOn(prisma.user, 'update').mockResolvedValue(null);
+      jest.spyOn(prisma.user, 'update').mockResolvedValue(null as any);
 
       const response = await request(app.getHttpServer())
         .patch('/users/me')
@@ -196,7 +197,8 @@ describe('Users', () => {
       const userLogged = await request(app.getHttpServer()).post('/auth/login').send(credenciais);
 
       token = userLogged.body.token;
-      const decoded = jwt.verify(token, process.env.JWT_SECRET) as { sub: string };
+      const jwtSecret = process.env.JWT_SECRET as string;
+      const decoded = jwt.verify(token, jwtSecret) as { sub: string };
       idUserLogged = decoded.sub;
     });
 

@@ -41,32 +41,40 @@ node_modules/
 vite.config.ts.*
 
 # Cypress
-tests/cypress/tests/e2e/misc/
-tests/cypress/tests/component/misc/
+tests/cypress/tests/misc/
 
 # Playwright
 tests/playwright/tests/misc/
-tests/playwright/playwright-report/
-tests/playwright/blob-report/
 tests/playwright/.cache/
 
 # Robot
-tests/robot/results/
+tests/robot/tests/misc/
 tests/robot/tests/**/__pycache__/
 tests/robot/.venv
 tests/robot/venv/
 tests/robot/.pabotsuitenames
-.pabotsuitenames
+
+# Selenium
+tests/selenium/build/
+tests/selenium/.gradle/
 
 # Performance tests
 tests/performance/reports/
 tests/performance/.cache/
+
+# QA results
+qa-results/raw/
 
 # Build artifacts
 dist/
 
 # TypeScript build info
 *.tsbuildinfo
+
+# Vue generated files
+**/*.vue.js
+**/*.vue.d.ts
+**/*.vue.js.map
 
 # Coverage reports
 *.clover.xml
@@ -96,8 +104,6 @@ temp/
 # Test results and reports
 *.jtl
 *.csv
-*.html
-*.json
 !package.*
 !tsconfig.*
 !eslint.config.*
@@ -115,6 +121,5 @@ temp/
 /docs/.docusaurus
 /docs/.cache-loader
 
-# Selenium
-tests/selenium/build/
-tests/selenium/.gradle/
+# Planos de desenvolvimento
+.planos/

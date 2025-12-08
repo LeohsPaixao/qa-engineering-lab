@@ -29,7 +29,7 @@ export async function fillUserForm(page: Page) {
   ];
 
   for (const field of formFields) {
-    await field.element.waitFor({ state: 'visible' })
+    await field.element.waitFor({ state: 'visible' });
     await field.element.fill(field.valor);
   }
 }

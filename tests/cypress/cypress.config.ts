@@ -2,6 +2,8 @@ import createBundler from '@bahmutov/cypress-esbuild-preprocessor';
 import codeCoverage from '@cypress/code-coverage/task';
 import { defineConfig } from 'cypress';
 import dotenv from 'dotenv';
+import path from 'path';
+import { timestamp } from '../../packages/scripts/timestamp';
 
 dotenv.config();
 
@@ -16,14 +18,20 @@ export default defineConfig({
   experimentalMemoryManagement: true,
   watchForFileChanges: false,
   numTestsKeptInMemory: 0,
+  reporter: 'mochawesome',
+  reporterOptions: {
+    overwrite: false,
+    html: false,
+    json: true,
+  },
   e2e: {
     baseUrl: process.env.CYPRESS_BASE_URL || 'http://localhost:8181',
     viewportHeight: 768,
     viewportWidth: 1366,
     specPattern: './tests/e2e/**/*.cy.{js,ts}',
     supportFile: './tests/e2e/support/e2e.ts',
-    screenshotsFolder: './tests/e2e/misc/screenshots',
-    downloadsFolder: './tests/e2e/misc/downloads',
+    screenshotsFolder: './tests/misc/screenshots',
+    downloadsFolder: './tests/misc/downloads',
     fixturesFolder: './tests/e2e/fixtures',
     retries: {
       experimentalStrategy: 'detect-flake-and-pass-on-threshold',
@@ -39,14 +47,7 @@ export default defineConfig({
 
       codeCoverage(on, config);
 
-      on('before:browser:launch', (browser: Cypress.Browser, launchOptions: Cypress.BeforeBrowserLaunchOptions) => {
-        if (browser.family === 'chromium') {
-          launchOptions.args.push('--disable-gpu');
-          launchOptions.args.push('--disable-dev-shm-usage');
-        }
-        return launchOptions;
-      });
-
+      config.reporterOptions.reportDir = path.resolve(__dirname, '../../qa-results/raw/cypress-e2e', timestamp());
       config.env.CYPRESS_API_URL = process.env.CYPRESS_API_URL || 'http://localhost:3001';
 
       return config;
@@ -65,8 +66,8 @@ export default defineConfig({
     specPattern: './tests/component/specs/**/*.cy.{js,ts}',
     supportFile: './tests/component/support/component.ts',
     indexHtmlFile: './tests/component/support/component-index.html',
-    screenshotsFolder: './tests/component/misc/screenshots',
-    downloadsFolder: './tests/component/misc/downloads',
+    screenshotsFolder: './tests/misc/screenshots',
+    downloadsFolder: './tests/misc/downloads',
     fixturesFolder: './tests/component/fixtures',
     retries: {
       experimentalStrategy: 'detect-flake-and-pass-on-threshold',
@@ -82,14 +83,7 @@ export default defineConfig({
 
       codeCoverage(on, config);
 
-      on('before:browser:launch', (browser: Cypress.Browser, launchOptions: Cypress.BeforeBrowserLaunchOptions) => {
-        if (browser.family === 'chromium') {
-          launchOptions.args.push('--disable-gpu');
-          launchOptions.args.push('--disable-dev-shm-usage');
-        }
-        return launchOptions;
-      });
-
+      config.reporterOptions.reportDir = path.resolve(__dirname, '../../qa-results/raw/cypress-ct', timestamp());
       return config;
     },
   },

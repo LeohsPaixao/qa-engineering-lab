@@ -23,7 +23,9 @@ export default defineConfig({
     vueDevTools(),
   ],
   build: {
+    outDir: 'dist',
     sourcemap: true,
+    emptyOutDir: true,
   },
   resolve: {
     alias: {
