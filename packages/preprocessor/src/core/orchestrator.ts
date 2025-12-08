@@ -1,6 +1,7 @@
 import { getLoaderFor } from '../loaders';
 import { getParserFor } from '../parsers';
 import { normalizedFrameworkDataSchema, summarySchema } from '../schema/zodSchema';
+import { generateSummarySvg } from '../svg/generateSummarySvg';
 import { Framework, NormalizedFrameworkData, ParsedData, PreprocessorConfig } from '../types';
 import { cleanProcessedDirectory } from './cleaner';
 import { normalize } from './normalizer';
@@ -68,4 +69,5 @@ export async function orchestrator(config: PreprocessorConfig): Promise<void> {
   }
 
   await saveSummaryFile(validatedSummary.data, config);
+  await generateSummarySvg(validatedSummary.data, config);
 }
