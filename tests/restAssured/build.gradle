@@ -1,0 +1,55 @@
+plugins {
+    id 'java'
+}
+
+group = 'com.qa.solar'
+version = '1.0.0'
+
+repositories {
+    mavenCentral()
+}
+
+ext {
+    restAssuredVersion = '5.4.0'
+    cucumberJavaVersion = '7.15.0'
+    cucumberJUnitVersion = '7.15.0'
+    logbackVersion = '1.4.14'
+    junitVersion = '5.10.2'
+}
+
+dependencies {
+    testImplementation "io.rest-assured:rest-assured:${restAssuredVersion}"
+    testImplementation "io.cucumber:cucumber-java:${cucumberJavaVersion}"
+    testImplementation "io.cucumber:cucumber-junit-platform-engine:${cucumberJUnitVersion}"
+    testImplementation "org.junit.jupiter:junit-jupiter:${junitVersion}"
+    testRuntimeOnly "ch.qos.logback:logback-classic:${logbackVersion}"
+}
+
+test {
+
+    useJUnitPlatform()
+
+    maxParallelForks = 1
+    forkEvery = 0
+
+    systemProperty 'logback.configurationFile', 'logback.xml'
+    systemProperty 'logback.statusListenerClass', 'ch.qos.logback.core.status.NopStatusListener'
+
+    def outputDir = project.hasProperty('test.report.dir') ? file(project.property('test.report.dir')) : file("$buildDir/test-results/test")
+    
+    outputDir.mkdirs()
+
+    reports {
+        junitXml.required = true
+        junitXml.outputPerTestCase = true
+        junitXml.outputLocation.set(outputDir)
+    }
+
+    testLogging {
+        events 'passed', 'skipped', 'failed'
+        exceptionFormat = 'short'
+        showStandardStreams = false
+        showStackTraces = true
+        showCauses = true
+    }
+}
