@@ -59,7 +59,7 @@ test {
     testLogging {
         events 'passed', 'skipped', 'failed'
         exceptionFormat = 'short'
-        showStandardStreams = false
+        showStandardStreams = true
         showStackTraces = true
         showCauses = true
     }
