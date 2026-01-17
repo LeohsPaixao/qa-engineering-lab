@@ -56,7 +56,13 @@ tests/robot/.pabotsuitenames
 
 # Selenium
 tests/selenium/build/
+tests/selenium/bin/
 tests/selenium/.gradle/
+
+# RestAssured
+tests/restAssured/build/
+tests/restAssured/bin/
+tests/restAssured/.gradle/
 
 # Performance tests
 tests/performance/reports/
