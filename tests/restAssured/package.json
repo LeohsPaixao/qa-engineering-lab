@@ -1,0 +1,8 @@
+{
+  "name": "qa-solar-rest-assured",
+  "version": "1.0.0",
+  "description": "Project Tests Rest Assured",
+  "author": "Leonardo Paixao <leonardohspaixao@gmail.com>",
+  "license": "MIT",
+  "private": true
+}
