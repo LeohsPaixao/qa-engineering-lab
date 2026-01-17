@@ -6,3 +6,20 @@ build
 
 # Ignore Kotlin plugin data
 .kotlin
+
+# Ignore environment files
+.env
+
+# Ignore IDE files
+.idea
+.vscode
+*.iml
+*.ipr
+*.iws
+
+# Ignore test reports
+build/cucumber-reports/
+build/test-results/
+
+# Ignore compiled classes
+bin/
