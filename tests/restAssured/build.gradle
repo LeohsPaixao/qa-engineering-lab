@@ -10,18 +10,29 @@ repositories {
 }
 
 ext {
-    restAssuredVersion = '5.4.0'
+    restAssuredVersion = '6.0.0'
     cucumberJavaVersion = '7.15.0'
     cucumberJUnitVersion = '7.15.0'
     logbackVersion = '1.4.14'
     junitVersion = '5.10.2'
+    junitPlatformVersion = '1.10.2'
+    slf4jVersion = '2.0.11'
+    dotenvVersion = '3.2.0'
 }
 
 dependencies {
     testImplementation "io.rest-assured:rest-assured:${restAssuredVersion}"
+    testImplementation "io.rest-assured:json-path:${restAssuredVersion}"
+    testImplementation "io.rest-assured:xml-path:${restAssuredVersion}"
+    testImplementation "io.rest-assured:json-schema-validator:${restAssuredVersion}"
     testImplementation "io.cucumber:cucumber-java:${cucumberJavaVersion}"
     testImplementation "io.cucumber:cucumber-junit-platform-engine:${cucumberJUnitVersion}"
     testImplementation "org.junit.jupiter:junit-jupiter:${junitVersion}"
+    testImplementation "org.junit.platform:junit-platform-suite-api:${junitPlatformVersion}"
+    testImplementation "org.slf4j:slf4j-api:${slf4jVersion}"
+    testImplementation "io.github.cdimascio:dotenv-java:${dotenvVersion}"
+
+    testRuntimeOnly "org.junit.platform:junit-platform-suite-engine:${junitPlatformVersion}"
     testRuntimeOnly "ch.qos.logback:logback-classic:${logbackVersion}"
 }
 

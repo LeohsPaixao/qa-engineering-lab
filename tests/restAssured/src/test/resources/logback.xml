@@ -1,0 +1,47 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<configuration>
+
+    <!-- ========================= -->
+    <!-- APPENDER DE CONSOLE CLEAN -->
+    <!-- ========================= -->
+    <appender name="CONSOLE" class="ch.qos.logback.core.ConsoleAppender">
+        <encoder>
+            <!-- Formato simples: [LEVEL] mensagem -->
+            <pattern>[%level] %msg%n</pattern>
+        </encoder>
+    </appender>
+
+    <!-- ========================= -->
+    <!-- LOGS DA APLICAÇÃO (SEUS) -->
+    <!-- ========================= -->
+    <root level="INFO">
+        <appender-ref ref="CONSOLE"/>
+    </root>
+
+    <!-- ========================= -->
+    <!-- SILENCIANDO LIBS VERBOSAS -->
+    <!-- ========================= -->
+
+    <!-- RestAssured -->
+    <logger name="io.rest-assured" level="ERROR"/>
+    <logger name="io.rest-assured.filter" level="ERROR"/>
+    <logger name="io.rest-assured.internal" level="ERROR"/>
+    <logger name="io.rest-assured.internal.path" level="ERROR"/>
+    <logger name="io.rest-assured.internal.path.xml" level="ERROR"/>
+    <logger name="io.rest-assured.internal.path.json" level="ERROR"/>
+    <logger name="io.rest-assured.internal.path.xml" level="ERROR"/>
+
+    <!-- Apache HTTP -->
+    <logger name="org.apache.http" level="ERROR"/>
+    <logger name="org.apache.http.wire" level="ERROR"/>
+
+    <!-- Cucumber interno -->
+    <logger name="io.cucumber" level="ERROR"/>
+
+    <!-- JUnit interno -->
+    <logger name="org.junit" level="ERROR"/>
+
+    <!-- Gradle test worker -->
+    <logger name="org.gradle" level="ERROR"/>
+
+</configuration>
