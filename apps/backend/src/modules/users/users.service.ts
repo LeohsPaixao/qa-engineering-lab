@@ -32,9 +32,9 @@ export class UsersService {
     const user = await this.prisma.user.create({
       data: {
         full_name,
-        social_name,
+        social_name: social_name || null,
         doc_type,
-        phone,
+        phone: phone || null,
         email,
         document,
         password: hashedPassword,
