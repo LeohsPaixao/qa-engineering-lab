@@ -3,11 +3,11 @@ package com.qa.solar.steps;
 import org.junit.jupiter.api.Assertions;
 
 import com.qa.solar.support.TestContext;
+import com.qa.solar.utils.requestHelper;
 
 import io.cucumber.java.en.And;
 import io.cucumber.java.en.Then;
 import io.cucumber.java.en.When;
-import io.restassured.RestAssured;
 import io.restassured.response.Response;
 
 /**
@@ -23,29 +23,12 @@ public class AuthSteps {
 
     @When("I send a POST request for {string} with the following body:")
     public void iSendAPostRequestForWithTheFollowingBody(String endpoint, String body) {
-        Response response = RestAssured.given()
-                .contentType("application/json")
-                .body(body)
-                .when()
-                .post(endpoint)
-                .then()
-                .extract()
-                .response();
-
-        context.setResponse(response);
+        context.setResponse(requestHelper.post(endpoint, body));
     }
 
     @When("I send a POST request for {string} without body")
     public void iSendAPostRequestForWithoutBody(String endpoint) {
-        Response response = RestAssured.given()
-                .contentType("application/json")
-                .when()
-                .post(endpoint)
-                .then()
-                .extract()
-                .response();
-
-        context.setResponse(response);
+        context.setResponse(requestHelper.postWithoutBody(endpoint));
     }
 
     @Then("the response status code should be {int}")
