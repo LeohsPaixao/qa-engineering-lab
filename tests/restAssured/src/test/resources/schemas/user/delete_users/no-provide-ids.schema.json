@@ -2,7 +2,7 @@
   "definitions": {},
   "$schema": "http://json-schema.org/draft-07/schema#",
   "type": "object",
-  "title": "The Email Duplicated Schema",
+  "title": "The No Provide IDs for Delete Schema",
   "required": [
     "message",
     "error",
@@ -14,7 +14,7 @@
       "type": "string",
       "title": "The Message Schema",
       "examples": [
-        "E-mail já está em uso."
+        "Nenhum usuário encontrado para excluir."
       ]
     },
     "error": {
@@ -22,7 +22,7 @@
       "type": "string",
       "title": "The Error Schema",
       "examples": [
-        "Conflict"
+        "Not Found"
       ]
     },
     "statusCode": {
@@ -30,7 +30,7 @@
       "type": "number",
       "title": "The Status Code Schema",
       "examples": [
-        "409"
+        "404"
       ]
     }
   }

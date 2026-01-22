@@ -2,10 +2,9 @@
   "definitions": {},
   "$schema": "http://json-schema.org/draft-07/schema#",
   "type": "object",
-  "title": "The Email Duplicated Schema",
+  "title": "The Get Me Failure Schema",
   "required": [
     "message",
-    "error",
     "statusCode"
   ],
   "properties": {
@@ -14,15 +13,7 @@
       "type": "string",
       "title": "The Message Schema",
       "examples": [
-        "E-mail já está em uso."
-      ]
-    },
-    "error": {
-      "$id": "#/properties/error",
-      "type": "string",
-      "title": "The Error Schema",
-      "examples": [
-        "Conflict"
+        "Unauthorized"
       ]
     },
     "statusCode": {
@@ -30,7 +21,7 @@
       "type": "number",
       "title": "The Status Code Schema",
       "examples": [
-        "409"
+        "401"
       ]
     }
   }

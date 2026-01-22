@@ -14,6 +14,8 @@ public class TestContext {
     private static final ThreadLocal<TestContext> context = new ThreadLocal<>();
     
     private String endpoint;
+    private String authToken;
+    private String user;
     private Response response;
     
     private TestContext() {
@@ -46,5 +48,21 @@ public class TestContext {
     
     public void setResponse(Response response) {
         this.response = response;
+    }
+
+    public String getAuthToken() {
+        return authToken;
+    }
+
+    public void setAuthToken(String token) {
+        this.authToken = token;
+    }
+
+    public String getUserId() {
+        return user;
+    }
+
+    public void setUserId(String user) {
+        this.user = user;
     }
 }

@@ -135,7 +135,7 @@ public class Hooks {
         if (failedCount.get() == 0) {
             System.out.println("║  ✓ Todos os testes passaram!                                   ║");
         } else {
-            System.out.printf("║  ✗ %d teste(s) falharam                                      ║%n", failedCount.get());
+            System.out.printf("║  ✗ %d teste(s) falharam                                         ║%n", failedCount.get());
         }
         System.out.println("╚════════════════════════════════════════════════════════════════╝");
         System.out.println();

@@ -5,7 +5,7 @@ import static io.restassured.module.jsv.JsonSchemaValidator.matchesJsonSchemaInC
 import org.junit.jupiter.api.Assertions;
 
 import com.qa.solar.support.TestContext;
-import com.qa.solar.utils.requestHelper;
+import com.qa.solar.utils.RequestHelper;
 
 import io.cucumber.java.en.And;
 import io.cucumber.java.en.Then;
@@ -25,12 +25,12 @@ public class AuthSteps {
 
     @When("I send a POST request for {string} with the following body:")
     public void iSendAPostRequestForWithTheFollowingBody(String endpoint, String body) {
-        context.setResponse(requestHelper.post(endpoint, body));
+        context.setResponse(RequestHelper.post(endpoint, body));
     }
 
     @When("I send a POST request for {string} without body")
     public void iSendAPostRequestForWithoutBody(String endpoint) {
-        context.setResponse(requestHelper.postWithoutBody(endpoint));
+        context.setResponse(RequestHelper.postWithoutBody(endpoint));
     }
 
     @Then("the response status code should be {int}")

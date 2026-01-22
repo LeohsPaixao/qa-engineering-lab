@@ -2,7 +2,7 @@
   "definitions": {},
   "$schema": "http://json-schema.org/draft-07/schema#",
   "type": "object",
-  "title": "The Create User Success Schema",
+  "title": "The Update User Success Schema",
   "required": [
     "message",
     "user"
@@ -26,8 +26,10 @@
       "required": [
         "id",
         "full_name",
+        "email",
         "document",
-        "email"
+        "created_at",
+        "updated_at"
       ],
       "properties": {
         "id": {
@@ -48,7 +50,10 @@
         },
         "social_name": {
           "$id": "#/properties/user/social_name",
-          "type": ["string", "null"],
+          "type": [
+            "string",
+            "null"
+          ],
           "title": "The Social Name User Schema",
           "examples": [
             "Leo"
@@ -64,7 +69,10 @@
         },
         "phone": {
           "$id": "#/properties/user/phone",
-          "type": ["string", "null"],
+          "type": [
+            "string",
+            "null"
+          ],
           "title": "The Phone User Schema",
           "examples": [
             "(55) 1234-5678"
