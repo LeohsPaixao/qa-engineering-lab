@@ -1,0 +1,104 @@
+{
+  "definitions": {},
+  "$schema": "http://json-schema.org/draft-07/schema#",
+  "type": "object",
+  "title": "The Login Success Schema",
+  "required": [
+    "message",
+    "user"
+  ],
+  "properties": {
+    "message": {
+      "$id": "#/properties/message",
+      "type": "string",
+      "title": "The Message Schema",
+      "examples": [
+        "Login realizado com sucesso!"
+      ]
+    },
+    "user": {
+      "$id": "#/properties/user",
+      "type": "object",
+      "title": "The Token Schema",
+      "examples": [
+        "user: {}"
+      ],
+      "required": [
+        "id",
+        "full_name",
+        "document",
+        "email"
+      ],
+      "properties": {
+        "id": {
+          "$id": "#/properties/user/id",
+          "type": "number",
+          "title": "The ID User Schema",
+          "examples": [
+            "598"
+          ]
+        },
+        "full_name": {
+          "$id": "#/properties/user/full_name",
+          "type": "string",
+          "title": "The Full Name User Schema",
+          "examples": [
+            "Leonardo Paixão"
+          ]
+        },
+        "social_name": {
+          "$id": "#/properties/user/social_name",
+          "type": "null",
+          "title": "The Social Name User Schema",
+          "examples": [
+            "Leo"
+          ]
+        },
+        "document": {
+          "$id": "#/properties/user/document",
+          "type": "string",
+          "title": "The Document User Schema",
+          "examples": [
+            "123.456.789-10"
+          ]
+        },
+        "phone": {
+          "$id": "#/properties/user/phone",
+          "type": "null",
+          "title": "The Phone User Schema",
+          "examples": [
+            "(55) 1234-5678"
+          ]
+        },
+        "email": {
+          "$id": "#/properties/user/email",
+          "type": "string",
+          "title": "The Email User Schema",
+          "examples": [
+            "leo@example.com"
+          ]
+        },
+        "create_at": {
+          "$id": "#/properties/user/create_at",
+          "type": "string",
+          "title": "The Createdat Schema",
+          "default": "",
+          "examples": [
+            "2019-03-08T16:34:10.744Z"
+          ],
+          "pattern": "^(.*)$"
+        },
+        "update_at": {
+          "$id": "#/properties/user/update_at",
+          "type": "string",
+          "title": "The Upadtedat Schema",
+          "default": "",
+          "examples": [
+            "2019-03-08T16:34:10.744Z"
+          ],
+          "pattern": "^(.*)$"
+        }
+      }
+    }
+  }
+}
