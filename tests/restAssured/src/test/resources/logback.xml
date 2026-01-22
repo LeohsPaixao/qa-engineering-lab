@@ -16,12 +16,36 @@
         </encoder>
     </appender>
 
+    <!-- Appender para arquivo de resumo da execução -->
+    <appender name="SUMMARY_FILE" class="ch.qos.logback.core.FileAppender">
+        <file>build/test-results/test-execution-summary.log</file>
+        <encoder>
+            <pattern>%d{yyyy-MM-dd HH:mm:ss.SSS} | %-5level | %logger{36} | %msg%n</pattern>
+            <charset>UTF-8</charset>
+        </encoder>
+        <append>false</append>
+    </appender>
+
+    <!-- Appender para arquivo completo de logs -->
+    <appender name="FULL_LOG_FILE" class="ch.qos.logback.core.rolling.RollingFileAppender">
+        <file>build/test-results/test-execution.log</file>
+        <encoder>
+            <pattern>%d{yyyy-MM-dd HH:mm:ss.SSS} | %-5level | %logger{36} | %msg%n</pattern>
+            <charset>UTF-8</charset>
+        </encoder>
+        <rollingPolicy class="ch.qos.logback.core.rolling.TimeBasedRollingPolicy">
+            <fileNamePattern>build/test-results/test-execution-%d{yyyy-MM-dd}.log</fileNamePattern>
+            <maxHistory>30</maxHistory>
+        </rollingPolicy>
+    </appender>
+
     <!-- ─────────────────────────────────────────────────────────────────── -->
     <!-- Nível raiz (aplica-se a todos os loggers não configurados abaixo)   -->
     <!-- ─────────────────────────────────────────────────────────────────── -->
 
     <root level="INFO">
         <appender-ref ref="CONSOLE"/>
+        <appender-ref ref="FULL_LOG_FILE"/>
     </root>
 
     <!-- ─────────────────────────────────────────────────────────────────── -->
@@ -42,5 +66,30 @@
 
     <!-- Gradle -->
     <logger name="org.gradle" level="ERROR"/>
+
+    <!-- ─────────────────────────────────────────────────────────────────── -->
+    <!-- Loggers para capturar resumo da execução                             -->
+    <!-- ─────────────────────────────────────────────────────────────────── -->
+
+    <!-- Logger para hooks do Cucumber (captura início/fim de cenários) -->
+    <logger name="com.qa.solar.hooks" level="INFO" additivity="false">
+        <appender-ref ref="CONSOLE"/>
+        <appender-ref ref="SUMMARY_FILE"/>
+        <appender-ref ref="FULL_LOG_FILE"/>
+    </logger>
+
+    <!-- Logger para steps do Cucumber (captura execução dos passos) -->
+    <logger name="com.qa.solar.steps" level="INFO" additivity="false">
+        <appender-ref ref="CONSOLE"/>
+        <appender-ref ref="SUMMARY_FILE"/>
+        <appender-ref ref="FULL_LOG_FILE"/>
+    </logger>
+
+    <!-- Logger para runner do Cucumber -->
+    <logger name="com.qa.solar.runners" level="INFO" additivity="false">
+        <appender-ref ref="CONSOLE"/>
+        <appender-ref ref="SUMMARY_FILE"/>
+        <appender-ref ref="FULL_LOG_FILE"/>
+    </logger>
 
 </configuration>
