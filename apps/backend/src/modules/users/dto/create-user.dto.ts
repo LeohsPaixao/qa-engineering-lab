@@ -1,5 +1,5 @@
 import { ApiProperty } from '@nestjs/swagger';
-import { IsEmail, IsEnum, IsNotEmpty, IsString, MinLength } from 'class-validator';
+import { IsEmail, IsEnum, IsNotEmpty, IsOptional, IsString, MinLength } from 'class-validator';
 import { DocType } from '../common/enums/doc-type';
 
 export class CreateUserDto {
@@ -8,9 +8,10 @@ export class CreateUserDto {
   @IsNotEmpty()
   full_name: string;
 
-  @ApiProperty({ description: 'Nome social do usuário' })
+  @ApiProperty({ description: 'Nome social do usuário', required: false })
+  @IsOptional()
   @IsString()
-  social_name: string;
+  social_name?: string;
 
   @ApiProperty({ description: 'CPF ou CNPJ do usuário' })
   @IsString()
@@ -22,9 +23,10 @@ export class CreateUserDto {
   @IsNotEmpty()
   doc_type: DocType;
 
-  @ApiProperty({ description: 'Telefone do usuário' })
+  @ApiProperty({ description: 'Telefone do usuário', required: false })
+  @IsOptional()
   @IsString()
-  phone: string;
+  phone?: string;
 
   @ApiProperty({ description: 'Email do usuário' })
   @IsEmail()

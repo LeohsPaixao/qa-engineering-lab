@@ -1,47 +1,46 @@
 <?xml version="1.0" encoding="UTF-8"?>
+<!--
+  Logback - Configuração de logging para testes (RestAssured + Cucumber)
+  Projeto: QA Solar - API Tests
+-->
 <configuration>
 
-    <!-- ========================= -->
-    <!-- APPENDER DE CONSOLE CLEAN -->
-    <!-- ========================= -->
+    <!-- ─────────────────────────────────────────────────────────────────── -->
+    <!-- Appenders                                                           -->
+    <!-- ─────────────────────────────────────────────────────────────────── -->
+
     <appender name="CONSOLE" class="ch.qos.logback.core.ConsoleAppender">
         <encoder>
-            <!-- Formato simples: [LEVEL] mensagem -->
-            <pattern>[%level] %msg%n</pattern>
+            <pattern>%-5level | %msg%n</pattern>
+            <charset>UTF-8</charset>
         </encoder>
     </appender>
 
-    <!-- ========================= -->
-    <!-- LOGS DA APLICAÇÃO (SEUS) -->
-    <!-- ========================= -->
+    <!-- ─────────────────────────────────────────────────────────────────── -->
+    <!-- Nível raiz (aplica-se a todos os loggers não configurados abaixo)   -->
+    <!-- ─────────────────────────────────────────────────────────────────── -->
+
     <root level="INFO">
         <appender-ref ref="CONSOLE"/>
     </root>
 
-    <!-- ========================= -->
-    <!-- SILENCIANDO LIBS VERBOSAS -->
-    <!-- ========================= -->
+    <!-- ─────────────────────────────────────────────────────────────────── -->
+    <!-- Redução de ruído: bibliotecas em nível ERROR apenas                 -->
+    <!-- ─────────────────────────────────────────────────────────────────── -->
 
     <!-- RestAssured -->
     <logger name="io.rest-assured" level="ERROR"/>
-    <logger name="io.rest-assured.filter" level="ERROR"/>
-    <logger name="io.rest-assured.internal" level="ERROR"/>
-    <logger name="io.rest-assured.internal.path" level="ERROR"/>
-    <logger name="io.rest-assured.internal.path.xml" level="ERROR"/>
-    <logger name="io.rest-assured.internal.path.json" level="ERROR"/>
-    <logger name="io.rest-assured.internal.path.xml" level="ERROR"/>
 
-    <!-- Apache HTTP -->
+    <!-- Apache HTTP Client -->
     <logger name="org.apache.http" level="ERROR"/>
-    <logger name="org.apache.http.wire" level="ERROR"/>
 
-    <!-- Cucumber interno -->
+    <!-- Cucumber -->
     <logger name="io.cucumber" level="ERROR"/>
 
-    <!-- JUnit interno -->
+    <!-- JUnit -->
     <logger name="org.junit" level="ERROR"/>
 
-    <!-- Gradle test worker -->
+    <!-- Gradle -->
     <logger name="org.gradle" level="ERROR"/>
 
 </configuration>

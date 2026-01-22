@@ -18,6 +18,7 @@ ext {
     junitPlatformVersion = '1.10.2'
     slf4jVersion = '2.0.11'
     dotenvVersion = '3.2.0'
+    datafaker = '2.1.0'
 }
 
 dependencies {
@@ -31,6 +32,7 @@ dependencies {
     testImplementation "org.junit.platform:junit-platform-suite-api:${junitPlatformVersion}"
     testImplementation "org.slf4j:slf4j-api:${slf4jVersion}"
     testImplementation "io.github.cdimascio:dotenv-java:${dotenvVersion}"
+    testImplementation "net.datafaker:datafaker:${datafaker}"
 
     testRuntimeOnly "org.junit.platform:junit-platform-suite-engine:${junitPlatformVersion}"
     testRuntimeOnly "ch.qos.logback:logback-classic:${logbackVersion}"
@@ -59,7 +61,7 @@ test {
     testLogging {
         events 'passed', 'skipped', 'failed'
         exceptionFormat = 'short'
-        showStandardStreams = false
+        showStandardStreams = true
         showStackTraces = true
         showCauses = true
     }

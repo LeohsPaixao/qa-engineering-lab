@@ -29,11 +29,8 @@ public class RestAssuredConfig {
     }
 
     String baseURI = getEnv("REST_ASSURED_BASE_URL", "http://localhost:3001");
-    String basePath = getEnv("REST_ASSURED_BASE_PATH", "/api");
 
     RestAssured.baseURI = baseURI;
-    RestAssured.basePath = basePath;
-    RestAssured.enableLoggingOfRequestAndResponseIfValidationFails();
     RestAssured.config = io.restassured.config.RestAssuredConfig.config()
         .logConfig(LogConfig.logConfig().enableLoggingOfRequestAndResponseIfValidationFails());
 
