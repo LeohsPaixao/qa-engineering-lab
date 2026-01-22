@@ -1,5 +1,7 @@
 package com.qa.solar.steps;
 
+import static io.restassured.module.jsv.JsonSchemaValidator.matchesJsonSchemaInClasspath;
+
 import org.junit.jupiter.api.Assertions;
 
 import com.qa.solar.support.TestContext;
@@ -36,6 +38,14 @@ public class AuthSteps {
         Response response = context.getResponse();
         Assertions.assertEquals(expectedStatusCode, response.getStatusCode(),
                 "Status code esperado: " + expectedStatusCode + ", mas foi: " + response.getStatusCode());
+    }
+
+    @And("the response should match the {string} schema")
+    public void theResponseShouldMatchATheSchema(String schemaPath) {
+        Response response = context.getResponse();
+        response.then()
+            .assertThat()
+            .body(matchesJsonSchemaInClasspath("schemas/" + schemaPath + ".schema.json"));
     }
 
     @And("the response body should contain the following:")
