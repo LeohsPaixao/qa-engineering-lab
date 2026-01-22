@@ -1,22 +1,46 @@
 package com.qa.solar.steps;
 
+import org.junit.jupiter.api.Assertions;
+
 import com.qa.solar.support.FakeDataFactory;
 import com.qa.solar.support.GenerateValidCPF;
 import com.qa.solar.support.TestContext;
-import com.qa.solar.utils.requestHelper;
+import com.qa.solar.utils.RequestHelper;
 
+import io.cucumber.java.en.And;
 import io.cucumber.java.en.Given;
 import io.cucumber.java.en.When;
+import io.restassured.response.Response;
 
 /**
  * Steps para usuário
- * 
- * @author Leonardo Paixão
- * @version 1.0
- * @since 2026-01-18
  */
 public class UserSteps {
   private TestContext context = TestContext.getInstance();
+
+  @Given("I am authenticated")
+  public void iWasAuthenticated() {
+
+    String body = """
+        {
+          "email": "generic@example.com",
+          "password": "123456"
+        }
+        """;
+
+    Response response = RequestHelper.post("/auth/login", body);
+    String token = response.jsonPath().getString("token");
+
+    context.setAuthToken(token);
+  }
+
+  @Given("I am authenticated as a user")
+  public void iAmAuthenticatedAsAUser() {
+    Response response = RequestHelper.get("users/me");
+    String userId = response.jsonPath().getString("id");
+
+    context.setUserId(userId);
+  }
 
   @Given("there is a user with email {string}")
   public void thereIsAUserWithEmail(String email) {
@@ -35,7 +59,7 @@ public class UserSteps {
         FakeDataFactory.randomFullName(),
         GenerateValidCPF.generateValidCPF());
 
-    context.setResponse(requestHelper.post("/users", body));
+    context.setResponse(RequestHelper.post("/users", body));
   }
 
   @Given("there is a user with document {string}")
@@ -55,7 +79,7 @@ public class UserSteps {
         FakeDataFactory.randomFullName(),
         document);
 
-    context.setResponse(requestHelper.post("/users", body));
+    context.setResponse(RequestHelper.post("/users", body));
   }
 
   @When("I create a user with valid data")
@@ -75,7 +99,7 @@ public class UserSteps {
         FakeDataFactory.randomFullName(),
         GenerateValidCPF.generateValidCPF());
 
-    context.setResponse(requestHelper.post("/users", body));
+    context.setResponse(RequestHelper.post("/users", body));
   }
 
   @When("I try send a POST request for {string} with email")
@@ -94,7 +118,7 @@ public class UserSteps {
         FakeDataFactory.randomFullName(),
         GenerateValidCPF.generateValidCPF());
 
-    context.setResponse(requestHelper.post(endpoint, body));
+    context.setResponse(RequestHelper.post(endpoint, body));
   }
 
   @When("I send a POST request for {string} with document")
@@ -113,6 +137,85 @@ public class UserSteps {
         FakeDataFactory.randomPassword(),
         FakeDataFactory.randomFullName());
 
-    context.setResponse(requestHelper.post(endpoint, body));
+    context.setResponse(RequestHelper.post(endpoint, body));
+  }
+
+  @When("there is a user to be deleted")
+  public void thereIsAUserToBeDeleted() {
+    String body = """
+        {
+          "email": "%s",
+          "password": "%s",
+          "full_name": "%s",
+          "doc_type": "cpf",
+          "document": "%s"
+        }
+        """.formatted(
+        FakeDataFactory.randomEmail(),
+        FakeDataFactory.randomPassword(),
+        FakeDataFactory.randomFullName(),
+        GenerateValidCPF.generateValidCPF());
+
+    Response response = RequestHelper.post("/users", body);
+
+    context.setUserId(response.jsonPath().getString("user.id"));
+    context.setResponse(response);
+  }
+
+  @When("I try to delete the logged user")
+  public void iTryDeleteTheLoggedUser() {
+    String userId = context.getUserId();
+
+    String body = """
+        { "ids": [%s]}
+        """.formatted(userId);
+
+    context.setResponse(RequestHelper.delete("/users/delete", body));
+  }
+
+  @When("I try to delete users without providing ids")
+  public void iTryToDeleteUsersWithoutProvidingIds() {
+
+    String body = """
+        { "ids": [] }
+         """;
+
+    context.setResponse(RequestHelper.delete("/users/delete", body));
+  }
+
+  @When("I send a GET request to {string}")
+  public void iSendAGetRequestTo(String endpoint) {
+    context.setResponse(RequestHelper.get(endpoint));
+  }
+
+  @When("I send a PATCH request to {string}")
+  public void iSendAPatchRequestTo(String endpoint) {
+    String body = """
+        { "full_name": "%s", "social_name": "%s", "phone": "%s"}
+        """.formatted(
+        FakeDataFactory.randomFullName(),
+        FakeDataFactory.randomSocialName(),
+        FakeDataFactory.randomPhone());
+
+    context.setResponse(RequestHelper.patch(endpoint, body));
+  }
+
+  @And("I delete the user")
+  public void iDeleteTheUser() {
+    String userId = context.getUserId();
+
+    String body = """
+        { "ids": [%s] }
+        """.formatted(userId);
+
+    context.setResponse(RequestHelper.delete("/users/delete", body));
+  }
+
+  @And("the response message should be {string}")
+  public void theResponseMessageShouldBe(String expectedBody) {
+    Response response = context.getResponse();
+    Assertions.assertTrue(
+        response.getBody().asString().contains(expectedBody),
+        "Resposta não contém a mensagem esperada");
   }
 }
