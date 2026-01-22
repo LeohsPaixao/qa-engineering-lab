@@ -2,7 +2,7 @@
   "definitions": {},
   "$schema": "http://json-schema.org/draft-07/schema#",
   "type": "object",
-  "title": "The Login Success Schema",
+  "title": "The Create User Success Schema",
   "required": [
     "message",
     "user"
@@ -48,7 +48,7 @@
         },
         "social_name": {
           "$id": "#/properties/user/social_name",
-          "type": "null",
+          "type": ["string", "null"],
           "title": "The Social Name User Schema",
           "examples": [
             "Leo"
@@ -64,7 +64,7 @@
         },
         "phone": {
           "$id": "#/properties/user/phone",
-          "type": "null",
+          "type": ["string", "null"],
           "title": "The Phone User Schema",
           "examples": [
             "(55) 1234-5678"
@@ -78,8 +78,8 @@
             "leo@example.com"
           ]
         },
-        "create_at": {
-          "$id": "#/properties/user/create_at",
+        "created_at": {
+          "$id": "#/properties/user/created_at",
           "type": "string",
           "title": "The Createdat Schema",
           "default": "",
@@ -88,8 +88,8 @@
           ],
           "pattern": "^(.*)$"
         },
-        "update_at": {
-          "$id": "#/properties/user/update_at",
+        "updated_at": {
+          "$id": "#/properties/user/updated_at",
           "type": "string",
           "title": "The Upadtedat Schema",
           "default": "",
