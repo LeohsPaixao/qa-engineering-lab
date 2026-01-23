@@ -1,9 +1,11 @@
 package com.qa.solar.steps;
 
-import org.junit.jupiter.api.Assertions;
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
 
 import com.qa.solar.support.FakeDataFactory;
 import com.qa.solar.support.GenerateValidCPF;
+import com.qa.solar.support.TestConstants;
 import com.qa.solar.support.TestContext;
 import com.qa.solar.utils.RequestHelper;
 
@@ -13,209 +15,216 @@ import io.cucumber.java.en.When;
 import io.restassured.response.Response;
 
 /**
- * Steps para usuário
+ * Steps específicos para funcionalidades de gerenciamento de usuários.
+ * Contém definições para criação, atualização e exclusão de usuários.
+ *
+ * @author Leonardo Paixao
+ * @version 2.0
+ * @since 2026-01-17
  */
 public class UserSteps {
-  private TestContext context = TestContext.getInstance();
 
-  @Given("I am authenticated")
-  public void iWasAuthenticated() {
+    private static final Logger LOG = LoggerFactory.getLogger(UserSteps.class);
 
-    String body = """
-        {
-          "email": "generic@example.com",
-          "password": "123456"
-        }
-        """;
+    private final TestContext context = TestContext.getInstance();
 
-    Response response = RequestHelper.post("/auth/login", body);
-    String token = response.jsonPath().getString("token");
+    // ==================== GIVEN ====================
 
-    context.setAuthToken(token);
-  }
+    /**
+     * Obtém os dados do usuário autenticado e armazena o ID no contexto.
+     */
+    @Given("I am authenticated as a user")
+    public void iAmAuthenticatedAsAUser() {
+        Response response = RequestHelper.get(TestConstants.USERS_ME_ENDPOINT);
+        String userId = response.jsonPath().getString("id");
 
-  @Given("I am authenticated as a user")
-  public void iAmAuthenticatedAsAUser() {
-    Response response = RequestHelper.get("users/me");
-    String userId = response.jsonPath().getString("id");
+        context.setUserId(userId);
+        LOG.debug("Usuário autenticado com ID: {}", userId);
+    }
 
-    context.setUserId(userId);
-  }
+    /**
+     * Cria um usuário com o email especificado e armazena no contexto.
+     */
+    @Given("there is a user with email {string}")
+    public void thereIsAUserWithEmail(String email) {
+        String body = buildUserBody(
+                email,
+                FakeDataFactory.defaultPassword(),
+                FakeDataFactory.randomFullName(),
+                GenerateValidCPF.generateValidCPF());
 
-  @Given("there is a user with email {string}")
-  public void thereIsAUserWithEmail(String email) {
+        context.setResponse(RequestHelper.post(TestConstants.USERS_ENDPOINT, body));
+        context.setUserEmail(email);
+        LOG.debug("Usuário criado com email: {}", email);
+    }
 
-    String body = """
-        {
-          "email": "%s",
-          "password": "%s",
-          "full_name": "%s",
-          "doc_type": "cpf",
-          "document": "%s"
-        }
-        """.formatted(
-        email,
-        FakeDataFactory.randomPassword(),
-        FakeDataFactory.randomFullName(),
-        GenerateValidCPF.generateValidCPF());
+    /**
+     * Cria um usuário com o documento (CPF) especificado.
+     */
+    @Given("there is a user with document {string}")
+    public void thereIsAUserWithDocument(String document) {
+        String body = buildUserBody(
+                FakeDataFactory.randomEmail(),
+                FakeDataFactory.defaultPassword(),
+                FakeDataFactory.randomFullName(),
+                document);
 
-    context.setResponse(RequestHelper.post("/users", body));
-  }
+        context.setResponse(RequestHelper.post(TestConstants.USERS_ENDPOINT, body));
+        context.setUserDocument(document);
+        LOG.debug("Usuário criado com documento: {}", document);
+    }
 
-  @Given("there is a user with document {string}")
-  public void thereIsAUserWithDocument(String document) {
+    // ==================== WHEN ====================
 
-    String body = """
-        {
-          "email": "%s",
-          "password": "%s",
-          "full_name": "%s",
-          "doc_type": "cpf",
-          "document": "%s"
-        }
-        """.formatted(
-        FakeDataFactory.randomEmail(),
-        FakeDataFactory.randomPassword(),
-        FakeDataFactory.randomFullName(),
-        document);
+    /**
+     * Cria um novo usuário com dados válidos gerados aleatoriamente.
+     */
+    @When("I create a user with valid data")
+    public void iCreateAUserWithValidData() {
+        String body = buildUserBody(
+                FakeDataFactory.randomEmail(),
+                FakeDataFactory.defaultPassword(),
+                FakeDataFactory.randomFullName(),
+                GenerateValidCPF.generateValidCPF());
 
-    context.setResponse(RequestHelper.post("/users", body));
-  }
+        context.setResponse(RequestHelper.post(TestConstants.USERS_ENDPOINT, body));
+    }
 
-  @When("I create a user with valid data")
-  public void iCreateAUserWithValidData() {
+    /**
+     * Envia POST para criar usuário usando o email armazenado no contexto.
+     */
+    @When("I send a POST request for {string} with email for create a new user")
+    public void iSendPostRequestWithEmailToCreateUser(String endpoint) {
+        String email = context.getUserEmail();
 
-    String body = """
-        {
-          "email": "%s",
-          "password": "%s",
-          "full_name": "%s",
-          "doc_type": "cpf",
-          "document": "%s"
-        }
-        """.formatted(
-        FakeDataFactory.randomEmail(),
-        FakeDataFactory.randomPassword(),
-        FakeDataFactory.randomFullName(),
-        GenerateValidCPF.generateValidCPF());
+        String body = buildUserBody(
+                email,
+                FakeDataFactory.defaultPassword(),
+                FakeDataFactory.randomFullName(),
+                GenerateValidCPF.generateValidCPF());
 
-    context.setResponse(RequestHelper.post("/users", body));
-  }
+        LOG.debug("Criando usuário com email duplicado: {}", email);
+        context.setResponse(RequestHelper.post(endpoint, body));
+    }
 
-  @When("I try send a POST request for {string} with email")
-  public void iTrySendAPostRequestForWithEmail(String endpoint) {
+    /**
+     * Envia POST para criar usuário usando o documento armazenado no contexto.
+     */
+    @When("I send a POST request for {string} with document for create a new user")
+    public void iSendPostRequestWithDocumentToCreateUser(String endpoint) {
+        String document = context.getUserDocument();
 
-    String body = """
-        {
-          "email": "duplicated@example.com",
-          "password": "%s",
-          "full_name": "%s",
-          "doc_type": "cpf",
-          "document": "%s"
-        }
-        """.formatted(
-        FakeDataFactory.randomPassword(),
-        FakeDataFactory.randomFullName(),
-        GenerateValidCPF.generateValidCPF());
+        String body = buildUserBody(
+                FakeDataFactory.randomEmail(),
+                FakeDataFactory.defaultPassword(),
+                FakeDataFactory.randomFullName(),
+                document);
 
-    context.setResponse(RequestHelper.post(endpoint, body));
-  }
+        LOG.debug("Criando usuário com documento duplicado: {}", document);
+        context.setResponse(RequestHelper.post(endpoint, body));
+    }
 
-  @When("I send a POST request for {string} with document")
-  public void iTrySendAPostRequestForWithDocument(String endpoint) {
+    /**
+     * Cria um usuário para ser usado em cenários de exclusão.
+     */
+    @When("there is a user to be deleted")
+    public void thereIsAUserToBeDeleted() {
+        String body = buildUserBody(
+                FakeDataFactory.randomEmail(),
+                FakeDataFactory.defaultPassword(),
+                FakeDataFactory.randomFullName(),
+                GenerateValidCPF.generateValidCPF());
 
-    String body = """
-        {
-          "email": "%s",
-          "password": "%s",
-          "full_name": "%s",
-          "doc_type": "cpf",
-          "document": "449.324.480-15"
-        }
-        """.formatted(
-        FakeDataFactory.randomEmail(),
-        FakeDataFactory.randomPassword(),
-        FakeDataFactory.randomFullName());
+        Response response = RequestHelper.post(TestConstants.USERS_ENDPOINT, body);
+        String userId = response.jsonPath().getString("user.id");
 
-    context.setResponse(RequestHelper.post(endpoint, body));
-  }
+        context.setUserId(userId);
+        context.setResponse(response);
+        LOG.debug("Usuário criado para exclusão com ID: {}", userId);
+    }
 
-  @When("there is a user to be deleted")
-  public void thereIsAUserToBeDeleted() {
-    String body = """
-        {
-          "email": "%s",
-          "password": "%s",
-          "full_name": "%s",
-          "doc_type": "cpf",
-          "document": "%s"
-        }
-        """.formatted(
-        FakeDataFactory.randomEmail(),
-        FakeDataFactory.randomPassword(),
-        FakeDataFactory.randomFullName(),
-        GenerateValidCPF.generateValidCPF());
+    /**
+     * Tenta excluir o próprio usuário logado (cenário de erro).
+     */
+    @When("I try to delete the logged user")
+    public void iTryToDeleteTheLoggedUser() {
+        String userId = context.getUserId();
 
-    Response response = RequestHelper.post("/users", body);
+        String body = """
+                { "ids": [%s] }
+                """.formatted(userId);
 
-    context.setUserId(response.jsonPath().getString("user.id"));
-    context.setResponse(response);
-  }
+        context.setResponse(RequestHelper.delete(TestConstants.USERS_DELETE_ENDPOINT, body));
+    }
 
-  @When("I try to delete the logged user")
-  public void iTryDeleteTheLoggedUser() {
-    String userId = context.getUserId();
+    /**
+     * Tenta excluir usuários sem fornecer IDs (cenário de erro).
+     */
+    @When("I try to delete users without providing ids")
+    public void iTryToDeleteUsersWithoutProvidingIds() {
+        String body = """
+                { "ids": [] }
+                """;
 
-    String body = """
-        { "ids": [%s]}
-        """.formatted(userId);
+        context.setResponse(RequestHelper.delete(TestConstants.USERS_DELETE_ENDPOINT, body));
+    }
 
-    context.setResponse(RequestHelper.delete("/users/delete", body));
-  }
+    /**
+     * Envia requisição PATCH para atualizar dados do usuário.
+     */
+    @When("I send a PATCH request to {string}")
+    public void iSendAPatchRequestTo(String endpoint) {
+        String body = """
+                {
+                  "full_name": "%s",
+                  "social_name": "%s",
+                  "phone": "%s"
+                }
+                """.formatted(
+                FakeDataFactory.randomFullName(),
+                FakeDataFactory.randomSocialName(),
+                FakeDataFactory.randomPhone());
 
-  @When("I try to delete users without providing ids")
-  public void iTryToDeleteUsersWithoutProvidingIds() {
+        context.setResponse(RequestHelper.patch(endpoint, body));
+    }
 
-    String body = """
-        { "ids": [] }
-         """;
+    // ==================== AND ====================
 
-    context.setResponse(RequestHelper.delete("/users/delete", body));
-  }
+    /**
+     * Exclui o usuário cujo ID está armazenado no contexto.
+     */
+    @And("I delete the user")
+    public void iDeleteTheUser() {
+        String userId = context.getUserId();
 
-  @When("I send a GET request to {string}")
-  public void iSendAGetRequestTo(String endpoint) {
-    context.setResponse(RequestHelper.get(endpoint));
-  }
+        String body = """
+                { "ids": [%s] }
+                """.formatted(userId);
 
-  @When("I send a PATCH request to {string}")
-  public void iSendAPatchRequestTo(String endpoint) {
-    String body = """
-        { "full_name": "%s", "social_name": "%s", "phone": "%s"}
-        """.formatted(
-        FakeDataFactory.randomFullName(),
-        FakeDataFactory.randomSocialName(),
-        FakeDataFactory.randomPhone());
+        context.setResponse(RequestHelper.delete(TestConstants.USERS_DELETE_ENDPOINT, body));
+        LOG.debug("Usuário excluído com ID: {}", userId);
+    }
 
-    context.setResponse(RequestHelper.patch(endpoint, body));
-  }
+    // ==================== HELPERS ====================
 
-  @And("I delete the user")
-  public void iDeleteTheUser() {
-    String userId = context.getUserId();
-
-    String body = """
-        { "ids": [%s] }
-        """.formatted(userId);
-
-    context.setResponse(RequestHelper.delete("/users/delete", body));
-  }
-
-  @And("the response message should be {string}")
-  public void theResponseMessageShouldBe(String expectedBody) {
-    Response response = context.getResponse();
-    Assertions.assertTrue(
-        response.getBody().asString().contains(expectedBody),
-        "Resposta não contém a mensagem esperada");
-  }
+    /**
+     * Constrói o body JSON para criação de usuário.
+     *
+     * @param email    email do usuário
+     * @param password senha do usuário
+     * @param fullName nome completo
+     * @param document CPF ou CNPJ
+     * @return JSON formatado
+     */
+    private String buildUserBody(String email, String password, String fullName, String document) {
+        return """
+                {
+                  "email": "%s",
+                  "password": "%s",
+                  "full_name": "%s",
+                  "doc_type": "%s",
+                  "document": "%s"
+                }
+                """.formatted(email, password, fullName, TestConstants.DOC_TYPE_CPF, document);
+    }
 }
