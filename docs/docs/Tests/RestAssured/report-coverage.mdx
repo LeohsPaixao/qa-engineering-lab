@@ -1,0 +1,283 @@
+---
+sidebar_position: 4
+---
+
+# 📊 Relatórios e Cobertura
+
+## 📋 Visão Geral
+
+O projeto Rest Assured implementa um sistema abrangente de relatorios que fornece insights detalhados sobre a execucao dos testes, incluindo relatorios Cucumber em multiplos formatos e integracao com JaCoCo para cobertura de codigo.
+
+## 📈 Relatorios Cucumber
+
+### 📊 Tipos de Relatórios
+O Cucumber gera automaticamente relatorios em tres formatos:
+
+- **HTML**: Relatorio visual interativo
+- **JSON**: Formato estruturado para integracao com ferramentas
+- **XML**: Formato JUnit para CI/CD
+
+### 🚀 Geração de Relatórios
+
+```bash
+# Executar testes (gera relatorios automaticamente)
+make test
+
+# Via Gradle
+./gradlew test
+```
+
+### 📁 Estrutura dos Relatórios
+```plaintext
+build/
+├── cucumber-reports/
+│   ├── cucumber.html          # Relatorio HTML interativo
+│   ├── cucumber.json          # Dados JSON para integracao
+│   └── cucumber.xml           # Relatorio JUnit XML
+└── test-results/
+    └── test/
+        └── TEST-*.xml          # Resultados JUnit individuais
+```
+
+### Configuracao dos Plugins
+
+A geracao de relatorios e configurada no Runner:
+
+```java
+@ConfigurationParameter(key = PLUGIN_PROPERTY_NAME,
+    value = "pretty,html:build/cucumber-reports/cucumber.html,json:build/cucumber-reports/cucumber.json,junit:build/cucumber-reports/cucumber.xml")
+public class CucumberTestRunner {
+}
+```
+
+## Relatorio HTML do Cucumber
+
+### Caracteristicas
+- **Dashboard Principal**: Visao geral de todos os cenarios
+- **Detalhamento por Feature**: Resultados por arquivo feature
+- **Detalhamento por Scenario**: Status de cada cenario
+- **Timeline de Execucao**: Visualizacao temporal
+- **Steps Detalhados**: Cada step com seu resultado
+
+### Visualizacao
+
+```bash
+# Abrir relatorio no navegador (Linux)
+xdg-open build/cucumber-reports/cucumber.html
+
+# Abrir relatorio no navegador (Mac)
+open build/cucumber-reports/cucumber.html
+
+# Abrir relatorio no navegador (Windows)
+start build/cucumber-reports/cucumber.html
+```
+
+## Relatorios de Cobertura (JaCoCo)
+
+### ⚙️ Configuração
+
+```gradle
+// build.gradle
+plugins {
+    id 'jacoco'
+}
+
+jacocoTestReport {
+    reports {
+        html.required = true
+        xml.required = true
+        csv.required = false
+    }
+}
+```
+
+### Geracao
+
+```bash
+# Via Makefile
+make coverage
+
+# Via Gradle
+./gradlew jacocoTestReport
+```
+
+### Estrutura
+
+```plaintext
+build/reports/
+└── jacoco/
+    └── test/
+        ├── html/
+        │   ├── index.html         # Dashboard principal
+        │   ├── jacoco-resources/  # Assets estaticos
+        │   └── [pacotes].html     # Cobertura por pacote
+        └── jacocoTestReport.xml   # Dados XML para CI/CD
+```
+
+## Logs e Debugging
+
+### Configuracao de Logging
+
+```xml
+<!-- src/test/resources/logback.xml -->
+<configuration>
+    <appender name="STDOUT" class="ch.qos.logback.core.ConsoleAppender">
+        <encoder>
+            <pattern>%d{HH:mm:ss.SSS} [%thread] %-5level %logger{36} - %msg%n</pattern>
+        </encoder>
+    </appender>
+
+    <logger name="com.qa.solar" level="DEBUG"/>
+    <logger name="io.restassured" level="WARN"/>
+
+    <root level="INFO">
+        <appender-ref ref="STDOUT"/>
+    </root>
+</configuration>
+```
+
+### Logs de Requisicao/Resposta
+
+O Rest Assured esta configurado para logar automaticamente requisicoes e respostas quando ocorre falha na validacao:
+
+```java
+RestAssured.config = io.restassured.config.RestAssuredConfig.config()
+    .logConfig(LogConfig.logConfig()
+        .enableLoggingOfRequestAndResponseIfValidationFails());
+```
+
+### Niveis de Log
+- **DEBUG**: Informacoes detalhadas para debugging
+- **INFO**: Informacoes gerais de execucao
+- **WARN**: Avisos sobre situacoes anomalas
+- **ERROR**: Erros que nao impedem a execucao
+
+## Integracao com CI/CD
+
+### GitHub Actions
+
+```yaml
+- name: Run Rest Assured tests
+  run: |
+    cd tests/restAssured
+    make test
+
+- name: Upload Cucumber Report
+  uses: actions/upload-artifact@v3
+  if: always()
+  with:
+    name: cucumber-report
+    path: tests/restAssured/build/cucumber-reports/
+
+- name: Upload Test Results
+  uses: actions/upload-artifact@v3
+  if: always()
+  with:
+    name: test-results
+    path: tests/restAssured/build/test-results/
+```
+
+### Armazenamento de Resultados
+
+O Makefile esta configurado para salvar resultados com timestamp:
+
+```makefile
+OUTPUT_DIR_BASE = ../../qa-results/raw/rest-assured
+
+define get_timestamp
+    $(eval TIMESTAMP := $(shell npx tsx ../../packages/scripts/timestamp.ts))
+    $(eval OUTPUT_DIR := $(OUTPUT_DIR_BASE)/$(TIMESTAMP))
+    @mkdir -p $(OUTPUT_DIR)
+endef
+
+test:
+    @echo "Executando testes de rest assured"
+    $(call get_timestamp)
+    ./gradlew clean test --console=plain -Ptest.report.dir=$(OUTPUT_DIR)
+```
+
+## Metricas e Analise
+
+### Metricas Disponiveis
+- **Taxa de Sucesso**: Percentual de cenarios que passam
+- **Tempo de Execucao**: Duracao media e total dos testes
+- **Cobertura de Codigo**: Percentual coberto por testes
+- **Cenarios por Feature**: Distribuicao de testes
+
+### Analise de Resultados
+- **Revisar Falhas**: Analisar logs e stack traces
+- **Monitorar Performance**: Acompanhar tempo de resposta
+- **Identificar Gaps**: Endpoints sem cobertura
+- **Validar Schemas**: Garantir conformidade
+
+## Comandos Uteis
+
+### Visualizacao de Relatorios
+
+```bash
+# Abrir relatorio Cucumber HTML
+xdg-open build/cucumber-reports/cucumber.html
+
+# Abrir relatorio de cobertura
+xdg-open build/reports/jacoco/test/html/index.html
+
+# Ver resumo no terminal
+./gradlew test --console=plain
+```
+
+### Debugging
+
+```bash
+# Executar com logs detalhados
+./gradlew test --info
+
+# Executar cenario especifico por tag
+./gradlew test -Dcucumber.filter.tags="@auth"
+
+# Executar com debug
+./gradlew test --debug
+```
+
+### Filtragem de Testes
+
+```bash
+# Executar apenas testes de autenticacao
+./gradlew test -Dcucumber.filter.tags="@auth"
+
+# Executar excluindo testes lentos
+./gradlew test -Dcucumber.filter.tags="not @slow"
+
+# Executar testes de smoke
+./gradlew test -Dcucumber.filter.tags="@smoke"
+```
+
+## Boas Praticas
+
+### Otimizacao de Relatorios
+- **Exclusoes**: Excluir classes utilitarias da cobertura
+- **Thresholds**: Definir limites minimos de cobertura
+- **Cleanup**: Implementar limpeza automatica de relatorios antigos
+- **Versionamento**: Manter historico de execucoes
+
+### Analise de Resultados
+- **Revisar Falhas**: Analisar logs detalhados
+- **Monitorar Tendencias**: Acompanhar taxa de sucesso ao longo do tempo
+- **Identificar Flaky Tests**: Detectar testes inconsistentes
+- **Documentar Padroes**: Registrar causas comuns de falha
+
+### Configuracoes de Performance
+
+```gradle
+// gradle.properties
+org.gradle.parallel=true
+org.gradle.caching=true
+org.gradle.daemon=true
+org.gradle.jvmargs=-Xmx2g -XX:MaxMetaspaceSize=512m
+```
+
+## Metricas de Qualidade
+
+- **Cobertura Minima**: 80% de endpoints cobertos
+- **Taxa de Sucesso**: 95% de cenarios passando
+- **Schema Validation**: 100% dos responses validados
+- **Tempo de Execucao**: Monitorar degradacao de performance
