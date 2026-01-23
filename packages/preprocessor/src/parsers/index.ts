@@ -2,6 +2,7 @@ import { Parser, RawFile } from '../types';
 import { cypressParser } from './cypressParser';
 import { jestParser } from './jestParser';
 import { playwrightParser } from './playwrightParser';
+import { restassuredParser } from './restassuredParser';
 import { robotParser } from './robotParser';
 import { seleniumParser } from './seleniumParser';
 import { vitestParser } from './vitestParser';
@@ -10,7 +11,7 @@ import { vitestParser } from './vitestParser';
  * Lista de todos os parsers implementados
  * @returns Array de parsers
  */
-const parsers: Parser[] = [cypressParser, playwrightParser, vitestParser, jestParser, robotParser, seleniumParser];
+const parsers: Parser[] = [cypressParser, playwrightParser, vitestParser, jestParser, robotParser, seleniumParser, restassuredParser];
 
 /**
  * Seleciona o parser para o arquivo dado
