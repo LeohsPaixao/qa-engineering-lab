@@ -39,6 +39,7 @@ export async function generateSummarySvg(summaryData: SummaryData, config: Prepr
     'playwright-ct': '#2ea043',
     'robot-e2e': '#f85149',
     'selenium-e2e': '#a5a5a5',
+    'rest-assured': '#43A047',
     vitest: '#f1e05a',
     jest: '#c21325',
     appium: '#7c3aed',
@@ -157,9 +158,27 @@ export async function generateSummarySvg(summaryData: SummaryData, config: Prepr
   <!-- Progress Bar -->
   <g transform="translate(24, ${headerHeight + 115})">
     <rect x="0" y="0" width="${progressBarWidth}" height="8" rx="4" class="progress-bg"/>
-    ${passedPercent > 0 ? `<rect x="0" y="0" width="${Math.max((passedPercent / 100) * progressBarWidth, 0)}" height="8" rx="4" class="progress-passed"/>` : ''}
-    ${failedPercent > 0 ? `<rect x="${(passedPercent / 100) * progressBarWidth}" y="0" width="${Math.max((failedPercent / 100) * progressBarWidth, 0)}" height="8" rx="4" class="progress-failed"/>` : ''}
-    ${skippedPercent > 0 ? `<rect x="${((passedPercent + failedPercent) / 100) * progressBarWidth}" y="0" width="${Math.max((skippedPercent / 100) * progressBarWidth, 0)}" height="8" rx="4" class="progress-skipped"/>` : ''}
+    ${
+      passedPercent > 0
+        ? `<rect x="0" y="0" width="${Math.max((passedPercent / 100) * progressBarWidth, 0)}" height="8" rx="4" class="progress-passed"/>`
+        : ''
+    }
+    ${
+      failedPercent > 0
+        ? `<rect x="${(passedPercent / 100) * progressBarWidth}" y="0" width="${Math.max(
+            (failedPercent / 100) * progressBarWidth,
+            0,
+          )}" height="8" rx="4" class="progress-failed"/>`
+        : ''
+    }
+    ${
+      skippedPercent > 0
+        ? `<rect x="${((passedPercent + failedPercent) / 100) * progressBarWidth}" y="0" width="${Math.max(
+            (skippedPercent / 100) * progressBarWidth,
+            0,
+          )}" height="8" rx="4" class="progress-skipped"/>`
+        : ''
+    }
   </g>
 
   <!-- Footer -->

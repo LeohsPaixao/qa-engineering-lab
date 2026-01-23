@@ -8,18 +8,19 @@ import { Framework, RawFile } from '../types';
 const FRAMEWORK_FILE_PATTERNS: Record<Framework, string[]> = {
   'cypress-e2e': ['mochawesome.json', 'mochawesome_*.json'],
   'cypress-ct': ['mochawesome.json', 'mochawesome_*.json'],
-  jest: ['results.json'],
   'playwright-e2e': ['results.json'],
   'playwright-ct': ['results.json'],
   'robot-e2e': ['output.xml'],
   'selenium-e2e': ['TEST-*.xml'],
+  'rest-assured': ['TEST-*.xml'],
+  jest: ['results.json'],
   vitest: ['results.json'],
 };
 
 /**
  * Detecta o tipo de teste a partir do nome do framework
  */
-function detectTypeTest(filePath: string): { type: 'ct' | 'e2e' | 'unit' | 'unknown' } {
+function detectTypeTest(filePath: string): { type: 'ct' | 'e2e' | 'unit' | 'api' | 'unknown' } {
   if (filePath.includes('cypress-ct') || filePath.includes('playwright-ct')) {
     return { type: 'ct' };
   }
@@ -32,6 +33,10 @@ function detectTypeTest(filePath: string): { type: 'ct' | 'e2e' | 'unit' | 'unkn
   if (filePath.includes('robot-e2e') || filePath.includes('selenium-e2e')) {
     return { type: 'e2e' };
   }
+  if (filePath.includes('rest-assured')) {
+    return { type: 'api' };
+  }
+
   return { type: 'unknown' };
 }
 
@@ -48,7 +53,17 @@ function isValidTimestamp(timestamp: string): boolean {
  * Extrai o framework do caminho do diretório
  */
 function extractFramework(dirName: string): Framework | null {
-  const frameworks: Framework[] = ['cypress-e2e', 'cypress-ct', 'playwright-e2e', 'playwright-ct', 'jest', 'vitest', 'robot-e2e', 'selenium-e2e'];
+  const frameworks: Framework[] = [
+    'cypress-e2e',
+    'cypress-ct',
+    'playwright-e2e',
+    'playwright-ct',
+    'jest',
+    'vitest',
+    'robot-e2e',
+    'selenium-e2e',
+    'rest-assured',
+  ];
 
   return frameworks.includes(dirName as Framework) ? (dirName as Framework) : null;
 }

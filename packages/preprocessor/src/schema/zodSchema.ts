@@ -62,7 +62,7 @@ const normalizedMetadataSchema = z.object({
 export const normalizedFrameworkDataSchema = z.object({
   framework: z.string(),
   timestamp: z.string(),
-  type: z.enum(['unit', 'e2e', 'ct']),
+  type: z.enum(['unit', 'e2e', 'ct', 'api']),
   summary: normalizedSummarySchema,
   tests: z.array(normalizedTestsSchema),
   metadata: normalizedMetadataSchema.default({}),

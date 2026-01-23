@@ -2,6 +2,7 @@ import { Loader, RawFile } from '../types';
 import { loadCypress } from './loadCypress';
 import { loadJest } from './loadJest';
 import { loadPlaywright } from './loadPlaywright';
+import { loadRestAssured } from './loadRestAssured';
 import { loadRobot } from './loadRobot';
 import { loadSelenium } from './loadSelenium';
 import { loadVitest } from './loadVitest';
@@ -10,7 +11,7 @@ import { loadVitest } from './loadVitest';
  * Lista de todos os loaders disponíveis
  * @returns Array de loaders
  */
-const loaders: Loader[] = [loadCypress, loadPlaywright, loadVitest, loadJest, loadRobot, loadSelenium];
+const loaders: Loader[] = [loadCypress, loadPlaywright, loadVitest, loadJest, loadRobot, loadSelenium, loadRestAssured];
 
 /**
  * Seleciona o loader para o arquivo dado
