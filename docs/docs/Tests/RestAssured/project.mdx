@@ -1,0 +1,302 @@
+---
+sidebar_position: 2
+---
+
+# 📂 Projeto
+
+## 🔧 Configuração e Execução
+
+### 📋 Pré-requisitos
+
+> **⚠️ Importante**: Certifique-se de que as dependências foram instaladas no projeto raiz "qa-solar" e que o comando `yarn dev` foi executado antes de iniciar os testes.
+
+**Requisitos do Sistema:**
+- **Java 17+**: JDK necessario para execucao
+- **Gradle 9.3**: Sistema de build (incluido no wrapper)
+
+### 🚀 Comandos Disponíveis
+
+#### Configuracao Inicial
+```bash
+# Copiar variaveis de ambiente
+cp .env.example .env
+
+# Tornar gradlew executavel (Linux/Mac)
+chmod +x gradlew
+
+# Verificar instalacao do Java
+java -version
+```
+
+#### Execucao de Testes
+
+**Via Makefile (Recomendado)**
+```bash
+# Executar todos os testes
+make test
+
+# Buildar o projeto
+make building
+
+# Gerar relatorio de cobertura
+make coverage
+
+# Limpar o projeto
+make clean
+
+# Ver ajuda
+make help
+```
+
+**Via Gradle Wrapper**
+```bash
+# Executar todos os testes
+./gradlew test
+
+# Executar testes com relatorio detalhado
+./gradlew test --info
+
+# Gerar relatorio de cobertura
+./gradlew jacocoTestReport
+
+# Limpar build
+./gradlew clean
+
+# Build completo (sem testes)
+./gradlew clean build -x test
+```
+
+## 📂 Estrutura do Projeto
+
+```plaintext
+tests/restAssured/
+├── src/
+│   └── test/
+│       ├── java/com/qa/solar/
+│       │   ├── config/
+│       │   │   └── RestAssuredConfig.java       # Configuracao base do RestAssured
+│       │   ├── hooks/
+│       │   │   └── Hooks.java                   # Hooks do Cucumber (Before/After)
+│       │   ├── runners/
+│       │   │   └── CucumberTestRunner.java      # Runner JUnit Platform
+│       │   ├── steps/
+│       │   │   ├── StepsDefinitions.java        # Steps comuns reutilizaveis
+│       │   │   ├── AuthSteps.java               # Steps de autenticacao
+│       │   │   ├── UserSteps.java               # Steps de usuario
+│       │   │   └── PasswordSteps.java           # Steps de recuperacao de senha
+│       │   ├── support/
+│       │   │   ├── TestContext.java             # Contexto thread-safe
+│       │   │   ├── TestConstants.java           # Constantes de teste
+│       │   │   ├── FakeDataFactory.java         # Factory de dados fake
+│       │   │   └── GenerateValidCPF.java        # Gerador de CPF valido
+│       │   └── utils/
+│       │       └── RequestHelper.java           # Helper para requisicoes HTTP
+│       └── resources/
+│           ├── features/                        # Arquivos .feature (Gherkin)
+│           │   ├── auth/
+│           │   │   └── auth.feature             # Cenarios de autenticacao
+│           │   ├── user/
+│           │   │   ├── create_user.feature      # Criacao de usuario
+│           │   │   ├── list_users.feature       # Listagem de usuarios
+│           │   │   ├── get_logged_user.feature  # Obter usuario logado
+│           │   │   ├── update_logged_user.feature # Atualizar usuario
+│           │   │   └── delete_user.feature      # Exclusao de usuario
+│           │   └── password/
+│           │       └── password.feature         # Recuperacao de senha
+│           ├── schemas/                         # JSON Schemas para validacao
+│           │   ├── auth/
+│           │   │   ├── login-success.schema.json
+│           │   │   ├── login-failure.schema.json
+│           │   │   └── password-wrong.schema.json
+│           │   └── user/
+│           │       ├── create_user/
+│           │       ├── list_user/
+│           │       ├── delete_users/
+│           │       ├── update_user/
+│           │       └── me/
+│           ├── junit-platform.properties        # Configuracao JUnit
+│           └── logback.xml                      # Configuracao de logging
+├── build.gradle                                 # Configuracao do Gradle
+├── gradle.properties                            # Propriedades do Gradle
+├── settings.gradle                              # Configuracao do projeto
+├── gradlew                                      # Gradle wrapper (Unix)
+├── gradlew.bat                                  # Gradle wrapper (Windows)
+├── Makefile                                     # Comandos simplificados
+├── package.json                                 # Metadados do projeto
+├── .env.example                                 # Exemplo de variaveis de ambiente
+└── .env                                         # Variaveis de ambiente (criar)
+```
+
+## ⚙️ Configurações Avançadas
+
+### 🔧Configuracao do Gradle
+
+O projeto utiliza configuracoes otimizadas para testes de API:
+
+```gradle
+plugins {
+    id 'java'
+}
+
+ext {
+    restAssuredVersion = '6.0.0'
+    cucumberJavaVersion = '7.15.0'
+    cucumberJUnitVersion = '7.15.0'
+    junitVersion = '5.10.2'
+    datafaker = '2.1.0'
+}
+
+dependencies {
+    testImplementation "io.rest-assured:rest-assured:${restAssuredVersion}"
+    testImplementation "io.rest-assured:json-path:${restAssuredVersion}"
+    testImplementation "io.rest-assured:xml-path:${restAssuredVersion}"
+    testImplementation "io.rest-assured:json-schema-validator:${restAssuredVersion}"
+    testImplementation "io.cucumber:cucumber-java:${cucumberJavaVersion}"
+    testImplementation "io.cucumber:cucumber-junit-platform-engine:${cucumberJUnitVersion}"
+    testImplementation "org.junit.jupiter:junit-jupiter:${junitVersion}"
+    testImplementation "net.datafaker:datafaker:${datafaker}"
+}
+
+test {
+    useJUnitPlatform()
+
+    testLogging {
+        events 'passed', 'skipped', 'failed'
+        exceptionFormat = 'short'
+        showStandardStreams = true
+    }
+}
+```
+
+### 🌐 Variáveis de Ambiente
+
+Crie um arquivo `.env` na raiz do projeto:
+
+```bash
+# URLs de configuracao
+REST_ASSURED_BASE_URL=http://localhost:3001  # URL da API backend
+REST_ASSURED_BASE_PATH=/api                   # Path base da API
+```
+
+### Configuracao do Rest Assured
+
+A classe de configuracao fornece setup automatico:
+
+```java
+public class RestAssuredConfig {
+    private static Dotenv dotenv;
+    private static boolean configured = false;
+
+    public void config() {
+        if (configured) return;
+
+        dotenv = Dotenv.configure()
+            .ignoreIfMissing()
+            .load();
+
+        String baseURI = getEnv("REST_ASSURED_BASE_URL", "http://localhost:3001");
+
+        RestAssured.baseURI = baseURI;
+        RestAssured.config = io.restassured.config.RestAssuredConfig.config()
+            .logConfig(LogConfig.logConfig()
+                .enableLoggingOfRequestAndResponseIfValidationFails());
+
+        configured = true;
+    }
+}
+```
+
+### Configuracao do Cucumber Runner
+
+```java
+@Suite
+@IncludeEngines("cucumber")
+@SelectClasspathResource("features")
+@ConfigurationParameter(key = GLUE_PROPERTY_NAME,
+    value = "com.qa.solar.steps,com.qa.solar.hooks")
+@ConfigurationParameter(key = FILTER_TAGS_PROPERTY_NAME,
+    value = "@api")
+@ConfigurationParameter(key = PLUGIN_PROPERTY_NAME,
+    value = "pretty,html:build/cucumber-reports/cucumber.html,json:build/cucumber-reports/cucumber.json,junit:build/cucumber-reports/cucumber.xml")
+public class CucumberTestRunner {
+}
+```
+
+## Classes Utilitarias
+
+### TestContext (Thread-Safe)
+
+```java
+public class TestContext {
+    private static final ThreadLocal<TestContext> CONTEXT = new ThreadLocal<>();
+
+    private String endpoint;
+    private String authToken;
+    private String userId;
+    private String userEmail;
+    private Response response;
+
+    public static TestContext getInstance() {
+        TestContext instance = CONTEXT.get();
+        if (instance == null) {
+            instance = new TestContext();
+            CONTEXT.set(instance);
+        }
+        return instance;
+    }
+
+    public static void reset() {
+        CONTEXT.remove();
+    }
+
+    // Getters e Setters...
+}
+```
+
+### FakeDataFactory
+
+```java
+public final class FakeDataFactory {
+    private static final Faker FAKER = new Faker(Locale.of("pt", "BR"));
+
+    public static String randomEmail() {
+        return FAKER.internet().emailAddress();
+    }
+
+    public static String randomFullName() {
+        return FAKER.name().fullName();
+    }
+
+    public static String randomPhone() {
+        String areaCode = String.valueOf(FAKER.number().numberBetween(11, 99));
+        String number = FAKER.number().digits(9);
+        return areaCode + number;
+    }
+}
+```
+
+### GenerateValidCPF
+
+```java
+public class GenerateValidCPF {
+    public String generateValidCPF() {
+        // Gera CPF valido seguindo algoritmo oficial
+        // Retorna CPF formatado (XXX.XXX.XXX-XX)
+    }
+}
+```
+
+## 🛠️ Dependências Principais
+
+### Producao
+- **Rest Assured**: `6.0.0` - Framework de testes de API
+- **Rest Assured JSON Schema Validator**: `6.0.0` - Validacao de schemas
+- **Cucumber Java**: `7.15.0` - BDD framework
+- **DataFaker**: `2.1.0` - Geracao de dados ficticios
+- **Dotenv Java**: `3.2.0` - Gerenciamento de variaveis de ambiente
+
+### Desenvolvimento
+- **JUnit 5**: `5.10.2` - Framework de testes
+- **JUnit Platform Suite**: `1.10.2` - Suporte para suites de teste
+- **SLF4J**: `2.0.11` - API de logging
+- **Logback**: `1.4.14` - Implementacao de logging
