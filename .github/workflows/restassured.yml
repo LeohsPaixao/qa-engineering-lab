@@ -75,7 +75,7 @@ jobs:
         run: make test
 
       - name: Salvar resultados RAW (RestAssured API)
-        uses: actions/upload-artifact@4.4.0
+        uses: actions/upload-artifact@v4.4.0
         with:
           name: rest-assured
           path: qa-resuls/raw/rest-assured
