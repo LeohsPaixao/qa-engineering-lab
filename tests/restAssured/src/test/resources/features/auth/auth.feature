@@ -11,21 +11,15 @@ Feature: Auth
       """
     Then the response status code should be <statusCode>
     And the response should match the "<schema>" schema
-    And the response body should contain the following:
-      """
-      <message>
-      """
+    And the response message should be "<message>"
 
     Examples:
       | email               | password | statusCode | message                      | schema              |
       | generic@example.com |   123456 |        200 | Login realizado com sucesso! | auth/login-success  |
-      | invalid@example.com |   123456 |        404 | Usuário não encontrado.      | auth/login-failure  |
+      | invalid@invalid.com |   123456 |        404 | Usuário não encontrado.      | auth/login-failure  |
       | generic@example.com |  1234567 |        401 | A senha não confere.         | auth/password-wrong |
 
   Scenario: Logout with success
     When I send a POST request for "/auth/logout" without body
     Then the response status code should be 200
-    And the response body should contain the following:
-      """
-      O usuário foi deslogado com sucesso!
-      """
+    And the response message should be "O usuário foi deslogado com sucesso!"

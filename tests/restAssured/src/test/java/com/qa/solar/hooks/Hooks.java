@@ -2,8 +2,6 @@ package com.qa.solar.hooks;
 
 import java.time.Duration;
 import java.time.LocalDateTime;
-import java.util.ArrayList;
-import java.util.List;
 import java.util.concurrent.atomic.AtomicInteger;
 
 import org.slf4j.Logger;
@@ -18,45 +16,44 @@ import io.cucumber.java.Before;
 import io.cucumber.java.Scenario;
 
 /**
- * Hooks do Cucumber para configuração do RestAssured
+ * Hooks do Cucumber para configuração e relatório de execução.
+ *
+ * @author Leonardo Paixao
+ * @version 2.0
+ * @since 2026-01-17
  */
 public class Hooks {
 
     private static final Logger LOG = LoggerFactory.getLogger(Hooks.class);
-    private static RestAssuredConfig restAssuredConfig = new RestAssuredConfig();
+    private static final RestAssuredConfig REST_ASSURED_CONFIG = new RestAssuredConfig();
     private static boolean initialized = false;
 
     private static final AtomicInteger passedCount = new AtomicInteger(0);
     private static final AtomicInteger failedCount = new AtomicInteger(0);
     private static final AtomicInteger skippedCount = new AtomicInteger(0);
-    private static final List<TestResult> results = new ArrayList<>();
     private static LocalDateTime startTime;
 
-    private static class TestResult {
-        final String name;
-        final String status;
-
-        TestResult(String id, String name, String status) {
-            this.name = name;
-            this.status = status;
-        }
-    }
+    private static final String BOX_TOP = "╔════════════════════════════════════════╗";
+    private static final String BOX_MID = "╠════════════════════════════════════════╣";
+    private static final String BOX_BOT = "╚════════════════════════════════════════╝";
+    private static final String BOX_SEP = "║────────────────────────────────────────║";
+    private static final int BOX_WIDTH = 42;
 
     @Before(order = 0)
     public void beforeAllScenarios() {
         if (!initialized) {
-            restAssuredConfig.config();
+            REST_ASSURED_CONFIG.config();
             initialized = true;
             startTime = LocalDateTime.now();
+            LOG.info("Iniciando execução dos testes...");
         }
     }
 
     @Before(order = 1)
     public void beforeScenario(Scenario scenario) {
-        LOG.info("***************************************************************");
-        LOG.info("ID: " + scenario.getId());
-        LOG.info("Scenario: " + scenario.getName());
-        LOG.info("***************************************************************");
+        LOG.info("━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━");
+        LOG.info("▶ Cenário: {}", scenario.getName());
+        LOG.info("  ID: {}", scenario.getId());
     }
 
     @After(order = 0)
@@ -64,29 +61,17 @@ public class Hooks {
         TestContext.reset();
 
         String status = scenario.getStatus() != null ? scenario.getStatus().toString() : "UNKNOWN";
-        String name = scenario.getName();
-        String id = scenario.getId();
-
-        TestResult result = new TestResult(id, name, status);
-        results.add(result);
 
         switch (status) {
-            case "PASSED":
-                passedCount.incrementAndGet();
-                break;
-            case "FAILED":
-                failedCount.incrementAndGet();
-                break;
-            case "SKIPPED":
-                skippedCount.incrementAndGet();
-                break;
-            default:
-                break;
+            case "PASSED" -> passedCount.incrementAndGet();
+            case "FAILED" -> failedCount.incrementAndGet();
+            case "SKIPPED" -> skippedCount.incrementAndGet();
+            default -> { }
         }
 
-        LOG.info("***************************************************************");
-        LOG.info("Status: " + status);
-        LOG.info("***************************************************************");
+        String icon = status.equals("PASSED") ? "✓" : status.equals("FAILED") ? "✗" : "○";
+        LOG.info("  Status: {} {}", icon, status);
+        LOG.info("━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━");
     }
 
     @AfterAll
@@ -95,50 +80,53 @@ public class Hooks {
             return;
         }
 
-        LocalDateTime endTime = LocalDateTime.now();
-        Duration duration = Duration.between(startTime, endTime);
-        long seconds = duration.getSeconds();
-        long millis = duration.toMillis() % 1000;
-        
+        Duration duration = Duration.between(startTime, LocalDateTime.now());
+        String durationStr = formatDuration(duration);
         int total = passedCount.get() + failedCount.get() + skippedCount.get();
-        
-        System.out.println();
-        System.out.println("╔════════════════════════════════════════════════════════════════╗");
-        System.out.println("║                    RESUMO DA EXECUÇÃO                          ║");
-        System.out.println("╠════════════════════════════════════════════════════════════════╣");
-        System.out.println();
-        
-        // Estatísticas principais
-        System.out.printf("  ✓ %-15s %d%n", "Passed:", passedCount.get());
-        System.out.printf("  ✗ %-15s %d%n", "Failed:", failedCount.get());
-        System.out.printf("  ○ %-15s %d%n", "Skipped:", skippedCount.get());
-        System.out.println();
-        System.out.printf("  Total: %d teste(s) | Duração: %d.%03ds%n", total, seconds, millis);
-        System.out.println();
-        
-        // Lista de testes com status
-        if (!results.isEmpty()) {
-            System.out.println("  ──────────────────────────────────────────────────────────────");
-            System.out.println("  Testes executados:");
-            System.out.println();
-            
-            for (TestResult result : results) {
-                String statusIcon = result.status.equals("PASSED") ? "✓" :
-                                   result.status.equals("FAILED") ? "✗" : "○";
-                System.out.printf("    %s %s - %s%n", statusIcon, result.name, result.status);
-            }
-            System.out.println();
-        }
-        
-        // Resultado final
-        System.out.println("╠════════════════════════════════════════════════════════════════╣");
+
+        LOG.info("");
+        LOG.info(BOX_TOP);
+        LOG.info(formatLine("RESUMO DA EXECUÇÃO"));
+        LOG.info(BOX_MID);
+        LOG.info(formatLine("✓ Passed:  " + passedCount.get()));
+        LOG.info(formatLine("✗ Failed:  " + failedCount.get()));
+        LOG.info(formatLine("○ Skipped: " + skippedCount.get()));
+        LOG.info(BOX_SEP);
+        LOG.info(formatLine("Total: " + total + " | Duração: " + durationStr));
+        LOG.info(BOX_MID);
+
         if (failedCount.get() == 0) {
-            System.out.println("║  ✓ Todos os testes passaram!                                   ║");
+            LOG.info(formatLine("✓ Todos os testes passaram!"));
         } else {
-            System.out.printf("║  ✗ %d teste(s) falharam                                         ║%n", failedCount.get());
+            LOG.info(formatLine("✗ " + failedCount.get() + " teste(s) falharam"));
         }
-        System.out.println("╚════════════════════════════════════════════════════════════════╝");
-        System.out.println();
+        LOG.info(BOX_BOT);
+        LOG.info("");
     }
 
+    /**
+     * Formata uma linha para caber no box com bordas.
+     */
+    private static String formatLine(String content) {
+        int contentWidth = BOX_WIDTH - 4;
+        String padded = String.format("%-" + contentWidth + "s", content);
+        if (padded.length() > contentWidth) {
+            padded = padded.substring(0, contentWidth);
+        }
+        return "║ " + padded + " ║";
+    }
+
+    /**
+     * Formata a duração em formato legível.
+     */
+    private static String formatDuration(Duration duration) {
+        long totalMillis = duration.toMillis();
+        long seconds = totalMillis / 1000;
+        long millis = totalMillis % 1000;
+
+        if (seconds > 0) {
+            return seconds + "." + String.format("%03d", millis) + "s";
+        }
+        return millis + "ms";
+    }
 }
