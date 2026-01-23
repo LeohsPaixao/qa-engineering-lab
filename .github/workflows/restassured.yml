@@ -1,0 +1,81 @@
+on:
+  workflow_call:
+   
+
+jobs:
+  rest-assured-tests:
+    name: RestAssured Testes QA-Solar
+    runs-on: ubuntu-latest
+    timeout-minutes: 10
+    env:
+      TURBO_TELEMETRY_DISABLED: 1
+    services:
+      postgres:
+        image: postgres:15
+        ports:
+          - 5432:5432
+        env:
+          POSTGRES_USER: postgres
+          POSTGRES_PASSWORD: postgres
+          POSTGRES_DB: tests_base
+        options: >-
+          --health-cmd pg_isready
+          --health-interval 10s
+          --health-timeout 5s
+          --health-retries 5
+
+    steps:
+      - name: Checkout do repositório
+        uses: actions/checkout@v4
+
+      - name: Configurar Node.js
+        uses: actions/setup-node@v4.4.0
+        with:
+          node-version: 22.19.0
+          cache: 'yarn'
+
+      - name: Configurar Java
+        uses: actions/setup-java@v4.7.1
+        with:
+          java-version: 21
+          distribution: 'corretto'
+          cache: 'gradle'
+
+
+      - name: Instalar dependências do Monorepo
+        run: yarn install --frozen-lockfile
+
+      - name: Executar seeders
+        run: chmod +x .github/scripts/run-seeders.sh && .github/scripts/run-seeders.sh
+        env:
+          DATABASE_URL: postgresql://postgres:postgres@localhost:5432/tests_base?schema=public
+          JWT_SECRET: jwt_secret
+
+      - name: Iniciar backend
+        run: |
+          cd apps/backend
+          yarn dev &
+          sleep 5
+        env:
+          DATABASE_URL: postgresql://postgres:postgres@localhost:5432/tests_base?schema=public
+          JWT_SECRET: jwt_secret
+          API_URL: http://localhost:3001
+
+      - name: Criar arquivo .env para testes RestAssured
+        working-directory: tests/restAssured
+        run: |
+          echo "REST_ASSURED_BASE_URL=http://localhost:3001" >> .env
+
+      - name: Buildar o projeto RestAssured
+        working-directory: tests/restAssured
+        run: make building
+
+      - name: Executar testes RestAssured
+        working-directory: tests/restAssured
+        run: make test
+
+      - name: Salvar resultados RAW (RestAssured API)
+        uses: actions/upload-artifact@4.4.0
+        with:
+          name: rest-assured
+          path: qa-resuls/raw/rest-assured
