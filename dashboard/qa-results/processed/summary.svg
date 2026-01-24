@@ -91,7 +91,7 @@
     <!-- Duration -->
     <g transform="translate(280, 0)">
       <text x="0" y="0" class="stat-label">Duration</text>
-      <text x="0" y="28" class="stat-value" fill="#58a6ff">3m 12s</text>
+      <text x="0" y="28" class="stat-value" fill="#58a6ff">3m 18s</text>
     </g>
   </g>
 
@@ -119,5 +119,5 @@
   </g>
 
   <!-- Footer -->
-  <text x="24" y="210" class="date-text">Last updated: 23/01/2026, 23:42</text>
+  <text x="24" y="210" class="date-text">Last updated: 24/01/2026, 00:21</text>
 </svg>

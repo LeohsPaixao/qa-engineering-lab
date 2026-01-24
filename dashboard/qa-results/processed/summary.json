@@ -1,12 +1,12 @@
 {
-  "timestamp": "2026-01-23T23-37-12",
-  "generatedAt": "2026-01-23T23:42:15.036Z",
+  "timestamp": "2026-01-24T00-16-21",
+  "generatedAt": "2026-01-24T00:21:45.944Z",
   "overall": {
     "total": 432,
     "passed": 432,
     "failed": 0,
     "skipped": 0,
-    "duration_s": 191.531784394
+    "duration_s": 198.19858238200004
   },
   "byFramework": {
     "cypress-ct": {
@@ -14,56 +14,56 @@
       "passed": 68,
       "failed": 0,
       "skipped": 0,
-      "duration_s": 9.672999999999998
+      "duration_s": 9.767999999999999
     },
     "cypress-e2e": {
       "total": 25,
       "passed": 25,
       "failed": 0,
       "skipped": 0,
-      "duration_s": 52.164
+      "duration_s": 56.07400000000002
     },
     "jest": {
       "total": 40,
       "passed": 40,
       "failed": 0,
       "skipped": 0,
-      "duration_s": 1.086
+      "duration_s": 1.1450000000000002
     },
     "playwright-e2e": {
       "total": 37,
       "passed": 37,
       "failed": 0,
       "skipped": 0,
-      "duration_s": 21.797000000000004
+      "duration_s": 21.75500000000001
     },
     "rest-assured": {
       "total": 18,
       "passed": 18,
       "failed": 0,
       "skipped": 0,
-      "duration_s": 5.179000000000001
+      "duration_s": 4.46
     },
     "robot-e2e": {
       "total": 36,
       "passed": 36,
       "failed": 0,
       "skipped": 0,
-      "duration_s": 23.786488000000006
+      "duration_s": 24.144402999999997
     },
     "selenium-e2e": {
       "total": 37,
       "passed": 37,
       "failed": 0,
       "skipped": 0,
-      "duration_s": 75.48199999999999
+      "duration_s": 78.39700000000002
     },
     "vitest": {
       "total": 171,
       "passed": 171,
       "failed": 0,
       "skipped": 0,
-      "duration_s": 2.364296393999998
+      "duration_s": 2.4551793820000025
     }
   },
   "artifacts": {
