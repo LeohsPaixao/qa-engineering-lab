@@ -10,7 +10,7 @@
   </defs>
 
   <style>
-    .bg { fill: #0d1117; }
+    .bg { fill: #0d1116; }
     .header-bg { fill: url(#headerGradient); }
     .title { fill: #f0f6fc; font-size: 20px; font-weight: 600; font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Noto Sans', Helvetica, Arial, sans-serif; }
     .subtitle { fill: #8b949e; font-size: 12px; font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Noto Sans', Helvetica, Arial, sans-serif; }
@@ -35,8 +35,7 @@
   
   <!-- Header -->
   <rect width="100%" height="70" rx="8" class="header-bg"/>
-  <text x="24" y="28" class="title">QA Solar</text>
-  <text x="140" y="28" class="subtitle">Test Results Summary</text>
+  <text x="24" y="28" class="title">Frameworks:</text>
   
   <!-- Frameworks Badges -->
   <g transform="translate(24, 42)">
@@ -49,6 +48,14 @@
       <rect x="0" y="0" width="110" height="20" rx="10" class="framework-badge" stroke="#58a6ff" stroke-width="1.5"/>
       <text x="55" y="14" class="framework-text" text-anchor="middle">Cypress E2e</text>
     </g>
+    <g transform="translate(240, 0)">
+      <rect x="0" y="0" width="110" height="20" rx="10" class="framework-badge" stroke="#43A047" stroke-width="1.5"/>
+      <text x="55" y="14" class="framework-text" text-anchor="middle">Rest Assured</text>
+    </g>
+    <g transform="translate(360, 0)">
+      <rect x="0" y="0" width="110" height="20" rx="10" class="framework-badge" stroke="#a5a5a5" stroke-width="1.5"/>
+      <text x="55" y="14" class="framework-text" text-anchor="middle">Selenium E2e</text>
+    </g>
   </g>
 
   <!-- Main Stats Row -->
@@ -56,19 +63,19 @@
     <!-- Total Tests -->
     <g>
       <text x="0" y="0" class="stat-label">Total Tests</text>
-      <text x="0" y="28" class="stat-value">93</text>
+      <text x="0" y="28" class="stat-value">148</text>
     </g>
 
     <!-- Success Rate -->
     <g transform="translate(140, 0)">
       <text x="0" y="0" class="stat-label">Success Rate</text>
-      <text x="0" y="28" class="stat-value" fill="#238636">99%</text>
+      <text x="0" y="28" class="stat-value" fill="#238636">97%</text>
     </g>
 
     <!-- Duration -->
     <g transform="translate(280, 0)">
       <text x="0" y="0" class="stat-label">Duration</text>
-      <text x="0" y="28" class="stat-value" fill="#58a6ff">1m 30s</text>
+      <text x="0" y="28" class="stat-value" fill="#58a6ff">5m 34s</text>
     </g>
   </g>
 
@@ -76,11 +83,11 @@
   <g transform="translate(24, 145)">
     <!-- Passed Badge -->
     <rect x="0" y="0" width="100" height="24" rx="12" class="badge-passed"/>
-    <text x="50" y="16" class="badge-text" text-anchor="middle">✓ 92</text>
+    <text x="50" y="16" class="badge-text" text-anchor="middle">✓ 144</text>
     
     <!-- Failed Badge -->
     <rect x="120" y="0" width="100" height="24" rx="12" class="badge-failed"/>
-    <text x="170" y="16" class="badge-text" text-anchor="middle">✗ 1</text>
+    <text x="170" y="16" class="badge-text" text-anchor="middle">✗ 4</text>
     
     <!-- Skipped Badge -->
     <rect x="240" y="0" width="100" height="24" rx="12" class="badge-skipped"/>
@@ -90,11 +97,11 @@
   <!-- Progress Bar -->
   <g transform="translate(24, 185)">
     <rect x="0" y="0" width="752" height="8" rx="4" class="progress-bg"/>
-    <rect x="0" y="0" width="743.9139784946236" height="8" rx="4" class="progress-passed"/>
-    <rect x="743.9139784946236" y="0" width="8.086021505376344" height="8" rx="4" class="progress-failed"/>
+    <rect x="0" y="0" width="731.6756756756757" height="8" rx="4" class="progress-passed"/>
+    <rect x="731.6756756756757" y="0" width="20.324324324324323" height="8" rx="4" class="progress-failed"/>
     
   </g>
 
   <!-- Footer -->
-  <text x="24" y="210" class="date-text">Last updated: 06/12/2025, 11:04</text>
+  <text x="24" y="210" class="date-text">Last updated: 23/01/2026, 19:40</text>
 </svg>

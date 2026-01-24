@@ -7,7 +7,16 @@ export interface PreprocessorConfig {
 /**
  * Framework suportado pelo preprocessor
  */
-export type Framework = 'cypress-e2e' | 'cypress-ct' | 'playwright-e2e' | 'playwright-ct' | 'jest' | 'vitest' | 'robot-e2e' | 'selenium-e2e';
+export type Framework =
+  | 'cypress-e2e'
+  | 'cypress-ct'
+  | 'playwright-e2e'
+  | 'playwright-ct'
+  | 'jest'
+  | 'vitest'
+  | 'robot-e2e'
+  | 'selenium-e2e'
+  | 'rest-assured';
 
 /**
  * Status de um teste
@@ -17,7 +26,7 @@ export type TestStatus = 'passed' | 'failed' | 'skipped';
 /**
  * Tipo de teste
  */
-export type TestType = 'ct' | 'e2e' | 'unit' | 'unknown';
+export type TestType = 'ct' | 'e2e' | 'unit' | 'api' | 'unknown';
 
 /**
  * Informações sobre um arquivo raw encontrado

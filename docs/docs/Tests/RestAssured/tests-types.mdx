@@ -1,0 +1,321 @@
+---
+sidebar_position: 3
+---
+
+# 🧪 Tipos de Testes
+
+## 📋 Visão Geral
+
+O projeto Rest Assured implementa testes de API utilizando a abordagem BDD (Behavior Driven Development) com Cucumber. Os cenarios sao escritos em linguagem Gherkin, tornando os testes legiveis e servindo como documentacao viva da API.
+
+## 🔄 Testes de API com BDD
+
+### 🎯 Objetivo
+Os testes de API validam os endpoints REST do backend, garantindo que as respostas estejam corretas em termos de status code, estrutura (schema) e conteudo das mensagens.
+
+### 📊  Cobertura Atual
+- **Autenticacao**: Login, logout e validacoes de credenciais
+- **Usuarios**: CRUD completo (Create, Read, Update, Delete)
+- **Perfil**: Obtencao e atualizacao do usuario logado
+- **Recuperacao de Senha**: Fluxo de recuperacao via email
+
+### 🛠️Caracteristicas Tecnicas
+- **Base URL**: `http://localhost:3001`
+- **Formato**: JSON
+- **Validacao**: JSON Schema para estrutura de responses
+- **BDD**: Cenarios em Gherkin com Cucumber
+
+## Exemplos de Features
+
+### Autenticacao (auth.feature)
+
+```gherkin
+@api
+Feature: Auth
+  In order to authenticate the user in the system
+  As a user of the QA Solar system
+  I want to be able to do the authentication processes
+
+  Scenario Outline: Login validation
+    When I send a POST request for "/auth/login" with the following body:
+      """
+      { "email": "<email>", "password": "<password>" }
+      """
+    Then the response status code should be <statusCode>
+    And the response should match the "<schema>" schema
+    And the response message should be "<message>"
+
+    Examples:
+      | email               | password | statusCode | message                      | schema              |
+      | generic@example.com |   123456 |        200 | Login realizado com sucesso! | auth/login-success  |
+      | invalid@invalid.com |   123456 |        404 | Usuario nao encontrado.      | auth/login-failure  |
+      | generic@example.com |  1234567 |        401 | A senha nao confere.         | auth/password-wrong |
+
+  Scenario: Logout with success
+    When I send a POST request for "/auth/logout" without body
+    Then the response status code should be 200
+    And the response message should be "O usuario foi deslogado com sucesso!"
+```
+
+### Criacao de Usuario (create_user.feature)
+
+```gherkin
+@api
+Feature: User
+  As an authenticated user
+  I should be able to create users
+
+  Scenario: Should be able to create a new user
+    When I create a user with valid data
+    Then the response status code should be 201
+    And the response should match the "user/create_user/create-user-success" schema
+    And the response message should be "Usuario criado com sucesso!"
+
+  Scenario: Should return error when email is duplicated
+    Given there is a user with email "duplicated@example.com"
+    When I send a POST request for "/users" with email for create a new user
+    Then the response status code should be 409
+    And the response should match the "user/create_user/email-duplicated" schema
+    And the response message should be "E-mail ja esta em uso."
+
+  Scenario: Should return error when document is duplicated
+    Given there is a user with document "449.324.480-15"
+    When I send a POST request for "/users" with document for create a new user
+    Then the response status code should be 409
+    And the response should match the "user/create_user/document-duplicated" schema
+    And the response message should be "CPF ou CNPJ ja esta em uso."
+```
+
+### Listagem de Usuarios (list_users.feature)
+
+```gherkin
+@api
+Feature: Get List of Users
+  As an authenticated user
+  I want to list users
+
+  Scenario: Get list of users when authenticated
+    Given I am authenticated
+    When I send a GET request to "/users"
+    Then the response status code should be 200
+    And the response should match the "user/list_user/list-users-success" schema
+
+  Scenario: Should not retrieve the list of users without authentication
+    When I send a GET request to "/users"
+    Then the response status code should be 401
+    And the response should match the "user/list_user/list-users-failure" schema
+    And the response message should be "Unauthorized"
+```
+
+### Exclusao de Usuario (delete_user.feature)
+
+```gherkin
+@api
+Feature: Delete User
+  As an authenticated user
+  I should be able to remove users
+
+  Background:
+    Given I am authenticated
+
+  Scenario: Should delete users successfully
+    When there is a user to be deleted
+    And I delete the user
+    Then the response status code should be 200
+    And the response should match the "user/delete_users/delete-user-success" schema
+    And the response message should be "1 usuario(s) excluido(s) com sucesso!"
+
+  Scenario: Should not delete the logged user
+    Given I am authenticated as a user
+    When I try to delete the logged user
+    Then the response status code should be 400
+    And the response should match the "user/delete_users/delete-user-logged" schema
+    And the response message should be "Voce nao pode excluir o usuario logado."
+
+  Scenario: Should return error when no users are found
+    When I try to delete users without providing ids
+    Then the response status code should be 404
+    And the response should match the "user/delete_users/no-provide-ids" schema
+    And the response message should be "Nenhum usuario encontrado para excluir"
+```
+
+## Implementacao dos Steps
+
+### Steps Comuns (StepsDefinitions.java)
+
+```java
+public class StepsDefinitions {
+    private final TestContext context = TestContext.getInstance();
+
+    // ==================== GIVEN ====================
+
+    @Given("I am authenticated")
+    public void iAmAuthenticated() {
+        String body = """
+            {
+              "email": "%s",
+              "password": "%s"
+            }
+            """.formatted(
+            TestConstants.DEFAULT_USER_EMAIL,
+            TestConstants.DEFAULT_PASSWORD);
+
+        Response response = RequestHelper.post(TestConstants.AUTH_LOGIN_ENDPOINT, body);
+        String token = response.jsonPath().getString("token");
+
+        context.setAuthToken(token);
+    }
+
+    // ==================== WHEN ====================
+
+    @When("I send a POST request for {string} with the following body:")
+    public void iSendAPostRequestWithBody(String endpoint, String body) {
+        context.setResponse(RequestHelper.post(endpoint, body));
+    }
+
+    @When("I send a POST request for {string} without body")
+    public void iSendAPostRequestWithoutBody(String endpoint) {
+        context.setResponse(RequestHelper.postWithoutBody(endpoint));
+    }
+
+    @When("I send a GET request to {string}")
+    public void iSendAGetRequestTo(String endpoint) {
+        context.setResponse(RequestHelper.get(endpoint));
+    }
+
+    // ==================== THEN ====================
+
+    @Then("the response status code should be {int}")
+    public void theResponseStatusCodeShouldBe(int expectedStatusCode) {
+        Response response = context.getResponse();
+        int actualStatusCode = response.getStatusCode();
+
+        Assertions.assertEquals(
+            expectedStatusCode,
+            actualStatusCode,
+            String.format("Status code esperado: %d, mas foi: %d",
+                expectedStatusCode, actualStatusCode));
+    }
+
+    // ==================== AND ====================
+
+    @And("the response should match the {string} schema")
+    public void theResponseShouldMatchTheSchema(String schemaPath) {
+        Response response = context.getResponse();
+        String fullSchemaPath = TestConstants.SCHEMA_BASE_PATH + schemaPath
+            + TestConstants.SCHEMA_EXTENSION;
+
+        response.then()
+            .assertThat()
+            .body(matchesJsonSchemaInClasspath(fullSchemaPath));
+    }
+
+    @And("the response message should be {string}")
+    public void theResponseMessageShouldBe(String expectedMessage) {
+        Response response = context.getResponse();
+        String responseBody = response.getBody().asString();
+
+        Assertions.assertTrue(
+            responseBody.contains(expectedMessage),
+            String.format("Resposta nao contem a mensagem esperada: '%s'. Body: %s",
+                expectedMessage, responseBody));
+    }
+}
+```
+
+## Validacao de JSON Schema
+
+### Estrutura dos Schemas
+
+Os schemas JSON sao organizados por funcionalidade:
+
+```plaintext
+resources/schemas/
+├── auth/
+│   ├── login-success.schema.json
+│   ├── login-failure.schema.json
+│   └── password-wrong.schema.json
+└── user/
+    ├── create_user/
+    │   ├── create-user-success.schema.json
+    │   ├── email-duplicated.schema.json
+    │   └── document-duplicated.schema.json
+    ├── list_user/
+    │   ├── list-users-success.schema.json
+    │   └── list-users-failure.schema.json
+    ├── delete_users/
+    │   ├── delete-user-success.schema.json
+    │   ├── delete-user-logged.schema.json
+    │   └── no-provide-ids.schema.json
+    ├── update_user/
+    │   ├── update-user-success.schema.json
+    │   └── update-user-failure.schema.json
+    └── me/
+        ├── get-me-success.schema.json
+        └── get-me-failure.schema.json
+```
+
+### Exemplo de Schema
+
+```json
+{
+  "$schema": "http://json-schema.org/draft-07/schema#",
+  "type": "object",
+  "required": ["message", "token"],
+  "properties": {
+    "message": {
+      "type": "string"
+    },
+    "token": {
+      "type": "string"
+    }
+  }
+}
+```
+
+## 🎯 Estratégias de Teste
+
+### 📋 Padrões de Nomenclatura
+- **Features**: Descricao clara da funcionalidade em ingles
+- **Scenarios**: Descricao do comportamento esperado
+- **Steps**: Verbos no imperativo (Given/When/Then)
+
+### 🔧 Tags de Organizacao
+- `@api`: Tag principal para todos os testes de API
+- `@auth`: Testes de autenticacao
+- `@user`: Testes de usuario
+- `@smoke`: Testes de sanidade
+
+### Hooks e Setup
+
+```java
+public class Hooks {
+    @Before
+    public void setUp() {
+        new RestAssuredConfig().config();
+    }
+
+    @After
+    public void tearDown() {
+        TestContext.reset();
+    }
+}
+```
+
+## 📊 Métricas de Qualidade
+
+### 🎯 Cobertura de Testes
+- **Endpoints**: 100% dos endpoints principais cobertos
+- **Cenarios**: 15+ cenarios de teste implementados
+- **Validacoes**: Schema validation para todos os responses
+
+### Tipos de Validacao
+- **Status Code**: Validacao do codigo HTTP de resposta
+- **Schema**: Validacao da estrutura JSON
+- **Mensagem**: Validacao do conteudo da resposta
+- **Headers**: Validacao de headers quando necessario
+
+### Confiabilidade
+- **Thread-Safe Context**: Isolamento entre execucoes paralelas
+- **Data Generation**: Dados unicos para cada execucao
+- **Error Handling**: Logs detalhados em caso de falha

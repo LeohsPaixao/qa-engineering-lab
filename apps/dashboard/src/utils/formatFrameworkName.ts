@@ -8,10 +8,11 @@ export function formatFrameworkName(name: string): string {
   const names: Record<string, string> = {
     'cypress-ct': 'Cypress CT',
     'cypress-e2e': 'Cypress E2E',
-    jest: 'Jest',
     'playwright-e2e': 'Playwright',
     'robot-e2e': 'Robot Framework',
     'selenium-e2e': 'Selenium',
+    'rest-assured': 'RestAssured',
+    jest: 'Jest',
     vitest: 'Vitest',
   };
   return names[name] || name;

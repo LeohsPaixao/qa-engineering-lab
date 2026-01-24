@@ -1,0 +1,28 @@
+{
+  "definitions": {},
+  "$schema": "http://json-schema.org/draft-07/schema#",
+  "type": "object",
+  "title": "The Update User Failure Schema",
+  "required": [
+    "message",
+    "statusCode"
+  ],
+  "properties": {
+    "message": {
+      "$id": "#/properties/message",
+      "type": "string",
+      "title": "The Message Schema",
+      "examples": [
+        "Unauthorized"
+      ]
+    },
+    "statusCode": {
+      "$id": "#/properties/statusCode",
+      "type": "number",
+      "title": "The Status Code Schema",
+      "examples": [
+        "401"
+      ]
+    }
+  }
+}
