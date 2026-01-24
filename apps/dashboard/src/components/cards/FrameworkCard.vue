@@ -57,6 +57,7 @@ const badgeClass = computed(() => {
     ct: 'badge-ct',
     e2e: 'badge-e2e',
     unit: 'badge-unit',
+    api: 'badge-api',
   };
   return classes[props.type] || 'badge-default';
 });
