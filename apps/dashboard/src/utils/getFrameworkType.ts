@@ -14,6 +14,9 @@ export function getFrameworkType(frameworkName: string): string {
   if (frameworkName.includes('jest') || frameworkName.includes('vitest')) {
     return 'unit';
   }
+  if (frameworkName.includes('rest-assured')) {
+    return 'api'
+  }
 
   return 'default';
 }
