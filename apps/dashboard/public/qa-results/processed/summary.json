@@ -1,12 +1,12 @@
 {
-  "timestamp": "2025-11-22T02-09-13",
-  "generatedAt": "2025-11-22T23:36:00.421Z",
+  "timestamp": "2026-01-23-20-57-39",
+  "generatedAt": "2026-01-23T22:40:40.227Z",
   "overall": {
-    "total": 414,
-    "passed": 410,
-    "failed": 3,
-    "skipped": 1,
-    "duration_s": 451.63625711500003
+    "total": 148,
+    "passed": 144,
+    "failed": 4,
+    "skipped": 0,
+    "duration_s": 334.42600000000004
   },
   "byFramework": {
     "cypress-ct": {
@@ -14,69 +14,42 @@
       "passed": 68,
       "failed": 0,
       "skipped": 0,
-      "duration_s": 14.369
+      "duration_s": 14.750999999999996
     },
     "cypress-e2e": {
       "total": 25,
       "passed": 24,
       "failed": 1,
       "skipped": 0,
-      "duration_s": 73.68400000000001
+      "duration_s": 74.893
     },
-    "jest": {
-      "total": 40,
-      "passed": 40,
+    "rest-assured": {
+      "total": 18,
+      "passed": 18,
       "failed": 0,
       "skipped": 0,
-      "duration_s": 2.1859999999999995
-    },
-    "playwright-e2e": {
-      "total": 37,
-      "passed": 36,
-      "failed": 1,
-      "skipped": 0,
-      "duration_s": 75.15800000000002
-    },
-    "robot-e2e": {
-      "total": 36,
-      "passed": 36,
-      "failed": 0,
-      "skipped": 0,
-      "duration_s": 54.36395799999999
+      "duration_s": 9.259
     },
     "selenium-e2e": {
       "total": 37,
-      "passed": 36,
-      "failed": 1,
+      "passed": 34,
+      "failed": 3,
       "skipped": 0,
-      "duration_s": 222.53
-    },
-    "vitest": {
-      "total": 171,
-      "passed": 170,
-      "failed": 0,
-      "skipped": 1,
-      "duration_s": 9.345299114999992
+      "duration_s": 235.52300000000005
     }
   },
   "artifacts": {
     "processedFiles": [
       "cypress-ct.json",
       "cypress-e2e.json",
-      "jest.json",
-      "playwright-e2e.json",
-      "robot-e2e.json",
-      "selenium-e2e.json",
-      "vitest.json"
+      "rest-assured.json",
+      "selenium-e2e.json"
     ],
     "rawFiles": [
       "mochawesome.json",
       "mochawesome.json",
-      "results.json",
-      "results.json",
-      "output.xml",
-      "TEST-com.qa.solar.ListUsers.xml",
-      "results.json"
+      "TEST-Examples.xml",
+      "TEST-com.qa.solar.ListUsers.xml"
     ]
   }
 }
