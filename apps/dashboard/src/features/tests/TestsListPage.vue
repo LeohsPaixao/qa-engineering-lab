@@ -102,7 +102,16 @@ async function loadAllTests() {
   error.value = null;
 
   try {
-    const frameworks: FrameworkName[] = ['cypress-ct', 'cypress-e2e', 'jest', 'playwright-e2e', 'robot-e2e', 'selenium-e2e', 'vitest'];
+    const frameworks: FrameworkName[] = [
+      'cypress-ct',
+      'cypress-e2e',
+      'jest',
+      'playwright-e2e',
+      'robot-e2e',
+      'selenium-e2e',
+      'vitest',
+      'rest-assured',
+    ];
 
     const tests: TestResult[] = [];
 
