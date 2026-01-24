@@ -15,7 +15,7 @@ export function getFrameworkType(frameworkName: string): string {
     return 'unit';
   }
   if (frameworkName.includes('rest-assured')) {
-    return 'api'
+    return 'api';
   }
 
   return 'default';
