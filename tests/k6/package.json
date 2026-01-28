@@ -1,0 +1,35 @@
+{
+  "name": "performance-tests",
+  "version": "1.3.2",
+  "description": "Testes de performance para o QA Solar",
+  "author": "Leonardo Paixão",
+  "private": true,
+  "license": "MIT",
+  "scripts": {
+    "pretest": "rimraf dist && ts-node build.ts",
+    "tests": "yarn pretest && k6 run --out web-dashboard",
+    "k6:report": "ts-node generate-report.ts",
+    "format": "prettier --write ."
+  },
+  "keywords": [
+    "k6",
+    "performance"
+  ],
+  "dependencies": {
+    "k6-html-reporter": "1.0.5",
+    "rimraf": "6.0.1"
+  },
+  "devDependencies": {
+    "@tsconfig/node22": "22.0.5",
+    "@types/k6": "1.5.0",
+    "@types/node": "22.19.1",
+    "@typescript-eslint/eslint-plugin": "8.34.0",
+    "@typescript-eslint/parser": "8.34.0",
+    "esbuild": "0.25.5",
+    "eslint": "9.20.0",
+    "glob": "13.0.0",
+    "prettier": "3.3.3",
+    "ts-node": "10.9.2",
+    "typescript": "5.8.3"
+  }
+}
