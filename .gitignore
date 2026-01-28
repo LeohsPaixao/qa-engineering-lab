@@ -64,9 +64,11 @@ tests/restAssured/build/
 tests/restAssured/bin/
 tests/restAssured/.gradle/
 
-# Performance tests
-tests/performance/reports/
-tests/performance/.cache/
+# K6
+tests/k6/reports/
+tests/k6/images/
+tests/k6/.cache/
+tests/k6/dist/
 
 # QA results
 qa-results/raw/

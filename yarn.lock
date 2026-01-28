@@ -4649,10 +4649,10 @@
   dependencies:
     "@types/node" "*"
 
-"@types/k6@1.0.2":
-  version "1.0.2"
-  resolved "https://registry.yarnpkg.com/@types/k6/-/k6-1.0.2.tgz#da62b6faaafc969a76c19b838121c1502f878464"
-  integrity sha512-bpja1c7OXIJk06aPGN+Aw5f3QhP0PjvgX2Fwfa3rJUaUI+O1ZE3491g9hMjhH21ZlTaAhz7h6veyxaz/RqPUTg==
+"@types/k6@1.5.0":
+  version "1.5.0"
+  resolved "https://registry.yarnpkg.com/@types/k6/-/k6-1.5.0.tgz#7006cb509adab2d4cb31cc1cad1730a60737aeac"
+  integrity sha512-eQmSjjgYO1irlOmoZzGSuoYsK2uMrX3m/flcnqt5IDLA9D/vkPcRsAKfe9D6GrjXATD/Oo9ynQ6vc13V02WRmQ==
 
 "@types/mdast@^4.0.0", "@types/mdast@^4.0.2":
   version "4.0.4"
@@ -7804,9 +7804,9 @@ diff-sequences@^29.6.3:
   integrity sha512-EjePK1srD3P08o2j4f0ExnylqRs5B9tJjcp9t1krH2qRi8CCdsYfwe9JgSLurFBWwq4uOlipzfk5fHNvwFKr8Q==
 
 diff@^4.0.1:
-  version "4.0.2"
-  resolved "https://registry.yarnpkg.com/diff/-/diff-4.0.2.tgz#60f3aecb89d5fae520c11aa19efc2bb982aade7d"
-  integrity sha512-58lmxKSA4BNyLz+HHMUzlOEpg09FV+ev6ZMe3vJihgdxzgcwZ8VoEEPmALCZG9LmqfVoNMMKpttIYTVG6uDY7A==
+  version "4.0.4"
+  resolved "https://registry.yarnpkg.com/diff/-/diff-4.0.4.tgz#7a6dbfda325f25f07517e9b518f897c08332e07d"
+  integrity sha512-X07nttJQkwkfKfvTPG/KSnE2OMdcUCao6+eXF3wmnIQRn2aPAHH3VxDbDOdegkd6JbPsXqShpvEOHfAT+nCNwQ==
 
 diff@^5.0.0:
   version "5.2.0"
@@ -9501,7 +9501,7 @@ glob@11.0.1:
     package-json-from-dist "^1.0.0"
     path-scurry "^2.0.0"
 
-glob@13.0.0:
+glob@13.0.0, glob@^13.0.0:
   version "13.0.0"
   resolved "https://registry.yarnpkg.com/glob/-/glob-13.0.0.tgz#9d9233a4a274fc28ef7adce5508b7ef6237a1be3"
   integrity sha512-tvZgpqk6fz4BaNZ66ZsRaZnbHvP/jG3uKJvAZOwEVUL4RTA5nJeeLYfyN9/VA8NX/V3IBG+hkeuGpKjvELkVhA==
