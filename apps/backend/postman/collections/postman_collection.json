@@ -1,0 +1,919 @@
+{
+  "info": {
+    "_postman_id": "1f2a543a-d8fa-4f4d-88b8-163f678e52fc",
+    "name": "QA Solar API",
+    "description": "API for QA Solar application - Version 2.0.4. Built with NestJS and PostgreSQL. Base URL: http://localhost:3001. Swagger documentation available at /api",
+    "schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json"
+  },
+  "item": [
+    {
+      "name": "Auth",
+      "item": [
+        {
+          "name": "Login - Success",
+          "event": [
+            {
+              "listen": "test",
+              "script": {
+                "type": "text/javascript",
+                "exec": [
+                  "pm.test(\"Login successful - token received\", function () {",
+                  "    pm.expect(pm.response.json().message).to.eql(\"Login realizado com sucesso!\");",
+                  "    pm.expect(pm.response.json().token).to.exist;",
+                  "});",
+                  "",
+                  "pm.collectionVariables.set(\"token\", pm.response.json().token);"
+                ]
+              }
+            }
+          ],
+          "id": "5d515ded-c89a-4c58-83c7-beaf21866eef",
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          },
+          "request": {
+            "method": "POST",
+            "header": [
+              {
+                "key": "Content-Type",
+                "value": "application/json"
+              }
+            ],
+            "body": {
+              "mode": "raw",
+              "raw": "{\n  \"email\": \"generic@example.com\",\n  \"password\": \"123456\"\n}",
+              "options": {
+                "raw": {
+                  "language": "json"
+                }
+              }
+            },
+            "url": {
+              "raw": "{{baseUrl}}/auth/login",
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "path": [
+                "auth",
+                "login"
+              ]
+            },
+            "description": "Realizar login no sistema. Retorna um token JWT para autenticação."
+          },
+          "response": [
+            {
+              "id": "fd4588c0-01f6-4db4-9e2e-bc4cde132a98",
+              "name": "Success Response",
+              "originalRequest": {
+                "method": "POST",
+                "header": [
+                  {
+                    "key": "Content-Type",
+                    "value": "application/json"
+                  }
+                ],
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\n  \"email\": \"usuario@exemplo.com\",\n  \"password\": \"senha123\"\n}"
+                },
+                "url": {
+                  "raw": "{{baseUrl}}/auth/login",
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "path": [
+                    "auth",
+                    "login"
+                  ]
+                }
+              },
+              "status": "OK",
+              "code": 200,
+              "_postman_previewlanguage": "json",
+              "cookie": [],
+              "body": "{\n  \"message\": \"Login realizado com sucesso\",\n  \"token\": \"eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9...\"\n}"
+            }
+          ]
+        },
+        {
+          "name": "Login - Invalid Password",
+          "event": [
+            {
+              "listen": "test",
+              "script": {
+                "type": "text/javascript",
+                "exec": [
+                  "pm.test(\"Invalid password\", () => {",
+                  "    pm.response.to.have.status(401);",
+                  "    pm.expect(pm.response.json().message).to.eql(\"A senha não confere.\");",
+                  "    pm.expect(pm.response.json().error).to.eql(\"Unauthorized\");",
+                  "});"
+                ]
+              }
+            }
+          ],
+          "id": "1dd4ae27-43af-44fd-a7d8-08104afc01af",
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          },
+          "request": {
+            "method": "POST",
+            "header": [
+              {
+                "key": "Content-Type",
+                "value": "application/json"
+              }
+            ],
+            "body": {
+              "mode": "raw",
+              "raw": "{\n  \"email\": \"generic@example.com\",\n  \"password\": \"senha123\"\n}",
+              "options": {
+                "raw": {
+                  "language": "json"
+                }
+              }
+            },
+            "url": {
+              "raw": "{{baseUrl}}/auth/login",
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "path": [
+                "auth",
+                "login"
+              ]
+            },
+            "description": "Realizar login no sistema. Retorna um token JWT para autenticação."
+          },
+          "response": [
+            {
+              "id": "fad94244-4e7a-41b6-8fc4-0b986798eb7a",
+              "name": "Invalid Password",
+              "originalRequest": {
+                "method": "POST",
+                "header": [
+                  {
+                    "key": "Content-Type",
+                    "value": "application/json"
+                  }
+                ],
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\n  \"email\": \"usuario@exemplo.com\",\n  \"password\": \"senhaerrada\"\n}"
+                },
+                "url": {
+                  "raw": "{{baseUrl}}/auth/login",
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "path": [
+                    "auth",
+                    "login"
+                  ]
+                }
+              },
+              "status": "Unauthorized",
+              "code": 401,
+              "_postman_previewlanguage": "json",
+              "cookie": [],
+              "body": "{\n    \"message\": \"A senha não confere.\",\n    \"error\": \"Unauthorized\",\n    \"statusCode\": 401\n}"
+            }
+          ]
+        },
+        {
+          "name": "Login - User Not Found",
+          "event": [
+            {
+              "listen": "test",
+              "script": {
+                "type": "text/javascript",
+                "exec": [
+                  "pm.test(\"User not found\", () => {",
+                  "    pm.response.to.have.status(404);",
+                  "    pm.expect(pm.response.json().message).to.eql(\"Usuário não encontrado.\");",
+                  "    pm.expect(pm.response.json().error).to.eql(\"Not Found\");",
+                  "});"
+                ]
+              }
+            }
+          ],
+          "id": "4b3d0cb2-48f3-46e4-9477-5d802b8554ef",
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          },
+          "request": {
+            "method": "POST",
+            "header": [
+              {
+                "key": "Content-Type",
+                "value": "application/json"
+              }
+            ],
+            "body": {
+              "mode": "raw",
+              "raw": "{\n  \"email\": \"usuario@exemplo.com\",\n  \"password\": \"senha123\"\n}",
+              "options": {
+                "raw": {
+                  "language": "json"
+                }
+              }
+            },
+            "url": {
+              "raw": "{{baseUrl}}/auth/login",
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "path": [
+                "auth",
+                "login"
+              ]
+            },
+            "description": "Realizar login no sistema. Retorna um token JWT para autenticação."
+          },
+          "response": [
+            {
+              "id": "43f37066-d0d3-4910-ba6b-545b3deb32be",
+              "name": "User Not Found",
+              "originalRequest": {
+                "method": "POST",
+                "header": [
+                  {
+                    "key": "Content-Type",
+                    "value": "application/json"
+                  }
+                ],
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\n  \"email\": \"naoexiste@exemplo.com\",\n  \"password\": \"senha123\"\n}"
+                },
+                "url": {
+                  "raw": "{{baseUrl}}/auth/login",
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "path": [
+                    "auth",
+                    "login"
+                  ]
+                }
+              },
+              "status": "Not Found",
+              "code": 404,
+              "_postman_previewlanguage": "json",
+              "cookie": [],
+              "body": "{\n  \"message\": \"Usuário não encontrado.\"\n}"
+            }
+          ]
+        },
+        {
+          "name": "Logout",
+          "event": [
+            {
+              "listen": "test",
+              "script": {
+                "id": "c4798fcb-a4be-4890-af4a-b4af7a374c90",
+                "exec": [
+                  "pm.test(\"Status code is 200\", function () {",
+                  "    pm.response.to.have.status(200);",
+                  "    pm.expect(pm.response.json().message).to.eql(\"O usuário foi deslogado com sucesso!\");",
+                  "    pm.collectionVariables.get(\"token\", function (err, value) {",
+                  "        pm.expect(value).to.not.be.null;",
+                  "    });",
+                  "});"
+                ],
+                "type": "text/javascript",
+                "packages": {},
+                "requests": {}
+              }
+            },
+            {
+              "listen": "prerequest",
+              "script": {
+                "id": "1c56c05e-7b95-4d9b-b11a-a26dc8dab55d",
+                "exec": [
+                  ""
+                ],
+                "type": "text/javascript",
+                "packages": {},
+                "requests": {}
+              }
+            }
+          ],
+          "id": "0b0794da-8dca-41e7-a1bc-8016a6c88eee",
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          },
+          "request": {
+            "method": "POST",
+            "header": [
+              {
+                "key": "Content-Type",
+                "value": "application/json"
+              }
+            ],
+            "url": {
+              "raw": "{{baseUrl}}/auth/logout",
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "path": [
+                "auth",
+                "logout"
+              ]
+            },
+            "description": "Realizar logout do sistema."
+          },
+          "response": [
+            {
+              "id": "37a8e6bf-2778-4799-9269-5554464fa50d",
+              "name": "Success Response",
+              "originalRequest": {
+                "method": "POST",
+                "header": [
+                  {
+                    "key": "Content-Type",
+                    "value": "application/json"
+                  }
+                ],
+                "url": {
+                  "raw": "{{baseUrl}}/auth/logout",
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "path": [
+                    "auth",
+                    "logout"
+                  ]
+                }
+              },
+              "status": "OK",
+              "code": 200,
+              "_postman_previewlanguage": "json",
+              "cookie": [],
+              "body": "{\n  \"message\": \"O usuário foi deslogado com sucesso!\"\n}"
+            }
+          ]
+        }
+      ],
+      "id": "3a790d77-1313-4c2c-b9d3-665ec694ef01"
+    },
+    {
+      "name": "Users",
+      "item": [
+        {
+          "name": "Create User",
+          "id": "22fbd787-ac67-454f-9619-c124f1254e6e",
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          },
+          "request": {
+            "method": "POST",
+            "header": [
+              {
+                "key": "Content-Type",
+                "value": "application/json"
+              }
+            ],
+            "body": {
+              "mode": "raw",
+              "raw": "{\n  \"full_name\": \"João da Silva\",\n  \"social_name\": \"João\",\n  \"document\": \"12345678900\",\n  \"doc_type\": \"cpf\",\n  \"phone\": \"11999999999\",\n  \"email\": \"joao@exemplo.com\",\n  \"password\": \"senha123\"\n}"
+            },
+            "url": {
+              "raw": "{{baseUrl}}/users",
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "path": [
+                "users"
+              ]
+            },
+            "description": "Criar um novo usuário no sistema. CPF/CNPJ e email devem ser únicos."
+          },
+          "response": [
+            {
+              "id": "cd97ab55-4047-411a-91fd-5b03234e1da8",
+              "name": "Success Response",
+              "originalRequest": {
+                "method": "POST",
+                "header": [
+                  {
+                    "key": "Content-Type",
+                    "value": "application/json"
+                  }
+                ],
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\n  \"full_name\": \"João da Silva\",\n  \"social_name\": \"João\",\n  \"document\": \"12345678900\",\n  \"doc_type\": \"cpf\",\n  \"phone\": \"11999999999\",\n  \"email\": \"joao@exemplo.com\",\n  \"password\": \"senha123\"\n}"
+                },
+                "url": {
+                  "raw": "{{baseUrl}}/users",
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "path": [
+                    "users"
+                  ]
+                }
+              },
+              "status": "Created",
+              "code": 201,
+              "_postman_previewlanguage": "json",
+              "cookie": [],
+              "body": "{\n  \"message\": \"Usuário criado com sucesso!\",\n  \"user\": {\n    \"id\": 1,\n    \"full_name\": \"João da Silva\",\n    \"social_name\": \"João\",\n    \"email\": \"joao@exemplo.com\",\n    \"phone\": \"11999999999\",\n    \"document\": \"12345678900\",\n    \"created_at\": \"2024-01-15T10:30:00Z\",\n    \"updated_at\": \"2024-01-15T10:30:00Z\"\n  }\n}"
+            },
+            {
+              "id": "b664d20e-ea64-44e2-9921-463a43d7e898",
+              "name": "Conflict - Duplicate",
+              "originalRequest": {
+                "method": "POST",
+                "header": [
+                  {
+                    "key": "Content-Type",
+                    "value": "application/json"
+                  }
+                ],
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\n  \"full_name\": \"João da Silva\",\n  \"social_name\": \"João\",\n  \"document\": \"12345678900\",\n  \"doc_type\": \"cpf\",\n  \"phone\": \"11999999999\",\n  \"email\": \"joao@exemplo.com\",\n  \"password\": \"senha123\"\n}"
+                },
+                "url": {
+                  "raw": "{{baseUrl}}/users",
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "path": [
+                    "users"
+                  ]
+                }
+              },
+              "status": "Conflict",
+              "code": 409,
+              "_postman_previewlanguage": "json",
+              "cookie": [],
+              "body": "{\n  \"message\": \"CPF/CNPJ ou email já está em uso.\"\n}"
+            }
+          ]
+        },
+        {
+          "name": "List All Users",
+          "id": "65c75982-6aae-4b40-a060-86406a63d2cd",
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          },
+          "request": {
+            "method": "GET",
+            "header": [
+              {
+                "key": "Authorization",
+                "value": "Bearer {{token}}"
+              },
+              {
+                "key": "Content-Type",
+                "value": "application/json"
+              }
+            ],
+            "url": {
+              "raw": "{{baseUrl}}/users",
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "path": [
+                "users"
+              ]
+            },
+            "description": "Listar todos os usuários cadastrados. Requer autenticação."
+          },
+          "response": [
+            {
+              "id": "b6d2a36f-d840-4341-8203-9cee51bcf688",
+              "name": "Success Response",
+              "originalRequest": {
+                "method": "GET",
+                "header": [
+                  {
+                    "key": "Authorization",
+                    "value": "Bearer {{token}}"
+                  },
+                  {
+                    "key": "Content-Type",
+                    "value": "application/json"
+                  }
+                ],
+                "url": {
+                  "raw": "{{baseUrl}}/users",
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "path": [
+                    "users"
+                  ]
+                }
+              },
+              "status": "OK",
+              "code": 200,
+              "_postman_previewlanguage": "json",
+              "cookie": [],
+              "body": "[\n  {\n    \"id\": 1,\n    \"full_name\": \"João da Silva\",\n    \"social_name\": \"João\",\n    \"email\": \"joao@exemplo.com\",\n    \"phone\": \"11999999999\",\n    \"document\": \"12345678900\",\n    \"created_at\": \"2024-01-15T10:30:00Z\",\n    \"updated_at\": \"2024-01-15T10:30:00Z\"\n  }\n]"
+            },
+            {
+              "id": "78a868eb-ebb4-4a4b-b08b-62b98a6cfb93",
+              "name": "No Users Found",
+              "originalRequest": {
+                "method": "GET",
+                "header": [
+                  {
+                    "key": "Authorization",
+                    "value": "Bearer {{token}}"
+                  },
+                  {
+                    "key": "Content-Type",
+                    "value": "application/json"
+                  }
+                ],
+                "url": {
+                  "raw": "{{baseUrl}}/users",
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "path": [
+                    "users"
+                  ]
+                }
+              },
+              "status": "Not Found",
+              "code": 404,
+              "_postman_previewlanguage": "json",
+              "cookie": [],
+              "body": "{\n  \"message\": \"Nenhum usuário encontrado.\"\n}"
+            }
+          ]
+        },
+        {
+          "name": "Get Current User",
+          "id": "7fab802e-bdca-49c6-9e12-fb025bb8d226",
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          },
+          "request": {
+            "method": "GET",
+            "header": [
+              {
+                "key": "Authorization",
+                "value": "Bearer {{token}}"
+              },
+              {
+                "key": "Content-Type",
+                "value": "application/json"
+              }
+            ],
+            "url": {
+              "raw": "{{baseUrl}}/users/me",
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "path": [
+                "users",
+                "me"
+              ]
+            },
+            "description": "Buscar dados do usuário logado. Requer autenticação."
+          },
+          "response": [
+            {
+              "id": "58297c45-ce31-41b5-9ec4-d201230dac4c",
+              "name": "Success Response",
+              "originalRequest": {
+                "method": "GET",
+                "header": [
+                  {
+                    "key": "Authorization",
+                    "value": "Bearer {{token}}"
+                  },
+                  {
+                    "key": "Content-Type",
+                    "value": "application/json"
+                  }
+                ],
+                "url": {
+                  "raw": "{{baseUrl}}/users/me",
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "path": [
+                    "users",
+                    "me"
+                  ]
+                }
+              },
+              "status": "OK",
+              "code": 200,
+              "_postman_previewlanguage": "json",
+              "cookie": [],
+              "body": "{\n  \"id\": 1,\n  \"full_name\": \"João da Silva\",\n  \"social_name\": \"João\",\n  \"email\": \"joao@exemplo.com\",\n  \"phone\": \"11999999999\",\n  \"document\": \"12345678900\",\n  \"created_at\": \"2024-01-15T10:30:00Z\",\n  \"updated_at\": \"2024-01-15T10:30:00Z\"\n}"
+            }
+          ]
+        },
+        {
+          "name": "Update Current User",
+          "id": "1220e2a0-d8da-475c-ab29-940aa4749740",
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          },
+          "request": {
+            "method": "PATCH",
+            "header": [
+              {
+                "key": "Authorization",
+                "value": "Bearer {{token}}"
+              },
+              {
+                "key": "Content-Type",
+                "value": "application/json"
+              }
+            ],
+            "body": {
+              "mode": "raw",
+              "raw": "{\n  \"full_name\": \"João da Silva Santos\",\n  \"social_name\": \"João Santos\",\n  \"phone\": \"11988888888\"\n}"
+            },
+            "url": {
+              "raw": "{{baseUrl}}/users/me",
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "path": [
+                "users",
+                "me"
+              ]
+            },
+            "description": "Atualizar dados do usuário logado. Requer autenticação."
+          },
+          "response": [
+            {
+              "id": "a0405435-c80c-4f74-8876-2dcc0fb1a587",
+              "name": "Success Response",
+              "originalRequest": {
+                "method": "PATCH",
+                "header": [
+                  {
+                    "key": "Authorization",
+                    "value": "Bearer {{token}}"
+                  },
+                  {
+                    "key": "Content-Type",
+                    "value": "application/json"
+                  }
+                ],
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\n  \"full_name\": \"João da Silva Santos\",\n  \"social_name\": \"João Santos\",\n  \"phone\": \"11988888888\"\n}"
+                },
+                "url": {
+                  "raw": "{{baseUrl}}/users/me",
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "path": [
+                    "users",
+                    "me"
+                  ]
+                }
+              },
+              "status": "OK",
+              "code": 200,
+              "_postman_previewlanguage": "json",
+              "cookie": [],
+              "body": "{\n  \"message\": \"Usuário alterado com sucesso!\",\n  \"user\": {\n    \"id\": 1,\n    \"full_name\": \"João da Silva Santos\",\n    \"social_name\": \"João Santos\",\n    \"email\": \"joao@exemplo.com\",\n    \"phone\": \"11988888888\",\n    \"document\": \"12345678900\",\n    \"created_at\": \"2024-01-15T10:30:00Z\",\n    \"updated_at\": \"2024-01-15T10:35:00Z\"\n  }\n}"
+            }
+          ]
+        },
+        {
+          "name": "Delete Users",
+          "id": "dc1337f1-4afe-4ea3-be6e-ef8ea78f92a0",
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          },
+          "request": {
+            "method": "DELETE",
+            "header": [
+              {
+                "key": "Authorization",
+                "value": "Bearer {{token}}"
+              },
+              {
+                "key": "Content-Type",
+                "value": "application/json"
+              }
+            ],
+            "body": {
+              "mode": "raw",
+              "raw": "{\n  \"ids\": [2, 3, 4]\n}"
+            },
+            "url": {
+              "raw": "{{baseUrl}}/users/delete",
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "path": [
+                "users",
+                "delete"
+              ]
+            },
+            "description": "Excluir múltiplos usuários. Não é possível excluir o usuário logado. Requer autenticação."
+          },
+          "response": [
+            {
+              "id": "65f2f9c6-1a45-4bbe-8e00-f85fe3adbc43",
+              "name": "Success Response",
+              "originalRequest": {
+                "method": "DELETE",
+                "header": [
+                  {
+                    "key": "Authorization",
+                    "value": "Bearer {{token}}"
+                  },
+                  {
+                    "key": "Content-Type",
+                    "value": "application/json"
+                  }
+                ],
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\n  \"ids\": [2, 3, 4]\n}"
+                },
+                "url": {
+                  "raw": "{{baseUrl}}/users/delete",
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "path": [
+                    "users",
+                    "delete"
+                  ]
+                }
+              },
+              "status": "OK",
+              "code": 200,
+              "_postman_previewlanguage": "json",
+              "cookie": [],
+              "body": "{\n  \"message\": \"Usuários excluídos com sucesso\"\n}"
+            },
+            {
+              "id": "2c9986dd-95e2-4aae-addb-b39bd06a27d7",
+              "name": "Cannot Delete Self",
+              "originalRequest": {
+                "method": "DELETE",
+                "header": [
+                  {
+                    "key": "Authorization",
+                    "value": "Bearer {{token}}"
+                  },
+                  {
+                    "key": "Content-Type",
+                    "value": "application/json"
+                  }
+                ],
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\n  \"ids\": [1]\n}"
+                },
+                "url": {
+                  "raw": "{{baseUrl}}/users/delete",
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "path": [
+                    "users",
+                    "delete"
+                  ]
+                }
+              },
+              "status": "Bad Request",
+              "code": 400,
+              "_postman_previewlanguage": "json",
+              "cookie": [],
+              "body": "{\n  \"message\": \"Você não pode excluir o usuário logado.\"\n}"
+            }
+          ]
+        }
+      ],
+      "id": "883ecbe2-ecda-4a93-b753-70f9c8201a5d"
+    },
+    {
+      "name": "Password Recovery",
+      "item": [
+        {
+          "name": "Forgot Password",
+          "id": "ed40f999-50d5-4cce-b368-2c715384533b",
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          },
+          "request": {
+            "method": "POST",
+            "header": [
+              {
+                "key": "Content-Type",
+                "value": "application/json"
+              }
+            ],
+            "body": {
+              "mode": "raw",
+              "raw": "{\n  \"email\": \"usuario@exemplo.com\"\n}"
+            },
+            "url": {
+              "raw": "{{baseUrl}}/password-recovery/forgot-password",
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "path": [
+                "password-recovery",
+                "forgot-password"
+              ]
+            },
+            "description": "Solicitar recuperação de senha. Um email será enviado com instruções."
+          },
+          "response": [
+            {
+              "id": "a08f1ac6-820f-4b7c-8d50-4605e269d32e",
+              "name": "Success Response",
+              "originalRequest": {
+                "method": "POST",
+                "header": [
+                  {
+                    "key": "Content-Type",
+                    "value": "application/json"
+                  }
+                ],
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\n  \"email\": \"usuario@exemplo.com\"\n}"
+                },
+                "url": {
+                  "raw": "{{baseUrl}}/password-recovery/forgot-password",
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "path": [
+                    "password-recovery",
+                    "forgot-password"
+                  ]
+                }
+              },
+              "status": "OK",
+              "code": 200,
+              "_postman_previewlanguage": "json",
+              "cookie": [],
+              "body": "{\n  \"message\": \"Um e-mail foi enviado com instruções para recuperar a senha.\"\n}"
+            },
+            {
+              "id": "8543280b-cf86-4357-9e35-4b102d15718a",
+              "name": "User Not Found",
+              "originalRequest": {
+                "method": "POST",
+                "header": [
+                  {
+                    "key": "Content-Type",
+                    "value": "application/json"
+                  }
+                ],
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\n  \"email\": \"naoexiste@exemplo.com\"\n}"
+                },
+                "url": {
+                  "raw": "{{baseUrl}}/password-recovery/forgot-password",
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "path": [
+                    "password-recovery",
+                    "forgot-password"
+                  ]
+                }
+              },
+              "status": "Not Found",
+              "code": 404,
+              "_postman_previewlanguage": "json",
+              "cookie": [],
+              "body": "{\n  \"message\": \"Usuário não encontrado.\"\n}"
+            }
+          ]
+        }
+      ],
+      "id": "44a62e97-a07a-4a62-826f-fcb6733add96"
+    }
+  ],
+  "variable": [
+    {
+      "id": "8043317f-95e8-49eb-8e9c-9a0397893fe9",
+      "key": "baseUrl",
+      "value": "http://localhost:3001",
+      "type": "string"
+    },
+    {
+      "id": "7a44a442-2a6a-4714-8e64-deb02af91172",
+      "key": "token",
+      "value": "",
+      "type": "string"
+    }
+  ]
+}
