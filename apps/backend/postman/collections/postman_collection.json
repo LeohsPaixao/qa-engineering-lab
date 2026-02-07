@@ -933,7 +933,7 @@
           ]
         },
         {
-          "name": "List All Users - Not Found Users Mocks",
+          "name": "List All Users - Not Found Users",
           "event": [
             {
               "listen": "prerequest",
@@ -1178,6 +1178,57 @@
         },
         {
           "name": "Update Current User",
+          "event": [
+            {
+              "listen": "prerequest",
+              "script": {
+                "id": "7134b10e-1c2a-490b-be06-8911562e4312",
+                "exec": [
+                  "const baseUrl = pm.collectionVariables.get(\"baseUrl\");",
+                  "",
+                  "const loginRequest = {",
+                  "    url: `${baseUrl}/auth/login`,",
+                  "    method: 'POST',",
+                  "    header: { 'Content-Type': 'application/json' },",
+                  "    body: {",
+                  "        mode: 'raw',",
+                  "        raw: JSON.stringify({",
+                  "            email: \"generic@example.com\",",
+                  "            password: \"123456\"",
+                  "        })",
+                  "    }",
+                  "};",
+                  "",
+                  "pm.sendRequest(loginRequest, (_err, response) => {",
+                  "    const token = response.json().token;",
+                  "    pm.collectionVariables.set(\"token\", token);",
+                  "});",
+                  "",
+                  "pm.variables.set(\"full_name\", pm.variables.replaceIn(\"{{$randomFullName}}\"));",
+                  "pm.variables.set(\"social_name\", pm.variables.replaceIn(\"{{$randomFirstName}}\"));",
+                  "pm.variables.set(\"phone\", pm.variables.replaceIn(\"{{$randomPhoneNumber}}\"));"
+                ],
+                "type": "text/javascript",
+                "packages": {},
+                "requests": {}
+              }
+            },
+            {
+              "listen": "test",
+              "script": {
+                "id": "80ca00e3-474a-470e-8f3b-1ee9d4b3beec",
+                "exec": [
+                  "pm.test(\"Should be able to update user information\", function () {",
+                  "    pm.expect(pm.response.code).to.eql(200);",
+                  "    pm.expect(pm.response.json().message).to.eql(\"Usuário alterado com sucesso!\")",
+                  "})"
+                ],
+                "type": "text/javascript",
+                "packages": {},
+                "requests": {}
+              }
+            }
+          ],
           "id": "1220e2a0-d8da-475c-ab29-940aa4749740",
           "protocolProfileBehavior": {
             "disableBodyPruning": true
@@ -1196,7 +1247,7 @@
             ],
             "body": {
               "mode": "raw",
-              "raw": "{\n  \"full_name\": \"João da Silva Santos\",\n  \"social_name\": \"João Santos\",\n  \"phone\": \"11988888888\"\n}"
+              "raw": "{\n  \"full_name\": \"{{full_name}}\",\n  \"social_name\": \"{{social_name}}\",\n  \"phone\": \"{{phone}}\"\n}"
             },
             "url": {
               "raw": "{{baseUrl}}/users/me",
@@ -1250,12 +1301,260 @@
           ]
         },
         {
-          "name": "Delete Users",
+          "name": "Update Current User - Not Update Current User",
+          "event": [
+            {
+              "listen": "prerequest",
+              "script": {
+                "id": "7134b10e-1c2a-490b-be06-8911562e4312",
+                "exec": [
+                  "const baseUrl = pm.collectionVariables.get(\"baseUrl\");",
+                  "",
+                  "const loginRequest = {",
+                  "    url: `${baseUrl}/auth/login`,",
+                  "    method: 'POST',",
+                  "    header: { 'Content-Type': 'application/json' },",
+                  "    body: {",
+                  "        mode: 'raw',",
+                  "        raw: JSON.stringify({",
+                  "            email: \"generic@example.com\",",
+                  "            password: \"123456\"",
+                  "        })",
+                  "    }",
+                  "};",
+                  "",
+                  "pm.sendRequest(loginRequest, (_err, response) => {",
+                  "    const token = response.json().token;",
+                  "    pm.collectionVariables.set(\"token\", token);",
+                  "});"
+                ],
+                "type": "text/javascript",
+                "packages": {},
+                "requests": {}
+              }
+            },
+            {
+              "listen": "test",
+              "script": {
+                "id": "80ca00e3-474a-470e-8f3b-1ee9d4b3beec",
+                "exec": [
+                  "pm.test(\"Should not be able to update user information\", function () {",
+                  "    pm.expect(pm.response.code).to.eql(404);",
+                  "    pm.expect(pm.response.json().message).to.eql(\"Usuário não encontrado para atualizar.\")",
+                  "})"
+                ],
+                "type": "text/javascript",
+                "packages": {},
+                "requests": {}
+              }
+            }
+          ],
+          "id": "4bf2af5e-7edb-41df-8e87-da43ba190e45",
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          },
+          "request": {
+            "auth": {
+              "type": "bearer",
+              "bearer": [
+                {
+                  "key": "token",
+                  "value": "{{token}}",
+                  "type": "string"
+                }
+              ]
+            },
+            "method": "PATCH",
+            "header": [
+              {
+                "key": "Authorization",
+                "value": "Bearer {{token}}"
+              },
+              {
+                "key": "Content-Type",
+                "value": "application/json"
+              },
+              {
+                "key": "x-mock-response-name",
+                "value": "Not Update",
+                "type": "text",
+                "uuid": "41f5532c-8360-4977-a1b0-be858fed6092"
+              }
+            ],
+            "body": {
+              "mode": "raw",
+              "raw": "{\n    \"full_name\": \"João da Silva\",\n    \"social_name\": \"João\"\n}"
+            },
+            "url": {
+              "raw": "{{mockUrl}}/users/me",
+              "host": [
+                "{{mockUrl}}"
+              ],
+              "path": [
+                "users",
+                "me"
+              ]
+            },
+            "description": "Atualizar dados do usuário logado. Requer autenticação."
+          },
+          "response": [
+            {
+              "id": "de9c01b5-b413-485e-82e3-0f5040d405ad",
+              "name": "Not Update",
+              "originalRequest": {
+                "method": "PATCH",
+                "header": [
+                  {
+                    "key": "Authorization",
+                    "value": "Bearer {{token}}"
+                  },
+                  {
+                    "key": "Content-Type",
+                    "value": "application/json"
+                  }
+                ],
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\n    \"full_name\": \"João da Silva\",\n    \"social_name\": \"João\"\n}"
+                },
+                "url": {
+                  "raw": "{{baseUrl}}/users/me",
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "path": [
+                    "users",
+                    "me"
+                  ]
+                }
+              },
+              "status": "Not Found",
+              "code": 404,
+              "_postman_previewlanguage": "json",
+              "cookie": [],
+              "body": "{\n  \"message\": \"Usuário não encontrado para atualizar.\",\n  \"statusCode\": 404\n}"
+            }
+          ]
+        },
+        {
+          "name": "Delete Users - Success",
+          "event": [
+            {
+              "listen": "prerequest",
+              "script": {
+                "id": "322ecb9a-8781-4a56-9195-6c4d15ec878a",
+                "exec": [
+                  "function generateValidCpf() {",
+                  "    const randomDigits = () => Math.floor(Math.random() * 9);",
+                  "",
+                  "    const cpf = [];",
+                  "    for (let i = 0; i < 9; i++) {",
+                  "        cpf.push(randomDigits());",
+                  "    }",
+                  "",
+                  "    const calculateDigit = (base) => {",
+                  "        let sum = 0;",
+                  "        let weight = base.length + 1;",
+                  "",
+                  "        for (let i = 0; i < base.length; i++) {",
+                  "            sum += base[i] * weight--;",
+                  "        }",
+                  "",
+                  "        const mod = (sum * 10) % 11;",
+                  "        return mod === 10 ? 0 : mod;",
+                  "    };",
+                  "",
+                  "    cpf.push(calculateDigit(cpf));",
+                  "    cpf.push(calculateDigit(cpf));",
+                  "",
+                  "    return cpf.join('');",
+                  "}",
+                  "",
+                  "const cpf = generateValidCpf();",
+                  "const baseUrl = pm.collectionVariables.get(\"baseUrl\");",
+                  "const full_name = pm.variables.replaceIn(\"{{$randomFullName}}\");",
+                  "const social_name = pm.variables.replaceIn(\"{{$randomFirstName}}\");",
+                  "const phone = pm.variables.replaceIn(\"{{$randomPhoneNumber}}\");",
+                  "const email = pm.variables.replaceIn(\"{{$randomEmail}}\");",
+                  "",
+                  "",
+                  "const loginRequest = {",
+                  "    url: `${baseUrl}/auth/login`,",
+                  "    method: 'POST',",
+                  "    header: { 'Content-Type': 'application/json' },",
+                  "    body: {",
+                  "        mode: 'raw',",
+                  "        raw: JSON.stringify({",
+                  "            email: \"generic@example.com\",",
+                  "            password: \"123456\"",
+                  "        })",
+                  "    }",
+                  "};",
+                  "",
+                  "const createUserRequest = {",
+                  "    url: `${baseUrl}/users`,",
+                  "    method: 'POST',",
+                  "    header: { 'Content-Type': 'application/json' },",
+                  "    body: {",
+                  "        mode: 'raw',",
+                  "        raw: JSON.stringify({",
+                  "            full_name: full_name,",
+                  "            social_name: social_name,",
+                  "            document: cpf,",
+                  "            doc_type: \"cpf\",",
+                  "            phone: phone,",
+                  "            email: email,",
+                  "            password: \"123456\"",
+                  "        })",
+                  "    }",
+                  "}",
+                  "",
+                  "pm.sendRequest(createUserRequest, (_err, response) => {",
+                  "    const userId = response.json().user.id;",
+                  "    pm.variables.set(\"userId\", userId);",
+                  "});",
+                  "",
+                  "pm.sendRequest(loginRequest, (_err, response) => {",
+                  "    const token = response.json().token;",
+                  "    pm.collectionVariables.set(\"token\", token);",
+                  "});"
+                ],
+                "type": "text/javascript",
+                "packages": {},
+                "requests": {}
+              }
+            },
+            {
+              "listen": "test",
+              "script": {
+                "id": "ccaa7918-219b-44c1-9ff1-fb20ce717d4a",
+                "exec": [
+                  "pm.test(\"Should be able to delete a user\", function () {",
+                  "    pm.expect(pm.response.code).to.eql(200);",
+                  "    pm.expect(pm.response.json().message).to.eql(\"1 usuário(s) excluído(s) com sucesso!\")",
+                  "})"
+                ],
+                "type": "text/javascript",
+                "packages": {},
+                "requests": {}
+              }
+            }
+          ],
           "id": "dc1337f1-4afe-4ea3-be6e-ef8ea78f92a0",
           "protocolProfileBehavior": {
             "disableBodyPruning": true
           },
           "request": {
+            "auth": {
+              "type": "bearer",
+              "bearer": [
+                {
+                  "key": "token",
+                  "value": "{{token}}",
+                  "type": "string"
+                }
+              ]
+            },
             "method": "DELETE",
             "header": [
               {
@@ -1269,7 +1568,7 @@
             ],
             "body": {
               "mode": "raw",
-              "raw": "{\n  \"ids\": [2, 3, 4]\n}"
+              "raw": "{\n    \"ids\": [\n        {{userId}}\n    ]\n}"
             },
             "url": {
               "raw": "{{baseUrl}}/users/delete",
@@ -1318,10 +1617,105 @@
               "code": 200,
               "_postman_previewlanguage": "json",
               "cookie": [],
-              "body": "{\n  \"message\": \"Usuários excluídos com sucesso\"\n}"
+              "body": "{\n    \"message\": \"1 usuário(s) excluído(s) com sucesso!\"\n}"
+            }
+          ]
+        },
+        {
+          "name": "Delete Users - Delete Logged User",
+          "event": [
+            {
+              "listen": "prerequest",
+              "script": {
+                "id": "a872455c-7a0a-4808-9334-48e6890d81e9",
+                "exec": [
+                  "const baseUrl = pm.collectionVariables.get(\"baseUrl\");",
+                  "",
+                  "const loginRequest = {",
+                  "    url: `${baseUrl}/auth/login`,",
+                  "    method: 'POST',",
+                  "    header: { 'Content-Type': 'application/json' },",
+                  "    body: {",
+                  "        mode: 'raw',",
+                  "        raw: JSON.stringify({",
+                  "            email: \"generic@example.com\",",
+                  "            password: \"123456\"",
+                  "        })",
+                  "    }",
+                  "};",
+                  "",
+                  "const getMeRequest = {",
+                  "    url: `${baseUrl}/users/me`,",
+                  "    method: 'GET',",
+                  "    header: { 'Authorization': `Bearer ${pm.collectionVariables.get(\"token\")}` }",
+                  "};",
+                  "",
+                  "pm.sendRequest(loginRequest, (_err, response) => {",
+                  "    const token = response.json().token;",
+                  "    pm.collectionVariables.set(\"token\", token);",
+                  "});",
+                  "",
+                  "pm.sendRequest(getMeRequest, (_err, response) => {",
+                  "    const userId = response.json().id;",
+                  "    pm.variables.set(\"id\", userId);",
+                  "})"
+                ],
+                "type": "text/javascript",
+                "packages": {},
+                "requests": {}
+              }
             },
             {
-              "id": "2c9986dd-95e2-4aae-addb-b39bd06a27d7",
+              "listen": "test",
+              "script": {
+                "id": "4efc95a7-a82e-4b91-ac0c-cdf289fadbde",
+                "exec": [
+                  "pm.test(\"Should not be able to delete a logged user\", function () {",
+                  "    pm.expect(pm.response.code).to.eql(400);",
+                  "    pm.expect(pm.response.json().message).to.eql(\"Você não pode excluir o usuário logado.\");",
+                  "})"
+                ],
+                "type": "text/javascript",
+                "packages": {},
+                "requests": {}
+              }
+            }
+          ],
+          "id": "4018b9d5-5b91-4383-a8fa-ae3d3df2bf42",
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          },
+          "request": {
+            "method": "DELETE",
+            "header": [
+              {
+                "key": "Authorization",
+                "value": "Bearer {{token}}"
+              },
+              {
+                "key": "Content-Type",
+                "value": "application/json"
+              }
+            ],
+            "body": {
+              "mode": "raw",
+              "raw": "{\n    \"ids\": [\n        {{id}}\n    ]\n}"
+            },
+            "url": {
+              "raw": "{{baseUrl}}/users/delete",
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "path": [
+                "users",
+                "delete"
+              ]
+            },
+            "description": "Excluir múltiplos usuários. Não é possível excluir o usuário logado. Requer autenticação."
+          },
+          "response": [
+            {
+              "id": "278ecb79-ae0f-4b87-9d14-32a3642bd7e8",
               "name": "Cannot Delete Self",
               "originalRequest": {
                 "method": "DELETE",
@@ -1355,6 +1749,145 @@
               "_postman_previewlanguage": "json",
               "cookie": [],
               "body": "{\n  \"message\": \"Você não pode excluir o usuário logado.\"\n}"
+            }
+          ]
+        },
+        {
+          "name": "Delete Users - Not Found Users",
+          "event": [
+            {
+              "listen": "prerequest",
+              "script": {
+                "id": "921d9085-c71b-462a-88f4-f3a3b04afafb",
+                "exec": [
+                  "const baseUrl = pm.collectionVariables.get(\"baseUrl\");",
+                  "",
+                  "const loginRequest = {",
+                  "    url: `${baseUrl}/auth/login`,",
+                  "    method: 'POST',",
+                  "    header: { 'Content-Type': 'application/json' },",
+                  "    body: {",
+                  "        mode: 'raw',",
+                  "        raw: JSON.stringify({",
+                  "            email: \"generic@example.com\",",
+                  "            password: \"123456\"",
+                  "        })",
+                  "    }",
+                  "};",
+                  "",
+                  "pm.sendRequest(loginRequest, (_err, response) => {",
+                  "    const token = response.json().token;",
+                  "    pm.collectionVariables.set(\"token\", token);",
+                  "});"
+                ],
+                "type": "text/javascript",
+                "packages": {},
+                "requests": {}
+              }
+            },
+            {
+              "listen": "test",
+              "script": {
+                "id": "3cd7d2bc-32be-4664-91d7-969760bb6981",
+                "exec": [
+                  "pm.test(\"Should not be able to delete users\", function () {",
+                  "    pm.expect(pm.response.code).to.eql(404);",
+                  "    pm.expect(pm.response.json().error).to.equal(\"Not Found\")",
+                  "    pm.expect(pm.response.json().message).to.equal(\"Nenhum usuário encontrado para excluir.\")",
+                  "})"
+                ],
+                "type": "text/javascript",
+                "packages": {},
+                "requests": {}
+              }
+            }
+          ],
+          "id": "37efd402-65b4-4558-9bc6-db3b4139c4ea",
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          },
+          "request": {
+            "auth": {
+              "type": "bearer",
+              "bearer": [
+                {
+                  "key": "token",
+                  "value": "{{token}}",
+                  "type": "string"
+                }
+              ]
+            },
+            "method": "DELETE",
+            "header": [
+              {
+                "key": "Authorization",
+                "value": "Bearer {{token}}"
+              },
+              {
+                "key": "Content-Type",
+                "value": "application/json"
+              },
+              {
+                "key": "x-mock-response-name",
+                "value": "Not Found Users For Delete",
+                "type": "text",
+                "uuid": "34d812fd-be02-4c30-97d2-ac03a5af281b"
+              }
+            ],
+            "body": {
+              "mode": "raw",
+              "raw": "{\n  \"ids\": [2, 3, 4]\n}"
+            },
+            "url": {
+              "raw": "{{baseUrl}}/users/delete",
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "path": [
+                "users",
+                "delete"
+              ]
+            },
+            "description": "Excluir múltiplos usuários. Não é possível excluir o usuário logado. Requer autenticação."
+          },
+          "response": [
+            {
+              "id": "e38668d7-3e2f-40e6-b150-79d600997439",
+              "name": "Not Found Users For Delete",
+              "originalRequest": {
+                "method": "DELETE",
+                "header": [
+                  {
+                    "key": "Authorization",
+                    "value": "Bearer {{token}}"
+                  },
+                  {
+                    "key": "Content-Type",
+                    "value": "application/json"
+                  }
+                ],
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\n  \"ids\": [2, 3, 4]\n}"
+                },
+                "url": {
+                  "raw": "{{baseUrl}}/users/delete",
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "path": [
+                    "users",
+                    "delete"
+                  ]
+                }
+              },
+              "status": "Not Found",
+              "code": 404,
+              "_postman_previewlanguage": "json",
+              "header": [],
+              "cookie": [],
+              "responseTime": "2026-02-07T16:39:04.967Z",
+              "body": "{\n    \"statusCode\": 404,\n    \"message\": \"Nenhum usuário encontrado para excluir.\"\n}"
             }
           ]
         }
@@ -1467,15 +2000,19 @@
   ],
   "variable": [
     {
-      "id": "920c40b0-c6a8-4eef-ad4f-645d05d12fc4",
-      "key": "baseUrl",
-      "value": "http://localhost:3001",
-      "type": "string"
-    },
-    {
-      "id": "b708195c-b7b7-4fd6-98af-77e892f7b41c",
+      "id": "b9180136-2cdf-4deb-aa1b-403c401e5191",
       "key": "token",
       "value": ""
+    },
+    {
+      "id": "1aabb7b6-f67f-42b7-93c7-48916f36a082",
+      "key": "baseUrl",
+      "value": "http://localhost:3001"
+    },
+    {
+      "id": "4c9c8f67-45a5-4068-80bb-95cafeb3beeb",
+      "key": "mockUrl",
+      "value": "https://9eff5e33-4330-4e93-b7a8-e89bae2e630e.mock.pstmn.io"
     }
   ]
 }
