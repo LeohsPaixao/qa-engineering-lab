@@ -361,7 +361,70 @@
       "name": "Users",
       "item": [
         {
-          "name": "Create User",
+          "name": "Create User - Success",
+          "event": [
+            {
+              "listen": "prerequest",
+              "script": {
+                "id": "6c24ea88-d174-4986-99d3-69723852d4f3",
+                "exec": [
+                  "function generateValidCpf() {",
+                  "    const randomDigits = () => Math.floor(Math.random() * 9);",
+                  "",
+                  "    const cpf = [];",
+                  "    for (let i = 0; i < 9; i++) {",
+                  "        cpf.push(randomDigits());",
+                  "    }",
+                  "",
+                  "    const calculateDigit = (base) => {",
+                  "        let sum = 0;",
+                  "        let weight = base.length + 1;",
+                  "",
+                  "        for (let i = 0; i < base.length; i++) {",
+                  "            sum += base[i] * weight--;",
+                  "        }",
+                  "",
+                  "        const mod = (sum * 10) % 11;",
+                  "        return mod === 10 ? 0 : mod;",
+                  "    };",
+                  "",
+                  "    cpf.push(calculateDigit(cpf));",
+                  "    cpf.push(calculateDigit(cpf));",
+                  "",
+                  "    return cpf.join('');",
+                  "}",
+                  "",
+                  "const cpf = generateValidCpf();",
+                  "",
+                  "pm.variables.set(\"full_name\", pm.variables.replaceIn(\"{{$randomFirstName}} {{$randomLastName}}\"));",
+                  "pm.variables.set(\"social_name\", pm.variables.replaceIn(\"{{$randomFirstName}}\"));",
+                  "pm.variables.set(\"document\", pm.variables.replaceIn(cpf));",
+                  "pm.variables.set(\"phone\", pm.variables.replaceIn(\"{{$randomPhoneNumber}}\"));",
+                  "pm.variables.set(\"email\", pm.variables.replaceIn(\"{{$randomEmail}}\"));",
+                  "pm.variables.set(\"password\", pm.variables.replaceIn(\"123456\"));",
+                  ""
+                ],
+                "type": "text/javascript",
+                "packages": {},
+                "requests": {}
+              }
+            },
+            {
+              "listen": "test",
+              "script": {
+                "id": "7f591d39-241c-46c5-b556-1cd1ec924086",
+                "exec": [
+                  "pm.test(\"Should be able to create a new user\", function () {",
+                  "    pm.expect(pm.response.code).to.eql(201)",
+                  "    pm.expect(pm.response.json().message).to.eql(\"Usuário criado com sucesso!\")",
+                  "})"
+                ],
+                "type": "text/javascript",
+                "packages": {},
+                "requests": {}
+              }
+            }
+          ],
           "id": "22fbd787-ac67-454f-9619-c124f1254e6e",
           "protocolProfileBehavior": {
             "disableBodyPruning": true
@@ -376,7 +439,7 @@
             ],
             "body": {
               "mode": "raw",
-              "raw": "{\n  \"full_name\": \"João da Silva\",\n  \"social_name\": \"João\",\n  \"document\": \"12345678900\",\n  \"doc_type\": \"cpf\",\n  \"phone\": \"11999999999\",\n  \"email\": \"joao@exemplo.com\",\n  \"password\": \"senha123\"\n}"
+              "raw": "{\n    \"full_name\": \"{{full_name}}\",\n    \"social_name\": \"{{social_name}}\",\n    \"document\": \"{{document}}\",\n    \"doc_type\": \"cpf\",\n    \"phone\": \"11999999999\",\n    \"email\": \"{{email}}\",\n    \"password\": \"{{password}}\"\n}"
             },
             "url": {
               "raw": "{{baseUrl}}/users",
@@ -420,9 +483,76 @@
               "_postman_previewlanguage": "json",
               "cookie": [],
               "body": "{\n  \"message\": \"Usuário criado com sucesso!\",\n  \"user\": {\n    \"id\": 1,\n    \"full_name\": \"João da Silva\",\n    \"social_name\": \"João\",\n    \"email\": \"joao@exemplo.com\",\n    \"phone\": \"11999999999\",\n    \"document\": \"12345678900\",\n    \"created_at\": \"2024-01-15T10:30:00Z\",\n    \"updated_at\": \"2024-01-15T10:30:00Z\"\n  }\n}"
+            }
+          ]
+        },
+        {
+          "name": "Create User - CPF Conflict",
+          "event": [
+            {
+              "listen": "prerequest",
+              "script": {
+                "id": "6c24ea88-d174-4986-99d3-69723852d4f3",
+                "exec": [
+                  "pm.variables.set(\"full_name\", pm.variables.replaceIn(\"{{$randomFirstName}} {{$randomLastName}}\"));",
+                  "pm.variables.set(\"social_name\", pm.variables.replaceIn(\"{{$randomFirstName}}\"));",
+                  "pm.variables.set(\"phone\", pm.variables.replaceIn(\"{{$randomPhoneNumber}}\"));",
+                  "pm.variables.set(\"email\", pm.variables.replaceIn(\"{{$randomEmail}}\"));",
+                  "pm.variables.set(\"password\", pm.variables.replaceIn(\"{{$randomPassword}}\"));",
+                  ""
+                ],
+                "type": "text/javascript",
+                "packages": {},
+                "requests": {}
+              }
             },
             {
-              "id": "b664d20e-ea64-44e2-9921-463a43d7e898",
+              "listen": "test",
+              "script": {
+                "id": "7f591d39-241c-46c5-b556-1cd1ec924086",
+                "exec": [
+                  "pm.test(\"Not should be able to create user with existing CPF/CNPJ\", function () {",
+                  "    pm.expect(pm.response.code).to.eql(409)",
+                  "    pm.expect(pm.response.json().message).to.eql(\"CPF ou CNPJ já está em uso.\")",
+                  "    pm.expect(pm.response.json().error).to.eql(\"Conflict\")",
+                  "})"
+                ],
+                "type": "text/javascript",
+                "packages": {},
+                "requests": {}
+              }
+            }
+          ],
+          "id": "e0ab56dd-2ec7-4f89-9372-9a903522361a",
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          },
+          "request": {
+            "method": "POST",
+            "header": [
+              {
+                "key": "Content-Type",
+                "value": "application/json"
+              }
+            ],
+            "body": {
+              "mode": "raw",
+              "raw": "{\n  \"full_name\": \"{{full_name}}\",\n  \"social_name\": \"{{social_name}}\",\n  \"document\": \"591.013.230-08\",\n  \"doc_type\": \"cpf\",\n  \"phone\": \"11999999999\",\n  \"email\": \"{{email}}\",\n  \"password\": \"{{password}}\"\n}"
+            },
+            "url": {
+              "raw": "{{baseUrl}}/users",
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "path": [
+                "users"
+              ]
+            },
+            "description": "Criar um novo usuário no sistema. CPF/CNPJ e email devem ser únicos."
+          },
+          "response": [
+            {
+              "id": "efdde52a-7065-493d-a8c2-23304beb637a",
               "name": "Conflict - Duplicate",
               "originalRequest": {
                 "method": "POST",
@@ -450,7 +580,133 @@
               "code": 409,
               "_postman_previewlanguage": "json",
               "cookie": [],
-              "body": "{\n  \"message\": \"CPF/CNPJ ou email já está em uso.\"\n}"
+              "body": "{\n    \"message\": \"CPF ou CNPJ já está em uso.\",\n    \"error\": \"Conflict\",\n    \"statusCode\": 409\n}"
+            }
+          ]
+        },
+        {
+          "name": "Create User - Email Conflict",
+          "event": [
+            {
+              "listen": "prerequest",
+              "script": {
+                "id": "6c24ea88-d174-4986-99d3-69723852d4f3",
+                "exec": [
+                  "function generateValidCpf() {",
+                  "    const randomDigits = () => Math.floor(Math.random() * 9);",
+                  "",
+                  "    const cpf = [];",
+                  "    for (let i = 0; i < 9; i++) {",
+                  "        cpf.push(randomDigits());",
+                  "    }",
+                  "",
+                  "    const calculateDigit = (base) => {",
+                  "        let sum = 0;",
+                  "        let weight = base.length + 1;",
+                  "",
+                  "        for (let i = 0; i < base.length; i++) {",
+                  "            sum += base[i] * weight--;",
+                  "        }",
+                  "",
+                  "        const mod = (sum * 10) % 11;",
+                  "        return mod === 10 ? 0 : mod;",
+                  "    };",
+                  "",
+                  "    cpf.push(calculateDigit(cpf));",
+                  "    cpf.push(calculateDigit(cpf));",
+                  "",
+                  "    return cpf.join('');",
+                  "}",
+                  "",
+                  "const cpf = generateValidCpf();",
+                  "",
+                  "pm.variables.set(\"full_name\", pm.variables.replaceIn(\"{{$randomFirstName}} {{$randomLastName}}\"));",
+                  "pm.variables.set(\"social_name\", pm.variables.replaceIn(\"{{$randomFirstName}}\"));",
+                  "pm.variables.set(\"document\", pm.variables.replaceIn(cpf));",
+                  "pm.variables.set(\"phone\", pm.variables.replaceIn(\"{{$randomPhoneNumber}}\"));",
+                  "pm.variables.set(\"password\", pm.variables.replaceIn(\"{{$randomPassword}}\"));",
+                  ""
+                ],
+                "type": "text/javascript",
+                "packages": {},
+                "requests": {}
+              }
+            },
+            {
+              "listen": "test",
+              "script": {
+                "id": "7f591d39-241c-46c5-b556-1cd1ec924086",
+                "exec": [
+                  "pm.test(\"Not should be able to create user with existing E-mail\", function () {",
+                  "    pm.expect(pm.response.code).to.eql(409)",
+                  "    pm.expect(pm.response.json().message).to.eql(\"E-mail já está em uso.\")",
+                  "    pm.expect(pm.response.json().error).to.eql(\"Conflict\")",
+                  "});"
+                ],
+                "type": "text/javascript",
+                "packages": {},
+                "requests": {}
+              }
+            }
+          ],
+          "id": "6b4a8f61-9fdd-40e1-910c-102372ca20ae",
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          },
+          "request": {
+            "method": "POST",
+            "header": [
+              {
+                "key": "Content-Type",
+                "value": "application/json"
+              }
+            ],
+            "body": {
+              "mode": "raw",
+              "raw": "{\n  \"full_name\": \"{{full_name}}\",\n  \"social_name\": \"{{social_name}}\",\n  \"document\": \"{{document}}\",\n  \"doc_type\": \"cpf\",\n  \"phone\": \"11999999999\",\n  \"email\": \"generic@example.com\",\n  \"password\": \"{{password}}\"\n}"
+            },
+            "url": {
+              "raw": "{{baseUrl}}/users",
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "path": [
+                "users"
+              ]
+            },
+            "description": "Criar um novo usuário no sistema. CPF/CNPJ e email devem ser únicos."
+          },
+          "response": [
+            {
+              "id": "bc308772-dc79-4073-aa32-f636bb4dae7b",
+              "name": "Conflict - Duplicate",
+              "originalRequest": {
+                "method": "POST",
+                "header": [
+                  {
+                    "key": "Content-Type",
+                    "value": "application/json"
+                  }
+                ],
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\n  \"full_name\": \"João da Silva\",\n  \"social_name\": \"João\",\n  \"document\": \"12345678900\",\n  \"doc_type\": \"cpf\",\n  \"phone\": \"11999999999\",\n  \"email\": \"joao@exemplo.com\",\n  \"password\": \"senha123\"\n}"
+                },
+                "url": {
+                  "raw": "{{baseUrl}}/users",
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "path": [
+                    "users"
+                  ]
+                }
+              },
+              "status": "Conflict",
+              "code": 409,
+              "_postman_previewlanguage": "json",
+              "cookie": [],
+              "body": "{\n    \"message\": \"E-mail já está em uso.\",\n    \"error\": \"Conflict\",\n    \"statusCode\": 409\n}"
             }
           ]
         },
@@ -904,13 +1160,13 @@
   ],
   "variable": [
     {
-      "id": "8043317f-95e8-49eb-8e9c-9a0397893fe9",
+      "id": "bee74c90-6c7c-4d2e-9dd0-f75b30c2421e",
       "key": "baseUrl",
       "value": "http://localhost:3001",
       "type": "string"
     },
     {
-      "id": "7a44a442-2a6a-4714-8e64-deb02af91172",
+      "id": "4204e87a-a7e8-472b-abbf-1625b6907261",
       "key": "token",
       "value": "",
       "type": "string"
