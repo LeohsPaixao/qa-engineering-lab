@@ -2,4 +2,4 @@
 "backend": patch
 ---
 
-test: finaliza os testes de atualizar e deletar usuários
+test: finaliza os testes de API do endpoint de Update User e Delete User
