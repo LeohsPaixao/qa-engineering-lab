@@ -24,6 +24,7 @@
     "start": "turbo run start --filter=./apps/*",
     "build": "turbo run build",
     "test": "turbo run test",
+    "test:newman": "npx tsx packages/scripts/run-newman.ts",
     "lint": "turbo run lint",
     "prepare": "husky"
   },
