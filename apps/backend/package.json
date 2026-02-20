@@ -11,6 +11,7 @@
     "start": "yarn build && yarn dev",
     "lint": "eslint --fix",
     "test": "jest --config jest.config.js",
+    "test:newman": "npx tsx ../../packages/scripts/run-newman.ts",
     "test:coverage": "jest --coverage",
     "prisma:seed": "npx tsx prisma/seeders/*.ts"
   },
