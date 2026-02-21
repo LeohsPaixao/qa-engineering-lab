@@ -16,7 +16,8 @@ export type Framework =
   | 'vitest'
   | 'robot-e2e'
   | 'selenium-e2e'
-  | 'rest-assured';
+  | 'rest-assured'
+  | 'newman';
 
 /**
  * Status de um teste
@@ -27,6 +28,14 @@ export type TestStatus = 'passed' | 'failed' | 'skipped';
  * Tipo de teste
  */
 export type TestType = 'ct' | 'e2e' | 'unit' | 'api' | 'unknown';
+
+/**
+ * Configuração de um framework
+ */
+export type FrameworkConfig = {
+  patterns: string[];
+  type: TestType;
+};
 
 /**
  * Informações sobre um arquivo raw encontrado

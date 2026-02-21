@@ -1,8 +1,8 @@
 {
   "info": {
     "_postman_id": "1f2a543a-d8fa-4f4d-88b8-163f678e52fc",
-    "name": "QA Solar API",
-    "description": "API for QA Solar application - Version 2.0.4. Built with NestJS and PostgreSQL. Base URL: http://localhost:3001. Swagger documentation available at /api",
+    "name": "QA Engineering Lab API",
+    "description": "API for QA Engineering Lab application - Version 2.0.4. Built with NestJS and PostgreSQL. Base URL: http://localhost:3001. Swagger documentation available at /api",
     "schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json"
   },
   "item": [
@@ -1012,13 +1012,9 @@
               }
             ],
             "url": {
-              "raw": "https://9eff5e33-4330-4e93-b7a8-e89bae2e630e.mock.pstmn.io/users",
-              "protocol": "https",
+              "raw": "{{mockUrl}}/users",
               "host": [
-                "9eff5e33-4330-4e93-b7a8-e89bae2e630e",
-                "mock",
-                "pstmn",
-                "io"
+                "{{mockUrl}}"
               ],
               "path": [
                 "users"
@@ -2092,19 +2088,19 @@
   ],
   "variable": [
     {
-      "id": "b9180136-2cdf-4deb-aa1b-403c401e5191",
+      "id": "87b112a4-f02b-4101-a1c6-db90be844dc0",
       "key": "token",
       "value": ""
     },
     {
-      "id": "1aabb7b6-f67f-42b7-93c7-48916f36a082",
+      "id": "ada133d0-a44b-443e-9ab6-d9dd9b08516c",
       "key": "baseUrl",
       "value": "http://localhost:3001"
     },
     {
-      "id": "4c9c8f67-45a5-4068-80bb-95cafeb3beeb",
+      "id": "f352999c-4f68-4c78-ac1b-e7e2d8ccb7c3",
       "key": "mockUrl",
-      "value": "https://9eff5e33-4330-4e93-b7a8-e89bae2e630e.mock.pstmn.io"
+      "value": "https://fea5d23c-ceeb-4c21-a419-51f63a869e72.mock.pstmn.io"
     }
   ]
 }
