@@ -26,7 +26,7 @@ const FRAMEWORK_CONFIG: Record<Framework, FrameworkConfig> = {
     patterns: ['output.xml'],
     type: 'e2e',
   },
-  'newman': {
+  newman: {
     patterns: ['results.xml'],
     type: 'api',
   },
@@ -61,9 +61,7 @@ function isValidTimestamp(timestamp: string): boolean {
  * Extrai o framework do caminho do diretório
  */
 function extractFramework(dirName: string): Framework | null {
-  return dirName in FRAMEWORK_CONFIG
-    ? (dirName as Framework)
-    : null;
+  return dirName in FRAMEWORK_CONFIG ? (dirName as Framework) : null;
 }
 
 /**

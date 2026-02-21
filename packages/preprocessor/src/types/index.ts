@@ -37,7 +37,6 @@ export type FrameworkConfig = {
   type: TestType;
 };
 
-
 /**
  * Informações sobre um arquivo raw encontrado
  */
