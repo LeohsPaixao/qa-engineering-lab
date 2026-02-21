@@ -30,6 +30,14 @@ export type TestStatus = 'passed' | 'failed' | 'skipped';
 export type TestType = 'ct' | 'e2e' | 'unit' | 'api' | 'unknown';
 
 /**
+ * Configuração de um framework
+ */
+export type FrameworkConfig = {
+  patterns: string[];
+  type: TestType;
+};
+
+/**
  * Informações sobre um arquivo raw encontrado
  */
 export interface RawFile {
@@ -118,8 +126,8 @@ export interface ParsedData {
  * Interface para Loaders
  * Responsável por carregar arquivos raw (JSON ou XML)
  */
-export interface Loader<T = string | string[]> {
-  load(file: RawFile): Promise<T>;
+export interface Loader {
+  load(file: RawFile): Promise<unknown>;
   canLoad(file: RawFile): boolean;
 }
 

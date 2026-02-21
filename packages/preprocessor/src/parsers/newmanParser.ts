@@ -102,7 +102,7 @@ export const newmanParser: Parser = {
         id: testId,
         name: test.$.name,
         status: testStatus,
-        duration: testDuration,
+        duration_s: testDuration,
         error: extractErrorMessage(test),
         suite: test.$.classname,
         file: filePath,
