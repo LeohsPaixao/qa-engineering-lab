@@ -37,9 +37,10 @@ export async function generateSummarySvg(summaryData: SummaryData, config: Prepr
     'cypress-e2e': '#58a6ff',
     'playwright-e2e': '#2ea043',
     'playwright-ct': '#2ea043',
-    'robot-e2e': '#f85149',
+    'robot-e2e': '#f13228ff',
     'selenium-e2e': '#a5a5a5',
     'rest-assured': '#43A047',
+    newman: '#e0531f',
     vitest: '#f1e05a',
     jest: '#c21325',
     appium: '#7c3aed',
@@ -107,7 +108,7 @@ export async function generateSummarySvg(summaryData: SummaryData, config: Prepr
   <g transform="translate(24, 42)">
     ${frameworks
       .map((framework, index) => {
-        const color = frameworkColors[framework] || '#58a6ff';
+        const color = frameworkColors[framework] || '#ffffffff';
         const x = index * 120;
         const frameworkName = formatFrameworkName(framework);
         return `

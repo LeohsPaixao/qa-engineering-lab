@@ -3,7 +3,7 @@ import fs from 'fs';
 import path from 'path';
 import { timestamp } from './timestamp';
 
-const QA_RESULTS_DIR = path.resolve(process.cwd(), '../../qa-results/raw/newman');
+const QA_RESULTS_DIR = path.resolve(process.cwd(), './qa-results/raw/newman');
 
 function run() {
   const ts = timestamp();

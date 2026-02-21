@@ -26,6 +26,7 @@ export interface NewmanTestSuite {
     time: string;
   };
   testcase: NewmanTestCase[];
+  testsuite?: NewmanTestSuite[];
 }
 
 export interface NewmanTestCase {
