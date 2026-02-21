@@ -16,7 +16,8 @@ export type Framework =
   | 'vitest'
   | 'robot-e2e'
   | 'selenium-e2e'
-  | 'rest-assured';
+  | 'rest-assured'
+  | 'newman';
 
 /**
  * Status de um teste
@@ -117,8 +118,8 @@ export interface ParsedData {
  * Interface para Loaders
  * Responsável por carregar arquivos raw (JSON ou XML)
  */
-export interface Loader {
-  load(file: RawFile): Promise<unknown>;
+export interface Loader<T = string | string[]> {
+  load(file: RawFile): Promise<T>;
   canLoad(file: RawFile): boolean;
 }
 
