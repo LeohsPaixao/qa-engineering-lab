@@ -5,14 +5,14 @@ describe('AppFooter Component', () => {
     cy.mount(AppFooter);
     const year = new Date().getFullYear();
 
-    cy.get('.message-footer').should('contain', `© ${year} QA Solar - Todos os direitos reservados`);
+    cy.get('.message-footer').should('contain', `© ${year} QA Engineering Lab - Todos os direitos reservados`);
   });
 
   it('Deveria ser possivel visualizar o link do GitHub', () => {
     cy.mount(AppFooter);
 
     cy.get('.github-link').should('be.visible');
-    cy.get('.github-link').should('have.attr', 'href', 'https://github.com/LeohsPaixao/qa-solar');
+    cy.get('.github-link').should('have.attr', 'href', 'https://github.com/LeohsPaixao/qa-engineering-lab');
     cy.get('.github-link').should('have.attr', 'target', '_blank');
     cy.get('.github-link').should('have.attr', 'rel', 'noopener noreferrer');
 

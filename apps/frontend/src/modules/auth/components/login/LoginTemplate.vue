@@ -2,7 +2,7 @@
   <div class="login-container main-content">
     <div class="content">
       <form data-testid="form-login" class="form-login" @submit.prevent="onSubmit">
-        <img data-testid="logo" src="@/assets/images/logoqae2e-branco.jpg" alt="Logo" class="logo" />
+        <img data-testid="logo" src="@/assets/images/qa-test-lab.png" alt="Logo" class="logo" />
         <h2>Bem-vindo de volta!</h2>
         <p>Por favor, entre com suas credenciais abaixo:</p>
 

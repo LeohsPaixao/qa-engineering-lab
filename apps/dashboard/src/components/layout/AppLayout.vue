@@ -2,7 +2,7 @@
   <div class="app-layout">
     <aside class="sidebar" :class="{ 'sidebar-collapsed': isCollapsed }">
       <div class="sidebar-header">
-        <h1 class="logo">QA Solar</h1>
+        <h1 class="logo">Dashboard</h1>
         <button class="toggle-btn" @click="toggleSidebar" aria-label="Toggle sidebar">
           <svg width="20" height="20" viewBox="0 0 20 20" fill="none">
             <path d="M3 5h14M3 10h14M3 15h14" stroke="currentColor" stroke-width="2" stroke-linecap="round" />
