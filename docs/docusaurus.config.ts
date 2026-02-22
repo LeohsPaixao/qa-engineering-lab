@@ -3,13 +3,13 @@ import type { Config } from '@docusaurus/types';
 import { themes as prismThemes } from 'prism-react-renderer';
 
 const config: Config = {
-  title: 'QA Solar',
-  tagline: 'QA Solar',
+  title: 'QA Engineering Lab',
+  tagline: 'QA Engineering Lab',
   favicon: 'img/logoqae2e_white.ico',
   url: 'https://leohspaixao.github.io',
-  baseUrl: '/qa-solar/docs/',
+  baseUrl: '/qa-engineering-lab/docs/',
   organizationName: 'LeohsPaixao',
-  projectName: 'qa-solar',
+  projectName: 'qa-engineering-lab',
   deploymentBranch: 'gh-pages',
   trailingSlash: false,
   onBrokenLinks: 'throw',
@@ -31,7 +31,7 @@ const config: Config = {
         docs: {
           sidebarPath: './sidebars.ts',
           editUrl:
-            'https://github.com/LeohsPaixao/qa-solar/tree/main/docs/',
+            'https://github.com/LeohsPaixao/qa-engineering-lab/tree/main/docs/',
         },
         blog: false,
         theme: {
@@ -44,14 +44,14 @@ const config: Config = {
   themeConfig: {
     image: 'img/logoqae2e_white.ico',
     navbar: {
-      title: 'QA Solar',
+      title: 'QA Engineering Lab',
       logo: {
-        alt: 'QA Solar Logo',
+        alt: 'QA Engineering Lab Logo',
         src: 'img/logoqae2e_white.ico',
       },
       items: [
         {
-          href: 'https://github.com/LeohsPaixao/qa-solar',
+          href: 'https://github.com/LeohsPaixao/qa-engineering-lab',
           label: 'GitHub',
           position: 'right',
         },
@@ -59,7 +59,7 @@ const config: Config = {
     },
     footer: {
       style: 'dark',
-      copyright: `Copyright © ${new Date().getFullYear()} QA Solar. Desenvolvido por Leonardo Paixão.`,
+      copyright: `Copyright © ${new Date().getFullYear()} QA Engineering Lab. Desenvolvido por Leonardo Paixão.`,
     },
     prism: {
       theme: prismThemes.github,
