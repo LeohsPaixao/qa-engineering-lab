@@ -21,7 +21,7 @@ function HomepageHeader() {
         <div className={styles.buttons}>
           <Link
             className="button button--secondary button--lg"
-            to="/docs/intro">
+            to="/docs/Introdução">
             Ver Documentação 📚
           </Link>
           <Link
@@ -40,7 +40,7 @@ export default function Home(): ReactNode {
   return (
     <Layout
       title={`${siteConfig.title} - Documentação`}
-      description="Monorepo para estudos de desenvolvimento e testes automatizados com Vue 3, NestJS, Cypress, Playwright, Robot Framework e K6">
+      description="Monorepo para estudos de desenvolvimento e testes">
       <HomepageHeader />
       <main>
         <HomepageFeatures />

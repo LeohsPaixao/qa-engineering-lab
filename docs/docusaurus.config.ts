@@ -5,7 +5,7 @@ import { themes as prismThemes } from 'prism-react-renderer';
 const config: Config = {
   title: 'QA Engineering Lab',
   tagline: 'QA Engineering Lab',
-  favicon: 'img/logoqae2e_white.ico',
+  favicon: 'img/qa-test-lab.png',
   url: 'https://leohspaixao.github.io',
   baseUrl: '/qa-engineering-lab/docs/',
   organizationName: 'LeohsPaixao',
@@ -42,12 +42,12 @@ const config: Config = {
   ],
 
   themeConfig: {
-    image: 'img/logoqae2e_white.ico',
+    image: 'img/qa-test-lab.png',
     navbar: {
       title: 'QA Engineering Lab',
       logo: {
         alt: 'QA Engineering Lab Logo',
-        src: 'img/logoqae2e_white.ico',
+        src: 'img/qa-test-lab.png',
       },
       items: [
         {
