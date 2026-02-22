@@ -1,4 +1,4 @@
-name: Testes QA-Solar - CI
+name: Testes QA-Engineering-Lab - CI
 
 on:
   pull_request:

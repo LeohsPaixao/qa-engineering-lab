@@ -53,9 +53,9 @@ jobs:
           <html>
             <head>
               <meta charset="UTF-8" />
-              <meta http-equiv="refresh" content="0; url=/qa-solar/docs/" />
+              <meta http-equiv="refresh" content="0; url=/qa-engineering-lab/docs/" />
               <script>
-                location.replace('/qa-solar/docs/');
+                location.replace('/qa-engineering-lab/docs/');
               </script>
             </head>
             <body></body>
