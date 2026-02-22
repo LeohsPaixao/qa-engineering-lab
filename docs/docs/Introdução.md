@@ -2,16 +2,9 @@
 sidebar_position: 1
 ---
 
-# Home
-
-<div align="center">
-  <img src="https://github.com/user-attachments/assets/4c269162-e3a0-4199-a65b-b2f51bb74a57" alt="logoqae2e" width="200"/>
-</div>
-
-
 ## 🚀 Sobre o Projeto
 
-O **QA Solar** é um projeto monorepo desenvolvido para fins de estudo e aprimoramento de conhecimentos em programação, tanto no backend quanto no frontend. O foco principal do projeto está no desenvolvimento e na prática de testes, explorando frameworks amplamente conhecidos, como **Cypress**, **Playwright** e **Robot Framework**, para criar testes de E2E, componentes, unitários, performance e APIs.
+O **QA Engineering Lab** é um monorepo criado como um laboratório contínuo de experimentação em **Qualidade de Software**. O foco principal do projeto está no desenvolvimento e na prática de testes, explorando diferentes frameworks e ferramentas, como **Cypress**, **Playwright** e **Robot Framework**, para criar testes de E2E, componentes, unitários, performance e APIs.
 
 ## 🎯 Propósito
 
