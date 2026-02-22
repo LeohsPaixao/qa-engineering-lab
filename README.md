@@ -1,4 +1,8 @@
-![QA Engineering Lab Image](./apps/frontend/public/qa-test-lab.png)
+<div align="center">
+
+![QA Engineering Lab Image](./apps/frontend/public/qa-test-lab-256x256.png)
+
+</div>
 
 # 📊 Resumo dos Testes
 
