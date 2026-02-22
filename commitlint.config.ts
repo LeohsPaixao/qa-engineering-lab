@@ -12,6 +12,7 @@ export default {
       2,
       "always",
       [
+        "refactor",
         "chore",
         "ci",
         "docs",
