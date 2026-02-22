@@ -49,10 +49,18 @@
       <text x="55" y="14" class="framework-text" text-anchor="middle">Cypress E2e</text>
     </g>
     <g transform="translate(240, 0)">
+      <rect x="0" y="0" width="110" height="20" rx="10" class="framework-badge" stroke="#e0531f" stroke-width="1.5"/>
+      <text x="55" y="14" class="framework-text" text-anchor="middle">Newman</text>
+    </g>
+    <g transform="translate(360, 0)">
       <rect x="0" y="0" width="110" height="20" rx="10" class="framework-badge" stroke="#43A047" stroke-width="1.5"/>
       <text x="55" y="14" class="framework-text" text-anchor="middle">Rest Assured</text>
     </g>
-    <g transform="translate(360, 0)">
+    <g transform="translate(480, 0)">
+      <rect x="0" y="0" width="110" height="20" rx="10" class="framework-badge" stroke="#f13228ff" stroke-width="1.5"/>
+      <text x="55" y="14" class="framework-text" text-anchor="middle">Robot E2e</text>
+    </g>
+    <g transform="translate(600, 0)">
       <rect x="0" y="0" width="110" height="20" rx="10" class="framework-badge" stroke="#a5a5a5" stroke-width="1.5"/>
       <text x="55" y="14" class="framework-text" text-anchor="middle">Selenium E2e</text>
     </g>
@@ -63,7 +71,7 @@
     <!-- Total Tests -->
     <g>
       <text x="0" y="0" class="stat-label">Total Tests</text>
-      <text x="0" y="28" class="stat-value">148</text>
+      <text x="0" y="28" class="stat-value">202</text>
     </g>
 
     <!-- Success Rate -->
@@ -75,7 +83,7 @@
     <!-- Duration -->
     <g transform="translate(280, 0)">
       <text x="0" y="0" class="stat-label">Duration</text>
-      <text x="0" y="28" class="stat-value" fill="#58a6ff">5m 34s</text>
+      <text x="0" y="28" class="stat-value" fill="#58a6ff">6m 33s</text>
     </g>
   </g>
 
@@ -83,11 +91,11 @@
   <g transform="translate(24, 145)">
     <!-- Passed Badge -->
     <rect x="0" y="0" width="100" height="24" rx="12" class="badge-passed"/>
-    <text x="50" y="16" class="badge-text" text-anchor="middle">✓ 144</text>
+    <text x="50" y="16" class="badge-text" text-anchor="middle">✓ 196</text>
     
     <!-- Failed Badge -->
     <rect x="120" y="0" width="100" height="24" rx="12" class="badge-failed"/>
-    <text x="170" y="16" class="badge-text" text-anchor="middle">✗ 4</text>
+    <text x="170" y="16" class="badge-text" text-anchor="middle">✗ 6</text>
     
     <!-- Skipped Badge -->
     <rect x="240" y="0" width="100" height="24" rx="12" class="badge-skipped"/>
@@ -97,11 +105,11 @@
   <!-- Progress Bar -->
   <g transform="translate(24, 185)">
     <rect x="0" y="0" width="752" height="8" rx="4" class="progress-bg"/>
-    <rect x="0" y="0" width="731.6756756756757" height="8" rx="4" class="progress-passed"/>
-    <rect x="731.6756756756757" y="0" width="20.324324324324323" height="8" rx="4" class="progress-failed"/>
+    <rect x="0" y="0" width="729.6633663366337" height="8" rx="4" class="progress-passed"/>
+    <rect x="729.6633663366337" y="0" width="22.336633663366335" height="8" rx="4" class="progress-failed"/>
     
   </g>
 
   <!-- Footer -->
-  <text x="24" y="210" class="date-text">Last updated: 23/01/2026, 19:40</text>
+  <text x="24" y="210" class="date-text">Last updated: 20/02/2026, 22:30</text>
 </svg>

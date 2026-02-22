@@ -1,6 +1,7 @@
+import { FRAMEWORK_CONFIG } from '@/types';
 import type { FrameworkName, FrameworkResult, SummaryData } from '@/types/results.types';
 
-const RESULTS_BASE_PATH = '/qa-solar/dashboard/qa-results/processed';
+const RESULTS_BASE_PATH = '/qa-engineering-lab/dashboard/qa-results/processed';
 
 /**
  * Carrega o resumo geral de resultados.
@@ -46,7 +47,7 @@ export async function loadFrameworkResults(framework: FrameworkName): Promise<Fr
  * @returns Map cujas chaves são nomes de framework e os valores são os resultados correspondentes; inclui apenas frameworks que retornaram dados.
  */
 export async function loadAllFrameworkResults(): Promise<Map<FrameworkName, FrameworkResult>> {
-  const frameworks: FrameworkName[] = ['cypress-ct', 'cypress-e2e', 'jest', 'playwright-e2e', 'robot-e2e', 'selenium-e2e', 'vitest', 'rest-assured'];
+  const frameworks: FrameworkName[] = Object.keys(FRAMEWORK_CONFIG) as FrameworkName[];
 
   const results = new Map<FrameworkName, FrameworkResult>();
 

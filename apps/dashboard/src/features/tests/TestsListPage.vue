@@ -55,6 +55,7 @@
 <script setup lang="ts">
 import TestsTable from '@/components/tables/TestsTable.vue';
 import { useFrameworkStore } from '@/stores/frameworkStore';
+import { FRAMEWORK_CONFIG } from '@/types';
 import type { FrameworkName, TestResult } from '@/types/results.types';
 import { formatFrameworkName } from '@/utils/formatFrameworkName';
 import { computed, onMounted, ref } from 'vue';
@@ -102,16 +103,7 @@ async function loadAllTests() {
   error.value = null;
 
   try {
-    const frameworks: FrameworkName[] = [
-      'cypress-ct',
-      'cypress-e2e',
-      'jest',
-      'playwright-e2e',
-      'robot-e2e',
-      'selenium-e2e',
-      'vitest',
-      'rest-assured',
-    ];
+    const frameworks: FrameworkName[] = Object.keys(FRAMEWORK_CONFIG) as FrameworkName[];
 
     const tests: TestResult[] = [];
 
