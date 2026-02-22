@@ -4,7 +4,7 @@ on:
 
 jobs:
   rest-assured-tests:
-    name: RestAssured Testes QA-Solar
+    name: RestAssured Testes QA-Engineering-Lab
     runs-on: ubuntu-latest
     timeout-minutes: 10
     env:

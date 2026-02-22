@@ -1,8 +1,8 @@
 <template>
   <footer class="app-footer">
-    <p class="message-footer">© {{ currentYear }} QA Solar - Todos os direitos reservados</p>
+    <p class="message-footer">© {{ currentYear }} QA Engineering Lab - Todos os direitos reservados</p>
     <a
-      href="https://github.com/LeohsPaixao/qa-solar"
+      href="https://github.com/LeohsPaixao/qa-engineering-lab"
       target="_blank"
       rel="noopener noreferrer"
       class="github-link"

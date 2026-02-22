@@ -3,7 +3,7 @@ on:
 
 jobs:
   frontend-unit-tests:
-    name: Frontend Testes Unitários QA-Solar
+    name: Frontend Testes Unitários QA-Engineering-Lab
     runs-on: ubuntu-latest
     timeout-minutes: 10
     env:

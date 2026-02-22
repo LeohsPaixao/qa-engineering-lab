@@ -4,12 +4,12 @@ body {
   box-sizing: border-box;
   font-family: 'Roboto', sans-serif;
   display: block;
-  background: #ffeed9;
+  background: #ffffff;
   margin: 0;
 }
 
 form {
-  background: #fff;
+  background: #ffffff;
   padding: 3rem;
   border-radius: 10px;
   box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
@@ -55,7 +55,7 @@ input:focus {
 }
 
 input:disabled {
-  background-color: #f0f0f0;
+  background-color: #ffffff;
 }
 
 select {
@@ -76,7 +76,7 @@ select:focus {
 }
 
 select:disabled {
-  background-color: #f0f0f0;
+  background-color: #ffffff;
 }
 
 button {

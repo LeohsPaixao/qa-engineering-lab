@@ -1,8 +1,7 @@
 <template>
   <div class="recover-password-container main-content">
     <form data-testid="form-recover-password" class="form-recover-password" @submit.prevent="onSubmit">
-      <img data-testid="logo-recover-password" src="@/assets/images/logoqae2e-branco.jpg" alt="Logo" class="logo" />
-      <h2>Recuperar Senha</h2>
+      <h2 class="title-recover-password">Recuperar Senha</h2>
       <p>Por favor, insira o seu e-mail para recuperar a senha:</p>
 
       <div class="form-group-recover-password">

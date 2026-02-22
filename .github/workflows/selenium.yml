@@ -4,7 +4,7 @@ on:
 
 jobs:
   selenium-tests:
-    name: Selenium Testes QA-Solar
+    name: Selenium Testes QA-Engineering-Lab
     runs-on: ubuntu-latest
     timeout-minutes: 10
     env:

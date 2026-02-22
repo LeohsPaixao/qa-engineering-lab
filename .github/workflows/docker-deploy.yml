@@ -35,7 +35,7 @@ jobs:
           context: .
           file: apps/backend/Dockerfile
           push: true
-          tags: ${{ vars.DOCKER_USERNAME }}/qa-solar-backend:latest
+          tags: ${{ vars.DOCKER_USERNAME }}/qa-engineering-lab-backend:latest
           cache-from: type=local,src=/tmp/.buildx-cache
           cache-to: type=local,dest=/tmp/.buildx-cache-new,mode=max
 
@@ -45,7 +45,7 @@ jobs:
           context: .
           file: apps/frontend/Dockerfile
           push: true
-          tags: ${{ vars.DOCKER_USERNAME }}/qa-solar-frontend:latest
+          tags: ${{ vars.DOCKER_USERNAME }}/qa-engineering-lab-frontend:latest
           cache-from: type=local,src=/tmp/.buildx-cache
           cache-to: type=local,dest=/tmp/.buildx-cache-new,mode=max
 

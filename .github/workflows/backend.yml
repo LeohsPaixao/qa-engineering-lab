@@ -3,7 +3,7 @@ on:
 
 jobs:
   backend-tests:
-    name: Backend Testes QA-Solar
+    name: Backend Testes QA-Engineering-Lab
     runs-on: ubuntu-latest
     timeout-minutes: 10
     env:

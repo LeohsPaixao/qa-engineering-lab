@@ -3,7 +3,7 @@
   justify-content: center;
   align-items: center;
   height: 100vh;
-  background-color: #ffeed9;
+  background-color: #034cc6;
   font-family: 'Roboto', sans-serif;
   padding: 1rem;
 }
@@ -79,11 +79,16 @@
 .message-user-login {
   margin-top: 2rem;
   font-size: 0.9rem;
-  color: #666;
+  color: #000000;
   text-align: center;
   line-height: 1.4;
 }
 
 .message-user-login strong {
-  color: #e63946;
+  color: #f80116;
+    font-weight: bold;
+}
+
+.message-user-login em {
+  font-weight: bold;
 }

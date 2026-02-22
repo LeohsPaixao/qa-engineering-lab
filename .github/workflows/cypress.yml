@@ -3,7 +3,7 @@ on:
 
 jobs:
   cypress-tests:
-    name: Cypress Testes QA-Solar
+    name: Cypress Testes QA-Engineering-Lab
     runs-on: ubuntu-latest
     timeout-minutes: 10
     env:

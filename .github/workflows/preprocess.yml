@@ -3,7 +3,7 @@ on:
 
 jobs:
   preprocess:
-    name: Preprocessamento de resultados de testes QA-Solar
+    name: Preprocessamento de resultados de testes QA-Engineering-Lab
     runs-on: ubuntu-latest
     timeout-minutes: 10
     env:
