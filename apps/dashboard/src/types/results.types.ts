@@ -49,4 +49,14 @@ export interface SummaryData {
   };
 }
 
-export type FrameworkName = 'cypress-ct' | 'cypress-e2e' | 'jest' | 'playwright-e2e' | 'robot-e2e' | 'selenium-e2e' | 'vitest' | 'rest-assured';
+export type FrameworkName =
+  | 'cypress-ct'
+  | 'cypress-e2e'
+  | 'jest'
+  | 'playwright-e2e'
+  | 'playwright-ct'
+  | 'robot-e2e'
+  | 'selenium-e2e'
+  | 'vitest'
+  | 'rest-assured'
+  | 'newman';

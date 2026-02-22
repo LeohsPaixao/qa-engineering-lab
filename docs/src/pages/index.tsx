@@ -10,7 +10,7 @@ import styles from './index.module.css';
 
 function HomepageHeader() {
   const {siteConfig} = useDocusaurusContext();
-  const dashboardUrl = `${siteConfig.url}/qa-solar/dashboard/`;
+  const dashboardUrl = `${siteConfig.url}/qa-engineering-lab/dashboard/`;
   return (
     <header className={clsx('hero hero--primary', styles.heroBanner)}>
       <div className="container">
