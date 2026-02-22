@@ -1,12 +1,28 @@
 <template>
   <div class="main-container">
     <div class="logo-container">
-      <img src="@/assets/images/logoqae2e.jpg" alt="Logo QA E2E" class="logo" />
+      <img src="@/assets/images/qa-test-lab.png" alt="Logo QA E2E" class="logo" />
       <div class="project-description">
         <p>
-          Este projeto é <strong>Open Source</strong> e visa servir para fins de <strong>UI Tests</strong>, utilizando diversos frameworks de testes.
-          Ele pode servir como um "Hello World" para os frameworks de testes. Atualmente, foi pensado utilizar <strong>Cypress</strong>,
-          <strong>Playwright</strong> e <strong>Robot Framework</strong>, mas futuramente esta lista pode aumentar.
+          Este é um <strong>Laboratório de QA</strong> criado para quem acredita que qualidade não é apenas uma etapa do processo, mas uma
+          mentalidade.
+        </p>
+
+        <p>
+          Aqui, exploramos a <strong>Qualidade de Software</strong> de forma ampla e estratégica, aplicando diferentes níveis e tipos de testes dentro
+          de uma visão moderna de engenharia: <strong>Unit Tests</strong>, <strong>Integration Tests</strong>, <strong>API Tests</strong>,
+          <strong>UI Tests</strong>, <strong>Testes Não Funcionais</strong> (performance, carga, resiliência), entre muitas outras abordagens.
+        </p>
+
+        <p>
+          O projeto promove a experimentação prática de conceitos como <strong>pirâmide de testes</strong>, <strong>shift-left testing</strong>,
+          <strong>automação em CI/CD</strong> e boas práticas de arquitetura de testes. É um ambiente seguro para errar, aprender, comparar
+          ferramentas e evoluir tecnicamente.
+        </p>
+
+        <p>
+          Sendo <strong>Open Source</strong>, este laboratório é um convite constante ao desafio: testar novas estratégias, validar hipóteses,
+          aprimorar habilidades e construir uma visão sólida e moderna sobre qualidade.
         </p>
       </div>
     </div>
@@ -41,7 +57,7 @@
   text-align: center;
   font-size: 1rem;
   line-height: 1.6;
-  color: #555;
+  color: #000000;
 }
 
 .project-description p {
@@ -50,7 +66,7 @@
 }
 
 .project-description strong {
-  color: #333;
+  color: #000000;
   font-weight: 600;
 }
 </style>
