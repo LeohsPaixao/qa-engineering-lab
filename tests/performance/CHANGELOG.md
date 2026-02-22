@@ -1,4 +1,4 @@
-# qa-solar-performance
+# k6-tests
 
 ## 1.3.2
 
