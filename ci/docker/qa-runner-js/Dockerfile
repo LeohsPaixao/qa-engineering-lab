@@ -33,7 +33,12 @@ RUN apt-get update && apt-get install -y \
 
 RUN npm install -g npm@11.10.1
 
-RUN npm install -g yarn --force
+RUN npm install -g newman \
+    cypress \
+    playwright \
+    jest \
+    vitest \
+    @playwright/test
 
 RUN npx playwright install --with-deps chromium
 
