@@ -8,7 +8,7 @@
   "private": true,
   "scripts": {
     "dev": "vite --host 127.0.0.1",
-    "start": "yarn build && yarn dev",
+    "start": "yarn build && yarn dev ",
     "build": "rimraf dist && vue-tsc -b && vite build",
     "type-check": "vue-tsc --noEmit",
     "test": "vitest run",
