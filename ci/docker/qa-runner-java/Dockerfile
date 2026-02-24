@@ -9,6 +9,9 @@ RUN apt-get update && apt-get install -y \
     curl \
     wget \
     xvfb \
+    make \
+    gcc \
+    g++ \
     libxi6 \
     libgconf-2-4 \
     libnss3 \
@@ -18,6 +21,11 @@ RUN apt-get update && apt-get install -y \
     fonts-liberation \
     chromium-browser \
     && rm -rf /var/lib/apt/lists/*
+
+RUN curl -fsSL https://deb.nodesource.com/setup_22.x | bash - \
+    && apt-get install -y nodejs
+
+RUN npm install -g yarn --force
 
 WORKDIR /workspace
 
