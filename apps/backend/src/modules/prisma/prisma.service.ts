@@ -21,17 +21,14 @@ export class PrismaService extends PrismaClient implements OnModuleInit, OnModul
 
     for (let i = 1; i <= maxRetries; i++) {
       try {
-        console.log(`Tentando conectar ao banco (${i}/${maxRetries})...`);
         await this.$connect();
-        console.log('✅ Conectado ao banco!');
         return;
-      } catch (err) {
-        console.log('❌ Banco ainda não disponível...');
+      } catch {
         await new Promise((r) => setTimeout(r, delay));
       }
     }
 
-    throw new Error('❌ Não conseguiu conectar ao banco após múltiplas tentativas.');
+    throw new Error('Não conseguiu conectar ao banco após múltiplas tentativas.');
   }
 
   async onModuleDestroy() {
