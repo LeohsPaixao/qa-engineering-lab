@@ -13,7 +13,9 @@ function run() {
 
   const collectionPath = './postman/collections/postman_collection.json';
   const reportPath = path.join(reportDir, 'results.xml');
-  const cmd = `newman run ${collectionPath} -r cli,junit --reporter-junit-export ${reportPath}`;
+  
+  const baseUrl = process.env.API_BASE_URL || 'http://localhost:3001';
+  const cmd = `newman run ${collectionPath} -r cli,junit --reporter-junit-export ${reportPath} --env-var "baseUrl=${baseUrl}"`;
 
   try {
     execSync(cmd, { stdio: 'inherit' });

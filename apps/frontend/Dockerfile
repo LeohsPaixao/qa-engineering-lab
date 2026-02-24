@@ -17,9 +17,8 @@ FROM base AS runner
 WORKDIR /app
 COPY --from=installer /app/ .
 
-# Build the frontend
 WORKDIR /app/apps/frontend
-RUN yarn build
 
-# Expose port
 EXPOSE 8181
+
+CMD ["yarn", "start"]
