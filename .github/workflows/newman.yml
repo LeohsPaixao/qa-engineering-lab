@@ -27,31 +27,26 @@ jobs:
       - name: Checkout do repositório
         uses: actions/checkout@v4
 
-      - name: Cachear o Node Modules
+      - name: Pegar o caminho do cache do Yarn
+        id: yarn-cache-dir-path
+        run: echo "dir=$(yarn cache dir)" >> $GITHUB_OUTPUT
+
+      - name: Cachear o Yarn
         uses: actions/cache@v4
         with:
-          path: node_modules
-          key: ${{ runner.os }}-node-${{ hashFiles('**/yarn.lock') }}
+          path: ${{ steps.yarn-cache-dir-path.outputs.dir }}
+          key: ${{ runner.os }}-yarn-${{ hashFiles('**/yarn.lock') }}
           restore-keys: |
-            ${{ runner.os }}-node-
+            ${{ runner.os }}-yarn-
 
-      - name: Instalar dependências
-        if: steps.cache-node_modules.outputs.cache-hit != 'true'
-        run: yarn install --frozen-lockfile
+      - name: Instalar dependências do Monorepo
+        run: yarn install --frozen-lockfile --prefer-offline
 
       - name: Iniciar backend
         working-directory: apps/backend
         run: |
           yarn start &
-          for i in {1..20}; do
-            if curl -s --fail http://localhost:3001/healthy; then
-              echo "Backend está online!"
-              exit 0
-            fi
-            sleep 3
-          done
-          echo "Backend não subiu a tempo."
-          exit 1
+          npx wait-on http://localhost:3001/healthy
         env: 
           DATABASE_URL: postgresql://postgres:postgres@postgres:5432/qa_engineering_lab_database?schema=public
           JWT_SECRET: jwt_secret

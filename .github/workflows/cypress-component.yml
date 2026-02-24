@@ -2,9 +2,11 @@ on:
   workflow_call:
 
 jobs:
-  cypress-tests:
-    name: Cypress Testes QA-Engineering-Lab
+  cypress-ct-tests:
+    name: Cypress CT Testes QA-Engineering-Lab
     runs-on: ubuntu-latest
+    container:
+      image: ghcr.io/leohspaixao/qa-runner-js:1.0.0
     timeout-minutes: 10
     env:
       TURBO_TELEMETRY_DISABLED: 1
@@ -13,21 +15,24 @@ jobs:
       - name: Checkout do repositório
         uses: actions/checkout@v4
 
-      - name: Configurar Node.js
-        uses: actions/setup-node@v4.4.0
+      - name: Pegar o caminho do cache do Yarn
+        id: yarn-cache-dir-path
+        run: echo "dir=$(yarn cache dir)" >> $GITHUB_OUTPUT
+
+      - name: Cachear o Yarn
+        uses: actions/cache@v4
         with:
-          node-version: 22.19.0
-          cache: "yarn"
+          path: ${{ steps.yarn-cache-dir-path.outputs.dir }}
+          key: ${{ runner.os }}-yarn-${{ hashFiles('**/yarn.lock') }}
+          restore-keys: |
+            ${{ runner.os }}-yarn-
 
       - name: Instalar dependências do Monorepo
-        run: yarn install --frozen-lockfile
+        run: yarn install --frozen-lockfile --prefer-offline
 
       - name: Executar testes de Componentes Cypress
-        id: cypress-component-tests
-        uses: cypress-io/github-action@v6
-        with:
-          working-directory: tests/cypress
-          command: npx cypress run --component --config-file cypress.config.ts
+        working-directory: tests/cypress
+        run: npx cypress run --component --config-file cypress.config.ts
 
       - name: Upload raw results (Cypress CT)
         uses: actions/upload-artifact@v4.4.0
