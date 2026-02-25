@@ -9,6 +9,8 @@ jobs:
     name: Deploy Pages
     runs-on: ubuntu-latest
     timeout-minutes: 10
+    container:
+      image: ghcr.io/leohspaixao/qa-runner-pattern
     env:
       TURBO_TELEMETRY_DISABLED: 1
 
@@ -17,15 +19,7 @@ jobs:
         uses: actions/checkout@v4
         with:
           fetch-depth: 0
-
-      - name: Setup Node.js
-        uses: actions/setup-node@v4.4.0
-        with:
-          node-version: 22.19.0
-          cache: "yarn"
-
-      - name: Instalar dependências do Monorepo
-        run: yarn install --frozen-lockfile
+          clean: false
 
       - name: Baixar resultados processados do Preprocessamento
         uses: actions/download-artifact@v6.0.0

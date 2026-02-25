@@ -8,20 +8,17 @@ const PORT = process.env.PORT || 3001;
 async function bootstrap() {
   const app = await NestFactory.create(AppModule);
 
-  // Configuração do CORS
   app.enableCors();
 
-  // Configuração do Swagger
   const config = new DocumentBuilder()
-    .setTitle('QA Solar API')
-    .setDescription('API para o projeto QA Solar')
+    .setTitle('QA Engineering Lab API')
+    .setDescription('API para o projeto QA Engineering Lab')
     .setVersion('1.0')
     .addBearerAuth()
     .build();
   const document = SwaggerModule.createDocument(app, config);
   SwaggerModule.setup('api', app, document);
 
-  // Configuração de validação global
   app.useGlobalPipes(
     new ValidationPipe({
       whitelist: true,
@@ -29,6 +26,6 @@ async function bootstrap() {
     }),
   );
 
-  await app.listen(PORT);
+  await app.listen(PORT, '0.0.0.0');
 }
 bootstrap();

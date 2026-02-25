@@ -25,6 +25,7 @@
     "build": "turbo run build",
     "test": "turbo run test",
     "test:newman": "npx tsx packages/scripts/run-newman.ts",
+    "test:workflow": "./ci/scripts/cleanup-act-networks.sh && act --pull=false -j",
     "lint": "turbo run lint",
     "prepare": "husky"
   },

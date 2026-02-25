@@ -5,7 +5,7 @@ services:
     environment:
       POSTGRES_USER: postgres
       POSTGRES_PASSWORD: postgres
-      POSTGRES_DB: tests_base
+      POSTGRES_DB: qa_engineering_lab_database
     restart: unless-stopped
     ports:
       - "5432:5432"

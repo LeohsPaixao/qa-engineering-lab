@@ -8,7 +8,7 @@
   "private": true,
   "scripts": {
     "dev": "vite --host 127.0.0.1",
-    "start": "yarn build && yarn dev",
+    "start": "yarn build && vite preview --host 0.0.0.0 --port 5723",
     "build": "rimraf dist && vue-tsc -b && vite build",
     "lint": "eslint --fix \"src/**/*.{js,ts,vue}\"",
     "format": "prettier --write \"src/**/*.{js,ts,vue}\""

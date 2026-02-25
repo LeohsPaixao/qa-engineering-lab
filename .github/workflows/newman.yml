@@ -2,11 +2,11 @@ on:
   workflow_call:
 
 jobs:
-  robot-framework-tests:
-    name: Robot Framework Testes QA-Engineering-Lab
+  newman-tests:
+    name: Postman-Newman Testes QA-Engineering-Lab
     runs-on: ubuntu-latest
     container:
-      image: ghcr.io/leohspaixao/qa-runner-python:latest
+      image: ghcr.io/leohspaixao/qa-runner-js:1.0.0
     timeout-minutes: 10
     env:
       TURBO_TELEMETRY_DISABLED: 1
@@ -22,7 +22,7 @@ jobs:
           --health-interval 10s
           --health-timeout 5s
           --health-retries 5
-
+    
     steps:
       - name: Checkout do repositório
         uses: actions/checkout@v4
@@ -57,24 +57,12 @@ jobs:
           DATABASE_URL: postgresql://postgres:postgres@postgres:5432/qa_engineering_lab_database?schema=public
           JWT_SECRET: jwt_secret
           PORT: 3001
-          API_URL: http://localhost:3001
 
-      - name: Iniciar frontend
-        working-directory: apps/frontend
-        run: |
-          yarn start &
-          sleep 5
+      - name: Executar testes do Newman
+        run: yarn test:newman
 
-      - name: Configurar Robot Framework
-        working-directory: tests/robot
-        run: pip install -r requirements.txt
-
-      - name: Executar testes Robot Framework
-        working-directory: tests/robot
-        run: make test
-
-      - name: Upload raw results (Robot Framework E2E)
+      - name: Upload raw results (Newman)
         uses: actions/upload-artifact@v4.4.0
         with:
-          name: robot-e2e
-          path: qa-results/raw/robot-e2e
+          name: newman
+          path: qa-results/raw/newman
