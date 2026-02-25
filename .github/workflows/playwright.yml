@@ -5,18 +5,18 @@ jobs:
   playwright-tests:
     name: Playwright Testes QA-Engineering-Lab
     runs-on: ubuntu-latest
+    container:
+      image: ghcr.io/leohspaixao/qa-runner-js:1.0.0
     timeout-minutes: 10
     env:
       TURBO_TELEMETRY_DISABLED: 1
     services:
       postgres:
         image: postgres:15
-        ports:
-          - 5432:5432
         env:
           POSTGRES_USER: postgres
           POSTGRES_PASSWORD: postgres
-          POSTGRES_DB: tests_base
+          POSTGRES_DB: qa_engineering_lab_database
         options: >-
           --health-cmd pg_isready
           --health-interval 10s
@@ -27,39 +27,42 @@ jobs:
       - name: Checkout do repositório
         uses: actions/checkout@v4
 
-      - name: Configurar Node.js
-        uses: actions/setup-node@v4.4.0
+      - name: Pegar o caminho do cache do Yarn
+        id: yarn-cache-dir-path
+        run: echo "dir=$(yarn cache dir)" >> $GITHUB_OUTPUT
+
+      - name: Cachear o Yarn
+        uses: actions/cache@v4
         with:
-          node-version: 22.19.0
-          cache: 'yarn'
+          path: ${{ steps.yarn-cache-dir-path.outputs.dir }}
+          key: ${{ runner.os }}-yarn-${{ hashFiles('**/yarn.lock') }}
+          restore-keys: |
+            ${{ runner.os }}-yarn-
 
       - name: Instalar dependências do Monorepo
-        run: yarn install --frozen-lockfile
+        run: yarn install --frozen-lockfile --prefer-offline
 
       - name: Executar seeders
         run: chmod +x .github/scripts/run-seeders.sh && .github/scripts/run-seeders.sh
         env:
-          DATABASE_URL: postgresql://postgres:postgres@localhost:5432/tests_base?schema=public
+          DATABASE_URL: postgresql://postgres:postgres@postgres:5432/qa_engineering_lab_database?schema=public
           JWT_SECRET: jwt_secret
 
       - name: Iniciar backend
+        working-directory: apps/backend
         run: |
-          cd apps/backend
-          yarn dev &
-          sleep 5
-        env:
-          DATABASE_URL: postgresql://postgres:postgres@localhost:5432/tests_base?schema=public
+          yarn start &
+          npx wait-on http://localhost:3001/healthy
+        env: 
+          DATABASE_URL: postgresql://postgres:postgres@postgres:5432/qa_engineering_lab_database?schema=public
           JWT_SECRET: jwt_secret
+          PORT: 3001
           API_URL: http://localhost:3001
 
       - name: Iniciar frontend
-        run: |
-          cd apps/frontend
-          yarn dev &
+        working-directory: apps/frontend
+          yarn start &
           sleep 5
-
-      - name: Instalar navegadores para Playwright
-        run: yarn playwright install --with-deps chromium
 
       - name: Executar testes Playwright
         run: |
