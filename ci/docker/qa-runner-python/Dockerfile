@@ -36,8 +36,8 @@ ENV PATH="/opt/venv/bin:$PATH"
 RUN pip install --upgrade pip
 
 RUN pip install \
-    robotframework \
-    robotframework-browser \
+    robotframework==7.1.1 \
+    robotframework-browser==19.0.1 \
     pytest
 
 RUN rfbrowser init
