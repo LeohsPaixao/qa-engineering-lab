@@ -6,26 +6,21 @@ jobs:
     name: Preprocessamento de resultados de testes QA-Engineering-Lab
     runs-on: ubuntu-latest
     timeout-minutes: 10
+    container:
+      image: ghcr.io/leohspaixao/qa-runner-pattern
     env:
       TURBO_TELEMETRY_DISABLED: 1
 
     steps:
       - name: Checkout do repositório
         uses: actions/checkout@v4
+        with:
+          clean: false
 
       - name: Baixar todos os artifacts (raw)
         uses: actions/download-artifact@v6.0.0
         with:
           path: qa-results/raw
-
-      - name: Configurar Node.js
-        uses: actions/setup-node@v4.4.0
-        with:
-          node-version: 22.19.0
-          cache: "yarn"
-
-      - name: Instalar dependências do Monorepo
-        run: yarn install --frozen-lockfile
 
       - name: Executar preprocessamento
         working-directory: packages/preprocessor
