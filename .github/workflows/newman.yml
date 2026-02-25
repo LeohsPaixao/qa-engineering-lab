@@ -18,10 +18,10 @@ jobs:
           POSTGRES_PASSWORD: postgres
           POSTGRES_DB: qa_engineering_lab_database
         options: >-
-          --health-cmd="pg_isready -U postgres"
-          --health-interval=5s
-          --health-timeout=5s
-          --health-retries=5
+          --health-cmd pg_isready
+          --health-interval 10s
+          --health-timeout 5s
+          --health-retries 5
     
     steps:
       - name: Checkout do repositório
@@ -42,6 +42,12 @@ jobs:
       - name: Instalar dependências do Monorepo
         run: yarn install --frozen-lockfile --prefer-offline
 
+      - name: Executar seeders
+        run: chmod +x .github/scripts/run-seeders.sh && .github/scripts/run-seeders.sh
+        env:
+          DATABASE_URL: postgresql://postgres:postgres@postgres:5432/qa_engineering_lab_database?schema=public
+          JWT_SECRET: jwt_secret
+
       - name: Iniciar backend
         working-directory: apps/backend
         run: |
@@ -51,12 +57,6 @@ jobs:
           DATABASE_URL: postgresql://postgres:postgres@postgres:5432/qa_engineering_lab_database?schema=public
           JWT_SECRET: jwt_secret
           PORT: 3001
-
-      - name: Executar seeders
-        run: chmod +x .github/scripts/run-seeders.sh && .github/scripts/run-seeders.sh
-        env:
-          DATABASE_URL: postgresql://postgres:postgres@postgres:5432/qa_engineering_lab_database?schema=public
-          JWT_SECRET: jwt_secret
 
       - name: Executar testes do Newman
         run: yarn test:newman
