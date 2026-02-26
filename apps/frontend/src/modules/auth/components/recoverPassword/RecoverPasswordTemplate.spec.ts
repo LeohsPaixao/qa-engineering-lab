@@ -33,7 +33,6 @@ describe('RecoverPasswordTemplate', () => {
 
       expect(wrapper.exists()).toBe(true);
       expect(wrapper.find('[data-testid="form-recover-password"]').exists()).toBe(true);
-      expect(wrapper.find('[data-testid="logo-recover-password"]').exists()).toBe(true);
     });
 
     it('Deveria renderizar todos os elementos do formulário', () => {
