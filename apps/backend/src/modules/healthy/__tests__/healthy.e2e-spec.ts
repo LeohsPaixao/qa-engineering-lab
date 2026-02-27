@@ -19,8 +19,9 @@ describe('HealthyController (e2e)', () => {
     prisma = app.get<PrismaService>(PrismaService);
   });
 
-  afterEach(() => {
+  afterEach(async () => {
     jest.restoreAllMocks();
+    await app.close();
   });
 
   it('Deve retornar status 200', async () => {

@@ -40,11 +40,8 @@ describe('Users', () => {
     token = jwt.sign({ sub: createdUser.id }, jwtSecret);
   });
 
-  afterEach(() => {
+  afterEach(async () => {
     jest.restoreAllMocks();
-  });
-
-  afterAll(async () => {
     await app.close();
   });
 
