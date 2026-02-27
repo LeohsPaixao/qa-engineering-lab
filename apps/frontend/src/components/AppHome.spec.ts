@@ -17,14 +17,14 @@ describe('AppHome', () => {
 
     it('Deveria exibir o logo da aplicação', () => {
       expect(wrapper.find('.logo').exists()).toBe(true);
-      expect(wrapper.find('.logo').attributes('src')).toBe('/src/assets/images/logoqae2e.jpg');
+      expect(wrapper.find('.logo').attributes('src')).toBe('/src/assets/images/qa-test-lab.png');
       expect(wrapper.find('.logo').attributes('alt')).toBe('Logo QA E2E');
     });
 
     it('Deveria exibir a descrição do projeto', () => {
       expect(wrapper.find('.project-description').exists()).toBe(true);
       expect(wrapper.find('.project-description').text()).toBe(
-        'Este projeto é Open Source e visa servir para fins de UI Tests, utilizando diversos frameworks de testes. Ele pode servir como um "Hello World" para os frameworks de testes. Atualmente, foi pensado utilizar Cypress, Playwright e Robot Framework, mas futuramente esta lista pode aumentar.',
+        'Este é um Laboratório de QA criado para quem acredita que qualidade não é apenas uma etapa do processo, mas uma mentalidade.  Aqui, exploramos a Qualidade de Software de forma ampla e estratégica, aplicando diferentes níveis e tipos de testes dentro de uma visão moderna de engenharia: Unit Tests, Integration Tests, API Tests, UI Tests, Testes Não Funcionais (performance, carga, resiliência), entre muitas outras abordagens.  O projeto promove a experimentação prática de conceitos como pirâmide de testes, shift-left testing, automação em CI/CD e boas práticas de arquitetura de testes. É um ambiente seguro para errar, aprender, comparar ferramentas e evoluir tecnicamente.  Sendo Open Source, este laboratório é um convite constante ao desafio: testar novas estratégias, validar hipóteses, aprimorar habilidades e construir uma visão sólida e moderna sobre qualidade.',
       );
     });
   });

@@ -36,7 +36,6 @@ describe('RegisterTemplate', () => {
 
       expect(wrapper.exists()).toBe(true);
       expect(wrapper.find('[data-testid="register-form"]').exists()).toBe(true);
-      expect(wrapper.find('[data-testid="logo-register"]').exists()).toBe(true);
       expect(wrapper.find('[data-testid="title-register"]').exists()).toBe(true);
       expect(wrapper.find('[data-testid="description-register"]').exists()).toBe(true);
     });
