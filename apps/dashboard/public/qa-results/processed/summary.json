@@ -1,12 +1,12 @@
 {
-  "timestamp": "2026-02-21-00-34-34",
-  "generatedAt": "2026-02-21T01:30:49.098Z",
+  "timestamp": "2026-02-27T16-42-53",
+  "generatedAt": "2026-02-27T17:29:54.520Z",
   "overall": {
-    "total": 202,
-    "passed": 196,
-    "failed": 6,
+    "total": 454,
+    "passed": 454,
+    "failed": 0,
     "skipped": 0,
-    "duration_s": 393.1366730000001
+    "duration_s": 336.552442702
   },
   "byFramework": {
     "cypress-ct": {
@@ -14,60 +14,87 @@
       "passed": 68,
       "failed": 0,
       "skipped": 0,
-      "duration_s": 14.750999999999996
+      "duration_s": 14.741000000000001
     },
     "cypress-e2e": {
       "total": 25,
-      "passed": 24,
-      "failed": 1,
+      "passed": 25,
+      "failed": 0,
       "skipped": 0,
-      "duration_s": 74.893
+      "duration_s": 55.208000000000006
+    },
+    "jest": {
+      "total": 44,
+      "passed": 44,
+      "failed": 0,
+      "skipped": 0,
+      "duration_s": 3.0939999999999994
     },
     "newman": {
       "total": 18,
-      "passed": 16,
-      "failed": 2,
+      "passed": 18,
+      "failed": 0,
       "skipped": 0,
-      "duration_s": 1.7549999999999994
+      "duration_s": 1.954
+    },
+    "playwright-e2e": {
+      "total": 37,
+      "passed": 37,
+      "failed": 0,
+      "skipped": 0,
+      "duration_s": 33.687
     },
     "rest-assured": {
       "total": 18,
       "passed": 18,
       "failed": 0,
       "skipped": 0,
-      "duration_s": 9.259
+      "duration_s": 9.202000000000002
     },
     "robot-e2e": {
       "total": 36,
       "passed": 36,
       "failed": 0,
       "skipped": 0,
-      "duration_s": 56.955673000000004
+      "duration_s": 34.589162
     },
     "selenium-e2e": {
       "total": 37,
-      "passed": 34,
-      "failed": 3,
+      "passed": 37,
+      "failed": 0,
       "skipped": 0,
-      "duration_s": 235.52300000000005
+      "duration_s": 176.28699999999995
+    },
+    "vitest": {
+      "total": 171,
+      "passed": 171,
+      "failed": 0,
+      "skipped": 0,
+      "duration_s": 7.790280702000007
     }
   },
   "artifacts": {
     "processedFiles": [
       "cypress-ct.json",
       "cypress-e2e.json",
+      "jest.json",
       "newman.json",
+      "playwright-e2e.json",
       "rest-assured.json",
       "robot-e2e.json",
-      "selenium-e2e.json"
+      "selenium-e2e.json",
+      "vitest.json"
     ],
     "rawFiles": [
       "mochawesome.json",
       "mochawesome.json",
+      "results.json",
       "results.xml",
+      "results.json",
       "TEST-Examples.xml",
       "output.xml",
-      "TEST-com.qa.solar.ListUsers.xml"
+      "TEST-com.qa.solar.ListUsers.xml",
+      "results.json"
     ]
   }
 }

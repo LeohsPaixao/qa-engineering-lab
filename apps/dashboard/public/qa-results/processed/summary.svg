@@ -1,4 +1,4 @@
-<svg width="800" height="220" viewBox="0 0 800 220" xmlns="http://www.w3.org/2000/svg">
+<svg width="1118" height="220" viewBox="0 0 1118 220" xmlns="http://www.w3.org/2000/svg">
   <defs>
     <linearGradient id="headerGradient" x1="0%" y1="0%" x2="100%" y2="0%">
       <stop offset="0%" style="stop-color:#238636;stop-opacity:0.1" />
@@ -49,20 +49,32 @@
       <text x="55" y="14" class="framework-text" text-anchor="middle">Cypress E2e</text>
     </g>
     <g transform="translate(240, 0)">
+      <rect x="0" y="0" width="110" height="20" rx="10" class="framework-badge" stroke="#c21325" stroke-width="1.5"/>
+      <text x="55" y="14" class="framework-text" text-anchor="middle">Jest</text>
+    </g>
+    <g transform="translate(360, 0)">
       <rect x="0" y="0" width="110" height="20" rx="10" class="framework-badge" stroke="#e0531f" stroke-width="1.5"/>
       <text x="55" y="14" class="framework-text" text-anchor="middle">Newman</text>
     </g>
-    <g transform="translate(360, 0)">
+    <g transform="translate(480, 0)">
+      <rect x="0" y="0" width="110" height="20" rx="10" class="framework-badge" stroke="#2ea043" stroke-width="1.5"/>
+      <text x="55" y="14" class="framework-text" text-anchor="middle">Playwright E2e</text>
+    </g>
+    <g transform="translate(600, 0)">
       <rect x="0" y="0" width="110" height="20" rx="10" class="framework-badge" stroke="#43A047" stroke-width="1.5"/>
       <text x="55" y="14" class="framework-text" text-anchor="middle">Rest Assured</text>
     </g>
-    <g transform="translate(480, 0)">
+    <g transform="translate(720, 0)">
       <rect x="0" y="0" width="110" height="20" rx="10" class="framework-badge" stroke="#f13228ff" stroke-width="1.5"/>
       <text x="55" y="14" class="framework-text" text-anchor="middle">Robot E2e</text>
     </g>
-    <g transform="translate(600, 0)">
+    <g transform="translate(840, 0)">
       <rect x="0" y="0" width="110" height="20" rx="10" class="framework-badge" stroke="#a5a5a5" stroke-width="1.5"/>
       <text x="55" y="14" class="framework-text" text-anchor="middle">Selenium E2e</text>
+    </g>
+    <g transform="translate(960, 0)">
+      <rect x="0" y="0" width="110" height="20" rx="10" class="framework-badge" stroke="#f1e05a" stroke-width="1.5"/>
+      <text x="55" y="14" class="framework-text" text-anchor="middle">Vitest</text>
     </g>
   </g>
 
@@ -71,19 +83,19 @@
     <!-- Total Tests -->
     <g>
       <text x="0" y="0" class="stat-label">Total Tests</text>
-      <text x="0" y="28" class="stat-value">202</text>
+      <text x="0" y="28" class="stat-value">454</text>
     </g>
 
     <!-- Success Rate -->
     <g transform="translate(140, 0)">
       <text x="0" y="0" class="stat-label">Success Rate</text>
-      <text x="0" y="28" class="stat-value" fill="#238636">97%</text>
+      <text x="0" y="28" class="stat-value" fill="#238636">100%</text>
     </g>
 
     <!-- Duration -->
     <g transform="translate(280, 0)">
       <text x="0" y="0" class="stat-label">Duration</text>
-      <text x="0" y="28" class="stat-value" fill="#58a6ff">6m 33s</text>
+      <text x="0" y="28" class="stat-value" fill="#58a6ff">5m 37s</text>
     </g>
   </g>
 
@@ -91,11 +103,11 @@
   <g transform="translate(24, 145)">
     <!-- Passed Badge -->
     <rect x="0" y="0" width="100" height="24" rx="12" class="badge-passed"/>
-    <text x="50" y="16" class="badge-text" text-anchor="middle">✓ 196</text>
+    <text x="50" y="16" class="badge-text" text-anchor="middle">✓ 454</text>
     
     <!-- Failed Badge -->
     <rect x="120" y="0" width="100" height="24" rx="12" class="badge-failed"/>
-    <text x="170" y="16" class="badge-text" text-anchor="middle">✗ 6</text>
+    <text x="170" y="16" class="badge-text" text-anchor="middle">✗ 0</text>
     
     <!-- Skipped Badge -->
     <rect x="240" y="0" width="100" height="24" rx="12" class="badge-skipped"/>
@@ -104,12 +116,12 @@
 
   <!-- Progress Bar -->
   <g transform="translate(24, 185)">
-    <rect x="0" y="0" width="752" height="8" rx="4" class="progress-bg"/>
-    <rect x="0" y="0" width="729.6633663366337" height="8" rx="4" class="progress-passed"/>
-    <rect x="729.6633663366337" y="0" width="22.336633663366335" height="8" rx="4" class="progress-failed"/>
+    <rect x="0" y="0" width="1070" height="8" rx="4" class="progress-bg"/>
+    <rect x="0" y="0" width="1070" height="8" rx="4" class="progress-passed"/>
+    
     
   </g>
 
   <!-- Footer -->
-  <text x="24" y="210" class="date-text">Last updated: 20/02/2026, 22:30</text>
+  <text x="24" y="210" class="date-text">Last updated: 27/02/2026, 14:29</text>
 </svg>

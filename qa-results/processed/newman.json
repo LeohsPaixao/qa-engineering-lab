@@ -1,20 +1,20 @@
 {
   "framework": "newman",
-  "timestamp": "2026-02-21-00-34-34",
+  "timestamp": "2026-02-24-13-54-59",
   "type": "api",
   "summary": {
     "total": 18,
-    "passed": 16,
-    "failed": 2,
+    "passed": 18,
+    "failed": 0,
     "skipped": 0,
-    "duration_s": 1.7549999999999994
+    "duration_s": 1.954
   },
   "tests": [
     {
       "id": " Login - Success:login-successful---token-received",
       "name": "Login successful - token received",
       "status": "passed",
-      "duration_s": 0.272,
+      "duration_s": 0.357,
       "file": "Auth / Login - Success",
       "tags": [],
       "error": null
@@ -23,7 +23,7 @@
       "id": " Login - Invalid Password:invalid-password",
       "name": "Invalid password",
       "status": "passed",
-      "duration_s": 0.215,
+      "duration_s": 0.211,
       "file": "Auth / Login - Invalid Password",
       "tags": [],
       "error": null
@@ -32,7 +32,7 @@
       "id": " Login - User Not Found:user-not-found",
       "name": "User not found",
       "status": "passed",
-      "duration_s": 0.011,
+      "duration_s": 0.015,
       "file": "Auth / Login - User Not Found",
       "tags": [],
       "error": null
@@ -40,17 +40,17 @@
     {
       "id": " Logout:status-code-is-200",
       "name": "Status code is 200",
-      "status": "failed",
-      "duration_s": 0.008,
+      "status": "passed",
+      "duration_s": 0.005,
       "file": "Auth / Logout",
       "tags": [],
-      "error": "expected response to have status code 201 but got 200"
+      "error": null
     },
     {
       "id": " Create User - Success:should-be-able-to-create-a-new-user",
       "name": "Should be able to create a new user",
       "status": "passed",
-      "duration_s": 0.218,
+      "duration_s": 0.23,
       "file": "Users / Create User - Success",
       "tags": [],
       "error": null
@@ -59,7 +59,7 @@
       "id": " Create User - CPF Conflict:should-not-be-able-to-create-user-with-existing-cpfcnpj",
       "name": "Should not be able to create user with existing CPF/CNPJ",
       "status": "passed",
-      "duration_s": 0.012,
+      "duration_s": 0.013,
       "file": "Users / Create User - CPF Conflict",
       "tags": [],
       "error": null
@@ -68,7 +68,7 @@
       "id": " Create User - Email Conflict:should-not-be-able-to-create-user-with-existing-e-mail",
       "name": "Should not be able to create user with existing E-mail",
       "status": "passed",
-      "duration_s": 0.012,
+      "duration_s": 0.013,
       "file": "Users / Create User - Email Conflict",
       "tags": [],
       "error": null
@@ -77,7 +77,7 @@
       "id": " List All Users - Success:should-be-able-to-list-all-users",
       "name": "Should be able to list all users",
       "status": "passed",
-      "duration_s": 0.039,
+      "duration_s": 0.045,
       "file": "Users / List All Users - Success",
       "tags": [],
       "error": null
@@ -86,7 +86,7 @@
       "id": " List All Users - Unauthorized:should-not-be-able-to-list-users-without-proper-authorization",
       "name": "Should not be able to list users without proper authorization",
       "status": "passed",
-      "duration_s": 0.005,
+      "duration_s": 0.007,
       "file": "Users / List All Users - Unauthorized",
       "tags": [],
       "error": null
@@ -95,7 +95,7 @@
       "id": " List All Users - Not Found Users:should-be-able-to-return-404-for-users-not-found",
       "name": "Should be able to return 404 for users not found",
       "status": "passed",
-      "duration_s": 0.609,
+      "duration_s": 0.619,
       "file": "Users / List All Users - Not Found Users",
       "tags": [],
       "error": null
@@ -104,7 +104,7 @@
       "id": " Get Current User:should-be-able-to-get-user-data",
       "name": "Should be able to get user data",
       "status": "passed",
-      "duration_s": 0.011,
+      "duration_s": 0.013,
       "file": "Users / Get Current User",
       "tags": [],
       "error": null
@@ -113,7 +113,7 @@
       "id": " Update Current User:should-be-able-to-update-user-information",
       "name": "Should be able to update user information",
       "status": "passed",
-      "duration_s": 0.02,
+      "duration_s": 0.029,
       "file": "Users / Update Current User",
       "tags": [],
       "error": null
@@ -122,7 +122,7 @@
       "id": " Update Current User - Not Update Current User:should-not-be-able-to-update-user-information",
       "name": "Should not be able to update user information",
       "status": "passed",
-      "duration_s": 0.271,
+      "duration_s": 0.328,
       "file": "Users / Update Current User - Not Update Current User",
       "tags": [],
       "error": null
@@ -131,7 +131,7 @@
       "id": " Delete Users - Success:should-be-able-to-delete-a-user",
       "name": "Should be able to delete a user",
       "status": "passed",
-      "duration_s": 0.015,
+      "duration_s": 0.018,
       "file": "Users / Delete Users - Success",
       "tags": [],
       "error": null
@@ -140,7 +140,7 @@
       "id": " Delete Users - Delete Logged User:should-not-be-able-to-delete-a-logged-user",
       "name": "Should not be able to delete a logged user",
       "status": "passed",
-      "duration_s": 0.009,
+      "duration_s": 0.011,
       "file": "Users / Delete Users - Delete Logged User",
       "tags": [],
       "error": null
@@ -149,7 +149,7 @@
       "id": " Delete Users - Not Found Users:should-not-be-able-to-delete-users",
       "name": "Should not be able to delete users",
       "status": "passed",
-      "duration_s": 0.015,
+      "duration_s": 0.022,
       "file": "Users / Delete Users - Not Found Users",
       "tags": [],
       "error": null
@@ -158,7 +158,7 @@
       "id": " Forgot Password - Success:should-be-able-to-recover-password",
       "name": "Should be able to recover password",
       "status": "passed",
-      "duration_s": 0.007,
+      "duration_s": 0.01,
       "file": "Password Recovery / Forgot Password - Success",
       "tags": [],
       "error": null
@@ -166,11 +166,11 @@
     {
       "id": " Forgot Password - Email Not Found:should-not-be-able-to-send-a-request-without-a-valid-email",
       "name": "Should not be able to send a request without a valid email",
-      "status": "failed",
-      "duration_s": 0.006,
+      "status": "passed",
+      "duration_s": 0.008,
       "file": "Password Recovery / Forgot Password - Email Not Found",
       "tags": [],
-      "error": "expected 404 to deeply equal 405"
+      "error": null
     }
   ],
   "metadata": {}
