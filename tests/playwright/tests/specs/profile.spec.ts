@@ -7,9 +7,8 @@ test.describe('Tela de Perfil', {
 }, () => {
 
   test.beforeEach(async ({ page }) => {
-    login(page, 'generic@example.com', '123456');
-    await page.goto('/profile');
-    await page.waitForURL('/profile');
+    await login(page, 'generic@example.com', '123456');
+    await page.goto('/profile', { waitUntil: 'load' });
   });
 
   test('Deveria ser possível visualizar os elementos da tela de Perfil', async ({ page }) => {

@@ -1,7 +1,7 @@
 <template>
   <div class="register-container main-content">
     <form data-testid="register-form" class="register-form" @submit.prevent="onSubmit">
-      <h2 class="title-register">Bem-vindo!</h2>
+      <h2 data-testid="title-register" class="title-register">Bem-vindo!</h2>
       <p data-testid="description-register">Por favor, preencha os campos abaixo para se registrar:</p>
 
       <div data-testid="form-group-fullname" class="form-group">
