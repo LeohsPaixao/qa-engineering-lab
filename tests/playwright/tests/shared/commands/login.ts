@@ -10,6 +10,7 @@ import { Page } from '@playwright/test';
  * @returns {Promise<void>} - Uma promise que é resolvida quando a operação de login é concluída.
  */
 export async function login(page: Page, email: string, password: string): Promise<void> {
+  await page.goto('/');
 
   const response = await page.request.fetch(`${process.env.PLAY_API_URL}/auth/login`, {
     method: 'POST',
