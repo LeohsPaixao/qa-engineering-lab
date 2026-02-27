@@ -7,7 +7,7 @@ jobs:
     runs-on: ubuntu-latest
     timeout-minutes: 10
     container:
-      image: ghcr.io/leohspaixao/qa-runner-pattern
+      image: ghcr.io/leohspaixao/qa-runner-pattern:latest
     env:
       TURBO_TELEMETRY_DISABLED: 1
 
