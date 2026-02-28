@@ -28,6 +28,9 @@ jobs:
       - name: Checkout
         uses: actions/checkout@v4
 
+      - name: DEBUG Listar arquivos
+        run: ls -lh . yarn.lock
+
       - name: Cache Gradle packages
         uses: actions/cache@v4
         with:
