@@ -28,9 +28,6 @@ jobs:
       - name: Checkout
         uses: actions/checkout@v4
 
-      - name: DEBUG Listar arquivos
-        run: ls -lh . yarn.lock
-
       - name: Cache Gradle packages
         uses: actions/cache@v4
         with:
@@ -49,9 +46,10 @@ jobs:
         uses: actions/cache@v4
         with:
           path: ${{ steps.yarn-cache-dir-path.outputs.dir }}
-          key: ${{ runner.os }}-yarn-${{ hashFiles('**/yarn.lock') }}
+          key: ${{ runner.os }}-yarn-${{ hashFiles('yarn.lock') }}
           restore-keys: |
             ${{ runner.os }}-yarn-
+        working-directory: ${{ github.workspace }}
 
       - name: Instalar dependências do monorepo
         run: yarn install --frozen-lockfile --prefer-offline
