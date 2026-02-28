@@ -20,7 +20,7 @@ import io.github.cdimascio.dotenv.Dotenv;
  */
 public abstract class BaseTest {
 
-    private Dotenv dotenv = Dotenv.load();
+    private Dotenv dotenv = Dotenv.configure().ignoreIfMissing().load();
 
     protected WebDriver driver;
 
