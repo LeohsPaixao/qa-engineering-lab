@@ -6,7 +6,7 @@ jobs:
     name: Backend Testes QA-Engineering-Lab
     runs-on: ubuntu-latest
     container:
-      image: ghcr.io/leohspaixao/qa-runner-js:1.0.0
+      image: ghcr.io/leohspaixao/qa-runner-js:latest
     timeout-minutes: 10
     env:
       TURBO_TELEMETRY_DISABLED: 1

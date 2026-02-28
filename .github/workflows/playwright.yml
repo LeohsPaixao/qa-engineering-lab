@@ -6,7 +6,7 @@ jobs:
     name: Playwright Testes QA-Engineering-Lab
     runs-on: ubuntu-latest
     container:
-      image: ghcr.io/leohspaixao/qa-runner-js:1.0.0
+      image: ghcr.io/leohspaixao/qa-runner-js:latest
     timeout-minutes: 10
     env:
       TURBO_TELEMETRY_DISABLED: 1
@@ -73,6 +73,7 @@ jobs:
         env:
           PLAY_API_URL: http://localhost:3001
           PLAY_BASE_URL: http://localhost:8181
+          PLAYWRIGHT_BROWSERS_PATH: /ms-playwright
 
       - name: Upload raw results (Playwright E2E)
         uses: actions/upload-artifact@v4.4.0
