@@ -1,0 +1,70 @@
+on:
+  workflow_call:
+
+jobs:
+  newman-tests:
+    name: Postman-Newman Testes QA-Engineering-Lab
+    runs-on: ubuntu-latest
+    container:
+      image: ghcr.io/leohspaixao/qa-runner-js:latest
+    timeout-minutes: 10
+    env:
+      TURBO_TELEMETRY_DISABLED: 1
+    services:
+      postgres:
+        image: postgres:15
+        env:
+          POSTGRES_USER: postgres
+          POSTGRES_PASSWORD: postgres
+          POSTGRES_DB: qa_engineering_lab_database
+        options: >-
+          --health-cmd pg_isready
+          --health-interval 10s
+          --health-timeout 5s
+          --health-retries 5
+    
+    steps:
+      - name: Checkout do repositório
+        uses: actions/checkout@v4
+
+      - name: Pegar o caminho do cache do Yarn
+        id: yarn-cache-dir-path
+        run: echo "dir=$(yarn cache dir)" >> $GITHUB_OUTPUT
+
+      - name: Cachear o Yarn
+        uses: actions/cache@v4
+        with:
+          path: ${{ steps.yarn-cache-dir-path.outputs.dir }}
+          key: ${{ runner.os }}-yarn-${{ hashFiles('**/yarn.lock') }}
+          restore-keys: |
+            ${{ runner.os }}-yarn-
+
+      - name: Instalar dependências do Monorepo
+        run: yarn install --frozen-lockfile --prefer-offline
+
+      - name: Executar seeders
+        run: chmod +x .github/scripts/run-seeders.sh && .github/scripts/run-seeders.sh
+        env:
+          DATABASE_URL: postgresql://postgres:postgres@postgres:5432/qa_engineering_lab_database?schema=public
+          JWT_SECRET: jwt_secret
+
+      - name: Subir backend
+        working-directory: apps/backend
+        run: |
+          yarn build
+          nohup node dist/src/main.js > /tmp/backend.log 2>&1 &
+          npx wait-on http://localhost:3001/healthy -t 30000
+          curl -v http://localhost:3001/healthy
+        env:
+          DATABASE_URL: postgresql://postgres:postgres@postgres:5432/qa_engineering_lab_database?schema=public
+          JWT_SECRET: jwt_secret
+          PORT: 3001
+
+      - name: Executar testes do Newman
+        run: yarn test:newman
+
+      - name: Upload raw results (Newman)
+        uses: actions/upload-artifact@v4.4.0
+        with:
+          name: newman
+          path: qa-results/raw/newman

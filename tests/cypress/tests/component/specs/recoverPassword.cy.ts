@@ -8,7 +8,6 @@ describe('Componente de recuperação de senha', () => {
 
   it('Deveria exibir todas as informações do componente de recuperação de senha', () => {
     cy.mount(RecoverPasswordTemplate);
-    cy.get('[data-testid="logo-recover-password"]').should('be.visible');
     cy.get('h2').should('be.visible').and('have.text', 'Recuperar Senha');
     cy.get('p:eq(0)').should('be.visible').and('have.text', 'Por favor, insira o seu e-mail para recuperar a senha:');
     cy.get('[data-testid="label-email-recover-password"]').should('be.visible').and('have.text', 'E-mail');

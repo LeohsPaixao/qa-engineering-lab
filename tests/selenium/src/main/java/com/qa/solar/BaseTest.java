@@ -20,7 +20,7 @@ import io.github.cdimascio.dotenv.Dotenv;
  */
 public abstract class BaseTest {
 
-    private Dotenv dotenv = Dotenv.load();
+    private Dotenv dotenv = Dotenv.configure().ignoreIfMissing().load();
 
     protected WebDriver driver;
 
@@ -39,6 +39,7 @@ public abstract class BaseTest {
 
         options.addArguments("--no-sandbox");
         options.addArguments("--disable-dev-shm-usage");
+        options.addArguments("--remote-allow-origins=*");
 
         driver = new ChromeDriver(options);
 

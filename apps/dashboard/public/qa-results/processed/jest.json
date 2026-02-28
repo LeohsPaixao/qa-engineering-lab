@@ -1,0 +1,414 @@
+{
+  "framework": "jest",
+  "timestamp": "2026-02-27T16-42-53",
+  "type": "unit",
+  "summary": {
+    "total": 44,
+    "passed": 44,
+    "failed": 0,
+    "skipped": 0,
+    "duration_s": 3.0939999999999994
+  },
+  "tests": [
+    {
+      "id": "password-recovery.controller.spec:passwordrecoverycontroller-deve-ser-definido",
+      "name": "PasswordRecoveryController Deve ser definido",
+      "status": "passed",
+      "duration_s": 0.057,
+      "file": "password-recovery.controller.spec.ts",
+      "tags": [],
+      "error": null
+    },
+    {
+      "id": "password-recovery.controller.spec:passwordrecoverycontroller-deve-retornar-um-e-mail-enviado-com-instrues-para-recuperar-a-senha",
+      "name": "PasswordRecoveryController Deve retornar um e-mail enviado com instruções para recuperar a senha",
+      "status": "passed",
+      "duration_s": 0.011,
+      "file": "password-recovery.controller.spec.ts",
+      "tags": [],
+      "error": null
+    },
+    {
+      "id": "password-recovery.controller.spec:passwordrecoverycontroller-deve-retornar-um-erro-se-o-e-mail-no-for-vlido",
+      "name": "PasswordRecoveryController Deve retornar um erro se o e-mail não for válido",
+      "status": "passed",
+      "duration_s": 0.027,
+      "file": "password-recovery.controller.spec.ts",
+      "tags": [],
+      "error": null
+    },
+    {
+      "id": "auth.controller.spec:authcontroller-login-deve-ser-definido",
+      "name": "AuthController login Deve ser definido",
+      "status": "passed",
+      "duration_s": 0.053,
+      "file": "auth.controller.spec.ts",
+      "tags": [],
+      "error": null
+    },
+    {
+      "id": "auth.controller.spec:authcontroller-login-deve-retornar-um-token-quando-as-credenciais-so-vlidas",
+      "name": "AuthController login Deve retornar um token quando as credenciais são válidas",
+      "status": "passed",
+      "duration_s": 0.015,
+      "file": "auth.controller.spec.ts",
+      "tags": [],
+      "error": null
+    },
+    {
+      "id": "auth.controller.spec:authcontroller-login-deve-retornar-um-erro-se-o-email-no-for-vlido",
+      "name": "AuthController login Deve retornar um erro se o email não for válido",
+      "status": "passed",
+      "duration_s": 0.031,
+      "file": "auth.controller.spec.ts",
+      "tags": [],
+      "error": null
+    },
+    {
+      "id": "auth.controller.spec:authcontroller-login-deve-retornar-um-erro-se-a-senha-no-for-vlida",
+      "name": "AuthController login Deve retornar um erro se a senha não for válida",
+      "status": "passed",
+      "duration_s": 0.017,
+      "file": "auth.controller.spec.ts",
+      "tags": [],
+      "error": null
+    },
+    {
+      "id": "auth.controller.spec:authcontroller-logout-deve-retornar-mensagem-de-logout-bem-sucedido",
+      "name": "AuthController logout Deve retornar mensagem de logout bem-sucedido",
+      "status": "passed",
+      "duration_s": 0.021,
+      "file": "auth.controller.spec.ts",
+      "tags": [],
+      "error": null
+    },
+    {
+      "id": "users.controller.spec:usercontroller-deve-ser-definido",
+      "name": "UserController Deve ser definido",
+      "status": "passed",
+      "duration_s": 0.041,
+      "file": "users.controller.spec.ts",
+      "tags": [],
+      "error": null
+    },
+    {
+      "id": "users.controller.spec:usercontroller-deve-retornar-uma-lista-de-usurios",
+      "name": "UserController Deve retornar uma lista de usuários",
+      "status": "passed",
+      "duration_s": 0.01,
+      "file": "users.controller.spec.ts",
+      "tags": [],
+      "error": null
+    },
+    {
+      "id": "users.controller.spec:usercontroller-deve-retornar-erro-quando-nenhum-usurio-for-encontrado",
+      "name": "UserController Deve retornar erro quando nenhum usuário for encontrado",
+      "status": "passed",
+      "duration_s": 0.028,
+      "file": "users.controller.spec.ts",
+      "tags": [],
+      "error": null
+    },
+    {
+      "id": "users.controller.spec:usercontroller-deve-criar-um-novo-usurio",
+      "name": "UserController Deve criar um novo usuário",
+      "status": "passed",
+      "duration_s": 0.249,
+      "file": "users.controller.spec.ts",
+      "tags": [],
+      "error": null
+    },
+    {
+      "id": "users.controller.spec:usercontroller-deve-retornar-erro-se-cpfcnpj-j-estiver-em-uso",
+      "name": "UserController Deve retornar erro se CPF/CNPJ já estiver em uso",
+      "status": "passed",
+      "duration_s": 0.011,
+      "file": "users.controller.spec.ts",
+      "tags": [],
+      "error": null
+    },
+    {
+      "id": "users.controller.spec:usercontroller-deve-retornar-erro-se-email-j-estiver-em-uso",
+      "name": "UserController Deve retornar erro se email já estiver em uso",
+      "status": "passed",
+      "duration_s": 0.008,
+      "file": "users.controller.spec.ts",
+      "tags": [],
+      "error": null
+    },
+    {
+      "id": "users.controller.spec:usercontroller-deve-retornar-um-usurio-especfico",
+      "name": "UserController Deve retornar um usuário específico",
+      "status": "passed",
+      "duration_s": 0.009,
+      "file": "users.controller.spec.ts",
+      "tags": [],
+      "error": null
+    },
+    {
+      "id": "users.controller.spec:usercontroller-deve-retornar-erro-se-o-usurio-no-for-encontrado",
+      "name": "UserController Deve retornar erro se o usuário não for encontrado",
+      "status": "passed",
+      "duration_s": 0.007,
+      "file": "users.controller.spec.ts",
+      "tags": [],
+      "error": null
+    },
+    {
+      "id": "users.controller.spec:usercontroller-deve-atualizar-um-usurio",
+      "name": "UserController Deve atualizar um usuário",
+      "status": "passed",
+      "duration_s": 0.01,
+      "file": "users.controller.spec.ts",
+      "tags": [],
+      "error": null
+    },
+    {
+      "id": "users.controller.spec:usercontroller-deve-deletar-usurios",
+      "name": "UserController Deve deletar usuários",
+      "status": "passed",
+      "duration_s": 0.008,
+      "file": "users.controller.spec.ts",
+      "tags": [],
+      "error": null
+    },
+    {
+      "id": "users.controller.spec:usercontroller-deve-retornar-erro-se-tentar-deletar-o-usurio-logado",
+      "name": "UserController Deve retornar erro se tentar deletar o usuário logado",
+      "status": "passed",
+      "duration_s": 0.01,
+      "file": "users.controller.spec.ts",
+      "tags": [],
+      "error": null
+    },
+    {
+      "id": "users.controller.spec:usercontroller-deve-retornar-erro-quando-nenhum-usurio-for-encontrado-para-deletar",
+      "name": "UserController Deve retornar erro quando nenhum usuário for encontrado para deletar",
+      "status": "passed",
+      "duration_s": 0.006,
+      "file": "users.controller.spec.ts",
+      "tags": [],
+      "error": null
+    },
+    {
+      "id": "password-recovery.e2e-spec:password-recovery-post-password-recoveryforgot-password-deve-retornar-200-para-obter-o-email-do-usurio",
+      "name": "Password Recovery POST /password-recovery/forgot-password Deve retornar 200 para obter o email do usuário",
+      "status": "passed",
+      "duration_s": 0.08,
+      "file": "password-recovery.e2e-spec.ts",
+      "tags": [],
+      "error": null
+    },
+    {
+      "id": "password-recovery.e2e-spec:password-recovery-post-password-recoveryforgot-password-deve-retornar-404-para-email-no-encontrado",
+      "name": "Password Recovery POST /password-recovery/forgot-password Deve retornar 404 para email não encontrado",
+      "status": "passed",
+      "duration_s": 0.014,
+      "file": "password-recovery.e2e-spec.ts",
+      "tags": [],
+      "error": null
+    },
+    {
+      "id": "auth.e2e-spec:auth-post-authlogin-deve-autenticar-o-usurio-e-retornar-o-token-jwt",
+      "name": "Auth POST /auth/login Deve autenticar o usuário e retornar o token JWT",
+      "status": "passed",
+      "duration_s": 0.321,
+      "file": "auth.e2e-spec.ts",
+      "tags": [],
+      "error": null
+    },
+    {
+      "id": "auth.e2e-spec:auth-post-authlogin-deve-retornar-400-para-credenciais-invlidas",
+      "name": "Auth POST /auth/login Deve retornar 400 para credenciais inválidas",
+      "status": "passed",
+      "duration_s": 0.012,
+      "file": "auth.e2e-spec.ts",
+      "tags": [],
+      "error": null
+    },
+    {
+      "id": "auth.e2e-spec:auth-post-authlogin-deve-retornar-401-para-senha-invlida",
+      "name": "Auth POST /auth/login Deve retornar 401 para senha inválida",
+      "status": "passed",
+      "duration_s": 0.202,
+      "file": "auth.e2e-spec.ts",
+      "tags": [],
+      "error": null
+    },
+    {
+      "id": "auth.e2e-spec:auth-post-authlogout-deve-deslogar-o-usurio-e-retornar-200",
+      "name": "Auth POST /auth/logout Deve deslogar o usuário e retornar 200",
+      "status": "passed",
+      "duration_s": 0.006,
+      "file": "auth.e2e-spec.ts",
+      "tags": [],
+      "error": null
+    },
+    {
+      "id": "users.e2e-spec:users-post-users-deve-registrar-um-novo-usurio",
+      "name": "Users POST /users Deve registrar um novo usuário",
+      "status": "passed",
+      "duration_s": 0.389,
+      "file": "users.e2e-spec.ts",
+      "tags": [],
+      "error": null
+    },
+    {
+      "id": "users.e2e-spec:users-post-users-deve-retornar-409-para-e-mail-em-uso",
+      "name": "Users POST /users Deve retornar 409 para e-mail em uso",
+      "status": "passed",
+      "duration_s": 0.025,
+      "file": "users.e2e-spec.ts",
+      "tags": [],
+      "error": null
+    },
+    {
+      "id": "users.e2e-spec:users-post-users-deve-retornar-409-para-cpfcnpj-em-uso",
+      "name": "Users POST /users Deve retornar 409 para CPF/CNPJ em uso",
+      "status": "passed",
+      "duration_s": 0.016,
+      "file": "users.e2e-spec.ts",
+      "tags": [],
+      "error": null
+    },
+    {
+      "id": "users.e2e-spec:users-get-users-deve-retornar-200-para-obter-todos-os-usurios",
+      "name": "Users GET /users Deve retornar 200 para obter todos os usuários",
+      "status": "passed",
+      "duration_s": 0.059,
+      "file": "users.e2e-spec.ts",
+      "tags": [],
+      "error": null
+    },
+    {
+      "id": "users.e2e-spec:users-get-users-deve-retornar-404-para-nenhum-usurio-encontrado",
+      "name": "Users GET /users Deve retornar 404 para nenhum usuário encontrado",
+      "status": "passed",
+      "duration_s": 0.02,
+      "file": "users.e2e-spec.ts",
+      "tags": [],
+      "error": null
+    },
+    {
+      "id": "users.e2e-spec:users-get-usersme-deve-retornar-os-dados-do-usurio-logado",
+      "name": "Users GET /users/me Deve retornar os dados do usuário logado",
+      "status": "passed",
+      "duration_s": 0.013,
+      "file": "users.e2e-spec.ts",
+      "tags": [],
+      "error": null
+    },
+    {
+      "id": "users.e2e-spec:users-get-usersme-deve-retornar-404-para-usurio-no-encontrado",
+      "name": "Users GET /users/me Deve retornar 404 para usuário não encontrado",
+      "status": "passed",
+      "duration_s": 0.007,
+      "file": "users.e2e-spec.ts",
+      "tags": [],
+      "error": null
+    },
+    {
+      "id": "users.e2e-spec:users-patch-usersme-deve-atualizar-os-dados-do-usurio-logado",
+      "name": "Users PATCH /users/me Deve atualizar os dados do usuário logado",
+      "status": "passed",
+      "duration_s": 0.02,
+      "file": "users.e2e-spec.ts",
+      "tags": [],
+      "error": null
+    },
+    {
+      "id": "users.e2e-spec:users-patch-usersme-deve-atualizar-os-dados-do-usurio-sem-socialname",
+      "name": "Users PATCH /users/me Deve atualizar os dados do usuário sem socialName",
+      "status": "passed",
+      "duration_s": 0.017,
+      "file": "users.e2e-spec.ts",
+      "tags": [],
+      "error": null
+    },
+    {
+      "id": "users.e2e-spec:users-patch-usersme-deve-atualizar-os-dados-do-usurio-sem-phone",
+      "name": "Users PATCH /users/me Deve atualizar os dados do usuário sem phone",
+      "status": "passed",
+      "duration_s": 0.015,
+      "file": "users.e2e-spec.ts",
+      "tags": [],
+      "error": null
+    },
+    {
+      "id": "users.e2e-spec:users-patch-usersme-deve-retornar-404-para-usurio-no-encontrado",
+      "name": "Users PATCH /users/me Deve retornar 404 para usuário não encontrado",
+      "status": "passed",
+      "duration_s": 0.015,
+      "file": "users.e2e-spec.ts",
+      "tags": [],
+      "error": null
+    },
+    {
+      "id": "users.e2e-spec:users-delete-usersdelete-deve-excluir-o-usurio-com-sucesso",
+      "name": "Users DELETE /users/delete Deve excluir o usuário com sucesso",
+      "status": "passed",
+      "duration_s": 0.25,
+      "file": "users.e2e-spec.ts",
+      "tags": [],
+      "error": null
+    },
+    {
+      "id": "users.e2e-spec:users-delete-usersdelete-deve-retornar-404-para-usurio-no-encontrado",
+      "name": "Users DELETE /users/delete Deve retornar 404 para usuário não encontrado",
+      "status": "passed",
+      "duration_s": 0.22,
+      "file": "users.e2e-spec.ts",
+      "tags": [],
+      "error": null
+    },
+    {
+      "id": "users.e2e-spec:users-delete-usersdelete-deve-retornar-400-para-excluso-de-usurio-logado",
+      "name": "Users DELETE /users/delete Deve retornar 400 para exclusão de usuário logado",
+      "status": "passed",
+      "duration_s": 0.275,
+      "file": "users.e2e-spec.ts",
+      "tags": [],
+      "error": null
+    },
+    {
+      "id": "healthy.controller.spec:healthycontroller-deve-retornar-status-200",
+      "name": "HealthyController Deve retornar status 200",
+      "status": "passed",
+      "duration_s": 0.026,
+      "file": "healthy.controller.spec.ts",
+      "tags": [],
+      "error": null
+    },
+    {
+      "id": "healthy.controller.spec:healthycontroller-deve-retornar-status-503",
+      "name": "HealthyController Deve retornar status 503",
+      "status": "passed",
+      "duration_s": 0.006,
+      "file": "healthy.controller.spec.ts",
+      "tags": [],
+      "error": null
+    },
+    {
+      "id": "healthy.e2e-spec:healthycontroller-e2e-deve-retornar-status-200",
+      "name": "HealthyController (e2e) Deve retornar status 200",
+      "status": "passed",
+      "duration_s": 0.358,
+      "file": "healthy.e2e-spec.ts",
+      "tags": [],
+      "error": null
+    },
+    {
+      "id": "healthy.e2e-spec:healthycontroller-e2e-deve-retornar-status-503",
+      "name": "HealthyController (e2e) Deve retornar status 503",
+      "status": "passed",
+      "duration_s": 0.099,
+      "file": "healthy.e2e-spec.ts",
+      "tags": [],
+      "error": null
+    }
+  ],
+  "metadata": {
+    "tool": "jest",
+    "startTime": 1772210574179
+  }
+}

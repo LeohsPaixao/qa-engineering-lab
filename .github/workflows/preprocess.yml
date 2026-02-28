@@ -3,7 +3,7 @@ on:
 
 jobs:
   preprocess:
-    name: Preprocessamento de resultados de testes QA-Solar
+    name: Preprocessamento de resultados de testes QA-Engineering-Lab
     runs-on: ubuntu-latest
     timeout-minutes: 10
     env:
@@ -12,20 +12,33 @@ jobs:
     steps:
       - name: Checkout do repositório
         uses: actions/checkout@v4
+        with:
+          clean: false
+
+      - name: Setup Node.js
+        uses: actions/setup-node@v4
+        with:
+          node-version: 22.19.0
+
+      - name: Pegar o caminho do cache do Yarn
+        id: yarn-cache-dir-path
+        run: echo "dir=$(yarn cache dir)" >> $GITHUB_OUTPUT
+
+      - name: Cachear o Yarn
+        uses: actions/cache@v4
+        with:
+          path: ${{ steps.yarn-cache-dir-path.outputs.dir }}
+          key: ${{ runner.os }}-yarn-${{ hashFiles('**/yarn.lock') }}
+          restore-keys: |
+            ${{ runner.os }}-yarn-
+
+      - name: Instalar dependências do Monorepo
+        run: yarn install --frozen-lockfile --prefer-offline
 
       - name: Baixar todos os artifacts (raw)
         uses: actions/download-artifact@v6.0.0
         with:
           path: qa-results/raw
-
-      - name: Configurar Node.js
-        uses: actions/setup-node@v4.4.0
-        with:
-          node-version: 22.19.0
-          cache: "yarn"
-
-      - name: Instalar dependências do Monorepo
-        run: yarn install --frozen-lockfile
 
       - name: Executar preprocessamento
         working-directory: packages/preprocessor

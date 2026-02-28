@@ -6,7 +6,7 @@ import istanbul from 'vite-plugin-istanbul';
 import vueDevTools from 'vite-plugin-vue-devtools';
 
 export default defineConfig({
-  base: '/qa-solar/dashboard/',
+  base: '/qa-engineering-lab/dashboard/',
   plugins: [
     vue({
       include: ['**/*.vue'],

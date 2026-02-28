@@ -18,13 +18,13 @@ describe('AppFooter', () => {
     it('Deveria exibir o ano atual no texto do footer', () => {
       const messageElement = wrapper.find('.message-footer');
       const currentYear = new Date().getFullYear();
-      expect(messageElement.text()).toBe(`© ${currentYear} QA Solar - Todos os direitos reservados`);
+      expect(messageElement.text()).toBe(`© ${currentYear} QA Engineering Lab - Todos os direitos reservados`);
     });
 
     it('Deveria renderizar o link do GitHub com atributos corretos', () => {
       const githubLink = wrapper.find('.github-link');
       expect(githubLink.exists()).toBe(true);
-      expect(githubLink.attributes('href')).toBe('https://github.com/LeohsPaixao/qa-solar');
+      expect(githubLink.attributes('href')).toBe('https://github.com/LeohsPaixao/qa-engineering-lab');
       expect(githubLink.attributes('target')).toBe('_blank');
       expect(githubLink.attributes('rel')).toBe('noopener noreferrer');
       expect(githubLink.attributes('aria-label')).toBe('Visitar repositório no GitHub');

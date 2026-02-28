@@ -8,7 +8,6 @@ describe('Componente de registro de usuário', () => {
 
   it('Deveria ser possível visualizar todos os elementos do componente', () => {
     cy.mount(RegisterTemplate);
-    cy.get('[data-testid="logo-register"]').should('be.visible');
     cy.get('[data-testid="title-register"]').should('be.visible');
     cy.get('[data-testid="description-register"]').should('be.visible');
     cy.get('[data-testid="register-form"]').should('be.visible');

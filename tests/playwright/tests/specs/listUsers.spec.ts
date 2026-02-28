@@ -10,9 +10,8 @@ test.describe('Tela de listagem de Usuários', {
   });
 
   test.beforeEach(async ({ page }) => {
-    login(page, 'generic@example.com', '123456');
-    await page.goto('/listusers');
-    await page.waitForURL('/listusers');
+    await login(page, 'generic@example.com', '123456');
+    await page.goto('/listusers', { waitUntil: 'load' });
   });
 
   test('Deveria ser possível visualizar os elementos da tela de listagem de Usuários', async ({ page }) => {

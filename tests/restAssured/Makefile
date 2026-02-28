@@ -17,7 +17,7 @@ building:
 test:
 	@echo "Executando testes de rest assured"
 	$(call get_timestamp)
-	./gradlew clean test --console=plain -Ptest.report.dir=$(OUTPUT_DIR)
+	./gradlew test -x build --console=plain -Ptest.report.dir=$(OUTPUT_DIR)
 
 coverage:
 	@echo "Gerando relatório de cobertura"

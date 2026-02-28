@@ -12,13 +12,13 @@ QA Solar is a monorepo for studying and practicing test automation with multiple
 - **Dashboard:** Vue 3 + Pinia + Chart.js
 - **Backend:** NestJS + Prisma + PostgreSQL
 - **Testing:** Cypress, Playwright, Robot Framework, Selenium
-- **Documentation:** Docusaurus (https://leohspaixao.github.io/qa-solar/)
+- **Documentation:** Docusaurus (https://leohspaixao.github.io/qa-engineering-lab/)
 - **CI/CD:** GitHub Actions
 
 ## Repository Structure
 
 ```
-qa-solar/
+qa-engineering-lab/
 ├── apps/
 │   ├── frontend/       # Vue 3 main application (user management)
 │   ├── backend/        # NestJS API with Prisma ORM

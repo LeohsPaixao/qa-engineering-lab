@@ -4,20 +4,20 @@ on:
 
 jobs:
   selenium-tests:
-    name: Selenium Testes QA-Solar
+    name: Selenium Testes QA-Engineering-Lab
     runs-on: ubuntu-latest
+    container:
+      image: ghcr.io/leohspaixao/qa-runner-java:latest
     timeout-minutes: 10
     env:
       TURBO_TELEMETRY_DISABLED: 1
     services:
       postgres:
         image: postgres:15
-        ports:
-          - 5432:5432
         env:
           POSTGRES_USER: postgres
           POSTGRES_PASSWORD: postgres
-          POSTGRES_DB: tests_base
+          POSTGRES_DB: qa_engineering_lab_database
         options: >-
           --health-cmd pg_isready
           --health-interval 10s
@@ -28,61 +28,55 @@ jobs:
       - name: Checkout do repositório
         uses: actions/checkout@v4
 
-      - name: Configurar Node.js
-        uses: actions/setup-node@v4.4.0
-        with:
-          node-version: 22.19.0
-          cache: 'yarn'
+      - name: Pegar o caminho do cache do Yarn
+        id: yarn-cache-dir-path
+        run: echo "dir=$(yarn cache dir)" >> $GITHUB_OUTPUT
 
-      - name: Configurar Java
-        uses: actions/setup-java@v4.7.1
+      - name: Cachear o Yarn
+        uses: actions/cache@v4
         with:
-          java-version: 21
-          distribution: 'corretto'
-          cache: 'gradle'
-
+          path: ${{ steps.yarn-cache-dir-path.outputs.dir }}
+          key: ${{ runner.os }}-yarn-${{ hashFiles('**/yarn.lock') }}
+          restore-keys: |
+            ${{ runner.os }}-yarn-
 
       - name: Instalar dependências do Monorepo
-        run: yarn install --frozen-lockfile
+        run: yarn install --frozen-lockfile --prefer-offline
 
       - name: Executar seeders
         run: chmod +x .github/scripts/run-seeders.sh && .github/scripts/run-seeders.sh
         env:
-          DATABASE_URL: postgresql://postgres:postgres@localhost:5432/tests_base?schema=public
+          DATABASE_URL: postgresql://postgres:postgres@postgres:5432/qa_engineering_lab_database?schema=public
           JWT_SECRET: jwt_secret
 
-      - name: Iniciar backend
+      - name: Subir backend
+        working-directory: apps/backend
         run: |
-          cd apps/backend
-          yarn dev &
-          sleep 5
+          yarn build
+          nohup node dist/src/main.js > /tmp/backend.log 2>&1 &
+          npx wait-on http://localhost:3001/healthy -t 30000
+          curl -v http://localhost:3001/healthy
         env:
-          DATABASE_URL: postgresql://postgres:postgres@localhost:5432/tests_base?schema=public
+          DATABASE_URL: postgresql://postgres:postgres@postgres:5432/qa_engineering_lab_database?schema=public
           JWT_SECRET: jwt_secret
-          API_URL: http://localhost:3001
+          PORT: 3001
 
-      - name: Iniciar frontend
+      - name: Subir frontend
+        working-directory: apps/frontend
         run: |
-          cd apps/frontend
-          yarn dev &
+          yarn start &
           sleep 5
 
-      - name: Criar arquivo .env para testes Selenium
+      - name: Gera o .env
         working-directory: tests/selenium
         run: |
-          echo "HEADLESS=true" > .env
-          echo "SELENIUM_BASE_URL=http://localhost:8181" >> .env
           echo "SELENIUM_API_URL=http://localhost:3001" >> .env
-
-      - name: Buildar o projeto Selenium
-        working-directory: tests/selenium
-        run: make building
+          echo "SELENIUM_BASE_URL=http://localhost:8181" >> .env
+          echo "HEADLESS=true" >> .env
 
       - name: Executar testes Selenium
         working-directory: tests/selenium
         run: make test
-        env:
-          HEADLESS: true
 
       - name: Upload raw results (Selenium E2E)
         uses: actions/upload-artifact@v4.4.0

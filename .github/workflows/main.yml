@@ -1,4 +1,4 @@
-name: Testes QA-Solar - CI
+name: Testes QA-Engineering-Lab - CI
 
 on:
   pull_request:
@@ -20,40 +20,51 @@ jobs:
   rest-assured-api-tests:
     uses: ./.github/workflows/restassured.yml
 
+  newman-api-tests:
+    uses: ./.github/workflows/newman.yml
+
   cypress-tests:
-    needs: [backend-unit-tests, frontend-unit-tests, cypress-component-tests, rest-assured-api-tests]
+    needs: [backend-unit-tests, frontend-unit-tests, cypress-component-tests, rest-assured-api-tests, newman-api-tests]
     if: >-
       always() &&
       (needs.backend-unit-tests.result == 'success' &&
       needs.frontend-unit-tests.result == 'success' &&
-      needs.cypress-component-tests.result == 'success')
+      needs.cypress-component-tests.result == 'success' &&
+      needs.rest-assured-api-tests.result == 'success' &&
+      needs.newman-api-tests.result == 'success')
     uses: ./.github/workflows/cypress.yml
 
   playwright-tests:
-    needs: [backend-unit-tests, frontend-unit-tests, cypress-component-tests, rest-assured-api-tests]
+    needs: [backend-unit-tests, frontend-unit-tests, cypress-component-tests, rest-assured-api-tests, newman-api-tests]
     if: >-
       always() &&
       (needs.backend-unit-tests.result == 'success' &&
       needs.frontend-unit-tests.result == 'success' &&
-      needs.cypress-component-tests.result == 'success')
+      needs.cypress-component-tests.result == 'success' &&
+      needs.rest-assured-api-tests.result == 'success' &&
+      needs.newman-api-tests.result == 'success')
     uses: ./.github/workflows/playwright.yml
 
   robot-framework-tests:
-    needs: [backend-unit-tests, frontend-unit-tests, cypress-component-tests, rest-assured-api-tests]
+    needs: [backend-unit-tests, frontend-unit-tests, cypress-component-tests, rest-assured-api-tests, newman-api-tests]
     if: >-
       always() &&
       (needs.backend-unit-tests.result == 'success' &&
       needs.frontend-unit-tests.result == 'success' &&
-      needs.cypress-component-tests.result == 'success')
+      needs.cypress-component-tests.result == 'success' &&
+      needs.rest-assured-api-tests.result == 'success' &&
+      needs.newman-api-tests.result == 'success')
     uses: ./.github/workflows/robot.yml
 
   selenium-tests:
-    needs: [backend-unit-tests, frontend-unit-tests, cypress-component-tests, rest-assured-api-tests]
+    needs: [backend-unit-tests, frontend-unit-tests, cypress-component-tests, rest-assured-api-tests, newman-api-tests]
     if: >-
       always() &&
       (needs.backend-unit-tests.result == 'success' &&
       needs.frontend-unit-tests.result == 'success' &&
-      needs.cypress-component-tests.result == 'success')
+      needs.cypress-component-tests.result == 'success' &&
+      needs.rest-assured-api-tests.result == 'success' &&
+      needs.newman-api-tests.result == 'success')
     uses: ./.github/workflows/selenium.yml
 
   preprocess:

@@ -1,4 +1,4 @@
-FROM node:22.19.0-alpine AS base
+FROM node:22.19.0-slim AS base
 
 FROM base AS builder
 WORKDIR /app
@@ -13,11 +13,21 @@ RUN yarn install --frozen-lockfile
 
 FROM base AS runner
 WORKDIR /app
+
+RUN apt-get update -y \
+  && apt-get install -y openssl netcat-openbsd \
+  && rm -rf /var/lib/apt/lists/*
+
 COPY --from=installer /app/ .
 
-# Generate Prisma Client
 WORKDIR /app/apps/backend
+
 RUN yarn prisma generate
 
-# Expose port
+COPY ci/scripts/entrypoint.sh /entrypoint.sh
+RUN chmod +x /entrypoint.sh
+
 EXPOSE 3001
+
+ENTRYPOINT ["/entrypoint.sh"]
+CMD ["yarn", "start"]

@@ -1,8 +1,8 @@
 {
-  "name": "qa-solar",
+  "name": "qa-engineering-lab",
   "version": "0.0.1",
-  "description": "Simple project VUE for UI Testing with Frameworks: Cypress, Robot and Playwright",
-  "repository": "git@github.com:LeohsPaixao/qa-solar.git",
+  "description": "See README.md for more information.",
+  "repository": "git@github.com:LeohsPaixao/qa-engineering-lab.git",
   "author": "Leonardo Paixao <leonardohspaixao@gmail.com>",
   "license": "MIT",
   "private": true,
@@ -24,6 +24,8 @@
     "start": "turbo run start --filter=./apps/*",
     "build": "turbo run build",
     "test": "turbo run test",
+    "test:newman": "npx tsx packages/scripts/run-newman.ts",
+    "test:workflow": "./ci/scripts/cleanup-act-networks.sh && act --pull=false -j",
     "lint": "turbo run lint",
     "prepare": "husky"
   },
@@ -44,9 +46,9 @@
     "performance testing"
   ],
   "bugs": {
-    "url": "https://github.com/LeohsPaixao/qa-solar/issues"
+    "url": "https://github.com/LeohsPaixao/qa-engineering-lab/issues"
   },
-  "homepage": "https://github.com/LeohsPaixao/qa-solar#readme",
+  "homepage": "https://github.com/LeohsPaixao/qa-engineering-lab#readme",
   "dependencies": {
     "@changesets/cli": "2.27.10",
     "husky": "9.1.7"

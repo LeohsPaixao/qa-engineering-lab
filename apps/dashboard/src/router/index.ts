@@ -32,7 +32,7 @@ const routes: RouteRecordRaw[] = [
 ];
 
 const router = createRouter({
-  history: createWebHistory('/qa-solar/dashboard/'),
+  history: createWebHistory('/qa-engineering-lab/dashboard/'),
   routes,
 });
 

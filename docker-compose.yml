@@ -5,14 +5,14 @@ services:
     environment:
       POSTGRES_USER: postgres
       POSTGRES_PASSWORD: postgres
-      POSTGRES_DB: tests_base
+      POSTGRES_DB: qa_engineering_lab_database
     restart: unless-stopped
     ports:
       - "5432:5432"
     volumes:
       - postgres_data:/var/lib/postgresql/data
     networks:
-      - qa-solar-internal
+      - qa-engineering-lab-internal
 
   backend:
     container_name: backend
@@ -38,7 +38,7 @@ services:
     depends_on:
       - postgres
     networks:
-      - qa-solar-internal
+      - qa-engineering-lab-internal
 
   frontend:
     container_name: frontend
@@ -57,10 +57,10 @@ services:
     ports:
       - "8181:8181"
     networks:
-      - qa-solar-internal
+      - qa-engineering-lab-internal
 
 volumes:
   postgres_data:
 
 networks:
-  qa-solar-internal:
+  qa-engineering-lab-internal:

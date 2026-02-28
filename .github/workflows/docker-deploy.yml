@@ -6,8 +6,11 @@ on:
 
 jobs:
   docker-deploy:
-    name: Deploy Docker
+    name: Deploy Docker - ${{ matrix.app }}
     runs-on: ubuntu-latest
+    strategy:
+      matrix:
+        app: [backend, frontend]
     steps:
       - name: Checkout do repositório
         uses: actions/checkout@v4
@@ -16,9 +19,9 @@ jobs:
         uses: actions/cache@v4
         with:
           path: /tmp/.buildx-cache
-          key: ${{ runner.os }}-buildx-${{ github.sha }}
+          key: ${{ runner.os }}-buildx-${{ matrix.app }}-${{ github.sha }}
           restore-keys: |
-            ${{ runner.os }}-buildx-
+            ${{ runner.os }}-buildx-${{ matrix.app }}-
 
       - name: Configurar Docker Buildx
         uses: docker/setup-buildx-action@v3
@@ -29,23 +32,13 @@ jobs:
           username: ${{ vars.DOCKER_USERNAME }}
           password: ${{ secrets.DOCKERHUB_TOKEN }}
 
-      - name: Construir e enviar a imagem do Backend
+      - name: Construir e enviar a imagem
         uses: docker/build-push-action@v5
         with:
           context: .
-          file: apps/backend/Dockerfile
+          file: apps/${{ matrix.app }}/Dockerfile
           push: true
-          tags: ${{ vars.DOCKER_USERNAME }}/qa-solar-backend:latest
-          cache-from: type=local,src=/tmp/.buildx-cache
-          cache-to: type=local,dest=/tmp/.buildx-cache-new,mode=max
-
-      - name: Construir e enviar a imagem do Frontend
-        uses: docker/build-push-action@v5
-        with:
-          context: .
-          file: apps/frontend/Dockerfile
-          push: true
-          tags: ${{ vars.DOCKER_USERNAME }}/qa-solar-frontend:latest
+          tags: ${{ vars.DOCKER_USERNAME }}/qa-engineering-lab-${{ matrix.app }}:latest
           cache-from: type=local,src=/tmp/.buildx-cache
           cache-to: type=local,dest=/tmp/.buildx-cache-new,mode=max
 

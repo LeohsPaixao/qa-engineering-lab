@@ -8,9 +8,10 @@
   "scripts": {
     "build": "rimraf dist && nest build",
     "dev": "nest start",
-    "start": "yarn build && yarn dev",
+    "start": "yarn build && node dist/src/main.js",
     "lint": "eslint --fix",
     "test": "jest --config jest.config.js",
+    "test:newman": "npx tsx ../../packages/scripts/run-newman.ts",
     "test:coverage": "jest --coverage",
     "prisma:seed": "npx tsx prisma/seeders/*.ts"
   },
@@ -61,6 +62,7 @@
     "supertest": "7.0.0",
     "ts-jest": "29.4.0",
     "tsconfig-paths": "4.2.0",
-    "tsx": "4.20.6"
+    "tsx": "4.20.6",
+    "wait-on": "9.0.4"
   }
 }

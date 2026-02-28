@@ -1,23 +1,23 @@
 on:
   workflow_call:
-   
 
 jobs:
   rest-assured-tests:
-    name: RestAssured Testes QA-Solar
+    name: RestAssured Testes QA-Engineering-Lab
     runs-on: ubuntu-latest
+
+    container:
+      image: ghcr.io/leohspaixao/qa-runner-java:latest
+
     timeout-minutes: 10
-    env:
-      TURBO_TELEMETRY_DISABLED: 1
+
     services:
       postgres:
         image: postgres:15
-        ports:
-          - 5432:5432
         env:
           POSTGRES_USER: postgres
           POSTGRES_PASSWORD: postgres
-          POSTGRES_DB: tests_base
+          POSTGRES_DB: qa_engineering_lab_database
         options: >-
           --health-cmd pg_isready
           --health-interval 10s
@@ -25,56 +25,49 @@ jobs:
           --health-retries 5
 
     steps:
-      - name: Checkout do repositório
+      - name: Checkout
         uses: actions/checkout@v4
 
-      - name: Configurar Node.js
-        uses: actions/setup-node@v4.4.0
+      - name: Pegar o caminho do cache do Yarn
+        id: yarn-cache-dir-path
+        run: echo "dir=$(yarn cache dir)" >> $GITHUB_OUTPUT
+
+      - name: Cachear o Yarn
+        uses: actions/cache@v4
         with:
-          node-version: 22.19.0
-          cache: 'yarn'
+          path: ${{ steps.yarn-cache-dir-path.outputs.dir }}
+          key: ${{ runner.os }}-yarn-${{ hashFiles('yarn.lock') }}
+          restore-keys: |
+            ${{ runner.os }}-yarn-
 
-      - name: Configurar Java
-        uses: actions/setup-java@v4.7.1
-        with:
-          java-version: 21
-          distribution: 'corretto'
-          cache: 'gradle'
-
-
-      - name: Instalar dependências do Monorepo
-        run: yarn install --frozen-lockfile
+      - name: Instalar dependências do monorepo
+        run: yarn install --frozen-lockfile --prefer-offline
 
       - name: Executar seeders
         run: chmod +x .github/scripts/run-seeders.sh && .github/scripts/run-seeders.sh
         env:
-          DATABASE_URL: postgresql://postgres:postgres@localhost:5432/tests_base?schema=public
+          DATABASE_URL: postgresql://postgres:postgres@postgres:5432/qa_engineering_lab_database?schema=public
           JWT_SECRET: jwt_secret
 
-      - name: Iniciar backend
+      - name: Subir backend
+        working-directory: apps/backend
         run: |
-          cd apps/backend
-          yarn dev &
-          sleep 5
+          yarn build
+          nohup node dist/src/main.js > /tmp/backend.log 2>&1 &
+          npx wait-on http://localhost:3001/healthy -t 30000
+          curl -v http://localhost:3001/healthy
         env:
-          DATABASE_URL: postgresql://postgres:postgres@localhost:5432/tests_base?schema=public
+          DATABASE_URL: postgresql://postgres:postgres@postgres:5432/qa_engineering_lab_database?schema=public
           JWT_SECRET: jwt_secret
-          API_URL: http://localhost:3001
+          PORT: 3001
 
-      - name: Criar arquivo .env para testes RestAssured
-        working-directory: tests/restAssured
-        run: |
-          echo "REST_ASSURED_BASE_URL=http://localhost:3001" >> .env
-
-      - name: Buildar o projeto RestAssured
-        working-directory: tests/restAssured
-        run: make building
-
-      - name: Executar testes RestAssured
+      - name: Executar testes
         working-directory: tests/restAssured
         run: make test
+        env:
+          REST_ASSURED_BASE_URL: http://localhost:3001
 
-      - name: Salvar resultados RAW (RestAssured API)
+      - name: Salvar resultados
         uses: actions/upload-artifact@v4.4.0
         with:
           name: rest-assured
