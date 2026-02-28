@@ -38,10 +38,14 @@ jobs:
           restore-keys: |
             ${{ runner.os }}-gradle-
 
-      - name: Cache Yarn packages
+      - name: Pegar o caminho do cache do Yarn
+        id: yarn-cache-dir-path
+        run: echo "dir=$(yarn cache dir)" >> $GITHUB_OUTPUT
+
+      - name: Cachear o Yarn
         uses: actions/cache@v4
         with:
-          path: .yarn/cache
+          path: ${{ steps.yarn-cache-dir-path.outputs.dir }}
           key: ${{ runner.os }}-yarn-${{ hashFiles('**/yarn.lock') }}
           restore-keys: |
             ${{ runner.os }}-yarn-
@@ -69,9 +73,9 @@ jobs:
 
       - name: Executar testes
         working-directory: tests/restAssured
-        run: |
-          echo "REST_ASSURED_BASE_URL=http://localhost:3001" >> .env
-          make test
+        run: make test
+        env:
+          REST_ASSURED_BASE_URL: http://localhost:3001
 
       - name: Salvar resultados
         uses: actions/upload-artifact@v4.4.0
