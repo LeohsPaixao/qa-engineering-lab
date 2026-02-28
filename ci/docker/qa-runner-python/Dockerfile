@@ -42,6 +42,4 @@ RUN pip install \
 
 RUN rfbrowser init
 
-WORKDIR /workspace
-
 CMD ["bash"]

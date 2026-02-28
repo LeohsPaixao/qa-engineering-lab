@@ -42,6 +42,4 @@ RUN npm install -g newman \
 
 RUN npx playwright install --with-deps chromium
 
-WORKDIR /workspace
-
 CMD ["bash"]
