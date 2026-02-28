@@ -9,10 +9,6 @@ jobs:
     name: Deploy Pages
     runs-on: ubuntu-latest
     timeout-minutes: 10
-    container:
-      image: ghcr.io/leohspaixao/qa-runner-pattern:latest
-      options: >-
-        --workdir /app
     env:
       TURBO_TELEMETRY_DISABLED: 1
 
@@ -22,6 +18,21 @@ jobs:
         with:
           fetch-depth: 0
           clean: false
+
+      - name: Pegar o caminho do cache do Yarn
+        id: yarn-cache-dir-path
+        run: echo "dir=$(yarn cache dir)" >> $GITHUB_OUTPUT
+
+      - name: Cachear o Yarn
+        uses: actions/cache@v4
+        with:
+          path: ${{ steps.yarn-cache-dir-path.outputs.dir }}
+          key: ${{ runner.os }}-yarn-${{ hashFiles('**/yarn.lock') }}
+          restore-keys: |
+            ${{ runner.os }}-yarn-
+
+      - name: Instalar dependências do Monorepo
+        run: yarn install --frozen-lockfile --prefer-offline
 
       - name: Baixar resultados processados do Preprocessamento
         uses: actions/download-artifact@v6.0.0
