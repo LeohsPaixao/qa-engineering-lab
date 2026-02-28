@@ -19,6 +19,11 @@ jobs:
           fetch-depth: 0
           clean: false
 
+      - name: Setup Node.js
+        uses: actions/setup-node@v4
+        with:
+          node-version: 22.19.0
+
       - name: Pegar o caminho do cache do Yarn
         id: yarn-cache-dir-path
         run: echo "dir=$(yarn cache dir)" >> $GITHUB_OUTPUT
