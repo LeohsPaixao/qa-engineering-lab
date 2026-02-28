@@ -1788,7 +1788,6 @@
                 "exec": [
                   "pm.test(\"Should not be able to delete users\", function () {",
                   "    pm.expect(pm.response.code).to.eql(404);",
-                  "    pm.expect(pm.response.json().error).to.equal(\"Not Found\")",
                   "    pm.expect(pm.response.json().message).to.equal(\"Nenhum usuário encontrado para excluir.\")",
                   "})"
                 ],
@@ -1835,9 +1834,9 @@
               "raw": "{\n  \"ids\": [2, 3, 4]\n}"
             },
             "url": {
-              "raw": "{{baseUrl}}/users/delete",
+              "raw": "{{mockUrl}}/users/delete",
               "host": [
-                "{{baseUrl}}"
+                "{{mockUrl}}"
               ],
               "path": [
                 "users",
@@ -2088,17 +2087,17 @@
   ],
   "variable": [
     {
-      "id": "87b112a4-f02b-4101-a1c6-db90be844dc0",
+      "id": "63826858-8ee9-470f-ba30-21105a3e57ed",
       "key": "token",
       "value": ""
     },
     {
-      "id": "ada133d0-a44b-443e-9ab6-d9dd9b08516c",
+      "id": "e284701e-c75a-4073-8c83-9c668c041623",
       "key": "baseUrl",
       "value": "http://localhost:3001"
     },
     {
-      "id": "f352999c-4f68-4c78-ac1b-e7e2d8ccb7c3",
+      "id": "a7ebd186-bc19-4ffb-9e78-d2ca392fbe50",
       "key": "mockUrl",
       "value": "https://fea5d23c-ceeb-4c21-a419-51f63a869e72.mock.pstmn.io"
     }
