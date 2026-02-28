@@ -24,7 +24,7 @@ jobs:
     uses: ./.github/workflows/newman.yml
 
   cypress-tests:
-    needs: [backend-unit-tests, frontend-unit-tests, cypress-component-tests, rest-assured-api-tests]
+    needs: [backend-unit-tests, frontend-unit-tests, cypress-component-tests, rest-assured-api-tests, newman-api-tests]
     if: >-
       always() &&
       (needs.backend-unit-tests.result == 'success' &&
@@ -35,7 +35,7 @@ jobs:
     uses: ./.github/workflows/cypress.yml
 
   playwright-tests:
-    needs: [backend-unit-tests, frontend-unit-tests, cypress-component-tests, rest-assured-api-tests]
+    needs: [backend-unit-tests, frontend-unit-tests, cypress-component-tests, rest-assured-api-tests, newman-api-tests]
     if: >-
       always() &&
       (needs.backend-unit-tests.result == 'success' &&
@@ -46,7 +46,7 @@ jobs:
     uses: ./.github/workflows/playwright.yml
 
   robot-framework-tests:
-    needs: [backend-unit-tests, frontend-unit-tests, cypress-component-tests, rest-assured-api-tests]
+    needs: [backend-unit-tests, frontend-unit-tests, cypress-component-tests, rest-assured-api-tests, newman-api-tests]
     if: >-
       always() &&
       (needs.backend-unit-tests.result == 'success' &&
@@ -57,7 +57,7 @@ jobs:
     uses: ./.github/workflows/robot.yml
 
   selenium-tests:
-    needs: [backend-unit-tests, frontend-unit-tests, cypress-component-tests, rest-assured-api-tests]
+    needs: [backend-unit-tests, frontend-unit-tests, cypress-component-tests, rest-assured-api-tests, newman-api-tests]
     if: >-
       always() &&
       (needs.backend-unit-tests.result == 'success' &&
