@@ -67,13 +67,15 @@ jobs:
           yarn start &
           sleep 5
 
+      - name: Gera o .env
+        run: |
+          echo "SELENIUM_API_URL=http://localhost:3001" >> .env
+          echo "SELENIUM_BASE_URL=http://localhost:8181" >> .env
+          echo "HEADLESS=true" >> .env
+
       - name: Executar testes Selenium
         working-directory: tests/selenium
         run: make test
-        env:
-          SELENIUM_BASE_URL: http://localhost:8181
-          SELENIUM_API_URL: http://localhost:3001
-          HEADLESS: true
 
       - name: Upload raw results (Selenium E2E)
         uses: actions/upload-artifact@v4.4.0
