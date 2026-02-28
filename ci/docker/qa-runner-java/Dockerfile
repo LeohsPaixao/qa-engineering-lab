@@ -1,4 +1,4 @@
-FROM gradle:8.8-jdk21
+FROM gradle:9.3.0-jdk21
 
 ENV DEBIAN_FRONTEND=noninteractive
 
@@ -13,10 +13,8 @@ RUN apt-get update && apt-get install -y \
     gcc \
     g++ \
     libxi6 \
-    libgconf-2-4 \
     libnss3 \
     libxss1 \
-    libasound2 \
     libxtst6 \
     fonts-liberation \
     chromium-browser \
