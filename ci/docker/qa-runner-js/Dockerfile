@@ -33,8 +33,8 @@ RUN apt-get update && apt-get install -y \
 
 RUN npm install -g npm@11.10.1
 
-RUN npm install -g newman
+RUN npm install -g newman @playwright/test@1.58.2
 
-RUN npx playwright install --with-deps chromium
+RUN npx playwright install --with-deps --only-shell
 
 CMD ["bash"]
