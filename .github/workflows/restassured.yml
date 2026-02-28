@@ -59,7 +59,7 @@ jobs:
         working-directory: apps/backend
         run: |
           yarn build
-          node dist/src/main.js &
+          nohup node dist/src/main.js > /tmp/backend.log 2>&1 &
           npx wait-on http://localhost:3001/healthy -t 30000
           curl -v http://localhost:3001/healthy
         env:
