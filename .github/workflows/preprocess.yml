@@ -8,6 +8,8 @@ jobs:
     timeout-minutes: 10
     container:
       image: ghcr.io/leohspaixao/qa-runner-pattern:latest
+      options: >-
+        --workdir /app
     env:
       TURBO_TELEMETRY_DISABLED: 1
 
