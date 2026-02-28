@@ -5,11 +5,12 @@ jobs:
   rest-assured-tests:
     name: RestAssured Testes QA-Engineering-Lab
     runs-on: ubuntu-latest
+
     container:
       image: ghcr.io/leohspaixao/qa-runner-java:latest
+
     timeout-minutes: 10
-    env:
-      TURBO_TELEMETRY_DISABLED: 1
+
     services:
       postgres:
         image: postgres:15
@@ -24,22 +25,28 @@ jobs:
           --health-retries 5
 
     steps:
-      - name: Checkout do repositório
+      - name: Checkout
         uses: actions/checkout@v4
 
-      - name: Pegar o caminho do cache do Yarn
-        id: yarn-cache-dir-path
-        run: echo "dir=$(yarn cache dir)" >> $GITHUB_OUTPUT
-
-      - name: Cachear o Yarn
+      - name: Cache Gradle packages
         uses: actions/cache@v4
         with:
-          path: ${{ steps.yarn-cache-dir-path.outputs.dir }}
+          path: |
+            ~/.gradle/caches
+            ~/.gradle/wrapper
+          key: ${{ runner.os }}-gradle-${{ hashFiles('**/*.gradle*', '**/gradle-wrapper.properties') }}
+          restore-keys: |
+            ${{ runner.os }}-gradle-
+
+      - name: Cache Yarn packages
+        uses: actions/cache@v4
+        with:
+          path: .yarn/cache
           key: ${{ runner.os }}-yarn-${{ hashFiles('**/yarn.lock') }}
           restore-keys: |
             ${{ runner.os }}-yarn-
 
-      - name: Instalar dependências do Monorepo
+      - name: Instalar dependências do monorepo
         run: yarn install --frozen-lockfile --prefer-offline
 
       - name: Executar seeders
@@ -48,26 +55,25 @@ jobs:
           DATABASE_URL: postgresql://postgres:postgres@postgres:5432/qa_engineering_lab_database?schema=public
           JWT_SECRET: jwt_secret
 
-      - name: Iniciar backend
+      - name: Subir backend
         working-directory: apps/backend
         run: |
-          yarn start &
-          npx wait-on http://localhost:3001/healthy
-        env: 
+          yarn build
+          node dist/src/main.js &
+          npx wait-on http://localhost:3001/healthy -t 30000
+          curl -v http://localhost:3001/healthy
+        env:
           DATABASE_URL: postgresql://postgres:postgres@postgres:5432/qa_engineering_lab_database?schema=public
           JWT_SECRET: jwt_secret
           PORT: 3001
-          API_URL: http://localhost:3001
 
-      - name: Criar arquivo .env para testes RestAssured
+      - name: Executar testes
         working-directory: tests/restAssured
-        run: echo "REST_ASSURED_BASE_URL=http://localhost:3001" >> .env
+        run: |
+          echo "REST_ASSURED_BASE_URL=http://localhost:3001" >> .env
+          make test
 
-      - name: Executar testes RestAssured
-        working-directory: tests/restAssured
-        run: make test
-
-      - name: Salvar resultados RAW (RestAssured API)
+      - name: Salvar resultados
         uses: actions/upload-artifact@v4.4.0
         with:
           name: rest-assured
