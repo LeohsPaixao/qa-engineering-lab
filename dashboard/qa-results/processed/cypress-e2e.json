@@ -1,20 +1,20 @@
 {
   "framework": "cypress-e2e",
-  "timestamp": "2026-01-24-00-19-40",
+  "timestamp": "2026-02-28-20-59-09",
   "type": "e2e",
   "summary": {
     "total": 25,
     "passed": 25,
     "failed": 0,
     "skipped": 0,
-    "duration_s": 56.07400000000002
+    "duration_s": 44.613000000000014
   },
   "tests": [
     {
       "id": "listUsers.cy:deveria-ser-possivel-visualizar-os-elementos-da-tela-de-listagem-de-usurios",
       "name": "Deveria ser possivel visualizar os elementos da tela de listagem de Usuários",
       "status": "passed",
-      "duration_s": 4.998,
+      "duration_s": 2.323,
       "file": "listUsers.cy.ts",
       "tags": [],
       "error": null
@@ -23,7 +23,7 @@
       "id": "listUsers.cy:deveria-ser-possivel-selecionar-todos-os-usurios",
       "name": "Deveria ser possivel selecionar todos os usuários",
       "status": "passed",
-      "duration_s": 1.55,
+      "duration_s": 1.219,
       "file": "listUsers.cy.ts",
       "tags": [],
       "error": null
@@ -32,7 +32,7 @@
       "id": "listUsers.cy:deveria-ser-possivel-selecionar-um-usurio-e-exclui-lo",
       "name": "Deveria ser possivel selecionar um usuário e exclui-lo",
       "status": "passed",
-      "duration_s": 4.173,
+      "duration_s": 4.299,
       "file": "listUsers.cy.ts",
       "tags": [],
       "error": null
@@ -41,7 +41,7 @@
       "id": "login.cy:deveria-ser-possivel-visualizar-os-elementos-da-tela",
       "name": "Deveria ser possivel visualizar os elementos da tela",
       "status": "passed",
-      "duration_s": 1.891,
+      "duration_s": 1.212,
       "file": "login.cy.ts",
       "tags": [],
       "error": null
@@ -50,7 +50,7 @@
       "id": "login.cy:no-deveria-ser-possivel-fazer-login-com-credenciais-invlidas",
       "name": "Não deveria ser possivel fazer login com credenciais inválidas",
       "status": "passed",
-      "duration_s": 5.007,
+      "duration_s": 4.747,
       "file": "login.cy.ts",
       "tags": [],
       "error": null
@@ -59,7 +59,7 @@
       "id": "login.cy:no-deveria-ser-possivel-fazer-login-com-a-senha-invlida",
       "name": "Não deveria ser possivel fazer login com a senha inválida",
       "status": "passed",
-      "duration_s": 2.039,
+      "duration_s": 1.754,
       "file": "login.cy.ts",
       "tags": [],
       "error": null
@@ -68,7 +68,7 @@
       "id": "login.cy:deveria-ser-possivel-fazer-login-com-credenciais-vlidas",
       "name": "Deveria ser possivel fazer login com credenciais válidas",
       "status": "passed",
-      "duration_s": 2.049,
+      "duration_s": 1.743,
       "file": "login.cy.ts",
       "tags": [],
       "error": null
@@ -77,7 +77,7 @@
       "id": "login.cy:deveria-ser-possivel-ir-para-a-tela-de-cadastro",
       "name": "Deveria ser possivel ir para a tela de cadastro",
       "status": "passed",
-      "duration_s": 1.731,
+      "duration_s": 1.167,
       "file": "login.cy.ts",
       "tags": [],
       "error": null
@@ -86,7 +86,7 @@
       "id": "login.cy:deveria-ser-possivel-ir-para-a-tela-de-esqueci-a-senha",
       "name": "Deveria ser possivel ir para a tela de esqueci a senha",
       "status": "passed",
-      "duration_s": 1.68,
+      "duration_s": 1.148,
       "file": "login.cy.ts",
       "tags": [],
       "error": null
@@ -95,7 +95,7 @@
       "id": "profile.cy:deveria-ser-possivel-visualizar-os-elementos-da-tela-de-perfil",
       "name": "Deveria ser possivel visualizar os elementos da tela de Perfil",
       "status": "passed",
-      "duration_s": 1.977,
+      "duration_s": 1.227,
       "file": "profile.cy.ts",
       "tags": [],
       "error": null
@@ -104,7 +104,7 @@
       "id": "profile.cy:no-deveria-ser-possivel-salvar-a-alterao-sem-colocar-algum-dado-no-nome-completo",
       "name": "Não deveria ser possivel salvar a alteração sem colocar algum dado no Nome Completo",
       "status": "passed",
-      "duration_s": 1.702,
+      "duration_s": 1.415,
       "file": "profile.cy.ts",
       "tags": [],
       "error": null
@@ -113,7 +113,7 @@
       "id": "profile.cy:no-deveria-ser-possivel-salvar-a-alterao-com-apenas-o-nome",
       "name": "Não deveria ser possivel salvar a alteração com apenas o nome",
       "status": "passed",
-      "duration_s": 1.623,
+      "duration_s": 1.355,
       "file": "profile.cy.ts",
       "tags": [],
       "error": null
@@ -122,7 +122,7 @@
       "id": "profile.cy:no-deveria-ser-possivel-salvar-a-alterao-com-letras-no-telefone",
       "name": "Não deveria ser possivel salvar a alteração com letras no telefone",
       "status": "passed",
-      "duration_s": 1.668,
+      "duration_s": 1.359,
       "file": "profile.cy.ts",
       "tags": [],
       "error": null
@@ -131,7 +131,7 @@
       "id": "profile.cy:no-deveria-ser-possivel-salvar-a-alterao-com-mais-de-11-dgitos-no-telefone",
       "name": "Não deveria ser possivel salvar a alteração com mais de 11 dígitos no telefone",
       "status": "passed",
-      "duration_s": 1.717,
+      "duration_s": 1.43,
       "file": "profile.cy.ts",
       "tags": [],
       "error": null
@@ -140,7 +140,7 @@
       "id": "profile.cy:no-deveria-ser-possivel-salvar-a-alterao-com-menos-de-10-dgitos-no-telefone",
       "name": "Não deveria ser possivel salvar a alteração com menos de 10 dígitos no telefone",
       "status": "passed",
-      "duration_s": 1.582,
+      "duration_s": 1.307,
       "file": "profile.cy.ts",
       "tags": [],
       "error": null
@@ -149,7 +149,7 @@
       "id": "profile.cy:deveria-ser-possivel-salvar-a-alterao",
       "name": "Deveria ser possivel salvar a alteração",
       "status": "passed",
-      "duration_s": 4.378,
+      "duration_s": 3.76,
       "file": "profile.cy.ts",
       "tags": [],
       "error": null
@@ -158,7 +158,7 @@
       "id": "recoveryPassword.cy:deveria-ser-possivel-visulizar-os-elementos-da-tela-de-recuperao-de-senha",
       "name": "Deveria ser possivel visulizar os elementos da tela de Recuperação de Senha",
       "status": "passed",
-      "duration_s": 1.865,
+      "duration_s": 1.176,
       "file": "recoveryPassword.cy.ts",
       "tags": [],
       "error": null
@@ -167,7 +167,7 @@
       "id": "recoveryPassword.cy:no-deveria-ser-possivel-aparecer-o-toast-de-feedback-para-usurio-apenas-clicando-no-boto",
       "name": "Não deveria ser possivel aparecer o toast de feedback para usuário apenas clicando no botão",
       "status": "passed",
-      "duration_s": 1.456,
+      "duration_s": 1.146,
       "file": "recoveryPassword.cy.ts",
       "tags": [],
       "error": null
@@ -176,7 +176,7 @@
       "id": "recoveryPassword.cy:deveria-ser-possivel-aparecer-um-toast-de-feedback-caso-coloque-um-email-invlido",
       "name": "Deveria ser possivel aparecer um toast de feedback caso coloque um email inválido",
       "status": "passed",
-      "duration_s": 1.744,
+      "duration_s": 1.461,
       "file": "recoveryPassword.cy.ts",
       "tags": [],
       "error": null
@@ -185,7 +185,7 @@
       "id": "recoveryPassword.cy:deveria-ser-possivel-enviar-o-email-de-recuperao-de-senha",
       "name": "Deveria ser possivel enviar o email de recuperação de senha",
       "status": "passed",
-      "duration_s": 1.738,
+      "duration_s": 1.493,
       "file": "recoveryPassword.cy.ts",
       "tags": [],
       "error": null
@@ -194,7 +194,7 @@
       "id": "recoveryPassword.cy:deveria-ser-possivel-voltar-para-a-tela-de-login-pelo-link",
       "name": "Deveria ser possivel voltar para a tela de login pelo link",
       "status": "passed",
-      "duration_s": 1.384,
+      "duration_s": 1.142,
       "file": "recoveryPassword.cy.ts",
       "tags": [],
       "error": null
@@ -203,7 +203,7 @@
       "id": "registerUser.cy:deveria-ser-possivel-visualizar-os-elementos-da-tela-de-cadastro",
       "name": "Deveria ser possivel visualizar os elementos da tela de cadastro",
       "status": "passed",
-      "duration_s": 1.823,
+      "duration_s": 1.212,
       "file": "registerUser.cy.ts",
       "tags": [],
       "error": null
@@ -212,7 +212,7 @@
       "id": "registerUser.cy:deveria-ser-possvel-visualizar-os-erros-nos-campos-do-formulrio",
       "name": "Deveria ser possível visualizar os erros nos campos do formulário",
       "status": "passed",
-      "duration_s": 2.53,
+      "duration_s": 2.236,
       "file": "registerUser.cy.ts",
       "tags": [],
       "error": null
@@ -221,7 +221,7 @@
       "id": "registerUser.cy:deveria-ser-possivel-cadastrar-um-usurio",
       "name": "Deveria ser possivel cadastrar um usuário",
       "status": "passed",
-      "duration_s": 2.41,
+      "duration_s": 2.134,
       "file": "registerUser.cy.ts",
       "tags": [],
       "error": null
@@ -230,7 +230,7 @@
       "id": "registerUser.cy:deveria-ser-possivel-ir-para-a-tela-de-login-ao-clicar-no-link",
       "name": "Deveria ser possivel ir para a tela de login ao clicar no link",
       "status": "passed",
-      "duration_s": 1.359,
+      "duration_s": 1.148,
       "file": "registerUser.cy.ts",
       "tags": [],
       "error": null
@@ -248,7 +248,7 @@
       "code": true
     },
     "margeOptions": {
-      "reportDir": "/home/runner/work/qa-solar/qa-solar/qa-results/raw/cypress-e2e/2026-01-24-00-19-40",
+      "reportDir": "/__w/qa-engineering-lab/qa-engineering-lab/qa-results/raw/cypress-e2e/2026-02-28-20-59-09",
       "overwrite": false,
       "html": false,
       "json": true
