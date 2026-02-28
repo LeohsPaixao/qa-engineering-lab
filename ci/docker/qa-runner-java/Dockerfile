@@ -12,17 +12,18 @@ RUN apt-get update && apt-get install -y \
     make \
     gcc \
     g++ \
-    libxi6 \
-    libnss3 \
-    libxss1 \
-    libxtst6 \
-    fonts-liberation \
-    chromium-browser \
+    gnupg \
+    libgbm1 \
+    xdg-utils \
+    && wget -q https://dl.google.com/linux/direct/google-chrome-stable_current_amd64.deb \
+    && dpkg -i google-chrome-stable_current_amd64.deb || true \
+    && apt-get update \
+    && apt-get install -y -f \
+    && rm google-chrome-stable_current_amd64.deb \
     && rm -rf /var/lib/apt/lists/*
 
 RUN curl -fsSL https://deb.nodesource.com/setup_22.x | bash - \
-    && apt-get install -y nodejs
-
-RUN npm install -g yarn --force
+    && apt-get install -y nodejs \
+    && npm install -g yarn --force
 
 CMD ["bash"]
