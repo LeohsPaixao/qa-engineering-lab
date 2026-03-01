@@ -1,0 +1,2226 @@
+{
+  "config": {
+    "configFile": "/home/leopaixao/Documentos/Projetos/qa-engineering-lab/tests/playwright/playwright.config.ts",
+    "rootDir": "/home/leopaixao/Documentos/Projetos/qa-engineering-lab/tests/playwright",
+    "forbidOnly": false,
+    "fullyParallel": false,
+    "globalSetup": null,
+    "globalTeardown": null,
+    "globalTimeout": 0,
+    "grep": {},
+    "grepInvert": null,
+    "maxFailures": 0,
+    "metadata": {
+      "actualWorkers": 3
+    },
+    "preserveOutput": "always",
+    "projects": [
+      {
+        "outputDir": "/home/leopaixao/Documentos/Projetos/qa-engineering-lab/tests/playwright/tests/misc/reports",
+        "repeatEach": 1,
+        "retries": 0,
+        "metadata": {
+          "actualWorkers": 3
+        },
+        "id": "e2e",
+        "name": "e2e",
+        "testDir": "/home/leopaixao/Documentos/Projetos/qa-engineering-lab/tests/playwright/tests/e2e/specs",
+        "testIgnore": [
+          "/.*\\.api-spec\\.ts/",
+          "/.*\\.ct-spec\\.ts/"
+        ],
+        "testMatch": [
+          "/.*\\.e2e-spec\\.ts/"
+        ],
+        "timeout": 30000
+      },
+      {
+        "outputDir": "/home/leopaixao/Documentos/Projetos/qa-engineering-lab/tests/playwright/tests/misc/reports",
+        "repeatEach": 1,
+        "retries": 0,
+        "metadata": {
+          "actualWorkers": 3
+        },
+        "id": "",
+        "name": "",
+        "testDir": "/home/leopaixao/Documentos/Projetos/qa-engineering-lab/tests/playwright/tests/api/specs",
+        "testIgnore": [
+          "/.*\\.e2e-spec\\.ts/",
+          "/.*\\.ct-spec\\.ts/"
+        ],
+        "testMatch": [
+          "/.*\\.api-spec\\.ts/"
+        ],
+        "timeout": 30000
+      },
+      {
+        "outputDir": "/home/leopaixao/Documentos/Projetos/qa-engineering-lab/tests/playwright/tests/misc/reports",
+        "repeatEach": 1,
+        "retries": 0,
+        "metadata": {
+          "actualWorkers": 3
+        },
+        "id": "1",
+        "name": "",
+        "testDir": "/home/leopaixao/Documentos/Projetos/qa-engineering-lab/tests/playwright/tests/component/specs",
+        "testIgnore": [
+          "/.*\\.e2e-spec\\.ts/",
+          "/.*\\.api-spec\\.ts/"
+        ],
+        "testMatch": [
+          "/.*\\.ct-spec\\.ts/"
+        ],
+        "timeout": 30000
+      }
+    ],
+    "quiet": false,
+    "reporter": [
+      [
+        "/home/leopaixao/Documentos/Projetos/qa-engineering-lab/tests/playwright/reporters/custom-reporter.ts",
+        null
+      ],
+      [
+        "json",
+        {
+          "outputFile": "/home/leopaixao/Documentos/Projetos/qa-engineering-lab/tests/qa-results/raw/playwright-e2e/2026-03-01-16-17-32/results.json"
+        }
+      ]
+    ],
+    "reportSlowTests": {
+      "max": 5,
+      "threshold": 300000
+    },
+    "runAgents": "none",
+    "shard": null,
+    "tags": [],
+    "updateSnapshots": "missing",
+    "updateSourceMethod": "patch",
+    "version": "1.58.2",
+    "workers": 6,
+    "webServer": null
+  },
+  "suites": [
+    {
+      "title": "tests/e2e/specs/listUsers.e2e-spec.ts",
+      "file": "tests/e2e/specs/listUsers.e2e-spec.ts",
+      "column": 0,
+      "line": 0,
+      "specs": [],
+      "suites": [
+        {
+          "title": "Tela de listagem de Usuários",
+          "file": "tests/e2e/specs/listUsers.e2e-spec.ts",
+          "line": 5,
+          "column": 6,
+          "specs": [
+            {
+              "title": "Deveria ser possível visualizar os elementos da tela de listagem de Usuários",
+              "ok": true,
+              "tags": [],
+              "tests": [
+                {
+                  "timeout": 30000,
+                  "annotations": [
+                    {
+                      "type": "e2e",
+                      "description": "Teste de listagem de usuários",
+                      "location": {
+                        "file": "/home/leopaixao/Documentos/Projetos/qa-engineering-lab/tests/playwright/tests/e2e/specs/listUsers.e2e-spec.ts",
+                        "line": 5,
+                        "column": 6
+                      }
+                    }
+                  ],
+                  "expectedStatus": "passed",
+                  "projectId": "e2e",
+                  "projectName": "e2e",
+                  "results": [
+                    {
+                      "workerIndex": 0,
+                      "parallelIndex": 0,
+                      "status": "passed",
+                      "duration": 2024,
+                      "errors": [],
+                      "stdout": [],
+                      "stderr": [],
+                      "retry": 0,
+                      "startTime": "2026-03-01T16:17:35.652Z",
+                      "annotations": [
+                        {
+                          "type": "e2e",
+                          "description": "Teste de listagem de usuários",
+                          "location": {
+                            "file": "/home/leopaixao/Documentos/Projetos/qa-engineering-lab/tests/playwright/tests/e2e/specs/listUsers.e2e-spec.ts",
+                            "line": 5,
+                            "column": 6
+                          }
+                        }
+                      ],
+                      "attachments": []
+                    }
+                  ],
+                  "status": "expected"
+                }
+              ],
+              "id": "54174adbf724c7c4e960-4f177d47a9daa4a6ba7f",
+              "file": "tests/e2e/specs/listUsers.e2e-spec.ts",
+              "line": 17,
+              "column": 7
+            },
+            {
+              "title": "Deveria ser possível selecionar todos os usuários",
+              "ok": true,
+              "tags": [],
+              "tests": [
+                {
+                  "timeout": 30000,
+                  "annotations": [
+                    {
+                      "type": "e2e",
+                      "description": "Teste de listagem de usuários",
+                      "location": {
+                        "file": "/home/leopaixao/Documentos/Projetos/qa-engineering-lab/tests/playwright/tests/e2e/specs/listUsers.e2e-spec.ts",
+                        "line": 5,
+                        "column": 6
+                      }
+                    }
+                  ],
+                  "expectedStatus": "passed",
+                  "projectId": "e2e",
+                  "projectName": "e2e",
+                  "results": [
+                    {
+                      "workerIndex": 1,
+                      "parallelIndex": 1,
+                      "status": "passed",
+                      "duration": 3127,
+                      "errors": [],
+                      "stdout": [],
+                      "stderr": [],
+                      "retry": 0,
+                      "startTime": "2026-03-01T16:17:35.602Z",
+                      "annotations": [
+                        {
+                          "type": "e2e",
+                          "description": "Teste de listagem de usuários",
+                          "location": {
+                            "file": "/home/leopaixao/Documentos/Projetos/qa-engineering-lab/tests/playwright/tests/e2e/specs/listUsers.e2e-spec.ts",
+                            "line": 5,
+                            "column": 6
+                          }
+                        }
+                      ],
+                      "attachments": []
+                    }
+                  ],
+                  "status": "expected"
+                }
+              ],
+              "id": "54174adbf724c7c4e960-51cc7b535075621edb9f",
+              "file": "tests/e2e/specs/listUsers.e2e-spec.ts",
+              "line": 24,
+              "column": 7
+            },
+            {
+              "title": "Deveria ser possível selecionar um usuário e excluí-lo",
+              "ok": true,
+              "tags": [],
+              "tests": [
+                {
+                  "timeout": 30000,
+                  "annotations": [
+                    {
+                      "type": "e2e",
+                      "description": "Teste de listagem de usuários",
+                      "location": {
+                        "file": "/home/leopaixao/Documentos/Projetos/qa-engineering-lab/tests/playwright/tests/e2e/specs/listUsers.e2e-spec.ts",
+                        "line": 5,
+                        "column": 6
+                      }
+                    }
+                  ],
+                  "expectedStatus": "passed",
+                  "projectId": "e2e",
+                  "projectName": "e2e",
+                  "results": [
+                    {
+                      "workerIndex": 2,
+                      "parallelIndex": 2,
+                      "status": "interrupted",
+                      "duration": 21357,
+                      "error": {
+                        "message": "Error: locator.click: Test ended.\nCall log:\n\u001b[2m  - waiting for locator('[data-testid=\"btn-delete-user\"]')\u001b[22m\n\u001b[2m    - locator resolved to <button disabled class=\"btn-delete\" data-testid=\"btn-delete-user\" aria-label=\"Excluir usuários selecionados\">Excluir</button>\u001b[22m\n\u001b[2m  - attempting click action\u001b[22m\n\u001b[2m    2 × waiting for element to be visible, enabled and stable\u001b[22m\n\u001b[2m      - element is not enabled\u001b[22m\n\u001b[2m    - retrying click action\u001b[22m\n\u001b[2m    - waiting 20ms\u001b[22m\n\u001b[2m    2 × waiting for element to be visible, enabled and stable\u001b[22m\n\u001b[2m      - element is not enabled\u001b[22m\n\u001b[2m    - retrying click action\u001b[22m\n\u001b[2m      - waiting 100ms\u001b[22m\n\u001b[2m    37 × waiting for element to be visible, enabled and stable\u001b[22m\n\u001b[2m       - element is not enabled\u001b[22m\n\u001b[2m     - retrying click action\u001b[22m\n\u001b[2m       - waiting 500ms\u001b[22m\n",
+                        "stack": "Error: locator.click: Test ended.\nCall log:\n\u001b[2m  - waiting for locator('[data-testid=\"btn-delete-user\"]')\u001b[22m\n\u001b[2m    - locator resolved to <button disabled class=\"btn-delete\" data-testid=\"btn-delete-user\" aria-label=\"Excluir usuários selecionados\">Excluir</button>\u001b[22m\n\u001b[2m  - attempting click action\u001b[22m\n\u001b[2m    2 × waiting for element to be visible, enabled and stable\u001b[22m\n\u001b[2m      - element is not enabled\u001b[22m\n\u001b[2m    - retrying click action\u001b[22m\n\u001b[2m    - waiting 20ms\u001b[22m\n\u001b[2m    2 × waiting for element to be visible, enabled and stable\u001b[22m\n\u001b[2m      - element is not enabled\u001b[22m\n\u001b[2m    - retrying click action\u001b[22m\n\u001b[2m      - waiting 100ms\u001b[22m\n\u001b[2m    37 × waiting for element to be visible, enabled and stable\u001b[22m\n\u001b[2m       - element is not enabled\u001b[22m\n\u001b[2m     - retrying click action\u001b[22m\n\u001b[2m       - waiting 500ms\u001b[22m\n\n    at /home/leopaixao/Documentos/Projetos/qa-engineering-lab/tests/playwright/tests/e2e/specs/listUsers.e2e-spec.ts:35:24",
+                        "location": {
+                          "file": "/home/leopaixao/Documentos/Projetos/qa-engineering-lab/tests/playwright/tests/e2e/specs/listUsers.e2e-spec.ts",
+                          "column": 24,
+                          "line": 35
+                        },
+                        "snippet": "\u001b[0m \u001b[90m 33 |\u001b[39m     \u001b[36mconst\u001b[39m deleteButton \u001b[33m=\u001b[39m page\u001b[33m.\u001b[39mlocator(\u001b[32m'[data-testid=\"btn-delete-user\"]'\u001b[39m)\u001b[33m;\u001b[39m\n \u001b[90m 34 |\u001b[39m     \u001b[36mawait\u001b[39m deleteButton\u001b[33m.\u001b[39mscrollIntoViewIfNeeded()\u001b[33m;\u001b[39m\n\u001b[31m\u001b[1m>\u001b[22m\u001b[39m\u001b[90m 35 |\u001b[39m     \u001b[36mawait\u001b[39m deleteButton\u001b[33m.\u001b[39mclick()\u001b[33m;\u001b[39m\n \u001b[90m    |\u001b[39m                        \u001b[31m\u001b[1m^\u001b[22m\u001b[39m\n \u001b[90m 36 |\u001b[39m     \u001b[36mconst\u001b[39m toastContent \u001b[33m=\u001b[39m page\u001b[33m.\u001b[39mlocator(\u001b[32m'[data-testid=\"toast-content\"]'\u001b[39m)\u001b[33m.\u001b[39mfirst()\u001b[33m;\u001b[39m\n \u001b[90m 37 |\u001b[39m     \u001b[36mawait\u001b[39m expect(toastContent)\u001b[33m.\u001b[39mtoBeVisible()\u001b[33m;\u001b[39m\n \u001b[90m 38 |\u001b[39m     \u001b[36mawait\u001b[39m expect(toastContent)\u001b[33m.\u001b[39mtoHaveText(\u001b[32m'1 usuário(s) excluído(s) com sucesso!'\u001b[39m)\u001b[33m;\u001b[39m\u001b[0m"
+                      },
+                      "errors": [
+                        {
+                          "location": {
+                            "file": "/home/leopaixao/Documentos/Projetos/qa-engineering-lab/tests/playwright/tests/e2e/specs/listUsers.e2e-spec.ts",
+                            "column": 24,
+                            "line": 35
+                          },
+                          "message": "Error: locator.click: Test ended.\nCall log:\n\u001b[2m  - waiting for locator('[data-testid=\"btn-delete-user\"]')\u001b[22m\n\u001b[2m    - locator resolved to <button disabled class=\"btn-delete\" data-testid=\"btn-delete-user\" aria-label=\"Excluir usuários selecionados\">Excluir</button>\u001b[22m\n\u001b[2m  - attempting click action\u001b[22m\n\u001b[2m    2 × waiting for element to be visible, enabled and stable\u001b[22m\n\u001b[2m      - element is not enabled\u001b[22m\n\u001b[2m    - retrying click action\u001b[22m\n\u001b[2m    - waiting 20ms\u001b[22m\n\u001b[2m    2 × waiting for element to be visible, enabled and stable\u001b[22m\n\u001b[2m      - element is not enabled\u001b[22m\n\u001b[2m    - retrying click action\u001b[22m\n\u001b[2m      - waiting 100ms\u001b[22m\n\u001b[2m    37 × waiting for element to be visible, enabled and stable\u001b[22m\n\u001b[2m       - element is not enabled\u001b[22m\n\u001b[2m     - retrying click action\u001b[22m\n\u001b[2m       - waiting 500ms\u001b[22m\n\n\n\u001b[0m \u001b[90m 33 |\u001b[39m     \u001b[36mconst\u001b[39m deleteButton \u001b[33m=\u001b[39m page\u001b[33m.\u001b[39mlocator(\u001b[32m'[data-testid=\"btn-delete-user\"]'\u001b[39m)\u001b[33m;\u001b[39m\n \u001b[90m 34 |\u001b[39m     \u001b[36mawait\u001b[39m deleteButton\u001b[33m.\u001b[39mscrollIntoViewIfNeeded()\u001b[33m;\u001b[39m\n\u001b[31m\u001b[1m>\u001b[22m\u001b[39m\u001b[90m 35 |\u001b[39m     \u001b[36mawait\u001b[39m deleteButton\u001b[33m.\u001b[39mclick()\u001b[33m;\u001b[39m\n \u001b[90m    |\u001b[39m                        \u001b[31m\u001b[1m^\u001b[22m\u001b[39m\n \u001b[90m 36 |\u001b[39m     \u001b[36mconst\u001b[39m toastContent \u001b[33m=\u001b[39m page\u001b[33m.\u001b[39mlocator(\u001b[32m'[data-testid=\"toast-content\"]'\u001b[39m)\u001b[33m.\u001b[39mfirst()\u001b[33m;\u001b[39m\n \u001b[90m 37 |\u001b[39m     \u001b[36mawait\u001b[39m expect(toastContent)\u001b[33m.\u001b[39mtoBeVisible()\u001b[33m;\u001b[39m\n \u001b[90m 38 |\u001b[39m     \u001b[36mawait\u001b[39m expect(toastContent)\u001b[33m.\u001b[39mtoHaveText(\u001b[32m'1 usuário(s) excluído(s) com sucesso!'\u001b[39m)\u001b[33m;\u001b[39m\u001b[0m\n\u001b[2m    at /home/leopaixao/Documentos/Projetos/qa-engineering-lab/tests/playwright/tests/e2e/specs/listUsers.e2e-spec.ts:35:24\u001b[22m"
+                        }
+                      ],
+                      "stdout": [],
+                      "stderr": [],
+                      "retry": 0,
+                      "startTime": "2026-03-01T16:17:35.759Z",
+                      "annotations": [
+                        {
+                          "type": "e2e",
+                          "description": "Teste de listagem de usuários",
+                          "location": {
+                            "file": "/home/leopaixao/Documentos/Projetos/qa-engineering-lab/tests/playwright/tests/e2e/specs/listUsers.e2e-spec.ts",
+                            "line": 5,
+                            "column": 6
+                          }
+                        }
+                      ],
+                      "attachments": [
+                        {
+                          "name": "screenshot",
+                          "contentType": "image/png",
+                          "path": "/home/leopaixao/Documentos/Projetos/qa-engineering-lab/tests/playwright/tests/misc/reports/listUsers.e2e-spec.ts-Tela-944ed-onar-um-usuário-e-excluí-lo-e2e/test-failed-1.png"
+                        }
+                      ],
+                      "errorLocation": {
+                        "file": "/home/leopaixao/Documentos/Projetos/qa-engineering-lab/tests/playwright/tests/e2e/specs/listUsers.e2e-spec.ts",
+                        "column": 24,
+                        "line": 35
+                      }
+                    }
+                  ],
+                  "status": "skipped"
+                }
+              ],
+              "id": "54174adbf724c7c4e960-fe669e7d9ddace0174eb",
+              "file": "tests/e2e/specs/listUsers.e2e-spec.ts",
+              "line": 30,
+              "column": 7
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "title": "tests/e2e/specs/login.e2e-spec.ts",
+      "file": "tests/e2e/specs/login.e2e-spec.ts",
+      "column": 0,
+      "line": 0,
+      "specs": [],
+      "suites": [
+        {
+          "title": "Tela de Login",
+          "file": "tests/e2e/specs/login.e2e-spec.ts",
+          "line": 3,
+          "column": 6,
+          "specs": [
+            {
+              "title": "Deveria ser possível visualizar os elementos da tela",
+              "ok": true,
+              "tags": [],
+              "tests": [
+                {
+                  "timeout": 30000,
+                  "annotations": [
+                    {
+                      "type": "e2e",
+                      "description": "Teste de login",
+                      "location": {
+                        "file": "/home/leopaixao/Documentos/Projetos/qa-engineering-lab/tests/playwright/tests/e2e/specs/login.e2e-spec.ts",
+                        "line": 3,
+                        "column": 6
+                      }
+                    }
+                  ],
+                  "expectedStatus": "passed",
+                  "projectId": "e2e",
+                  "projectName": "e2e",
+                  "results": [
+                    {
+                      "workerIndex": 0,
+                      "parallelIndex": 0,
+                      "status": "passed",
+                      "duration": 462,
+                      "errors": [],
+                      "stdout": [],
+                      "stderr": [],
+                      "retry": 0,
+                      "startTime": "2026-03-01T16:17:43.596Z",
+                      "annotations": [
+                        {
+                          "type": "e2e",
+                          "description": "Teste de login",
+                          "location": {
+                            "file": "/home/leopaixao/Documentos/Projetos/qa-engineering-lab/tests/playwright/tests/e2e/specs/login.e2e-spec.ts",
+                            "line": 3,
+                            "column": 6
+                          }
+                        }
+                      ],
+                      "attachments": []
+                    }
+                  ],
+                  "status": "expected"
+                }
+              ],
+              "id": "9cf4153117b632f59a24-cb126acb13b40f222c9b",
+              "file": "tests/e2e/specs/login.e2e-spec.ts",
+              "line": 11,
+              "column": 7
+            },
+            {
+              "title": "Não deveria ser possível fazer login com credenciais inválidas",
+              "ok": true,
+              "tags": [],
+              "tests": [
+                {
+                  "timeout": 30000,
+                  "annotations": [
+                    {
+                      "type": "e2e",
+                      "description": "Teste de login",
+                      "location": {
+                        "file": "/home/leopaixao/Documentos/Projetos/qa-engineering-lab/tests/playwright/tests/e2e/specs/login.e2e-spec.ts",
+                        "line": 3,
+                        "column": 6
+                      }
+                    }
+                  ],
+                  "expectedStatus": "passed",
+                  "projectId": "e2e",
+                  "projectName": "e2e",
+                  "results": [
+                    {
+                      "workerIndex": 0,
+                      "parallelIndex": 0,
+                      "status": "passed",
+                      "duration": 705,
+                      "errors": [],
+                      "stdout": [],
+                      "stderr": [],
+                      "retry": 0,
+                      "startTime": "2026-03-01T16:17:44.107Z",
+                      "annotations": [
+                        {
+                          "type": "e2e",
+                          "description": "Teste de login",
+                          "location": {
+                            "file": "/home/leopaixao/Documentos/Projetos/qa-engineering-lab/tests/playwright/tests/e2e/specs/login.e2e-spec.ts",
+                            "line": 3,
+                            "column": 6
+                          }
+                        }
+                      ],
+                      "attachments": []
+                    }
+                  ],
+                  "status": "expected"
+                }
+              ],
+              "id": "9cf4153117b632f59a24-d3a38a22679034bc6a0b",
+              "file": "tests/e2e/specs/login.e2e-spec.ts",
+              "line": 20,
+              "column": 7
+            },
+            {
+              "title": "Não deveria ser possível fazer login com a senha inválida",
+              "ok": true,
+              "tags": [],
+              "tests": [
+                {
+                  "timeout": 30000,
+                  "annotations": [
+                    {
+                      "type": "e2e",
+                      "description": "Teste de login",
+                      "location": {
+                        "file": "/home/leopaixao/Documentos/Projetos/qa-engineering-lab/tests/playwright/tests/e2e/specs/login.e2e-spec.ts",
+                        "line": 3,
+                        "column": 6
+                      }
+                    }
+                  ],
+                  "expectedStatus": "passed",
+                  "projectId": "e2e",
+                  "projectName": "e2e",
+                  "results": [
+                    {
+                      "workerIndex": 0,
+                      "parallelIndex": 0,
+                      "status": "passed",
+                      "duration": 960,
+                      "errors": [],
+                      "stdout": [],
+                      "stderr": [],
+                      "retry": 0,
+                      "startTime": "2026-03-01T16:17:44.854Z",
+                      "annotations": [
+                        {
+                          "type": "e2e",
+                          "description": "Teste de login",
+                          "location": {
+                            "file": "/home/leopaixao/Documentos/Projetos/qa-engineering-lab/tests/playwright/tests/e2e/specs/login.e2e-spec.ts",
+                            "line": 3,
+                            "column": 6
+                          }
+                        }
+                      ],
+                      "attachments": []
+                    }
+                  ],
+                  "status": "expected"
+                }
+              ],
+              "id": "9cf4153117b632f59a24-04f8356b65d9da96b457",
+              "file": "tests/e2e/specs/login.e2e-spec.ts",
+              "line": 31,
+              "column": 7
+            },
+            {
+              "title": "Deveria ser possível fazer login com credenciais válidas",
+              "ok": true,
+              "tags": [],
+              "tests": [
+                {
+                  "timeout": 30000,
+                  "annotations": [
+                    {
+                      "type": "e2e",
+                      "description": "Teste de login",
+                      "location": {
+                        "file": "/home/leopaixao/Documentos/Projetos/qa-engineering-lab/tests/playwright/tests/e2e/specs/login.e2e-spec.ts",
+                        "line": 3,
+                        "column": 6
+                      }
+                    }
+                  ],
+                  "expectedStatus": "passed",
+                  "projectId": "e2e",
+                  "projectName": "e2e",
+                  "results": [
+                    {
+                      "workerIndex": 1,
+                      "parallelIndex": 1,
+                      "status": "passed",
+                      "duration": 967,
+                      "errors": [],
+                      "stdout": [],
+                      "stderr": [],
+                      "retry": 0,
+                      "startTime": "2026-03-01T16:17:44.945Z",
+                      "annotations": [
+                        {
+                          "type": "e2e",
+                          "description": "Teste de login",
+                          "location": {
+                            "file": "/home/leopaixao/Documentos/Projetos/qa-engineering-lab/tests/playwright/tests/e2e/specs/login.e2e-spec.ts",
+                            "line": 3,
+                            "column": 6
+                          }
+                        }
+                      ],
+                      "attachments": []
+                    }
+                  ],
+                  "status": "expected"
+                }
+              ],
+              "id": "9cf4153117b632f59a24-cca1c16f791918e2e4c9",
+              "file": "tests/e2e/specs/login.e2e-spec.ts",
+              "line": 42,
+              "column": 7
+            },
+            {
+              "title": "Deveria ser possivel visualizar o erro de email invalido embaixo do input de email",
+              "ok": true,
+              "tags": [],
+              "tests": [
+                {
+                  "timeout": 30000,
+                  "annotations": [
+                    {
+                      "type": "e2e",
+                      "description": "Teste de login",
+                      "location": {
+                        "file": "/home/leopaixao/Documentos/Projetos/qa-engineering-lab/tests/playwright/tests/e2e/specs/login.e2e-spec.ts",
+                        "line": 3,
+                        "column": 6
+                      }
+                    }
+                  ],
+                  "expectedStatus": "passed",
+                  "projectId": "e2e",
+                  "projectName": "e2e",
+                  "results": [
+                    {
+                      "workerIndex": 0,
+                      "parallelIndex": 0,
+                      "status": "passed",
+                      "duration": 469,
+                      "errors": [],
+                      "stdout": [],
+                      "stderr": [],
+                      "retry": 0,
+                      "startTime": "2026-03-01T16:17:45.867Z",
+                      "annotations": [
+                        {
+                          "type": "e2e",
+                          "description": "Teste de login",
+                          "location": {
+                            "file": "/home/leopaixao/Documentos/Projetos/qa-engineering-lab/tests/playwright/tests/e2e/specs/login.e2e-spec.ts",
+                            "line": 3,
+                            "column": 6
+                          }
+                        }
+                      ],
+                      "attachments": []
+                    }
+                  ],
+                  "status": "expected"
+                }
+              ],
+              "id": "9cf4153117b632f59a24-4d0a75995e3cc02904de",
+              "file": "tests/e2e/specs/login.e2e-spec.ts",
+              "line": 52,
+              "column": 7
+            },
+            {
+              "title": "Deveria ser possível visualizar a mensagem de erro embaixo dos inputs de email e senha quando estão vazios",
+              "ok": true,
+              "tags": [],
+              "tests": [
+                {
+                  "timeout": 30000,
+                  "annotations": [
+                    {
+                      "type": "e2e",
+                      "description": "Teste de login",
+                      "location": {
+                        "file": "/home/leopaixao/Documentos/Projetos/qa-engineering-lab/tests/playwright/tests/e2e/specs/login.e2e-spec.ts",
+                        "line": 3,
+                        "column": 6
+                      }
+                    }
+                  ],
+                  "expectedStatus": "passed",
+                  "projectId": "e2e",
+                  "projectName": "e2e",
+                  "results": [
+                    {
+                      "workerIndex": 1,
+                      "parallelIndex": 1,
+                      "status": "passed",
+                      "duration": 568,
+                      "errors": [],
+                      "stdout": [],
+                      "stderr": [],
+                      "retry": 0,
+                      "startTime": "2026-03-01T16:17:45.958Z",
+                      "annotations": [
+                        {
+                          "type": "e2e",
+                          "description": "Teste de login",
+                          "location": {
+                            "file": "/home/leopaixao/Documentos/Projetos/qa-engineering-lab/tests/playwright/tests/e2e/specs/login.e2e-spec.ts",
+                            "line": 3,
+                            "column": 6
+                          }
+                        }
+                      ],
+                      "attachments": []
+                    }
+                  ],
+                  "status": "expected"
+                }
+              ],
+              "id": "9cf4153117b632f59a24-f38a6a1b8b856e9e18d4",
+              "file": "tests/e2e/specs/login.e2e-spec.ts",
+              "line": 59,
+              "column": 7
+            },
+            {
+              "title": "Deveria ser possível ir para a tela de cadastro",
+              "ok": true,
+              "tags": [],
+              "tests": [
+                {
+                  "timeout": 30000,
+                  "annotations": [
+                    {
+                      "type": "e2e",
+                      "description": "Teste de login",
+                      "location": {
+                        "file": "/home/leopaixao/Documentos/Projetos/qa-engineering-lab/tests/playwright/tests/e2e/specs/login.e2e-spec.ts",
+                        "line": 3,
+                        "column": 6
+                      }
+                    }
+                  ],
+                  "expectedStatus": "passed",
+                  "projectId": "e2e",
+                  "projectName": "e2e",
+                  "results": [
+                    {
+                      "workerIndex": 0,
+                      "parallelIndex": 0,
+                      "status": "passed",
+                      "duration": 637,
+                      "errors": [],
+                      "stdout": [],
+                      "stderr": [],
+                      "retry": 0,
+                      "startTime": "2026-03-01T16:17:46.386Z",
+                      "annotations": [
+                        {
+                          "type": "e2e",
+                          "description": "Teste de login",
+                          "location": {
+                            "file": "/home/leopaixao/Documentos/Projetos/qa-engineering-lab/tests/playwright/tests/e2e/specs/login.e2e-spec.ts",
+                            "line": 3,
+                            "column": 6
+                          }
+                        }
+                      ],
+                      "attachments": []
+                    }
+                  ],
+                  "status": "expected"
+                }
+              ],
+              "id": "9cf4153117b632f59a24-241f3399d9da85ab53d4",
+              "file": "tests/e2e/specs/login.e2e-spec.ts",
+              "line": 72,
+              "column": 7
+            },
+            {
+              "title": "Deveria ser possível ir para a tela de esqueci a senha",
+              "ok": true,
+              "tags": [],
+              "tests": [
+                {
+                  "timeout": 30000,
+                  "annotations": [
+                    {
+                      "type": "e2e",
+                      "description": "Teste de login",
+                      "location": {
+                        "file": "/home/leopaixao/Documentos/Projetos/qa-engineering-lab/tests/playwright/tests/e2e/specs/login.e2e-spec.ts",
+                        "line": 3,
+                        "column": 6
+                      }
+                    }
+                  ],
+                  "expectedStatus": "passed",
+                  "projectId": "e2e",
+                  "projectName": "e2e",
+                  "results": [
+                    {
+                      "workerIndex": 1,
+                      "parallelIndex": 1,
+                      "status": "passed",
+                      "duration": 513,
+                      "errors": [],
+                      "stdout": [],
+                      "stderr": [],
+                      "retry": 0,
+                      "startTime": "2026-03-01T16:17:46.571Z",
+                      "annotations": [
+                        {
+                          "type": "e2e",
+                          "description": "Teste de login",
+                          "location": {
+                            "file": "/home/leopaixao/Documentos/Projetos/qa-engineering-lab/tests/playwright/tests/e2e/specs/login.e2e-spec.ts",
+                            "line": 3,
+                            "column": 6
+                          }
+                        }
+                      ],
+                      "attachments": []
+                    }
+                  ],
+                  "status": "expected"
+                }
+              ],
+              "id": "9cf4153117b632f59a24-9d85d11d49f57a8a4d08",
+              "file": "tests/e2e/specs/login.e2e-spec.ts",
+              "line": 81,
+              "column": 7
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "title": "tests/e2e/specs/profile.e2e-spec.ts",
+      "file": "tests/e2e/specs/profile.e2e-spec.ts",
+      "column": 0,
+      "line": 0,
+      "specs": [],
+      "suites": [
+        {
+          "title": "Tela de Perfil",
+          "file": "tests/e2e/specs/profile.e2e-spec.ts",
+          "line": 5,
+          "column": 6,
+          "specs": [
+            {
+              "title": "Deveria ser possível visualizar os elementos da tela de Perfil",
+              "ok": true,
+              "tags": [],
+              "tests": [
+                {
+                  "timeout": 30000,
+                  "annotations": [
+                    {
+                      "type": "e2e",
+                      "description": "Teste de perfil",
+                      "location": {
+                        "file": "/home/leopaixao/Documentos/Projetos/qa-engineering-lab/tests/playwright/tests/e2e/specs/profile.e2e-spec.ts",
+                        "line": 5,
+                        "column": 6
+                      }
+                    }
+                  ],
+                  "expectedStatus": "passed",
+                  "projectId": "e2e",
+                  "projectName": "e2e",
+                  "results": [
+                    {
+                      "workerIndex": 0,
+                      "parallelIndex": 0,
+                      "status": "passed",
+                      "duration": 844,
+                      "errors": [],
+                      "stdout": [],
+                      "stderr": [],
+                      "retry": 0,
+                      "startTime": "2026-03-01T16:17:47.087Z",
+                      "annotations": [
+                        {
+                          "type": "e2e",
+                          "description": "Teste de perfil",
+                          "location": {
+                            "file": "/home/leopaixao/Documentos/Projetos/qa-engineering-lab/tests/playwright/tests/e2e/specs/profile.e2e-spec.ts",
+                            "line": 5,
+                            "column": 6
+                          }
+                        }
+                      ],
+                      "attachments": []
+                    }
+                  ],
+                  "status": "expected"
+                }
+              ],
+              "id": "b62f3fdda5419d3b979f-b147b72554bc63e37af7",
+              "file": "tests/e2e/specs/profile.e2e-spec.ts",
+              "line": 14,
+              "column": 7
+            },
+            {
+              "title": "Não deveria ser possível salvar a alteração sem colocar algum dado no Nome Completo",
+              "ok": true,
+              "tags": [],
+              "tests": [
+                {
+                  "timeout": 30000,
+                  "annotations": [
+                    {
+                      "type": "e2e",
+                      "description": "Teste de perfil",
+                      "location": {
+                        "file": "/home/leopaixao/Documentos/Projetos/qa-engineering-lab/tests/playwright/tests/e2e/specs/profile.e2e-spec.ts",
+                        "line": 5,
+                        "column": 6
+                      }
+                    }
+                  ],
+                  "expectedStatus": "passed",
+                  "projectId": "e2e",
+                  "projectName": "e2e",
+                  "results": [
+                    {
+                      "workerIndex": 1,
+                      "parallelIndex": 1,
+                      "status": "passed",
+                      "duration": 1002,
+                      "errors": [],
+                      "stdout": [],
+                      "stderr": [],
+                      "retry": 0,
+                      "startTime": "2026-03-01T16:17:47.130Z",
+                      "annotations": [
+                        {
+                          "type": "e2e",
+                          "description": "Teste de perfil",
+                          "location": {
+                            "file": "/home/leopaixao/Documentos/Projetos/qa-engineering-lab/tests/playwright/tests/e2e/specs/profile.e2e-spec.ts",
+                            "line": 5,
+                            "column": 6
+                          }
+                        }
+                      ],
+                      "attachments": []
+                    }
+                  ],
+                  "status": "expected"
+                }
+              ],
+              "id": "b62f3fdda5419d3b979f-25eaba63ff36492c6472",
+              "file": "tests/e2e/specs/profile.e2e-spec.ts",
+              "line": 21,
+              "column": 7
+            },
+            {
+              "title": "Não deveria ser possível salvar a alteração com apenas o nome",
+              "ok": true,
+              "tags": [],
+              "tests": [
+                {
+                  "timeout": 30000,
+                  "annotations": [
+                    {
+                      "type": "e2e",
+                      "description": "Teste de perfil",
+                      "location": {
+                        "file": "/home/leopaixao/Documentos/Projetos/qa-engineering-lab/tests/playwright/tests/e2e/specs/profile.e2e-spec.ts",
+                        "line": 5,
+                        "column": 6
+                      }
+                    }
+                  ],
+                  "expectedStatus": "passed",
+                  "projectId": "e2e",
+                  "projectName": "e2e",
+                  "results": [
+                    {
+                      "workerIndex": 0,
+                      "parallelIndex": 0,
+                      "status": "passed",
+                      "duration": 1026,
+                      "errors": [],
+                      "stdout": [],
+                      "stderr": [],
+                      "retry": 0,
+                      "startTime": "2026-03-01T16:17:47.975Z",
+                      "annotations": [
+                        {
+                          "type": "e2e",
+                          "description": "Teste de perfil",
+                          "location": {
+                            "file": "/home/leopaixao/Documentos/Projetos/qa-engineering-lab/tests/playwright/tests/e2e/specs/profile.e2e-spec.ts",
+                            "line": 5,
+                            "column": 6
+                          }
+                        }
+                      ],
+                      "attachments": []
+                    }
+                  ],
+                  "status": "expected"
+                }
+              ],
+              "id": "b62f3fdda5419d3b979f-49d24208c8b68e5f31e7",
+              "file": "tests/e2e/specs/profile.e2e-spec.ts",
+              "line": 28,
+              "column": 7
+            },
+            {
+              "title": "Não deveria ser possível salvar a alteração com letras no telefone",
+              "ok": true,
+              "tags": [],
+              "tests": [
+                {
+                  "timeout": 30000,
+                  "annotations": [
+                    {
+                      "type": "e2e",
+                      "description": "Teste de perfil",
+                      "location": {
+                        "file": "/home/leopaixao/Documentos/Projetos/qa-engineering-lab/tests/playwright/tests/e2e/specs/profile.e2e-spec.ts",
+                        "line": 5,
+                        "column": 6
+                      }
+                    }
+                  ],
+                  "expectedStatus": "passed",
+                  "projectId": "e2e",
+                  "projectName": "e2e",
+                  "results": [
+                    {
+                      "workerIndex": 1,
+                      "parallelIndex": 1,
+                      "status": "passed",
+                      "duration": 841,
+                      "errors": [],
+                      "stdout": [],
+                      "stderr": [],
+                      "retry": 0,
+                      "startTime": "2026-03-01T16:17:48.175Z",
+                      "annotations": [
+                        {
+                          "type": "e2e",
+                          "description": "Teste de perfil",
+                          "location": {
+                            "file": "/home/leopaixao/Documentos/Projetos/qa-engineering-lab/tests/playwright/tests/e2e/specs/profile.e2e-spec.ts",
+                            "line": 5,
+                            "column": 6
+                          }
+                        }
+                      ],
+                      "attachments": []
+                    }
+                  ],
+                  "status": "expected"
+                }
+              ],
+              "id": "b62f3fdda5419d3b979f-eb99b8dcf3c7cf316cf6",
+              "file": "tests/e2e/specs/profile.e2e-spec.ts",
+              "line": 35,
+              "column": 7
+            },
+            {
+              "title": "Não deveria ser possível salvar a alteração com mais de 11 dígitos no telefone",
+              "ok": true,
+              "tags": [],
+              "tests": [
+                {
+                  "timeout": 30000,
+                  "annotations": [
+                    {
+                      "type": "e2e",
+                      "description": "Teste de perfil",
+                      "location": {
+                        "file": "/home/leopaixao/Documentos/Projetos/qa-engineering-lab/tests/playwright/tests/e2e/specs/profile.e2e-spec.ts",
+                        "line": 5,
+                        "column": 6
+                      }
+                    }
+                  ],
+                  "expectedStatus": "passed",
+                  "projectId": "e2e",
+                  "projectName": "e2e",
+                  "results": [
+                    {
+                      "workerIndex": 0,
+                      "parallelIndex": 0,
+                      "status": "passed",
+                      "duration": 905,
+                      "errors": [],
+                      "stdout": [],
+                      "stderr": [],
+                      "retry": 0,
+                      "startTime": "2026-03-01T16:17:49.047Z",
+                      "annotations": [
+                        {
+                          "type": "e2e",
+                          "description": "Teste de perfil",
+                          "location": {
+                            "file": "/home/leopaixao/Documentos/Projetos/qa-engineering-lab/tests/playwright/tests/e2e/specs/profile.e2e-spec.ts",
+                            "line": 5,
+                            "column": 6
+                          }
+                        }
+                      ],
+                      "attachments": []
+                    }
+                  ],
+                  "status": "expected"
+                }
+              ],
+              "id": "b62f3fdda5419d3b979f-c2f8cf98eccf91119b80",
+              "file": "tests/e2e/specs/profile.e2e-spec.ts",
+              "line": 42,
+              "column": 7
+            },
+            {
+              "title": "Não deveria ser possível salvar a alteração com menos de 10 dígitos no telefone",
+              "ok": true,
+              "tags": [],
+              "tests": [
+                {
+                  "timeout": 30000,
+                  "annotations": [
+                    {
+                      "type": "e2e",
+                      "description": "Teste de perfil",
+                      "location": {
+                        "file": "/home/leopaixao/Documentos/Projetos/qa-engineering-lab/tests/playwright/tests/e2e/specs/profile.e2e-spec.ts",
+                        "line": 5,
+                        "column": 6
+                      }
+                    }
+                  ],
+                  "expectedStatus": "passed",
+                  "projectId": "e2e",
+                  "projectName": "e2e",
+                  "results": [
+                    {
+                      "workerIndex": 1,
+                      "parallelIndex": 1,
+                      "status": "passed",
+                      "duration": 1033,
+                      "errors": [],
+                      "stdout": [],
+                      "stderr": [],
+                      "retry": 0,
+                      "startTime": "2026-03-01T16:17:49.067Z",
+                      "annotations": [
+                        {
+                          "type": "e2e",
+                          "description": "Teste de perfil",
+                          "location": {
+                            "file": "/home/leopaixao/Documentos/Projetos/qa-engineering-lab/tests/playwright/tests/e2e/specs/profile.e2e-spec.ts",
+                            "line": 5,
+                            "column": 6
+                          }
+                        }
+                      ],
+                      "attachments": []
+                    }
+                  ],
+                  "status": "expected"
+                }
+              ],
+              "id": "b62f3fdda5419d3b979f-90bcfb44e212f503d5c9",
+              "file": "tests/e2e/specs/profile.e2e-spec.ts",
+              "line": 49,
+              "column": 7
+            },
+            {
+              "title": "Deveria ser possível salvar a alteração",
+              "ok": true,
+              "tags": [],
+              "tests": [
+                {
+                  "timeout": 30000,
+                  "annotations": [
+                    {
+                      "type": "e2e",
+                      "description": "Teste de perfil",
+                      "location": {
+                        "file": "/home/leopaixao/Documentos/Projetos/qa-engineering-lab/tests/playwright/tests/e2e/specs/profile.e2e-spec.ts",
+                        "line": 5,
+                        "column": 6
+                      }
+                    }
+                  ],
+                  "expectedStatus": "passed",
+                  "projectId": "e2e",
+                  "projectName": "e2e",
+                  "results": [
+                    {
+                      "workerIndex": 0,
+                      "parallelIndex": 0,
+                      "status": "passed",
+                      "duration": 1031,
+                      "errors": [],
+                      "stdout": [],
+                      "stderr": [],
+                      "retry": 0,
+                      "startTime": "2026-03-01T16:17:50.000Z",
+                      "annotations": [
+                        {
+                          "type": "e2e",
+                          "description": "Teste de perfil",
+                          "location": {
+                            "file": "/home/leopaixao/Documentos/Projetos/qa-engineering-lab/tests/playwright/tests/e2e/specs/profile.e2e-spec.ts",
+                            "line": 5,
+                            "column": 6
+                          }
+                        }
+                      ],
+                      "attachments": []
+                    }
+                  ],
+                  "status": "expected"
+                }
+              ],
+              "id": "b62f3fdda5419d3b979f-27211ec47c330028814b",
+              "file": "tests/e2e/specs/profile.e2e-spec.ts",
+              "line": 56,
+              "column": 7
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "title": "tests/e2e/specs/recoverPassword.e2e-spec.ts",
+      "file": "tests/e2e/specs/recoverPassword.e2e-spec.ts",
+      "column": 0,
+      "line": 0,
+      "specs": [],
+      "suites": [
+        {
+          "title": "Tela de Recuperação de Senha",
+          "file": "tests/e2e/specs/recoverPassword.e2e-spec.ts",
+          "line": 3,
+          "column": 6,
+          "specs": [
+            {
+              "title": "Deveria ser possível visualizar os elementos da tela de Recuperação de Senha",
+              "ok": true,
+              "tags": [],
+              "tests": [
+                {
+                  "timeout": 30000,
+                  "annotations": [
+                    {
+                      "type": "e2e",
+                      "description": "Teste de recuperação de senha",
+                      "location": {
+                        "file": "/home/leopaixao/Documentos/Projetos/qa-engineering-lab/tests/playwright/tests/e2e/specs/recoverPassword.e2e-spec.ts",
+                        "line": 3,
+                        "column": 6
+                      }
+                    }
+                  ],
+                  "expectedStatus": "passed",
+                  "projectId": "e2e",
+                  "projectName": "e2e",
+                  "results": [
+                    {
+                      "workerIndex": 1,
+                      "parallelIndex": 1,
+                      "status": "passed",
+                      "duration": 381,
+                      "errors": [],
+                      "stdout": [],
+                      "stderr": [],
+                      "retry": 0,
+                      "startTime": "2026-03-01T16:17:50.145Z",
+                      "annotations": [
+                        {
+                          "type": "e2e",
+                          "description": "Teste de recuperação de senha",
+                          "location": {
+                            "file": "/home/leopaixao/Documentos/Projetos/qa-engineering-lab/tests/playwright/tests/e2e/specs/recoverPassword.e2e-spec.ts",
+                            "line": 3,
+                            "column": 6
+                          }
+                        }
+                      ],
+                      "attachments": []
+                    }
+                  ],
+                  "status": "expected"
+                }
+              ],
+              "id": "2a35b06586c66357f6f2-d091deae04069c39d56a",
+              "file": "tests/e2e/specs/recoverPassword.e2e-spec.ts",
+              "line": 11,
+              "column": 7
+            },
+            {
+              "title": "Não deveria ser possível aparecer o toast de feedback para usuário apenas clicando no botão",
+              "ok": true,
+              "tags": [],
+              "tests": [
+                {
+                  "timeout": 30000,
+                  "annotations": [
+                    {
+                      "type": "e2e",
+                      "description": "Teste de recuperação de senha",
+                      "location": {
+                        "file": "/home/leopaixao/Documentos/Projetos/qa-engineering-lab/tests/playwright/tests/e2e/specs/recoverPassword.e2e-spec.ts",
+                        "line": 3,
+                        "column": 6
+                      }
+                    }
+                  ],
+                  "expectedStatus": "passed",
+                  "projectId": "e2e",
+                  "projectName": "e2e",
+                  "results": [
+                    {
+                      "workerIndex": 1,
+                      "parallelIndex": 1,
+                      "status": "passed",
+                      "duration": 419,
+                      "errors": [],
+                      "stdout": [],
+                      "stderr": [],
+                      "retry": 0,
+                      "startTime": "2026-03-01T16:17:50.562Z",
+                      "annotations": [
+                        {
+                          "type": "e2e",
+                          "description": "Teste de recuperação de senha",
+                          "location": {
+                            "file": "/home/leopaixao/Documentos/Projetos/qa-engineering-lab/tests/playwright/tests/e2e/specs/recoverPassword.e2e-spec.ts",
+                            "line": 3,
+                            "column": 6
+                          }
+                        }
+                      ],
+                      "attachments": []
+                    }
+                  ],
+                  "status": "expected"
+                }
+              ],
+              "id": "2a35b06586c66357f6f2-809a6918158f207894b9",
+              "file": "tests/e2e/specs/recoverPassword.e2e-spec.ts",
+              "line": 18,
+              "column": 7
+            },
+            {
+              "title": "Deveria ser possível aparecer um toast de feedback caso coloque um email inválido",
+              "ok": true,
+              "tags": [],
+              "tests": [
+                {
+                  "timeout": 30000,
+                  "annotations": [
+                    {
+                      "type": "e2e",
+                      "description": "Teste de recuperação de senha",
+                      "location": {
+                        "file": "/home/leopaixao/Documentos/Projetos/qa-engineering-lab/tests/playwright/tests/e2e/specs/recoverPassword.e2e-spec.ts",
+                        "line": 3,
+                        "column": 6
+                      }
+                    }
+                  ],
+                  "expectedStatus": "passed",
+                  "projectId": "e2e",
+                  "projectName": "e2e",
+                  "results": [
+                    {
+                      "workerIndex": 1,
+                      "parallelIndex": 1,
+                      "status": "passed",
+                      "duration": 580,
+                      "errors": [],
+                      "stdout": [],
+                      "stderr": [],
+                      "retry": 0,
+                      "startTime": "2026-03-01T16:17:51.013Z",
+                      "annotations": [
+                        {
+                          "type": "e2e",
+                          "description": "Teste de recuperação de senha",
+                          "location": {
+                            "file": "/home/leopaixao/Documentos/Projetos/qa-engineering-lab/tests/playwright/tests/e2e/specs/recoverPassword.e2e-spec.ts",
+                            "line": 3,
+                            "column": 6
+                          }
+                        }
+                      ],
+                      "attachments": []
+                    }
+                  ],
+                  "status": "expected"
+                }
+              ],
+              "id": "2a35b06586c66357f6f2-57fc30ffdf16ef5681a0",
+              "file": "tests/e2e/specs/recoverPassword.e2e-spec.ts",
+              "line": 24,
+              "column": 7
+            },
+            {
+              "title": "Deveria ser possível enviar o email de recuperação de senha",
+              "ok": true,
+              "tags": [],
+              "tests": [
+                {
+                  "timeout": 30000,
+                  "annotations": [
+                    {
+                      "type": "e2e",
+                      "description": "Teste de recuperação de senha",
+                      "location": {
+                        "file": "/home/leopaixao/Documentos/Projetos/qa-engineering-lab/tests/playwright/tests/e2e/specs/recoverPassword.e2e-spec.ts",
+                        "line": 3,
+                        "column": 6
+                      }
+                    }
+                  ],
+                  "expectedStatus": "passed",
+                  "projectId": "e2e",
+                  "projectName": "e2e",
+                  "results": [
+                    {
+                      "workerIndex": 0,
+                      "parallelIndex": 0,
+                      "status": "passed",
+                      "duration": 695,
+                      "errors": [],
+                      "stdout": [],
+                      "stderr": [],
+                      "retry": 0,
+                      "startTime": "2026-03-01T16:17:51.075Z",
+                      "annotations": [
+                        {
+                          "type": "e2e",
+                          "description": "Teste de recuperação de senha",
+                          "location": {
+                            "file": "/home/leopaixao/Documentos/Projetos/qa-engineering-lab/tests/playwright/tests/e2e/specs/recoverPassword.e2e-spec.ts",
+                            "line": 3,
+                            "column": 6
+                          }
+                        }
+                      ],
+                      "attachments": []
+                    }
+                  ],
+                  "status": "expected"
+                }
+              ],
+              "id": "2a35b06586c66357f6f2-1e0f6a5eb12521579977",
+              "file": "tests/e2e/specs/recoverPassword.e2e-spec.ts",
+              "line": 31,
+              "column": 7
+            },
+            {
+              "title": "Deveria ser possível voltar para a tela de login pelo link",
+              "ok": true,
+              "tags": [],
+              "tests": [
+                {
+                  "timeout": 30000,
+                  "annotations": [
+                    {
+                      "type": "e2e",
+                      "description": "Teste de recuperação de senha",
+                      "location": {
+                        "file": "/home/leopaixao/Documentos/Projetos/qa-engineering-lab/tests/playwright/tests/e2e/specs/recoverPassword.e2e-spec.ts",
+                        "line": 3,
+                        "column": 6
+                      }
+                    }
+                  ],
+                  "expectedStatus": "passed",
+                  "projectId": "e2e",
+                  "projectName": "e2e",
+                  "results": [
+                    {
+                      "workerIndex": 1,
+                      "parallelIndex": 1,
+                      "status": "passed",
+                      "duration": 598,
+                      "errors": [],
+                      "stdout": [],
+                      "stderr": [],
+                      "retry": 0,
+                      "startTime": "2026-03-01T16:17:51.619Z",
+                      "annotations": [
+                        {
+                          "type": "e2e",
+                          "description": "Teste de recuperação de senha",
+                          "location": {
+                            "file": "/home/leopaixao/Documentos/Projetos/qa-engineering-lab/tests/playwright/tests/e2e/specs/recoverPassword.e2e-spec.ts",
+                            "line": 3,
+                            "column": 6
+                          }
+                        }
+                      ],
+                      "attachments": []
+                    }
+                  ],
+                  "status": "expected"
+                }
+              ],
+              "id": "2a35b06586c66357f6f2-8d0219aafe1fa6a42eef",
+              "file": "tests/e2e/specs/recoverPassword.e2e-spec.ts",
+              "line": 38,
+              "column": 7
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "title": "tests/e2e/specs/registerUser.e2e-spec.ts",
+      "file": "tests/e2e/specs/registerUser.e2e-spec.ts",
+      "column": 0,
+      "line": 0,
+      "specs": [],
+      "suites": [
+        {
+          "title": "Tela de Cadastro de Usuários",
+          "file": "tests/e2e/specs/registerUser.e2e-spec.ts",
+          "line": 5,
+          "column": 6,
+          "specs": [
+            {
+              "title": "Deveria ser possivel visualizar os elementos da tela de cadastro",
+              "ok": true,
+              "tags": [],
+              "tests": [
+                {
+                  "timeout": 30000,
+                  "annotations": [
+                    {
+                      "type": "e2e",
+                      "description": "Teste de cadastro de usuário",
+                      "location": {
+                        "file": "/home/leopaixao/Documentos/Projetos/qa-engineering-lab/tests/playwright/tests/e2e/specs/registerUser.e2e-spec.ts",
+                        "line": 5,
+                        "column": 6
+                      }
+                    }
+                  ],
+                  "expectedStatus": "passed",
+                  "projectId": "e2e",
+                  "projectName": "e2e",
+                  "results": [
+                    {
+                      "workerIndex": 0,
+                      "parallelIndex": 0,
+                      "status": "passed",
+                      "duration": 436,
+                      "errors": [],
+                      "stdout": [],
+                      "stderr": [],
+                      "retry": 0,
+                      "startTime": "2026-03-01T16:17:51.825Z",
+                      "annotations": [
+                        {
+                          "type": "e2e",
+                          "description": "Teste de cadastro de usuário",
+                          "location": {
+                            "file": "/home/leopaixao/Documentos/Projetos/qa-engineering-lab/tests/playwright/tests/e2e/specs/registerUser.e2e-spec.ts",
+                            "line": 5,
+                            "column": 6
+                          }
+                        }
+                      ],
+                      "attachments": []
+                    }
+                  ],
+                  "status": "expected"
+                }
+              ],
+              "id": "ccfc9b8391e0326a24d5-50bf32a2da24c3acc829",
+              "file": "tests/e2e/specs/registerUser.e2e-spec.ts",
+              "line": 13,
+              "column": 7
+            },
+            {
+              "title": "Não deveria ser possivel criar o usuário com o Nome Completo errado",
+              "ok": true,
+              "tags": [],
+              "tests": [
+                {
+                  "timeout": 30000,
+                  "annotations": [
+                    {
+                      "type": "e2e",
+                      "description": "Teste de cadastro de usuário",
+                      "location": {
+                        "file": "/home/leopaixao/Documentos/Projetos/qa-engineering-lab/tests/playwright/tests/e2e/specs/registerUser.e2e-spec.ts",
+                        "line": 5,
+                        "column": 6
+                      }
+                    }
+                  ],
+                  "expectedStatus": "passed",
+                  "projectId": "e2e",
+                  "projectName": "e2e",
+                  "results": [
+                    {
+                      "workerIndex": 1,
+                      "parallelIndex": 1,
+                      "status": "passed",
+                      "duration": 421,
+                      "errors": [],
+                      "stdout": [],
+                      "stderr": [],
+                      "retry": 0,
+                      "startTime": "2026-03-01T16:17:52.261Z",
+                      "annotations": [
+                        {
+                          "type": "e2e",
+                          "description": "Teste de cadastro de usuário",
+                          "location": {
+                            "file": "/home/leopaixao/Documentos/Projetos/qa-engineering-lab/tests/playwright/tests/e2e/specs/registerUser.e2e-spec.ts",
+                            "line": 5,
+                            "column": 6
+                          }
+                        }
+                      ],
+                      "attachments": []
+                    }
+                  ],
+                  "status": "expected"
+                }
+              ],
+              "id": "ccfc9b8391e0326a24d5-faccd17071d7acdb96a4",
+              "file": "tests/e2e/specs/registerUser.e2e-spec.ts",
+              "line": 20,
+              "column": 7
+            },
+            {
+              "title": "Não deveria ser possivel criar o usuário com o CPF inválido",
+              "ok": true,
+              "tags": [],
+              "tests": [
+                {
+                  "timeout": 30000,
+                  "annotations": [
+                    {
+                      "type": "e2e",
+                      "description": "Teste de cadastro de usuário",
+                      "location": {
+                        "file": "/home/leopaixao/Documentos/Projetos/qa-engineering-lab/tests/playwright/tests/e2e/specs/registerUser.e2e-spec.ts",
+                        "line": 5,
+                        "column": 6
+                      }
+                    }
+                  ],
+                  "expectedStatus": "passed",
+                  "projectId": "e2e",
+                  "projectName": "e2e",
+                  "results": [
+                    {
+                      "workerIndex": 0,
+                      "parallelIndex": 0,
+                      "status": "passed",
+                      "duration": 468,
+                      "errors": [],
+                      "stdout": [],
+                      "stderr": [],
+                      "retry": 0,
+                      "startTime": "2026-03-01T16:17:52.293Z",
+                      "annotations": [
+                        {
+                          "type": "e2e",
+                          "description": "Teste de cadastro de usuário",
+                          "location": {
+                            "file": "/home/leopaixao/Documentos/Projetos/qa-engineering-lab/tests/playwright/tests/e2e/specs/registerUser.e2e-spec.ts",
+                            "line": 5,
+                            "column": 6
+                          }
+                        }
+                      ],
+                      "attachments": []
+                    }
+                  ],
+                  "status": "expected"
+                }
+              ],
+              "id": "ccfc9b8391e0326a24d5-184c95d75c2412824d83",
+              "file": "tests/e2e/specs/registerUser.e2e-spec.ts",
+              "line": 26,
+              "column": 7
+            },
+            {
+              "title": "Não deveria ser possivel criar o usuário com o CNPJ inválido",
+              "ok": true,
+              "tags": [],
+              "tests": [
+                {
+                  "timeout": 30000,
+                  "annotations": [
+                    {
+                      "type": "e2e",
+                      "description": "Teste de cadastro de usuário",
+                      "location": {
+                        "file": "/home/leopaixao/Documentos/Projetos/qa-engineering-lab/tests/playwright/tests/e2e/specs/registerUser.e2e-spec.ts",
+                        "line": 5,
+                        "column": 6
+                      }
+                    }
+                  ],
+                  "expectedStatus": "passed",
+                  "projectId": "e2e",
+                  "projectName": "e2e",
+                  "results": [
+                    {
+                      "workerIndex": 1,
+                      "parallelIndex": 1,
+                      "status": "passed",
+                      "duration": 449,
+                      "errors": [],
+                      "stdout": [],
+                      "stderr": [],
+                      "retry": 0,
+                      "startTime": "2026-03-01T16:17:52.720Z",
+                      "annotations": [
+                        {
+                          "type": "e2e",
+                          "description": "Teste de cadastro de usuário",
+                          "location": {
+                            "file": "/home/leopaixao/Documentos/Projetos/qa-engineering-lab/tests/playwright/tests/e2e/specs/registerUser.e2e-spec.ts",
+                            "line": 5,
+                            "column": 6
+                          }
+                        }
+                      ],
+                      "attachments": []
+                    }
+                  ],
+                  "status": "expected"
+                }
+              ],
+              "id": "ccfc9b8391e0326a24d5-1391240b6fba928aea6f",
+              "file": "tests/e2e/specs/registerUser.e2e-spec.ts",
+              "line": 32,
+              "column": 7
+            },
+            {
+              "title": "Não deveria ser possivel colocar letras no campo de telefone",
+              "ok": true,
+              "tags": [],
+              "tests": [
+                {
+                  "timeout": 30000,
+                  "annotations": [
+                    {
+                      "type": "e2e",
+                      "description": "Teste de cadastro de usuário",
+                      "location": {
+                        "file": "/home/leopaixao/Documentos/Projetos/qa-engineering-lab/tests/playwright/tests/e2e/specs/registerUser.e2e-spec.ts",
+                        "line": 5,
+                        "column": 6
+                      }
+                    }
+                  ],
+                  "expectedStatus": "passed",
+                  "projectId": "e2e",
+                  "projectName": "e2e",
+                  "results": [
+                    {
+                      "workerIndex": 0,
+                      "parallelIndex": 0,
+                      "status": "passed",
+                      "duration": 484,
+                      "errors": [],
+                      "stdout": [],
+                      "stderr": [],
+                      "retry": 0,
+                      "startTime": "2026-03-01T16:17:52.794Z",
+                      "annotations": [
+                        {
+                          "type": "e2e",
+                          "description": "Teste de cadastro de usuário",
+                          "location": {
+                            "file": "/home/leopaixao/Documentos/Projetos/qa-engineering-lab/tests/playwright/tests/e2e/specs/registerUser.e2e-spec.ts",
+                            "line": 5,
+                            "column": 6
+                          }
+                        }
+                      ],
+                      "attachments": []
+                    }
+                  ],
+                  "status": "expected"
+                }
+              ],
+              "id": "ccfc9b8391e0326a24d5-8f951d2d8db62745be10",
+              "file": "tests/e2e/specs/registerUser.e2e-spec.ts",
+              "line": 39,
+              "column": 7
+            },
+            {
+              "title": "Não deveria ser possivel colocar mais do que 11 dígitos no campo de telefone",
+              "ok": true,
+              "tags": [],
+              "tests": [
+                {
+                  "timeout": 30000,
+                  "annotations": [
+                    {
+                      "type": "e2e",
+                      "description": "Teste de cadastro de usuário",
+                      "location": {
+                        "file": "/home/leopaixao/Documentos/Projetos/qa-engineering-lab/tests/playwright/tests/e2e/specs/registerUser.e2e-spec.ts",
+                        "line": 5,
+                        "column": 6
+                      }
+                    }
+                  ],
+                  "expectedStatus": "passed",
+                  "projectId": "e2e",
+                  "projectName": "e2e",
+                  "results": [
+                    {
+                      "workerIndex": 1,
+                      "parallelIndex": 1,
+                      "status": "passed",
+                      "duration": 455,
+                      "errors": [],
+                      "stdout": [],
+                      "stderr": [],
+                      "retry": 0,
+                      "startTime": "2026-03-01T16:17:53.199Z",
+                      "annotations": [
+                        {
+                          "type": "e2e",
+                          "description": "Teste de cadastro de usuário",
+                          "location": {
+                            "file": "/home/leopaixao/Documentos/Projetos/qa-engineering-lab/tests/playwright/tests/e2e/specs/registerUser.e2e-spec.ts",
+                            "line": 5,
+                            "column": 6
+                          }
+                        }
+                      ],
+                      "attachments": []
+                    }
+                  ],
+                  "status": "expected"
+                }
+              ],
+              "id": "ccfc9b8391e0326a24d5-053de7e62b5fdd748712",
+              "file": "tests/e2e/specs/registerUser.e2e-spec.ts",
+              "line": 45,
+              "column": 7
+            },
+            {
+              "title": "Não deveria ser possivel colocar menos do que 10 dígitos no campo de telefone",
+              "ok": true,
+              "tags": [],
+              "tests": [
+                {
+                  "timeout": 30000,
+                  "annotations": [
+                    {
+                      "type": "e2e",
+                      "description": "Teste de cadastro de usuário",
+                      "location": {
+                        "file": "/home/leopaixao/Documentos/Projetos/qa-engineering-lab/tests/playwright/tests/e2e/specs/registerUser.e2e-spec.ts",
+                        "line": 5,
+                        "column": 6
+                      }
+                    }
+                  ],
+                  "expectedStatus": "passed",
+                  "projectId": "e2e",
+                  "projectName": "e2e",
+                  "results": [
+                    {
+                      "workerIndex": 0,
+                      "parallelIndex": 0,
+                      "status": "passed",
+                      "duration": 453,
+                      "errors": [],
+                      "stdout": [],
+                      "stderr": [],
+                      "retry": 0,
+                      "startTime": "2026-03-01T16:17:53.309Z",
+                      "annotations": [
+                        {
+                          "type": "e2e",
+                          "description": "Teste de cadastro de usuário",
+                          "location": {
+                            "file": "/home/leopaixao/Documentos/Projetos/qa-engineering-lab/tests/playwright/tests/e2e/specs/registerUser.e2e-spec.ts",
+                            "line": 5,
+                            "column": 6
+                          }
+                        }
+                      ],
+                      "attachments": []
+                    }
+                  ],
+                  "status": "expected"
+                }
+              ],
+              "id": "ccfc9b8391e0326a24d5-d3871d5ca4e89db2ca59",
+              "file": "tests/e2e/specs/registerUser.e2e-spec.ts",
+              "line": 51,
+              "column": 7
+            },
+            {
+              "title": "Não deveria ser possivel criar o usuário com o email inválido",
+              "ok": true,
+              "tags": [],
+              "tests": [
+                {
+                  "timeout": 30000,
+                  "annotations": [
+                    {
+                      "type": "e2e",
+                      "description": "Teste de cadastro de usuário",
+                      "location": {
+                        "file": "/home/leopaixao/Documentos/Projetos/qa-engineering-lab/tests/playwright/tests/e2e/specs/registerUser.e2e-spec.ts",
+                        "line": 5,
+                        "column": 6
+                      }
+                    }
+                  ],
+                  "expectedStatus": "passed",
+                  "projectId": "e2e",
+                  "projectName": "e2e",
+                  "results": [
+                    {
+                      "workerIndex": 1,
+                      "parallelIndex": 1,
+                      "status": "passed",
+                      "duration": 430,
+                      "errors": [],
+                      "stdout": [],
+                      "stderr": [],
+                      "retry": 0,
+                      "startTime": "2026-03-01T16:17:53.699Z",
+                      "annotations": [
+                        {
+                          "type": "e2e",
+                          "description": "Teste de cadastro de usuário",
+                          "location": {
+                            "file": "/home/leopaixao/Documentos/Projetos/qa-engineering-lab/tests/playwright/tests/e2e/specs/registerUser.e2e-spec.ts",
+                            "line": 5,
+                            "column": 6
+                          }
+                        }
+                      ],
+                      "attachments": []
+                    }
+                  ],
+                  "status": "expected"
+                }
+              ],
+              "id": "ccfc9b8391e0326a24d5-3db25735e3b3ea7790a3",
+              "file": "tests/e2e/specs/registerUser.e2e-spec.ts",
+              "line": 57,
+              "column": 7
+            },
+            {
+              "title": "Não deveria ser possivel criar o usuário com uma senha com menos de 6 caracteres",
+              "ok": true,
+              "tags": [],
+              "tests": [
+                {
+                  "timeout": 30000,
+                  "annotations": [
+                    {
+                      "type": "e2e",
+                      "description": "Teste de cadastro de usuário",
+                      "location": {
+                        "file": "/home/leopaixao/Documentos/Projetos/qa-engineering-lab/tests/playwright/tests/e2e/specs/registerUser.e2e-spec.ts",
+                        "line": 5,
+                        "column": 6
+                      }
+                    }
+                  ],
+                  "expectedStatus": "passed",
+                  "projectId": "e2e",
+                  "projectName": "e2e",
+                  "results": [
+                    {
+                      "workerIndex": 0,
+                      "parallelIndex": 0,
+                      "status": "passed",
+                      "duration": 407,
+                      "errors": [],
+                      "stdout": [],
+                      "stderr": [],
+                      "retry": 0,
+                      "startTime": "2026-03-01T16:17:53.792Z",
+                      "annotations": [
+                        {
+                          "type": "e2e",
+                          "description": "Teste de cadastro de usuário",
+                          "location": {
+                            "file": "/home/leopaixao/Documentos/Projetos/qa-engineering-lab/tests/playwright/tests/e2e/specs/registerUser.e2e-spec.ts",
+                            "line": 5,
+                            "column": 6
+                          }
+                        }
+                      ],
+                      "attachments": []
+                    }
+                  ],
+                  "status": "expected"
+                }
+              ],
+              "id": "ccfc9b8391e0326a24d5-9e195e44573af0df2256",
+              "file": "tests/e2e/specs/registerUser.e2e-spec.ts",
+              "line": 63,
+              "column": 7
+            },
+            {
+              "title": "Não deveria ser possivel criar o usuário com uma senha com mais de 20 caracteres",
+              "ok": true,
+              "tags": [],
+              "tests": [
+                {
+                  "timeout": 30000,
+                  "annotations": [
+                    {
+                      "type": "e2e",
+                      "description": "Teste de cadastro de usuário",
+                      "location": {
+                        "file": "/home/leopaixao/Documentos/Projetos/qa-engineering-lab/tests/playwright/tests/e2e/specs/registerUser.e2e-spec.ts",
+                        "line": 5,
+                        "column": 6
+                      }
+                    }
+                  ],
+                  "expectedStatus": "passed",
+                  "projectId": "e2e",
+                  "projectName": "e2e",
+                  "results": [
+                    {
+                      "workerIndex": 1,
+                      "parallelIndex": 1,
+                      "status": "passed",
+                      "duration": 458,
+                      "errors": [],
+                      "stdout": [],
+                      "stderr": [],
+                      "retry": 0,
+                      "startTime": "2026-03-01T16:17:54.169Z",
+                      "annotations": [
+                        {
+                          "type": "e2e",
+                          "description": "Teste de cadastro de usuário",
+                          "location": {
+                            "file": "/home/leopaixao/Documentos/Projetos/qa-engineering-lab/tests/playwright/tests/e2e/specs/registerUser.e2e-spec.ts",
+                            "line": 5,
+                            "column": 6
+                          }
+                        }
+                      ],
+                      "attachments": []
+                    }
+                  ],
+                  "status": "expected"
+                }
+              ],
+              "id": "ccfc9b8391e0326a24d5-33d981c004adf9f43ff1",
+              "file": "tests/e2e/specs/registerUser.e2e-spec.ts",
+              "line": 69,
+              "column": 7
+            },
+            {
+              "title": "Deveria ser possível visualizar os erros embaixo dos inputs ao adicionar um valor e remover",
+              "ok": true,
+              "tags": [],
+              "tests": [
+                {
+                  "timeout": 30000,
+                  "annotations": [
+                    {
+                      "type": "e2e",
+                      "description": "Teste de cadastro de usuário",
+                      "location": {
+                        "file": "/home/leopaixao/Documentos/Projetos/qa-engineering-lab/tests/playwright/tests/e2e/specs/registerUser.e2e-spec.ts",
+                        "line": 5,
+                        "column": 6
+                      }
+                    }
+                  ],
+                  "expectedStatus": "passed",
+                  "projectId": "e2e",
+                  "projectName": "e2e",
+                  "results": [
+                    {
+                      "workerIndex": 0,
+                      "parallelIndex": 0,
+                      "status": "passed",
+                      "duration": 648,
+                      "errors": [],
+                      "stdout": [],
+                      "stderr": [],
+                      "retry": 0,
+                      "startTime": "2026-03-01T16:17:54.230Z",
+                      "annotations": [
+                        {
+                          "type": "e2e",
+                          "description": "Teste de cadastro de usuário",
+                          "location": {
+                            "file": "/home/leopaixao/Documentos/Projetos/qa-engineering-lab/tests/playwright/tests/e2e/specs/registerUser.e2e-spec.ts",
+                            "line": 5,
+                            "column": 6
+                          }
+                        }
+                      ],
+                      "attachments": []
+                    }
+                  ],
+                  "status": "expected"
+                }
+              ],
+              "id": "ccfc9b8391e0326a24d5-8c9c46cb8ecfeb87580e",
+              "file": "tests/e2e/specs/registerUser.e2e-spec.ts",
+              "line": 75,
+              "column": 7
+            },
+            {
+              "title": "Deveria ser possível visualizar o erro de senha e senha de confirmação diferentes",
+              "ok": true,
+              "tags": [],
+              "tests": [
+                {
+                  "timeout": 30000,
+                  "annotations": [
+                    {
+                      "type": "e2e",
+                      "description": "Teste de cadastro de usuário",
+                      "location": {
+                        "file": "/home/leopaixao/Documentos/Projetos/qa-engineering-lab/tests/playwright/tests/e2e/specs/registerUser.e2e-spec.ts",
+                        "line": 5,
+                        "column": 6
+                      }
+                    }
+                  ],
+                  "expectedStatus": "passed",
+                  "projectId": "e2e",
+                  "projectName": "e2e",
+                  "results": [
+                    {
+                      "workerIndex": 1,
+                      "parallelIndex": 1,
+                      "status": "passed",
+                      "duration": 466,
+                      "errors": [],
+                      "stdout": [],
+                      "stderr": [],
+                      "retry": 0,
+                      "startTime": "2026-03-01T16:17:54.672Z",
+                      "annotations": [
+                        {
+                          "type": "e2e",
+                          "description": "Teste de cadastro de usuário",
+                          "location": {
+                            "file": "/home/leopaixao/Documentos/Projetos/qa-engineering-lab/tests/playwright/tests/e2e/specs/registerUser.e2e-spec.ts",
+                            "line": 5,
+                            "column": 6
+                          }
+                        }
+                      ],
+                      "attachments": []
+                    }
+                  ],
+                  "status": "expected"
+                }
+              ],
+              "id": "ccfc9b8391e0326a24d5-25002dc2527ced5c50b2",
+              "file": "tests/e2e/specs/registerUser.e2e-spec.ts",
+              "line": 97,
+              "column": 7
+            },
+            {
+              "title": "Deveria ser possivel cadastrar um usuário",
+              "ok": true,
+              "tags": [],
+              "tests": [
+                {
+                  "timeout": 30000,
+                  "annotations": [
+                    {
+                      "type": "e2e",
+                      "description": "Teste de cadastro de usuário",
+                      "location": {
+                        "file": "/home/leopaixao/Documentos/Projetos/qa-engineering-lab/tests/playwright/tests/e2e/specs/registerUser.e2e-spec.ts",
+                        "line": 5,
+                        "column": 6
+                      }
+                    }
+                  ],
+                  "expectedStatus": "passed",
+                  "projectId": "e2e",
+                  "projectName": "e2e",
+                  "results": [
+                    {
+                      "workerIndex": 0,
+                      "parallelIndex": 0,
+                      "status": "passed",
+                      "duration": 954,
+                      "errors": [],
+                      "stdout": [],
+                      "stderr": [],
+                      "retry": 0,
+                      "startTime": "2026-03-01T16:17:54.908Z",
+                      "annotations": [
+                        {
+                          "type": "e2e",
+                          "description": "Teste de cadastro de usuário",
+                          "location": {
+                            "file": "/home/leopaixao/Documentos/Projetos/qa-engineering-lab/tests/playwright/tests/e2e/specs/registerUser.e2e-spec.ts",
+                            "line": 5,
+                            "column": 6
+                          }
+                        }
+                      ],
+                      "attachments": []
+                    }
+                  ],
+                  "status": "expected"
+                }
+              ],
+              "id": "ccfc9b8391e0326a24d5-86084e6e4dbebe934e80",
+              "file": "tests/e2e/specs/registerUser.e2e-spec.ts",
+              "line": 104,
+              "column": 7
+            },
+            {
+              "title": "Deveria ser possivel ir para a tela de login ao clicar no link",
+              "ok": true,
+              "tags": [],
+              "tests": [
+                {
+                  "timeout": 30000,
+                  "annotations": [
+                    {
+                      "type": "e2e",
+                      "description": "Teste de cadastro de usuário",
+                      "location": {
+                        "file": "/home/leopaixao/Documentos/Projetos/qa-engineering-lab/tests/playwright/tests/e2e/specs/registerUser.e2e-spec.ts",
+                        "line": 5,
+                        "column": 6
+                      }
+                    }
+                  ],
+                  "expectedStatus": "passed",
+                  "projectId": "e2e",
+                  "projectName": "e2e",
+                  "results": [
+                    {
+                      "workerIndex": 1,
+                      "parallelIndex": 1,
+                      "status": "passed",
+                      "duration": 495,
+                      "errors": [],
+                      "stdout": [],
+                      "stderr": [],
+                      "retry": 0,
+                      "startTime": "2026-03-01T16:17:55.185Z",
+                      "annotations": [
+                        {
+                          "type": "e2e",
+                          "description": "Teste de cadastro de usuário",
+                          "location": {
+                            "file": "/home/leopaixao/Documentos/Projetos/qa-engineering-lab/tests/playwright/tests/e2e/specs/registerUser.e2e-spec.ts",
+                            "line": 5,
+                            "column": 6
+                          }
+                        }
+                      ],
+                      "attachments": []
+                    }
+                  ],
+                  "status": "expected"
+                }
+              ],
+              "id": "ccfc9b8391e0326a24d5-aaa6b0048de4e7b55387",
+              "file": "tests/e2e/specs/registerUser.e2e-spec.ts",
+              "line": 121,
+              "column": 7
+            }
+          ]
+        }
+      ]
+    }
+  ],
+  "errors": [],
+  "stats": {
+    "startTime": "2026-03-01T16:17:32.153Z",
+    "duration": 31225.848,
+    "expected": 36,
+    "skipped": 1,
+    "unexpected": 0,
+    "flaky": 0
+  }
+}
