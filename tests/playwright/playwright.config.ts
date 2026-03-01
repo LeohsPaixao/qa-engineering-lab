@@ -18,6 +18,7 @@ export default defineConfig({
       testDir: './tests/e2e/specs',
       testMatch: /.*\.e2e-spec\.ts/,
       testIgnore: [/.*\.api-spec\.ts/, /.*\.ct-spec\.ts/],
+      timeout: 10000,
       fullyParallel: true,
       retries: process.env.CI ? 2 : 0,
       workers: process.env.CI ? 1 : 3,

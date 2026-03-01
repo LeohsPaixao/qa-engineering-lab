@@ -1,5 +1,5 @@
-import path from 'path';
 import { ReporterDescription } from '@playwright/test';
+import path from 'path';
 import { timestamp } from '../../../packages/scripts/timestamp';
 
 /**
@@ -13,7 +13,7 @@ export const buildReporter = (type: string): ReporterDescription[] => [
   ['json', {
     outputFile: path.resolve(
       __dirname,
-      `../../qa-results/raw/playwright-${type}`,
+      `../../../qa-results/raw/playwright-${type}`,
       timestamp(),
       'results.json'
     )
