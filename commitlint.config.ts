@@ -50,9 +50,9 @@ const config: UserConfig = {
         'release-wrong': (parsed): RuleOutcome => {
           const { type, subject } = parsed;
           if (type === 'RELEASE') {
-            const releasePattern = /^\d{4}-\d{2}-\d{2}[T ]\d{2}:\d{2}/;
+            const releasePattern = /^\d{2}\/\d{2}\/\d{4}$/;
             if (!subject || !subject.match(releasePattern)) {
-              return [false, 'RELEASE commit must follow pattern: RELEASE: YYYY-MM-DD HH:mm'];
+              return [false, 'RELEASE commit must follow pattern: RELEASE: DD/MM/YYYY'];
             }
           }
           return [true, ''];
