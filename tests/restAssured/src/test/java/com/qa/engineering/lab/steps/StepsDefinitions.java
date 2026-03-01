@@ -1,12 +1,12 @@
-package com.qa.solar.steps;
+package com.qa.engineering.lab.steps;
 
 import static io.restassured.module.jsv.JsonSchemaValidator.matchesJsonSchemaInClasspath;
 
 import org.junit.jupiter.api.Assertions;
 
-import com.qa.solar.support.TestConstants;
-import com.qa.solar.support.TestContext;
-import com.qa.solar.utils.RequestHelper;
+import com.qa.engineering.lab.support.TestConstants;
+import com.qa.engineering.lab.support.TestContext;
+import com.qa.engineering.lab.utils.RequestHelper;
 
 import io.cucumber.java.en.And;
 import io.cucumber.java.en.Given;

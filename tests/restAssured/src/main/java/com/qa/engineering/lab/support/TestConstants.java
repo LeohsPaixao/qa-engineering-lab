@@ -1,4 +1,4 @@
-package com.qa.solar.support;
+package com.qa.engineering.lab.support;
 
 /**
  * Constantes utilizadas nos testes.

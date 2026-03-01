@@ -1,7 +1,7 @@
-package com.qa.solar.utils;
+package com.qa.engineering.lab.utils;
 
-import com.qa.solar.support.TestConstants;
-import com.qa.solar.support.TestContext;
+import com.qa.engineering.lab.support.TestConstants;
+import com.qa.engineering.lab.support.TestContext;
 
 import io.restassured.RestAssured;
 import io.restassured.response.Response;

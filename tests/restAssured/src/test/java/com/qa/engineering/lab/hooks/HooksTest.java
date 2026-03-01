@@ -1,4 +1,4 @@
-package com.qa.solar.hooks;
+package com.qa.engineering.lab.hooks;
 
 import java.time.Duration;
 import java.time.LocalDateTime;
@@ -7,8 +7,8 @@ import java.util.concurrent.atomic.AtomicInteger;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 
-import com.qa.solar.config.RestAssuredConfig;
-import com.qa.solar.support.TestContext;
+import com.qa.engineering.lab.config.RestAssuredConfig;
+import com.qa.engineering.lab.support.TestContext;
 
 import io.cucumber.java.After;
 import io.cucumber.java.AfterAll;
@@ -22,9 +22,9 @@ import io.cucumber.java.Scenario;
  * @version 2.0
  * @since 2026-01-17
  */
-public class Hooks {
+public class HooksTest {
 
-    private static final Logger LOG = LoggerFactory.getLogger(Hooks.class);
+    private static final Logger LOG = LoggerFactory.getLogger(HooksTest.class);
     private static final RestAssuredConfig REST_ASSURED_CONFIG = new RestAssuredConfig();
     private static boolean initialized = false;
 

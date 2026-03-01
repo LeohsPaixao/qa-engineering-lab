@@ -1,0 +1,20 @@
+<?xml version="1.0"?>
+<!DOCTYPE suppressions PUBLIC
+    "-//Checkstyle//DTD SuppressionFilter Configuration 1.2//EN"
+    "https://checkstyle.org/dtds/suppressions_1_2.dtd">
+
+<suppressions>
+
+    <!-- Permitir maior complexidade em PageObjects -->
+    <suppress files=".*Page.*"
+              checks="MethodLength,CyclomaticComplexity"/>
+
+    <!-- Permitir métodos utilitários maiores -->
+    <suppress files=".*Utils.*"
+              checks="MethodLength"/>
+
+    <!-- Permitir métodos de hooks maiores -->
+    <suppress files=".*HooksTest.*"
+              checks="MethodLength,CyclomaticComplexity"/>
+
+</suppressions>

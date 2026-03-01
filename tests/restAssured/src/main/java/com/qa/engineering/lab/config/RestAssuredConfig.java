@@ -1,4 +1,4 @@
-package com.qa.solar.config;
+package com.qa.engineering.lab.config;
 
 import io.github.cdimascio.dotenv.Dotenv;
 import io.restassured.RestAssured;

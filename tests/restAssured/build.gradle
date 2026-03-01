@@ -1,9 +1,25 @@
 plugins {
     id 'java'
+    id 'checkstyle'
 }
 
-group = 'com.qa.solar'
+group = 'com.qa.engineering.lab'
 version = '1.0.0'
+
+java {
+    sourceSets {
+        main {
+            java {
+                srcDirs = ['src/main/java']
+            }
+        }
+        test {
+            java {
+                srcDirs = ['src/test/java']
+            }
+        }
+    }
+}
 
 repositories {
     mavenCentral()
@@ -22,20 +38,42 @@ ext {
 }
 
 dependencies {
-    testImplementation "io.rest-assured:rest-assured:${restAssuredVersion}"
-    testImplementation "io.rest-assured:json-path:${restAssuredVersion}"
-    testImplementation "io.rest-assured:xml-path:${restAssuredVersion}"
-    testImplementation "io.rest-assured:json-schema-validator:${restAssuredVersion}"
-    testImplementation "io.cucumber:cucumber-java:${cucumberJavaVersion}"
+    implementation "io.rest-assured:rest-assured:${restAssuredVersion}"
+    implementation "io.rest-assured:json-path:${restAssuredVersion}"
+    implementation "io.rest-assured:xml-path:${restAssuredVersion}"
+    implementation "io.rest-assured:json-schema-validator:${restAssuredVersion}"
+    implementation "io.cucumber:cucumber-java:${cucumberJavaVersion}"
+    implementation "org.slf4j:slf4j-api:${slf4jVersion}"
+    implementation "io.github.cdimascio:dotenv-java:${dotenvVersion}"
+    implementation "net.datafaker:datafaker:${datafaker}"
+
     testImplementation "io.cucumber:cucumber-junit-platform-engine:${cucumberJUnitVersion}"
     testImplementation "org.junit.jupiter:junit-jupiter:${junitVersion}"
     testImplementation "org.junit.platform:junit-platform-suite-api:${junitPlatformVersion}"
-    testImplementation "org.slf4j:slf4j-api:${slf4jVersion}"
-    testImplementation "io.github.cdimascio:dotenv-java:${dotenvVersion}"
-    testImplementation "net.datafaker:datafaker:${datafaker}"
 
     testRuntimeOnly "org.junit.platform:junit-platform-suite-engine:${junitPlatformVersion}"
     testRuntimeOnly "ch.qos.logback:logback-classic:${logbackVersion}"
+}
+
+checkstyle {
+    toolVersion = "13.3.0"
+}
+
+checkstyleMain {
+    configFile = file("config/checkstyle/checkstyle-main.xml")
+    source = sourceSets.main.java
+}
+
+checkstyleTest {
+    configFile = file("config/checkstyle/checkstyle-tests.xml")
+    source = sourceSets.test.java
+}
+
+tasks.withType(Checkstyle) {
+    reports {
+        html.required = true
+        xml.required = false
+    }
 }
 
 test {

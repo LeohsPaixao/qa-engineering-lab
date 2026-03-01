@@ -1,4 +1,4 @@
-package com.qa.solar.steps;
+package com.qa.engineering.lab.steps;
 
 /**
  * Steps específicos para funcionalidades de recuperação de senha

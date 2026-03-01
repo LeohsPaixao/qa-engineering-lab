@@ -1,13 +1,13 @@
-package com.qa.solar.steps;
+package com.qa.engineering.lab.steps;
 
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 
-import com.qa.solar.support.FakeDataFactory;
-import com.qa.solar.support.GenerateValidCPF;
-import com.qa.solar.support.TestConstants;
-import com.qa.solar.support.TestContext;
-import com.qa.solar.utils.RequestHelper;
+import com.qa.engineering.lab.support.FakeDataFactory;
+import com.qa.engineering.lab.support.GenerateValidCPF;
+import com.qa.engineering.lab.support.TestConstants;
+import com.qa.engineering.lab.support.TestContext;
+import com.qa.engineering.lab.utils.RequestHelper;
 
 import io.cucumber.java.en.And;
 import io.cucumber.java.en.Given;
