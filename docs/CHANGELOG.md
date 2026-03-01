@@ -1,5 +1,18 @@
 # docs
 
+## 2.0.0
+
+### Major Changes
+
+- 7bd2a19: refactor: Repaginada no projeto, alteração de QA-Solar para QA Engineering Lab
+
+### Patch Changes
+
+- 2fe0218: docs: refatora o código da documentação e dashboard
+- 6e7e49b: docs: cria a documentação do Postman + Newman no backend
+- 53962de: docs: renomeia todos os cantos que estavam QA-Solar para QA-Engineering-Lab
+- 4a0aaa9: docs: altera o nome do link de qa-solar para qa-enginnering-lab
+
 ## 1.1.0
 
 ### Minor Changes

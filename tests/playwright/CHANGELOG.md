@@ -1,5 +1,11 @@
 # playwright-ui-tests
 
+## 2.0.4
+
+### Patch Changes
+
+- 548b3c0: test: corrige os testes quebrados e altera os resultados do dashboard com a correção
+
 ## 2.0.3
 
 ### Patch Changes

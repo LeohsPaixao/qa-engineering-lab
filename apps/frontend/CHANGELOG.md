@@ -1,5 +1,16 @@
 # frontend
 
+## 3.0.0
+
+### Major Changes
+
+- 7bd2a19: refactor: Repaginada no projeto, alteração de QA-Solar para QA Engineering Lab
+
+### Patch Changes
+
+- 6a86a1f: test: corrige os testes quebrados pós atualização de identidade visual
+- a2ed941: feat: altera o Dockerfile do frontend
+
 ## 2.0.4
 
 ### Patch Changes
