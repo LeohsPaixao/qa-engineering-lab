@@ -3,7 +3,7 @@ import { expect, test } from '@playwright/test';
 import { generateValidCPF } from '../shared/commands/generateValidCPF';
 
 test.describe('Tela de Cadastro de Usuários', {
-  annotation: { type: 'Test', description: 'Teste de cadastro de usuário' },
+  annotation: { type: 'e2e', description: 'Teste de cadastro de usuário' },
 }, () => {
 
   test.beforeEach(async ({ page }) => {

@@ -1,7 +1,7 @@
 import { expect, test } from '@playwright/test';
 
 test.describe('Tela de Recuperação de Senha', {
-  annotation: { type: 'Test', description: 'Teste de recuperação de senha' },
+  annotation: { type: 'e2e', description: 'Teste de recuperação de senha' },
 }, () => {
 
   test.beforeEach(async ({ page }) => {

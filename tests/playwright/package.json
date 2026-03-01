@@ -6,10 +6,11 @@
   "license": "MIT",
   "private": true,
   "scripts": {
-    "test": "playwright test",
     "play:install": "playwright install",
-    "play:run": "playwright test",
-    "play:open": "playwright test --ui",
+    "play:e2e": "PW_PROJECT_NAME=e2e npx playwright test --project=e2e",
+    "play:api": "PW_PROJECT_NAME=api npx playwright test --project=api",
+    "play:ct": "PW_PROJECT_NAME=component npx playwright test --project=component",
+    "play:ui": "playwright test --ui",
     "play:report": "playwright show-report",
     "lint": "eslint --fix"
   },
