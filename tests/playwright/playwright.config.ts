@@ -7,11 +7,12 @@ import { buildReporter } from './reporters/buildReporter';
 dotenv.config({ path: path.resolve(__dirname, '.env') });
 
 const projectName = process.env.PW_PROJECT_NAME ?? 'all';
+const projectType = projectName === 'component' ? 'ct' : projectName;
 
 export default defineConfig({
   forbidOnly: !!process.env.CI,
   outputDir: './tests/misc/reports',
-  reporter: buildReporter(projectName),
+  reporter: buildReporter(projectType),
   projects: [
     {
       name: projectName === 'e2e' || projectName === 'all' ? 'e2e' : undefined,
