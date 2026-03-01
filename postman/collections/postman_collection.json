@@ -17,12 +17,30 @@
               "script": {
                 "type": "text/javascript",
                 "exec": [
+                  "var Ajv = require('ajv'),",
+                  "    ajv = new Ajv({ logger: console, allErrors: true });",
+                  "",
+                  "var schema = {",
+                  "    \"type\": \"object\",",
+                  "    \"properties\": {",
+                  "        \"message\": { \"type\": \"string\" },",
+                  "        \"token\": { \"type\": \"string\" }",
+                  "    },",
+                  "    \"required\": [\"message\", \"token\"]",
+                  "};",
+                  "",
+                  "const jsonData = pm.response.json();",
+                  "",
                   "pm.test(\"Login successful - token received\", function () {",
-                  "    pm.expect(pm.response.json().message).to.eql(\"Login realizado com sucesso!\");",
-                  "    pm.expect(pm.response.json().token).to.exist;",
+                  "    pm.expect(jsonData.message).to.eql(\"Login realizado com sucesso!\");",
+                  "    pm.expect(jsonData.token).to.exist;",
+                  "",
+                  "    var valid = ajv.validate(schema, jsonData);",
+                  "    pm.expect(valid).to.be.true;",
                   "});",
                   "",
-                  "pm.collectionVariables.set(\"token\", pm.response.json().token);"
+                  "pm.collectionVariables.set(\"token\", jsonData.token);",
+                  ""
                 ]
               }
             }
@@ -103,10 +121,28 @@
               "script": {
                 "type": "text/javascript",
                 "exec": [
+                  "var Ajv = require('ajv'),",
+                  "    ajv = new Ajv({ logger: console, allErrors: true });",
+                  "",
+                  "var schema = {",
+                  "    \"type\": \"object\",",
+                  "    \"properties\": {",
+                  "        \"message\": { \"type\": \"string\" },",
+                  "        \"error\": { \"type\": \"string\" },",
+                  "        \"statusCode\": { \"type\": \"number\" }",
+                  "    },",
+                  "    \"required\": [\"message\", \"error\", \"statusCode\"],",
+                  "}",
+                  "",
+                  "const jsonData = pm.response.json();",
+                  "",
                   "pm.test(\"Invalid password\", () => {",
                   "    pm.response.to.have.status(401);",
-                  "    pm.expect(pm.response.json().message).to.eql(\"A senha não confere.\");",
-                  "    pm.expect(pm.response.json().error).to.eql(\"Unauthorized\");",
+                  "    pm.expect(jsonData.message).to.eql(\"A senha não confere.\");",
+                  "    pm.expect(jsonData.error).to.eql(\"Unauthorized\");",
+                  "",
+                  "    var valid = ajv.validate(schema, jsonData);",
+                  "    pm.expect(valid).to.be.true;",
                   "});"
                 ]
               }
@@ -188,10 +224,28 @@
               "script": {
                 "type": "text/javascript",
                 "exec": [
+                  "var Ajv = require('ajv'),",
+                  "    ajv = new Ajv({ logger: console, allErrors: true });",
+                  "",
+                  "var schema = {",
+                  "    \"type\": \"object\",",
+                  "    \"properties\": {",
+                  "        \"message\": { \"type\": \"string\" },",
+                  "        \"error\": { \"type\": \"string\" },",
+                  "        \"statusCode\": { \"type\": \"number\" }",
+                  "    },",
+                  "    \"required\": [\"message\", \"error\", \"statusCode\"],",
+                  "}",
+                  "",
+                  "const jsonData = pm.response.json();",
+                  "",
                   "pm.test(\"User not found\", () => {",
                   "    pm.response.to.have.status(404);",
-                  "    pm.expect(pm.response.json().message).to.eql(\"Usuário não encontrado.\");",
-                  "    pm.expect(pm.response.json().error).to.eql(\"Not Found\");",
+                  "    pm.expect(jsonData.message).to.eql(\"Usuário não encontrado.\");",
+                  "    pm.expect(jsonData.error).to.eql(\"Not Found\");",
+                  "",
+                  "    const valid = ajv.validate(schema, jsonData);",
+                  "    pm.expect(valid).to.be.true;",
                   "});"
                 ]
               }
@@ -271,31 +325,30 @@
             {
               "listen": "test",
               "script": {
-                "id": "c4798fcb-a4be-4890-af4a-b4af7a374c90",
+                "type": "text/javascript",
                 "exec": [
+                  "var Ajv = require('ajv'),",
+                  "    ajv = new Ajv({ logger: console, allErrors: true });",
+                  "",
+                  "var schema = {",
+                  "    \"type\": \"object\",",
+                  "    \"properties\": { \"message\": { \"type\": \"string\" } },",
+                  "    \"required\": [\"message\"],",
+                  "}",
+                  "",
+                  "const jsonData = pm.response.json();",
+                  "",
                   "pm.test(\"Status code is 200\", function () {",
                   "    pm.response.to.have.status(200);",
-                  "    pm.expect(pm.response.json().message).to.eql(\"O usuário foi deslogado com sucesso!\");",
+                  "    pm.expect(jsonData.message).to.eql(\"O usuário foi deslogado com sucesso!\");",
                   "    pm.collectionVariables.get(\"token\", function (err, value) {",
                   "        pm.expect(value).to.not.be.null;",
                   "    });",
+                  "",
+                  "    const valid = ajv.validate(schema, jsonData);",
+                  "    pm.expect(valid).to.be.true;",
                   "});"
-                ],
-                "type": "text/javascript",
-                "packages": {},
-                "requests": {}
-              }
-            },
-            {
-              "listen": "prerequest",
-              "script": {
-                "id": "1c56c05e-7b95-4d9b-b11a-a26dc8dab55d",
-                "exec": [
-                  ""
-                ],
-                "type": "text/javascript",
-                "packages": {},
-                "requests": {}
+                ]
               }
             }
           ],
@@ -364,9 +417,21 @@
           "name": "Create User - Success",
           "event": [
             {
+              "listen": "test",
+              "script": {
+                "type": "text/javascript",
+                "exec": [
+                  "pm.test(\"Should be able to create a new user\", function () {",
+                  "    pm.expect(pm.response.code).to.eql(201)",
+                  "    pm.expect(pm.response.json().message).to.eql(\"Usuário criado com sucesso!\")",
+                  "})"
+                ]
+              }
+            },
+            {
               "listen": "prerequest",
               "script": {
-                "id": "6c24ea88-d174-4986-99d3-69723852d4f3",
+                "type": "text/javascript",
                 "exec": [
                   "function generateValidCpf() {",
                   "    const randomDigits = () => Math.floor(Math.random() * 9);",
@@ -403,25 +468,7 @@
                   "pm.variables.set(\"email\", pm.variables.replaceIn(\"{{$randomEmail}}\"));",
                   "pm.variables.set(\"password\", pm.variables.replaceIn(\"123456\"));",
                   ""
-                ],
-                "type": "text/javascript",
-                "packages": {},
-                "requests": {}
-              }
-            },
-            {
-              "listen": "test",
-              "script": {
-                "id": "7f591d39-241c-46c5-b556-1cd1ec924086",
-                "exec": [
-                  "pm.test(\"Should be able to create a new user\", function () {",
-                  "    pm.expect(pm.response.code).to.eql(201)",
-                  "    pm.expect(pm.response.json().message).to.eql(\"Usuário criado com sucesso!\")",
-                  "})"
-                ],
-                "type": "text/javascript",
-                "packages": {},
-                "requests": {}
+                ]
               }
             }
           ],
@@ -490,9 +537,22 @@
           "name": "Create User - CPF Conflict",
           "event": [
             {
+              "listen": "test",
+              "script": {
+                "type": "text/javascript",
+                "exec": [
+                  "pm.test(\"Should not be able to create user with existing CPF/CNPJ\", function () {",
+                  "    pm.expect(pm.response.code).to.eql(409)",
+                  "    pm.expect(pm.response.json().message).to.eql(\"CPF ou CNPJ já está em uso.\")",
+                  "    pm.expect(pm.response.json().error).to.eql(\"Conflict\")",
+                  "})"
+                ]
+              }
+            },
+            {
               "listen": "prerequest",
               "script": {
-                "id": "6c24ea88-d174-4986-99d3-69723852d4f3",
+                "type": "text/javascript",
                 "exec": [
                   "pm.variables.set(\"full_name\", pm.variables.replaceIn(\"{{$randomFirstName}} {{$randomLastName}}\"));",
                   "pm.variables.set(\"social_name\", pm.variables.replaceIn(\"{{$randomFirstName}}\"));",
@@ -500,26 +560,7 @@
                   "pm.variables.set(\"email\", pm.variables.replaceIn(\"{{$randomEmail}}\"));",
                   "pm.variables.set(\"password\", pm.variables.replaceIn(\"{{$randomPassword}}\"));",
                   ""
-                ],
-                "type": "text/javascript",
-                "packages": {},
-                "requests": {}
-              }
-            },
-            {
-              "listen": "test",
-              "script": {
-                "id": "7f591d39-241c-46c5-b556-1cd1ec924086",
-                "exec": [
-                  "pm.test(\"Should not be able to create user with existing CPF/CNPJ\", function () {",
-                  "    pm.expect(pm.response.code).to.eql(409)",
-                  "    pm.expect(pm.response.json().message).to.eql(\"CPF ou CNPJ já está em uso.\")",
-                  "    pm.expect(pm.response.json().error).to.eql(\"Conflict\")",
-                  "})"
-                ],
-                "type": "text/javascript",
-                "packages": {},
-                "requests": {}
+                ]
               }
             }
           ],
@@ -588,9 +629,22 @@
           "name": "Create User - Email Conflict",
           "event": [
             {
+              "listen": "test",
+              "script": {
+                "type": "text/javascript",
+                "exec": [
+                  "pm.test(\"Should not be able to create user with existing E-mail\", function () {",
+                  "    pm.expect(pm.response.code).to.eql(409)",
+                  "    pm.expect(pm.response.json().message).to.eql(\"E-mail já está em uso.\")",
+                  "    pm.expect(pm.response.json().error).to.eql(\"Conflict\")",
+                  "});"
+                ]
+              }
+            },
+            {
               "listen": "prerequest",
               "script": {
-                "id": "6c24ea88-d174-4986-99d3-69723852d4f3",
+                "type": "text/javascript",
                 "exec": [
                   "function generateValidCpf() {",
                   "    const randomDigits = () => Math.floor(Math.random() * 9);",
@@ -626,26 +680,7 @@
                   "pm.variables.set(\"phone\", pm.variables.replaceIn(\"{{$randomPhoneNumber}}\"));",
                   "pm.variables.set(\"password\", pm.variables.replaceIn(\"{{$randomPassword}}\"));",
                   ""
-                ],
-                "type": "text/javascript",
-                "packages": {},
-                "requests": {}
-              }
-            },
-            {
-              "listen": "test",
-              "script": {
-                "id": "7f591d39-241c-46c5-b556-1cd1ec924086",
-                "exec": [
-                  "pm.test(\"Should not be able to create user with existing E-mail\", function () {",
-                  "    pm.expect(pm.response.code).to.eql(409)",
-                  "    pm.expect(pm.response.json().message).to.eql(\"E-mail já está em uso.\")",
-                  "    pm.expect(pm.response.json().error).to.eql(\"Conflict\")",
-                  "});"
-                ],
-                "type": "text/javascript",
-                "packages": {},
-                "requests": {}
+                ]
               }
             }
           ],
@@ -714,9 +749,21 @@
           "name": "List All Users - Success",
           "event": [
             {
+              "listen": "test",
+              "script": {
+                "type": "text/javascript",
+                "exec": [
+                  "pm.test(\"Should be able to list all users\", function () {",
+                  "    pm.expect(pm.response.code).to.eql(200);",
+                  "    pm.expect(pm.response.json().users.length).to.be.above(0);",
+                  "})"
+                ]
+              }
+            },
+            {
               "listen": "prerequest",
               "script": {
-                "id": "24189c23-f9ba-4dff-8986-f96af8bf8bc1",
+                "type": "text/javascript",
                 "exec": [
                   "const baseUrl = pm.collectionVariables.get(\"baseUrl\");",
                   "",
@@ -737,25 +784,7 @@
                   "    const token = response.json().token;",
                   "    pm.collectionVariables.set(\"token\", token);",
                   "});"
-                ],
-                "type": "text/javascript",
-                "packages": {},
-                "requests": {}
-              }
-            },
-            {
-              "listen": "test",
-              "script": {
-                "id": "71cd0f59-834c-4270-a249-522aa2a0660c",
-                "exec": [
-                  "pm.test(\"Should be able to list all users\", function () {",
-                  "    pm.expect(pm.response.code).to.eql(200);",
-                  "    pm.expect(pm.response.json().users.length).to.be.above(0);",
-                  "})"
-                ],
-                "type": "text/javascript",
-                "packages": {},
-                "requests": {}
+                ]
               }
             }
           ],
@@ -834,30 +863,24 @@
           "name": "List All Users - Unauthorized",
           "event": [
             {
-              "listen": "prerequest",
-              "script": {
-                "id": "24189c23-f9ba-4dff-8986-f96af8bf8bc1",
-                "exec": [
-                  "pm.collectionVariables.unset(\"token\");"
-                ],
-                "type": "text/javascript",
-                "packages": {},
-                "requests": {}
-              }
-            },
-            {
               "listen": "test",
               "script": {
-                "id": "71cd0f59-834c-4270-a249-522aa2a0660c",
+                "type": "text/javascript",
                 "exec": [
                   "pm.test(\"Should not be able to list users without proper authorization\", function () {",
                   "    pm.expect(pm.response.code).to.eql(401);",
                   "    pm.expect(pm.response.json().message).to.be.eql(\"Unauthorized\");",
                   "})"
-                ],
+                ]
+              }
+            },
+            {
+              "listen": "prerequest",
+              "script": {
                 "type": "text/javascript",
-                "packages": {},
-                "requests": {}
+                "exec": [
+                  "pm.collectionVariables.unset(\"token\");"
+                ]
               }
             }
           ],
@@ -936,9 +959,21 @@
           "name": "List All Users - Not Found Users",
           "event": [
             {
+              "listen": "test",
+              "script": {
+                "type": "text/javascript",
+                "exec": [
+                  "pm.test(\"Should be able to return 404 for users not found\", function () {",
+                  "    pm.expect(pm.response.code).to.eql(404);",
+                  "    pm.expect(pm.response.json().message).to.be.eql(\"Nenhum usuário encontrado.\");",
+                  "})"
+                ]
+              }
+            },
+            {
               "listen": "prerequest",
               "script": {
-                "id": "24189c23-f9ba-4dff-8986-f96af8bf8bc1",
+                "type": "text/javascript",
                 "exec": [
                   "const baseUrl = pm.collectionVariables.get(\"baseUrl\");",
                   "",
@@ -959,25 +994,7 @@
                   "    const token = response.json().token;",
                   "    pm.collectionVariables.set(\"token\", token);",
                   "});"
-                ],
-                "type": "text/javascript",
-                "packages": {},
-                "requests": {}
-              }
-            },
-            {
-              "listen": "test",
-              "script": {
-                "id": "71cd0f59-834c-4270-a249-522aa2a0660c",
-                "exec": [
-                  "pm.test(\"Should be able to return 404 for users not found\", function () {",
-                  "    pm.expect(pm.response.code).to.eql(404);",
-                  "    pm.expect(pm.response.json().message).to.be.eql(\"Nenhum usuário encontrado.\");",
-                  "})"
-                ],
-                "type": "text/javascript",
-                "packages": {},
-                "requests": {}
+                ]
               }
             }
           ],
@@ -1060,9 +1077,25 @@
           "name": "Get Current User",
           "event": [
             {
+              "listen": "test",
+              "script": {
+                "type": "text/javascript",
+                "exec": [
+                  "const id = pm.response.json().id;",
+                  "",
+                  "pm.test(\"Should be able to get user data\", function () {",
+                  "    pm.expect(pm.response.code).to.eql(200);",
+                  "    pm.expect(pm.response.json().id).to.eql(id);",
+                  "    pm.expect(pm.response.json().email).to.eql(\"generic@example.com\");",
+                  "    pm.expect(pm.response.json().document).to.eql(\"591.013.230-08\");",
+                  "})"
+                ]
+              }
+            },
+            {
               "listen": "prerequest",
               "script": {
-                "id": "734084e5-443f-464f-b9b6-60e5fda42838",
+                "type": "text/javascript",
                 "exec": [
                   "const baseUrl = pm.collectionVariables.get(\"baseUrl\");",
                   "",
@@ -1083,29 +1116,7 @@
                   "    const token = response.json().token;",
                   "    pm.collectionVariables.set(\"token\", token);",
                   "});"
-                ],
-                "type": "text/javascript",
-                "packages": {},
-                "requests": {}
-              }
-            },
-            {
-              "listen": "test",
-              "script": {
-                "id": "1bd3eabe-6dfb-4de5-85a1-b1bdd5af6080",
-                "exec": [
-                  "const id = pm.response.json().id;",
-                  "",
-                  "pm.test(\"Should be able to get user data\", function () {",
-                  "    pm.expect(pm.response.code).to.eql(200);",
-                  "    pm.expect(pm.response.json().id).to.eql(id);",
-                  "    pm.expect(pm.response.json().email).to.eql(\"generic@example.com\");",
-                  "    pm.expect(pm.response.json().document).to.eql(\"591.013.230-08\");",
-                  "})"
-                ],
-                "type": "text/javascript",
-                "packages": {},
-                "requests": {}
+                ]
               }
             }
           ],
@@ -1176,9 +1187,21 @@
           "name": "Update Current User",
           "event": [
             {
+              "listen": "test",
+              "script": {
+                "type": "text/javascript",
+                "exec": [
+                  "pm.test(\"Should be able to update user information\", function () {",
+                  "    pm.expect(pm.response.code).to.eql(200);",
+                  "    pm.expect(pm.response.json().message).to.eql(\"Usuário alterado com sucesso!\")",
+                  "})"
+                ]
+              }
+            },
+            {
               "listen": "prerequest",
               "script": {
-                "id": "7134b10e-1c2a-490b-be06-8911562e4312",
+                "type": "text/javascript",
                 "exec": [
                   "const baseUrl = pm.collectionVariables.get(\"baseUrl\");",
                   "",
@@ -1203,25 +1226,7 @@
                   "pm.variables.set(\"full_name\", pm.variables.replaceIn(\"{{$randomFullName}}\"));",
                   "pm.variables.set(\"social_name\", pm.variables.replaceIn(\"{{$randomFirstName}}\"));",
                   "pm.variables.set(\"phone\", pm.variables.replaceIn(\"{{$randomPhoneNumber}}\"));"
-                ],
-                "type": "text/javascript",
-                "packages": {},
-                "requests": {}
-              }
-            },
-            {
-              "listen": "test",
-              "script": {
-                "id": "80ca00e3-474a-470e-8f3b-1ee9d4b3beec",
-                "exec": [
-                  "pm.test(\"Should be able to update user information\", function () {",
-                  "    pm.expect(pm.response.code).to.eql(200);",
-                  "    pm.expect(pm.response.json().message).to.eql(\"Usuário alterado com sucesso!\")",
-                  "})"
-                ],
-                "type": "text/javascript",
-                "packages": {},
-                "requests": {}
+                ]
               }
             }
           ],
@@ -1300,9 +1305,21 @@
           "name": "Update Current User - Not Update Current User",
           "event": [
             {
+              "listen": "test",
+              "script": {
+                "type": "text/javascript",
+                "exec": [
+                  "pm.test(\"Should not be able to update user information\", function () {",
+                  "    pm.expect(pm.response.code).to.eql(404);",
+                  "    pm.expect(pm.response.json().message).to.eql(\"Usuário não encontrado para atualizar.\")",
+                  "})"
+                ]
+              }
+            },
+            {
               "listen": "prerequest",
               "script": {
-                "id": "7134b10e-1c2a-490b-be06-8911562e4312",
+                "type": "text/javascript",
                 "exec": [
                   "const baseUrl = pm.collectionVariables.get(\"baseUrl\");",
                   "",
@@ -1323,25 +1340,7 @@
                   "    const token = response.json().token;",
                   "    pm.collectionVariables.set(\"token\", token);",
                   "});"
-                ],
-                "type": "text/javascript",
-                "packages": {},
-                "requests": {}
-              }
-            },
-            {
-              "listen": "test",
-              "script": {
-                "id": "80ca00e3-474a-470e-8f3b-1ee9d4b3beec",
-                "exec": [
-                  "pm.test(\"Should not be able to update user information\", function () {",
-                  "    pm.expect(pm.response.code).to.eql(404);",
-                  "    pm.expect(pm.response.json().message).to.eql(\"Usuário não encontrado para atualizar.\")",
-                  "})"
-                ],
-                "type": "text/javascript",
-                "packages": {},
-                "requests": {}
+                ]
               }
             }
           ],
@@ -1373,8 +1372,7 @@
               {
                 "key": "x-mock-response-name",
                 "value": "Not Update",
-                "type": "text",
-                "uuid": "41f5532c-8360-4977-a1b0-be858fed6092"
+                "type": "text"
               }
             ],
             "body": {
@@ -1436,9 +1434,21 @@
           "name": "Delete Users - Success",
           "event": [
             {
+              "listen": "test",
+              "script": {
+                "type": "text/javascript",
+                "exec": [
+                  "pm.test(\"Should be able to delete a user\", function () {",
+                  "    pm.expect(pm.response.code).to.eql(200);",
+                  "    pm.expect(pm.response.json().message).to.eql(\"1 usuário(s) excluído(s) com sucesso!\")",
+                  "})"
+                ]
+              }
+            },
+            {
               "listen": "prerequest",
               "script": {
-                "id": "322ecb9a-8781-4a56-9195-6c4d15ec878a",
+                "type": "text/javascript",
                 "exec": [
                   "function generateValidCpf() {",
                   "    const randomDigits = () => Math.floor(Math.random() * 9);",
@@ -1514,25 +1524,7 @@
                   "    const token = response.json().token;",
                   "    pm.collectionVariables.set(\"token\", token);",
                   "});"
-                ],
-                "type": "text/javascript",
-                "packages": {},
-                "requests": {}
-              }
-            },
-            {
-              "listen": "test",
-              "script": {
-                "id": "ccaa7918-219b-44c1-9ff1-fb20ce717d4a",
-                "exec": [
-                  "pm.test(\"Should be able to delete a user\", function () {",
-                  "    pm.expect(pm.response.code).to.eql(200);",
-                  "    pm.expect(pm.response.json().message).to.eql(\"1 usuário(s) excluído(s) com sucesso!\")",
-                  "})"
-                ],
-                "type": "text/javascript",
-                "packages": {},
-                "requests": {}
+                ]
               }
             }
           ],
@@ -1621,9 +1613,21 @@
           "name": "Delete Users - Delete Logged User",
           "event": [
             {
+              "listen": "test",
+              "script": {
+                "type": "text/javascript",
+                "exec": [
+                  "pm.test(\"Should not be able to delete a logged user\", function () {",
+                  "    pm.expect(pm.response.code).to.eql(400);",
+                  "    pm.expect(pm.response.json().message).to.eql(\"Você não pode excluir o usuário logado.\");",
+                  "})"
+                ]
+              }
+            },
+            {
               "listen": "prerequest",
               "script": {
-                "id": "a872455c-7a0a-4808-9334-48e6890d81e9",
+                "type": "text/javascript",
                 "exec": [
                   "const baseUrl = pm.collectionVariables.get(\"baseUrl\");",
                   "",
@@ -1655,25 +1659,7 @@
                   "    const userId = response.json().id;",
                   "    pm.variables.set(\"id\", userId);",
                   "})"
-                ],
-                "type": "text/javascript",
-                "packages": {},
-                "requests": {}
-              }
-            },
-            {
-              "listen": "test",
-              "script": {
-                "id": "4efc95a7-a82e-4b91-ac0c-cdf289fadbde",
-                "exec": [
-                  "pm.test(\"Should not be able to delete a logged user\", function () {",
-                  "    pm.expect(pm.response.code).to.eql(400);",
-                  "    pm.expect(pm.response.json().message).to.eql(\"Você não pode excluir o usuário logado.\");",
-                  "})"
-                ],
-                "type": "text/javascript",
-                "packages": {},
-                "requests": {}
+                ]
               }
             }
           ],
@@ -1752,9 +1738,21 @@
           "name": "Delete Users - Not Found Users",
           "event": [
             {
+              "listen": "test",
+              "script": {
+                "type": "text/javascript",
+                "exec": [
+                  "pm.test(\"Should not be able to delete users\", function () {",
+                  "    pm.expect(pm.response.code).to.eql(404);",
+                  "    pm.expect(pm.response.json().message).to.equal(\"Nenhum usuário encontrado para excluir.\")",
+                  "})"
+                ]
+              }
+            },
+            {
               "listen": "prerequest",
               "script": {
-                "id": "921d9085-c71b-462a-88f4-f3a3b04afafb",
+                "type": "text/javascript",
                 "exec": [
                   "const baseUrl = pm.collectionVariables.get(\"baseUrl\");",
                   "",
@@ -1775,25 +1773,7 @@
                   "    const token = response.json().token;",
                   "    pm.collectionVariables.set(\"token\", token);",
                   "});"
-                ],
-                "type": "text/javascript",
-                "packages": {},
-                "requests": {}
-              }
-            },
-            {
-              "listen": "test",
-              "script": {
-                "id": "3cd7d2bc-32be-4664-91d7-969760bb6981",
-                "exec": [
-                  "pm.test(\"Should not be able to delete users\", function () {",
-                  "    pm.expect(pm.response.code).to.eql(404);",
-                  "    pm.expect(pm.response.json().message).to.equal(\"Nenhum usuário encontrado para excluir.\")",
-                  "})"
-                ],
-                "type": "text/javascript",
-                "packages": {},
-                "requests": {}
+                ]
               }
             }
           ],
@@ -1825,8 +1805,7 @@
               {
                 "key": "x-mock-response-name",
                 "value": "Not Found Users For Delete",
-                "type": "text",
-                "uuid": "34d812fd-be02-4c30-97d2-ac03a5af281b"
+                "type": "text"
               }
             ],
             "body": {
@@ -1896,30 +1875,15 @@
           "name": "Forgot Password - Success",
           "event": [
             {
-              "listen": "prerequest",
-              "script": {
-                "id": "4dca3ed0-d3a9-445a-99dc-0f60ab008de8",
-                "exec": [
-                  ""
-                ],
-                "type": "text/javascript",
-                "packages": {},
-                "requests": {}
-              }
-            },
-            {
               "listen": "test",
               "script": {
-                "id": "d9772dbd-88c1-4a01-97bf-9a900ad1beb4",
+                "type": "text/javascript",
                 "exec": [
                   "pm.test(\"Should be able to recover password\", function () {",
                   "    pm.expect(pm.response.code).to.eql(200);",
                   "    pm.expect(pm.response.json().message).to.eql(\"Um e-mail foi enviado com instruções para recuperar a senha.\");",
                   "});"
-                ],
-                "type": "text/javascript",
-                "packages": {},
-                "requests": {}
+                ]
               }
             }
           ],
@@ -1992,29 +1956,14 @@
             {
               "listen": "test",
               "script": {
-                "id": "bc113427-bc35-4ea1-9f6d-3cc1171f48d3",
+                "type": "text/javascript",
                 "exec": [
                   "pm.test(\"Should not be able to send a request without a valid email\", function () {",
                   "    pm.expect(pm.response.code).to.eql(404);",
                   "    pm.expect(pm.response.json().message).to.eql(\"Usuário não encontrado.\");",
                   "});",
                   ""
-                ],
-                "type": "text/javascript",
-                "packages": {},
-                "requests": {}
-              }
-            },
-            {
-              "listen": "prerequest",
-              "script": {
-                "id": "67b6eab6-8729-4339-9c4d-62cdca5f961b",
-                "exec": [
-                  ""
-                ],
-                "type": "text/javascript",
-                "packages": {},
-                "requests": {}
+                ]
               }
             }
           ],
@@ -2087,17 +2036,17 @@
   ],
   "variable": [
     {
-      "id": "63826858-8ee9-470f-ba30-21105a3e57ed",
+      "id": "4b4d73cf-70e0-4c45-acab-d068b522f89a",
       "key": "token",
       "value": ""
     },
     {
-      "id": "e284701e-c75a-4073-8c83-9c668c041623",
+      "id": "f1484f82-e6d8-49e8-9054-9f5ec10ea88b",
       "key": "baseUrl",
       "value": "http://localhost:3001"
     },
     {
-      "id": "a7ebd186-bc19-4ffb-9e78-d2ca392fbe50",
+      "id": "f4daf5fd-5725-497d-a9f9-43e5f19bbb95",
       "key": "mockUrl",
       "value": "https://fea5d23c-ceeb-4c21-a419-51f63a869e72.mock.pstmn.io"
     }

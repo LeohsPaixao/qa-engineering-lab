@@ -1,0 +1,439 @@
+{
+  "openapi": "3.0.0",
+  "paths": {
+    "/users": {
+      "post": {
+        "operationId": "UsersController_create",
+        "parameters": [],
+        "requestBody": {
+          "required": true,
+          "content": {
+            "application/json": {
+              "schema": {
+                "$ref": "#/components/schemas/CreateUserDto"
+              }
+            }
+          }
+        },
+        "responses": {
+          "201": {
+            "description": "Usuário criado com sucesso!"
+          },
+          "409": {
+            "description": "CPF/CNPJ ou email já está em uso."
+          },
+          "500": {
+            "description": "Internal server error."
+          }
+        },
+        "summary": "Criar um novo usuário",
+        "tags": [
+          "users"
+        ]
+      },
+      "get": {
+        "operationId": "UsersController_findAll",
+        "parameters": [],
+        "responses": {
+          "200": {
+            "description": "Lista de usuários retornada com sucesso."
+          },
+          "404": {
+            "description": "Nenhum usuário encontrado."
+          },
+          "500": {
+            "description": "Internal server error."
+          }
+        },
+        "security": [
+          {
+            "bearer": []
+          }
+        ],
+        "summary": "Listar todos os usuários",
+        "tags": [
+          "users"
+        ]
+      }
+    },
+    "/users/me": {
+      "get": {
+        "operationId": "UsersController_getMe",
+        "parameters": [],
+        "responses": {
+          "200": {
+            "description": "Usuário encontrado",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/UserDto"
+                }
+              }
+            }
+          },
+          "404": {
+            "description": "Usuário não encontrado"
+          },
+          "500": {
+            "description": "Internal server error."
+          }
+        },
+        "security": [
+          {
+            "bearer": []
+          }
+        ],
+        "summary": "Buscar dados do usuário logado",
+        "tags": [
+          "users"
+        ]
+      },
+      "patch": {
+        "operationId": "UsersController_update",
+        "parameters": [],
+        "requestBody": {
+          "required": true,
+          "content": {
+            "application/json": {
+              "schema": {
+                "$ref": "#/components/schemas/UpdateUserDto"
+              }
+            }
+          }
+        },
+        "responses": {
+          "200": {
+            "description": "Usuário alterado com sucesso!",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/UserDto"
+                }
+              }
+            }
+          },
+          "404": {
+            "description": "Usuário não encontrado para atualizar!"
+          },
+          "500": {
+            "description": "Internal server error."
+          }
+        },
+        "security": [
+          {
+            "bearer": []
+          }
+        ],
+        "summary": "Atualizar dados do usuário logado",
+        "tags": [
+          "users"
+        ]
+      }
+    },
+    "/users/delete": {
+      "delete": {
+        "operationId": "UsersController_delete",
+        "parameters": [],
+        "requestBody": {
+          "required": true,
+          "content": {
+            "application/json": {
+              "schema": {
+                "$ref": "#/components/schemas/DeleteUserDto"
+              }
+            }
+          }
+        },
+        "responses": {
+          "200": {
+            "description": "Usuários excluídos com sucesso"
+          },
+          "400": {
+            "description": "Você não pode excluir o usuário logado."
+          },
+          "404": {
+            "description": "Nenhum usuário encontrado para excluir"
+          },
+          "500": {
+            "description": "Internal server error."
+          }
+        },
+        "security": [
+          {
+            "bearer": []
+          }
+        ],
+        "summary": "Excluir usuários",
+        "tags": [
+          "users"
+        ]
+      }
+    },
+    "/auth/login": {
+      "post": {
+        "operationId": "AuthController_login",
+        "parameters": [],
+        "requestBody": {
+          "required": true,
+          "content": {
+            "application/json": {
+              "schema": {
+                "$ref": "#/components/schemas/LoginDto"
+              }
+            }
+          }
+        },
+        "responses": {
+          "200": {
+            "description": "Login realizado com sucesso"
+          },
+          "401": {
+            "description": "A senha não confere."
+          },
+          "404": {
+            "description": "Usuário não encontrado."
+          },
+          "500": {
+            "description": "Erro ao realizar login"
+          }
+        },
+        "summary": "Realizar login",
+        "tags": [
+          "auth"
+        ]
+      }
+    },
+    "/auth/logout": {
+      "post": {
+        "operationId": "AuthController_logout",
+        "parameters": [],
+        "responses": {
+          "200": {
+            "description": "Logout realizado com sucesso"
+          }
+        },
+        "summary": "Realizar logout",
+        "tags": [
+          "auth"
+        ]
+      }
+    },
+    "/password-recovery/forgot-password": {
+      "post": {
+        "operationId": "PasswordRecoveryController_forgotPassword",
+        "parameters": [],
+        "requestBody": {
+          "required": true,
+          "content": {
+            "application/json": {
+              "schema": {
+                "$ref": "#/components/schemas/ForgotPasswordDto"
+              }
+            }
+          }
+        },
+        "responses": {
+          "200": {
+            "description": "Um e-mail foi enviado com instruções para recuperar a senha."
+          },
+          "404": {
+            "description": "Usuário não encontrado."
+          },
+          "500": {
+            "description": "Internal server error."
+          }
+        },
+        "summary": "Solicitar recuperação de senha",
+        "tags": [
+          "password-recovery"
+        ]
+      }
+    },
+    "/healthy": {
+      "get": {
+        "operationId": "HealthyController_healthy",
+        "parameters": [],
+        "responses": {
+          "200": {
+            "description": "Sistema saudável"
+          },
+          "503": {
+            "description": "Sistema indisponível"
+          }
+        },
+        "summary": "Verificar saúde do sistema",
+        "tags": [
+          "healthy"
+        ]
+      }
+    }
+  },
+  "info": {
+    "title": "QA Engineering Lab API",
+    "description": "API para o projeto QA Engineering Lab",
+    "version": "1.0",
+    "contact": {}
+  },
+  "tags": [],
+  "servers": [],
+  "components": {
+    "securitySchemes": {
+      "bearer": {
+        "scheme": "bearer",
+        "bearerFormat": "JWT",
+        "type": "http"
+      }
+    },
+    "schemas": {
+      "CreateUserDto": {
+        "type": "object",
+        "properties": {
+          "full_name": {
+            "type": "string",
+            "description": "Nome completo do usuário"
+          },
+          "social_name": {
+            "type": "string",
+            "description": "Nome social do usuário"
+          },
+          "document": {
+            "type": "string",
+            "description": "CPF ou CNPJ do usuário"
+          },
+          "doc_type": {
+            "type": "string",
+            "description": "Tipo de documento (CPF ou CNPJ)",
+            "enum": [
+              "cpf",
+              "cnpj"
+            ]
+          },
+          "phone": {
+            "type": "string",
+            "description": "Telefone do usuário"
+          },
+          "email": {
+            "type": "string",
+            "description": "Email do usuário"
+          },
+          "password": {
+            "type": "string",
+            "description": "Senha do usuário"
+          }
+        },
+        "required": [
+          "full_name",
+          "document",
+          "doc_type",
+          "email",
+          "password"
+        ]
+      },
+      "UserDto": {
+        "type": "object",
+        "properties": {
+          "id": {
+            "type": "number",
+            "description": "ID do usuário"
+          },
+          "full_name": {
+            "type": "string",
+            "description": "Nome completo do usuário"
+          },
+          "social_name": {
+            "type": "string",
+            "description": "Nome social do usuário"
+          },
+          "email": {
+            "type": "string",
+            "description": "Email do usuário"
+          },
+          "phone": {
+            "type": "string",
+            "description": "Telefone do usuário"
+          },
+          "document": {
+            "type": "string",
+            "description": "Documento do usuário"
+          },
+          "created_at": {
+            "format": "date-time",
+            "type": "string",
+            "description": "Data de criação"
+          },
+          "updated_at": {
+            "format": "date-time",
+            "type": "string",
+            "description": "Data de atualização"
+          }
+        },
+        "required": [
+          "id",
+          "full_name",
+          "email",
+          "document",
+          "created_at",
+          "updated_at"
+        ]
+      },
+      "UpdateUserDto": {
+        "type": "object",
+        "properties": {
+          "full_name": {
+            "type": "string",
+            "description": "Nome completo do usuário"
+          },
+          "social_name": {
+            "type": "string",
+            "description": "Nome social do usuário"
+          },
+          "phone": {
+            "type": "string",
+            "description": "Telefone do usuário"
+          }
+        },
+        "required": [
+          "full_name",
+          "social_name",
+          "phone"
+        ]
+      },
+      "DeleteUserDto": {
+        "type": "object",
+        "properties": {}
+      },
+      "LoginDto": {
+        "type": "object",
+        "properties": {
+          "email": {
+            "type": "string",
+            "example": "usuario@exemplo.com",
+            "description": "Email do usuário"
+          },
+          "password": {
+            "type": "string",
+            "example": "senha123",
+            "description": "Senha do usuário"
+          }
+        },
+        "required": [
+          "email",
+          "password"
+        ]
+      },
+      "ForgotPasswordDto": {
+        "type": "object",
+        "properties": {
+          "email": {
+            "type": "string",
+            "example": "usuario@exemplo.com",
+            "description": "Email do usuário para recuperação de senha"
+          }
+        },
+        "required": [
+          "email"
+        ]
+      }
+    }
+  }
+}
