@@ -1,5 +1,12 @@
 # k6-tests
 
+## 2.0.0
+
+### Major Changes
+
+- 7bd2a19: refactor: Repaginada no projeto, alteração de QA-Solar para QA Engineering Lab
+- 53962de: refactor: altera o nome do projeto
+
 ## 1.3.2
 
 ### Patch Changes

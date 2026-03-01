@@ -1,5 +1,22 @@
 # backend
 
+## 3.0.0
+
+### Major Changes
+
+- 7bd2a19: refactor: Repaginada no projeto, alteração de QA-Solar para QA Engineering Lab
+
+### Patch Changes
+
+- ce2996c: feat: cria a Collection do Postman para testes de API automatizados
+- 2732922: test: finaliza os testes de API do endpoint Password Recovery
+- eb7c57c: test: finaliza os testes de API do endpoint de Update User e Delete User
+- 6a86a1f: test: corrige os testes quebrados pós atualização de identidade visual
+- 1b26d7d: test: finaliza os testes de API do endpoint de Listagem de Usuário e Listar Usuário Logado
+- 6e7e49b: docs: cria a documentação do Postman + Newman no backend
+- 29bde23: test: finaliza os testes de API do endpoint Create User
+- a2ed941: feat: cria o módulo healthy para validação da saúde do backend
+
 ## 2.0.4
 
 ### Patch Changes

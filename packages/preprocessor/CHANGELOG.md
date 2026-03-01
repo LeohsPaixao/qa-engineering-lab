@@ -1,5 +1,17 @@
 # preprocessor
 
+## 2.0.0
+
+### Major Changes
+
+- 7bd2a19: refactor: Repaginada no projeto, alteração de QA-Solar para QA Engineering Lab
+
+### Patch Changes
+
+- 30eadc5: chore: finaliza o processador do newman
+- f76bc94: feat: desenvolve o loader do Newman
+- 2aae514: feat: cria o parser do Newman
+
 ## 1.1.0
 
 ### Minor Changes

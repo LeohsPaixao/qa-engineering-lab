@@ -1,5 +1,16 @@
 # dashboard
 
+## 3.0.0
+
+### Major Changes
+
+- 7bd2a19: refactor: Repaginada no projeto, alteração de QA-Solar para QA Engineering Lab
+
+### Patch Changes
+
+- 2fe0218: docs: refatora o código da documentação e dashboard
+- 548b3c0: test: corrige os testes quebrados e altera os resultados do dashboard com a correção
+
 ## 2.0.0
 
 ### Major Changes

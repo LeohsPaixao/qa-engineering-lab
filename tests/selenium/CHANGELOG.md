@@ -1,5 +1,15 @@
 # selenium-ui-tests
 
+## 3.0.0
+
+### Major Changes
+
+- 7bd2a19: refactor: Repaginada no projeto, alteração de QA-Solar para QA Engineering Lab
+
+### Patch Changes
+
+- 548b3c0: test: corrige os testes quebrados e altera os resultados do dashboard com a correção
+
 ## 2.0.2
 
 ### Patch Changes
