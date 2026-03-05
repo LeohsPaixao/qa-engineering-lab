@@ -7,6 +7,7 @@ import {
   TestResult,
 } from '@playwright/test/reporter';
 
+import { projectType } from '../config/project.config';
 import { ProjectStats } from '../types';
 
 class CustomReporter implements Reporter {
@@ -17,7 +18,7 @@ class CustomReporter implements Reporter {
     this.startTime = Date.now();
     const isCI = !!process.env.CI;
     const environment = isCI ? 'CI Environment ☁️' : 'Local Development 💻';
-    const projects = config.projects.map(p => p.name).filter(Boolean).join(', ');
+    const projects = projectType.toUpperCase();
 
     console.log('\x1b[1m\x1b[38;5;33m┏━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━┓\x1b[0m');
     console.log('\x1b[1m\x1b[38;5;33m┃           🚀 QA Engineering Lab - Test Suite             ┃\x1b[0m');

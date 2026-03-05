@@ -1,13 +1,6 @@
 import { defineConfig, devices, ScreenshotMode, TraceMode } from '@playwright/test';
-import dotenv from 'dotenv';
-import path from 'path';
-
+import { projectType } from './config/project.config';
 import { buildReporter } from './reporters/buildReporter';
-
-dotenv.config({ path: path.resolve(__dirname, '.env') });
-
-const projectName = process.env.PW_PROJECT_NAME ?? 'all';
-const projectType = projectName === 'component' ? 'ct' : projectName;
 
 export default defineConfig({
   forbidOnly: !!process.env.CI,
@@ -15,7 +8,7 @@ export default defineConfig({
   reporter: buildReporter(projectType),
   projects: [
     {
-      name: projectName === 'e2e' || projectName === 'all' ? 'e2e' : undefined,
+      name: 'e2e',
       testDir: './tests/e2e/specs',
       testMatch: /.*\.e2e-spec\.ts/,
       testIgnore: [/.*\.api.spec\.ts/, /.*\.ct.spec\.ts/],
@@ -43,7 +36,7 @@ export default defineConfig({
       },
     },
     {
-      name: projectName === 'api' || projectName === 'all' ? 'api' : undefined,
+      name: 'api',
       testDir: './tests/api/specs',
       testMatch: /.*\.api.spec\.ts/,
       testIgnore: [/.*\.e2e-spec\.ts/, /.*\.ct.spec\.ts/],
@@ -65,7 +58,7 @@ export default defineConfig({
       },
     },
     {
-      name: projectName === 'component' || projectName === 'all' ? 'component' : undefined,
+      name: 'component',
       testDir: './tests/component/specs',
       testMatch: /.*\.ct.spec\.ts/,
       testIgnore: [/.*\.e2e-spec\.ts/, /.*\.api.spec\.ts/],
