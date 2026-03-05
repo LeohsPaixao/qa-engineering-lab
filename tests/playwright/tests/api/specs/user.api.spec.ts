@@ -13,7 +13,7 @@ test.describe('API de Usuário', { annotation: { type: 'api', description: 'Test
         },
       });
 
-      const responseJson = await response.json()
+      const responseJson = await response.json();
       const parse = validateSchema(userSchema, responseJson);
 
       expect(response.status()).toBe(200);
@@ -31,7 +31,7 @@ test.describe('API de Usuário', { annotation: { type: 'api', description: 'Test
 
     test('Deve retornar erro 401 quando não estiver logado', async ({ request }) => {
       const response = await request.get('/users/me');
-      const responseJson = await response.json()
+      const responseJson = await response.json();
       const parse = validateSchema(userMeErrorSchema, responseJson);
 
       expect(response.status()).toBe(401);
