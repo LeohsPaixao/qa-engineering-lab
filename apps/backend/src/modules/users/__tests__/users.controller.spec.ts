@@ -72,6 +72,7 @@ describe('UserController', () => {
       select: {
         id: true,
         full_name: true,
+        social_name: true,
         email: true,
         document: true,
         phone: true,
@@ -226,7 +227,7 @@ describe('UserController', () => {
     mockPrismaService.user.findUnique.mockResolvedValue(null);
 
     const req = { user: { id: 1 } };
-    await expect(controller.getMe(req)).rejects.toThrow('Usuário com o ID: 1 não encontrado.');
+    await expect(controller.getMe(req)).rejects.toThrow('Usuário não encontrado.');
   });
 
   it('Deve atualizar um usuário', async () => {

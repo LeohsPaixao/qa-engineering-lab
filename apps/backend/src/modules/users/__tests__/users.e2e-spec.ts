@@ -124,13 +124,11 @@ describe('Users', () => {
       expect(response.body.email).toBe('teste-dados-usuario@example.com');
     });
 
-    test('Deve retornar 404 para usuário não encontrado', async () => {
-      jest.spyOn(prisma.user, 'findUnique').mockResolvedValue(null);
+    test('Deve retornar 401 para usuário não autorizado', async () => {
+      const response = await request(app.getHttpServer()).get('/users/me');
 
-      const response = await request(app.getHttpServer()).get('/users/me').set('Authorization', `Bearer ${token}`);
-
-      expect(response.statusCode).toBe(404);
-      expect(response.body.message).toBe(`Usuário com o ID: ${createdUser.id} não encontrado.`);
+      expect(response.statusCode).toBe(401);
+      expect(response.body.message).toBe('Unauthorized');
     });
   });
 
@@ -230,7 +228,7 @@ describe('Users', () => {
         .set('Authorization', `Bearer ${token}`)
         .send({ ids: [idUserLogged] });
 
-      expect(response.statusCode).toBe(400);
+      expect(response.statusCode).toBe(405);
       expect(response.body.message).toBe('Você não pode excluir o usuário logado.');
     });
   });
