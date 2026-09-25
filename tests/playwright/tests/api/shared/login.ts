@@ -19,8 +19,8 @@ export async function login(request: APIRequestContext): Promise<string> {
   });
 
   const responseJson = await response.json();
-
   const parsed = validateSchema(loginResponseSchema, responseJson);
+
   expect(response.status()).toBe(200);
   expect(parsed.message).toBe('Login realizado com sucesso!');
   expect(parsed.token).toMatch(/^ey/);
