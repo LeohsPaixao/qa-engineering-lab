@@ -26,7 +26,6 @@ class CustomReporter implements Reporter {
 
     console.log(`\x1b[1mEnvironment:\x1b[0m \x1b[34m${environment}\x1b[0m`);
     console.log(`\x1b[1mProjects:\x1b[0m \x1b[34m${projects || 'All'}\x1b[0m`);
-    console.log(`\x1b[1mWorkers:\x1b[0m \x1b[34m${config.workers}\x1b[0m`);
     console.log('\x1b[38;5;242m───────────────────────────────────────────────────────────\x1b[0m');
     console.log('\x1b[38;5;242mStarting test execution...\x1b[0m\n');
   }

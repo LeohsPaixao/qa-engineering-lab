@@ -3,7 +3,7 @@ import path from 'path';
 
 dotenv.config({ path: path.resolve(__dirname, '../.env') });
 
-const projectName = process.env.PW_PROJECT_NAME;
+const projectName = process.env.PLAY_PROJECT_NAME;
 
 if (!projectName) {
   throw new Error('Deve-se informar o nome do projeto: ' + projectName);
