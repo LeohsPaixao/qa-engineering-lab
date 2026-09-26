@@ -1618,7 +1618,7 @@
                 "type": "text/javascript",
                 "exec": [
                   "pm.test(\"Should not be able to delete a logged user\", function () {",
-                  "    pm.expect(pm.response.code).to.eql(400);",
+                  "    pm.expect(pm.response.code).to.eql(405);",
                   "    pm.expect(pm.response.json().message).to.eql(\"Você não pode excluir o usuário logado.\");",
                   "})"
                 ]
@@ -2048,7 +2048,7 @@
     {
       "id": "f4daf5fd-5725-497d-a9f9-43e5f19bbb95",
       "key": "mockUrl",
-      "value": "https://fea5d23c-ceeb-4c21-a419-51f63a869e72.mock.pstmn.io"
+      "value": "https://c267041b-4db1-4d01-afe4-81c7e66af47d.mock.pstmn.io"
     }
   ]
 }
