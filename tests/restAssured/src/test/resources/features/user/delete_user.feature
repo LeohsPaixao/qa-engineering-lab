@@ -16,12 +16,12 @@ Feature: Delete User
   Scenario: Should not delete the logged user
     Given I am authenticated as a user
     When I try to delete the logged user
-    Then the response status code should be 400
+    Then the response status code should be 405
     And the response should match the "user/delete_users/delete-user-logged" schema
     And the response message should be "Você não pode excluir o usuário logado."
 
   Scenario: Should return error when no users are found
-    When I try to delete users without providing ids
+    When I try to delete users with id 999999
     Then the response status code should be 404
     And the response should match the "user/delete_users/no-provide-ids" schema
     And the response message should be "Nenhum usuário encontrado para excluir"

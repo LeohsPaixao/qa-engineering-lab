@@ -18,6 +18,10 @@ const FRAMEWORK_CONFIG: Record<Framework, FrameworkConfig> = {
     patterns: ['results.json'],
     type: 'e2e',
   },
+  'playwright-api': {
+    patterns: ['results.json'],
+    type: 'api',
+  },
   'playwright-ct': {
     patterns: ['results.json'],
     type: 'ct',

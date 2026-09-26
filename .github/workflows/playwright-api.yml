@@ -2,8 +2,8 @@ on:
   workflow_call:
 
 jobs:
-  playwright-tests:
-    name: Playwright Testes QA-Engineering-Lab
+  playwright-api-tests:
+    name: Playwright API Testes QA-Engineering-Lab
     runs-on: ubuntu-latest
     container:
       image: ghcr.io/leohspaixao/qa-runner-js:latest
@@ -22,7 +22,7 @@ jobs:
           --health-interval 10s
           --health-timeout 5s
           --health-retries 5
-
+    
     steps:
       - name: Checkout do repositório
         uses: actions/checkout@v4
@@ -60,23 +60,14 @@ jobs:
           JWT_SECRET: jwt_secret
           PORT: 3001
 
-      - name: Subir frontend
-        working-directory: apps/frontend
-        run: |
-          yarn start &
-          sleep 5
-
-      - name: Executar testes Playwright
-        run: |
-          cd tests/playwright
-          yarn play:run
+      - name: Executar testes do Playwright API
+        working-directory: tests/playwright
+        run: yarn play:api
         env:
           PLAY_API_URL: http://localhost:3001
-          PLAY_BASE_URL: http://localhost:8181
-          PLAYWRIGHT_BROWSERS_PATH: /ms-playwright
 
-      - name: Upload raw results (Playwright E2E)
+      - name: Upload raw results (Playwright API)
         uses: actions/upload-artifact@v4.4.0
         with:
-          name: playwright-e2e
-          path: qa-results/raw/playwright-e2e
+          name: playwright-api
+          path: qa-results/raw/playwright-api
