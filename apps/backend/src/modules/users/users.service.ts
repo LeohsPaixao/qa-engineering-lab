@@ -50,6 +50,7 @@ export class UsersService {
       select: {
         id: true,
         full_name: true,
+        social_name: true,
         email: true,
         document: true,
         phone: true,
@@ -81,7 +82,7 @@ export class UsersService {
     });
 
     if (!user) {
-      throw new NotFoundException(`Usuário com o ID: ${id} não encontrado.`);
+      throw new NotFoundException('Usuário não encontrado.');
     }
 
     return user;
@@ -121,7 +122,7 @@ export class UsersService {
 
   async deleteUsers(ids: number[], req?: any) {
     if (req && ids.includes(req.user.id)) {
-      throw new HttpException('Você não pode excluir o usuário logado.', HttpStatus.BAD_REQUEST);
+      throw new HttpException('Você não pode excluir o usuário logado.', HttpStatus.METHOD_NOT_ALLOWED);
     }
 
     const result = await this.prisma.user.deleteMany({

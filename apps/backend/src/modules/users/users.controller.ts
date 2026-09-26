@@ -44,7 +44,7 @@ export class UsersController {
   @HttpCode(HttpStatus.OK)
   @ApiOperation({ summary: 'Buscar dados do usuário logado' })
   @ApiResponse({ status: 200, description: 'Usuário encontrado', type: UserDto })
-  @ApiResponse({ status: 404, description: 'Usuário não encontrado' })
+  @ApiResponse({ status: 401, description: 'Não autorizado' })
   @ApiResponse({ status: 500, description: 'Internal server error.' })
   async getMe(@Request() req: any) {
     return await this.usersService.findOne(req.user.id);
@@ -72,8 +72,9 @@ export class UsersController {
   @HttpCode(HttpStatus.OK)
   @ApiOperation({ summary: 'Excluir usuários' })
   @ApiResponse({ status: 200, description: 'Usuários excluídos com sucesso' })
-  @ApiResponse({ status: 400, description: 'Você não pode excluir o usuário logado.' })
+  @ApiResponse({ status: 400, description: 'IDs de usuários inválidos' })
   @ApiResponse({ status: 404, description: 'Nenhum usuário encontrado para excluir' })
+  @ApiResponse({ status: 405, description: 'Você não pode excluir o usuário logado.' })
   @ApiResponse({ status: 500, description: 'Internal server error.' })
   async delete(@Body() deleteUserDto: DeleteUserDto, @Request() req: any) {
     const deletedUsers = await this.usersService.deleteUsers(deleteUserDto.ids, req);

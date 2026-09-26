@@ -7,9 +7,9 @@
   "private": true,
   "scripts": {
     "play:install": "playwright install",
-    "play:e2e": "PW_PROJECT_NAME=e2e npx playwright test --project=e2e",
-    "play:api": "PW_PROJECT_NAME=api npx playwright test --project=api",
-    "play:ct": "PW_PROJECT_NAME=component npx playwright test --project=component",
+    "play:e2e": "PLAY_PROJECT_NAME=e2e npx playwright test --project=e2e",
+    "play:api": "PLAY_PROJECT_NAME=api npx playwright test --project=api",
+    "play:ct": "PLAY_PROJECT_NAME=component npx playwright test --project=component",
     "play:ui": "playwright test --ui",
     "play:report": "playwright show-report",
     "lint": "eslint --fix"
@@ -23,6 +23,7 @@
     "@tsconfig/node22": "22.0.5",
     "@types/node": "22.19.1",
     "eslint": "9.20.0",
+    "zod": "4.3.6",
     "eslint-plugin-playwright": "2.2.0"
   }
 }
