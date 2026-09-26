@@ -160,11 +160,11 @@ public class UserSteps {
     /**
      * Tenta excluir usuários sem fornecer IDs (cenário de erro).
      */
-    @When("I try to delete users without providing ids")
-    public void iTryToDeleteUsersWithoutProvidingIds() {
+    @When("I try to delete users with id {int}")
+    public void iTryToDeleteUsersWithoutProvidingIds(Integer userId) {
         String body = """
-                { "ids": [] }
-                """;
+                { "ids": [%d] }
+                """.formatted(userId);
 
         context.setResponse(RequestHelper.delete(TestConstants.USERS_DELETE_ENDPOINT, body));
     }

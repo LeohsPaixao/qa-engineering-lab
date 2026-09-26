@@ -3,7 +3,7 @@ import { expect, test } from '@playwright/test';
 import { login } from '../shared/commands/login';
 
 test.describe('Tela de Perfil', {
-  annotation: { type: 'Test', description: 'Teste de perfil' },
+  annotation: { type: 'e2e', description: 'Teste de perfil' },
 }, () => {
 
   test.beforeEach(async ({ page }) => {

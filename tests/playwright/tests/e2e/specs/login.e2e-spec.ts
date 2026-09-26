@@ -1,7 +1,7 @@
 import { expect, test } from '@playwright/test';
 
 test.describe('Tela de Login', {
-  annotation: { type: 'Test', description: 'Teste de login' },
+  annotation: { type: 'e2e', description: 'Teste de login' },
 }, () => {
 
   test.beforeEach(async ({ page }) => {

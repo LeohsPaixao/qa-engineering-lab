@@ -1,7 +1,6 @@
 {
   "transpileOnly": true,
   "compilerOptions": {
-    "baseUrl": ".",
     "outDir": "./dist",
     "target": "ES2021",
     "module": "ESNext",
