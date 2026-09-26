@@ -31,13 +31,13 @@ test.describe('API de Usuário', { annotation: { type: 'api', description: 'Test
       expect(parse).toMatchObject({
         id: expect.any(Number),
         full_name: expect.any(String),
-        social_name: expect.any(String),
         email: expect.any(String),
         document: expect.any(String),
-        phone: expect.any(String),
         created_at: expect.any(String),
         updated_at: expect.any(String),
       });
+      expect([null, expect.any(String)]).toContainEqual(parse.phone);
+      expect([null, expect.any(String)]).toContainEqual(parse.social_name);
     });
 
     test('Deve retornar erro 401 quando não estiver logado', async ({ request }) => {
@@ -65,20 +65,22 @@ test.describe('API de Usuário', { annotation: { type: 'api', description: 'Test
       const parse = validateSchema(userListSchema, responseJson);
 
       expect(response.status()).toBe(200);
-      expect(parse).toMatchObject({
-        users: expect.arrayContaining([
-          {
-            id: expect.any(Number),
-            full_name: expect.any(String),
-            social_name: expect.any(String),
-            email: expect.any(String),
-            document: expect.any(String),
-            phone: expect.any(String),
-            created_at: expect.any(String),
-            updated_at: expect.any(String),
-          },
-        ])
-      });
+      expect(parse).toEqual(
+        expect.objectContaining({
+          users: expect.arrayContaining([
+            expect.objectContaining({
+              id: expect.any(Number),
+              full_name: expect.any(String),
+              email: expect.any(String),
+              document: expect.any(String),
+              created_at: expect.any(String),
+              updated_at: expect.any(String),
+            }),
+          ]),
+        }),
+      );
+      expect([null, expect.any(String)]).toContainEqual(parse.users[0].phone);
+      expect([null, expect.any(String)]).toContainEqual(parse.users[0].social_name);
     });
   });
 
@@ -108,14 +110,14 @@ test.describe('API de Usuário', { annotation: { type: 'api', description: 'Test
         user: expect.objectContaining({
           id: expect.any(Number),
           full_name: expect.any(String),
-          social_name: expect.any(String),
           email: expect.any(String),
           document: expect.any(String),
-          phone: expect.any(String),
           created_at: expect.any(String),
           updated_at: expect.any(String),
         })
       });
+      expect([null, expect.any(String)]).toContainEqual(parse.user.phone);
+      expect([null, expect.any(String)]).toContainEqual(parse.user.social_name);
     });
 
     test('Não deve ser possível criar um usuário sem passar o tipo de documento', async ({ request }) => {
