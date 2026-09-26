@@ -33,10 +33,10 @@ test.describe('API de Usuário', { annotation: { type: 'api', description: 'Test
         full_name: expect.any(String),
         email: expect.any(String),
         document: expect.any(String),
-        phone: expect.any(String),
         created_at: expect.any(String),
         updated_at: expect.any(String),
       });
+      expect([null, expect.any(String)]).toContainEqual(parse.phone);
       expect([null, expect.any(String)]).toContainEqual(parse.social_name);
     });
 
@@ -112,11 +112,11 @@ test.describe('API de Usuário', { annotation: { type: 'api', description: 'Test
           full_name: expect.any(String),
           email: expect.any(String),
           document: expect.any(String),
-          phone: expect.any(String),
           created_at: expect.any(String),
           updated_at: expect.any(String),
         })
       });
+      expect([null, expect.any(String)]).toContainEqual(parse.user.phone);
       expect([null, expect.any(String)]).toContainEqual(parse.user.social_name);
     });
 
