@@ -23,54 +23,62 @@ jobs:
   newman-api-tests:
     uses: ./.github/workflows/newman.yml
 
+  playwright-api-tests:
+    uses: ./.github/workflows/playwright-api.yml
+
   cypress-tests:
-    needs: [backend-unit-tests, frontend-unit-tests, cypress-component-tests, rest-assured-api-tests, newman-api-tests]
+    needs: [backend-unit-tests, frontend-unit-tests, cypress-component-tests, rest-assured-api-tests, newman-api-tests, playwright-api-tests]
     if: >-
       always() &&
       (needs.backend-unit-tests.result == 'success' &&
       needs.frontend-unit-tests.result == 'success' &&
       needs.cypress-component-tests.result == 'success' &&
       needs.rest-assured-api-tests.result == 'success' &&
-      needs.newman-api-tests.result == 'success')
+      needs.newman-api-tests.result == 'success' &&
+      needs.playwright-api-tests.result == 'success')
     uses: ./.github/workflows/cypress.yml
 
   playwright-tests:
-    needs: [backend-unit-tests, frontend-unit-tests, cypress-component-tests, rest-assured-api-tests, newman-api-tests]
+    needs: [backend-unit-tests, frontend-unit-tests, cypress-component-tests, rest-assured-api-tests, newman-api-tests, playwright-api-tests]
     if: >-
       always() &&
       (needs.backend-unit-tests.result == 'success' &&
       needs.frontend-unit-tests.result == 'success' &&
       needs.cypress-component-tests.result == 'success' &&
       needs.rest-assured-api-tests.result == 'success' &&
-      needs.newman-api-tests.result == 'success')
-    uses: ./.github/workflows/playwright.yml
+      needs.newman-api-tests.result == 'success' &&
+      needs.playwright-api-tests.result == 'success')
+    uses: ./.github/workflows/playwright-e2e.yml
 
   robot-framework-tests:
-    needs: [backend-unit-tests, frontend-unit-tests, cypress-component-tests, rest-assured-api-tests, newman-api-tests]
+    needs: [backend-unit-tests, frontend-unit-tests, cypress-component-tests, rest-assured-api-tests, newman-api-tests, playwright-api-tests]
     if: >-
       always() &&
       (needs.backend-unit-tests.result == 'success' &&
       needs.frontend-unit-tests.result == 'success' &&
       needs.cypress-component-tests.result == 'success' &&
       needs.rest-assured-api-tests.result == 'success' &&
-      needs.newman-api-tests.result == 'success')
+      needs.newman-api-tests.result == 'success' &&
+      needs.playwright-api-tests.result == 'success')
     uses: ./.github/workflows/robot.yml
 
   selenium-tests:
-    needs: [backend-unit-tests, frontend-unit-tests, cypress-component-tests, rest-assured-api-tests, newman-api-tests]
+    needs: [backend-unit-tests, frontend-unit-tests, cypress-component-tests, rest-assured-api-tests, newman-api-tests, playwright-api-tests]
     if: >-
       always() &&
       (needs.backend-unit-tests.result == 'success' &&
       needs.frontend-unit-tests.result == 'success' &&
       needs.cypress-component-tests.result == 'success' &&
       needs.rest-assured-api-tests.result == 'success' &&
-      needs.newman-api-tests.result == 'success')
+      needs.newman-api-tests.result == 'success' &&
+      needs.playwright-api-tests.result == 'success')
     uses: ./.github/workflows/selenium.yml
 
   preprocess:
     needs:
       [cypress-tests, playwright-tests, robot-framework-tests, selenium-tests]
     if: >-
+      github.base_ref == 'main' && 
       always() &&
       (needs.cypress-tests.result == 'success' &&
       needs.playwright-tests.result == 'success' &&
@@ -79,7 +87,7 @@ jobs:
     uses: ./.github/workflows/preprocess.yml
 
   docker-deploy:
-    if: github.base_ref == 'main' && needs.preprocess.result == 'success'
+    if: needs.preprocess.result == 'success'
     needs: [preprocess]
     uses: ./.github/workflows/docker-deploy.yml
     secrets:
