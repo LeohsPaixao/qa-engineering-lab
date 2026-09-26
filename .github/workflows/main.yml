@@ -38,7 +38,7 @@ jobs:
       needs.playwright-api-tests.result == 'success')
     uses: ./.github/workflows/cypress.yml
 
-  playwright-tests:
+  playwright-e2e-tests:
     needs: [backend-unit-tests, frontend-unit-tests, cypress-component-tests, rest-assured-api-tests, newman-api-tests, playwright-api-tests]
     if: >-
       always() &&
@@ -76,12 +76,12 @@ jobs:
 
   preprocess:
     needs:
-      [cypress-tests, playwright-tests, robot-framework-tests, selenium-tests]
+      [cypress-tests, playwright-e2e-tests, robot-framework-tests, selenium-tests]
     if: >-
       github.base_ref == 'main' && 
       always() &&
       (needs.cypress-tests.result == 'success' &&
-      needs.playwright-tests.result == 'success' &&
+      needs.playwright-e2e-tests.result == 'success' &&
       needs.robot-framework-tests.result == 'success' &&
       needs.selenium-tests.result == 'success')
     uses: ./.github/workflows/preprocess.yml

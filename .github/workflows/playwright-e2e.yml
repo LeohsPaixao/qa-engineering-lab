@@ -2,7 +2,7 @@ on:
   workflow_call:
 
 jobs:
-  playwright-tests:
+  playwright-e2e-tests:
     name: Playwright E2E QA-Engineering-Lab
     runs-on: ubuntu-latest
     container:
