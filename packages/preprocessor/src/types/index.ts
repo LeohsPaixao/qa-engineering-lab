@@ -11,6 +11,7 @@ export type Framework =
   | 'cypress-e2e'
   | 'cypress-ct'
   | 'playwright-e2e'
+  | 'playwright-api'
   | 'playwright-ct'
   | 'jest'
   | 'vitest'
