@@ -15,5 +15,10 @@ declare namespace Cypress {
       }
       slots?: Record<string, any>
     }): Chainable<any>
+    /**
+     * Custom command to mount a component with Vue plugins and routing
+     * @example cy.mountWithRoute(MyComponent, { props: { title: 'Test' } })
+     */
+    mountWithRoute(component: any, options?: any): Chainable<any>;
   }
 }
