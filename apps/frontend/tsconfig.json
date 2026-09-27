@@ -35,6 +35,7 @@
     "src/**/*.d.ts",
     "src/**/*.tsx",
     "src/**/*.vue",
+    "playwright/gallery/**/*.ts",
     "test/vitest-setup.ts",
     "test/global-stubs.ts"
   ]
