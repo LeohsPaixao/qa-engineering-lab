@@ -1,9 +1,10 @@
-FROM node:22-bullseye
+FROM node:22-bookworm
 
 ENV DEBIAN_FRONTEND=noninteractive
 ENV PLAYWRIGHT_BROWSERS_PATH=/ms-playwright
 
-RUN apt-get update && apt-get install -y \
+# Dependências para Playwright, Cypress, Newman e ferramentas do SO
+RUN apt-get update && apt-get install -y --no-install-recommends \
     git \
     curl \
     wget \
@@ -12,7 +13,6 @@ RUN apt-get update && apt-get install -y \
     libgtk-3-0 \
     libgbm-dev \
     libnotify-dev \
-    libgconf-2-4 \
     libnss3 \
     libxss1 \
     libasound2 \
@@ -31,10 +31,10 @@ RUN apt-get update && apt-get install -y \
     libcairo2 \
     && rm -rf /var/lib/apt/lists/*
 
-RUN npm install -g npm@11.10.1
+# Atualiza npm e instala CLI globais
+RUN npm install -g npm@latest newman @playwright/test@latest
 
-RUN npm install -g newman @playwright/test@1.58.2
-
+# Instala os navegadores do Playwright
 RUN npx playwright install --with-deps --only-shell
 
 CMD ["bash"]

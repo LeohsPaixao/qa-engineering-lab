@@ -1,5 +1,5 @@
 {
-  "name": "playwright-ui-tests",
+  "name": "playwright-tests",
   "version": "2.0.4",
   "description": "Project Tests Playwright",
   "author": "Leonardo Paixao <leonardohspaixao@gmail.com>",
@@ -19,7 +19,7 @@
     "dotenv": "16.4.5"
   },
   "devDependencies": {
-    "@playwright/test": "1.58.2",
+    "@playwright/test": "1.63.0",
     "@tsconfig/node22": "22.0.5",
     "@types/node": "22.19.1",
     "eslint": "9.20.0",

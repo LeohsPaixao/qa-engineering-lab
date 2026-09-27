@@ -4,7 +4,7 @@ import { timestamp } from '../../../packages/scripts/timestamp';
 
 /**
  * Build the reporter configuration for Playwright.
- * @param type - The type of test to run (e2e, api, component).
+ * @param type - The type of test to run (e2e, api, ct).
  * @returns An array of reporter configurations.
  */
 export const buildReporter = (type: string): ReporterDescription[] => [
