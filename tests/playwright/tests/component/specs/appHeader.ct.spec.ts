@@ -1,6 +1,11 @@
 import { expect, test } from '@playwright/test';
+import { mockGetMe } from '../shared/getMe';
 
 test.describe('AppHeader', () => {
+
+  test.beforeEach(async ({ page }) => {
+    await mockGetMe(page);
+  });
 
   test('Deveria ser possivel visualizar os links de navegação', async ({ mount }) => {
     const component = await mount('components/AppHeader/WithUser');
@@ -59,5 +64,24 @@ test.describe('AppHeader', () => {
     const component = await mount('components/AppHeader/WithoutUser');
 
     await expect(component.getByTestId('user-name')).toHaveText('Usuário');
+  });
+
+  test('Deveria ser possível fechar o dropdown do usuário ao clicar fora dele', async ({ mount }) => {
+    const component = await mount('components/AppHeader/WithUser');
+
+    await component.getByTestId('user-dropdown').click();
+    await expect(component.getByTestId('dropdown-profile')).toBeVisible();
+
+    await component.getByTestId('app-header').click({ position: { x: 5, y: 5 } });
+    await expect(component.getByTestId('dropdown-profile')).toBeHidden();
+  });
+
+  test('Deveria ser possível navegar para o perfil ao clicar na Opção Perfil', async ({ mount }) => {
+    const component = await mount('components/AppHeader/WithUser');
+
+    await component.getByTestId('user-dropdown').click();
+    await component.getByTestId('dropdown-profile-update').click();
+
+    await expect(component.getByTestId('current-route')).toHaveValue('/profile');
   });
 });
