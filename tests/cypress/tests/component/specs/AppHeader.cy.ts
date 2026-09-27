@@ -70,4 +70,23 @@ describe('AppHeader Component', () => {
 
     cy.get('[data-testid="user-name"]').should('contain', 'Usuário');
   });
+
+  it('Deveria ser possível fechar o dropdown do usuário ao clicar fora dele', () => {
+    cy.mount(AppHeader);
+
+    cy.get('[data-testid="user-dropdown"]').click();
+    cy.get('[data-testid="dropdown-profile"]').should('be.visible');
+
+    cy.get('[data-testid="app-header"]').click(5, 5);
+    cy.get('[data-testid="dropdown-profile"]').should('not.exist');
+  });
+
+  it('Deveria ser possível navegar para o perfil ao clicar na Opção Perfil', () => {
+    cy.mountWithRoute(AppHeader);
+
+    cy.get('[data-testid="user-dropdown"]').click();
+    cy.get('[data-testid="dropdown-profile-update"]').click();
+
+    cy.get('[data-testid="current-route"]').should('have.value', '/profile');
+  });
 });
