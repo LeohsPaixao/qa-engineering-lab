@@ -1,5 +1,5 @@
 import { defineConfig, devices, ScreenshotMode, TraceMode } from '@playwright/test';
-import { projectType } from './config/project.config';
+import { ctPort, frontendDir, galleryUrl, projectType } from './config/project.config';
 import { buildReporter } from './reporters/buildReporter';
 
 export default defineConfig({
@@ -62,15 +62,27 @@ export default defineConfig({
       testDir: './tests/component/specs',
       testMatch: /.*\.ct.spec\.ts/,
       testIgnore: [/.*\.e2e-spec\.ts/, /.*\.api.spec\.ts/],
+      timeout: 15000,
       fullyParallel: true,
       retries: process.env.CI ? 2 : 0,
       workers: process.env.CI ? 1 : 3,
       use: {
-        baseURL: process.env.PLAY_BASE_URL,
+        baseURL: galleryUrl,
         ignoreHTTPSErrors: true,
+        reuseContext: true,
+        serviceWorkers: 'block',
         screenshot: 'only-on-failure' as ScreenshotMode,
         trace: 'on-first-retry' as TraceMode,
+        ...devices['Desktop Chrome'],
       },
     }
-  ]
+  ],
+  webServer: projectType === 'ct'
+    ? {
+      command: `npx vite --host 127.0.0.1 --port ${ctPort} --strictPort`,
+      cwd: frontendDir,
+      url: galleryUrl,
+      reuseExistingServer: !process.env.CI,
+      timeout: 120000,
+    } : undefined,
 });

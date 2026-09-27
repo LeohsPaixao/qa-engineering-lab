@@ -36,6 +36,9 @@
   },
   "include": [
     "tests",
+    "../../apps/frontend/src/**/*.vue",
+    "../../apps/frontend/src/**/*.story.ts",
+    "../../apps/frontend/src/stories/*.ts"
   ],
   "exclude": [
     "node_modules",

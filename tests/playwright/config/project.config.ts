@@ -10,5 +10,9 @@ if (!projectName) {
 }
 
 const projectType = projectName === 'component' ? 'ct' : projectName;
+const ctPort = Number(process.env.PLAY_CT_PORT) || 8182;
+const galleryUrl = process.env.PLAY_CT_URL || `http://127.0.0.1:${ctPort}/playwright/gallery/index.html`;
+const frontendDir = path.resolve(__dirname, '../../../apps/frontend');
 
-export { projectName, projectType };
+export { ctPort, frontendDir, galleryUrl, projectName, projectType };
+
