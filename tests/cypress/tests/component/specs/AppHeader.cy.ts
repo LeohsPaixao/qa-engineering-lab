@@ -60,4 +60,14 @@ describe('AppHeader Component', () => {
     cy.get('[data-testid="nav-menu"]').should('have.css', 'display', 'flex');
     cy.get('[data-testid="nav-menu"]').should('have.css', 'list-style', 'outside none disc');
   });
+
+  it('Deveria ser possível visualizar o usuário padrão', () => {
+    cy.mount(AppHeader, {
+      props: {
+        user: null
+      }
+    });
+
+    cy.get('[data-testid="user-name"]').should('contain', 'Usuário');
+  });
 });
