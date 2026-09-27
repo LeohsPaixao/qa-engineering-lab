@@ -5,11 +5,13 @@ import AppHeader from './AppHeader.vue';
 
 const storyUser: User = {
   id: 1,
-  full_name: 'Maria QA',
-  email: 'maria@example.com',
-  social_name: 'Maria',
-  document: '12345678909',
-  phone: '11987654321',
+  full_name: 'Teste Usuário',
+  social_name: 'Teste Usuário',
+  email: 'teste@example.com',
+  phone: '11999999999',
+  document: '11122233344',
+  created_at: '2024-01-01T00:00:00Z',
+  updated_at: '2024-01-01T00:00:00Z',
 };
 
 const headerWithRouteRecorder = withRouteRecorder(AppHeader);
