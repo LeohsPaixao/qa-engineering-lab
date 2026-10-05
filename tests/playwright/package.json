@@ -7,9 +7,9 @@
   "private": true,
   "scripts": {
     "play:install": "playwright install",
-    "play:e2e": "PLAY_PROJECT_NAME=e2e npx playwright test --project=e2e",
-    "play:api": "PLAY_PROJECT_NAME=api npx playwright test --project=api",
-    "play:ct": "PLAY_PROJECT_NAME=component npx playwright test --project=component",
+    "play:e2e": "PLAY_PROJECT_TYPE=e2e npx playwright test --project=e2e",
+    "play:api": "PLAY_PROJECT_TYPE=api npx playwright test --project=api",
+    "play:ct": "PLAY_PROJECT_TYPE=component npx playwright test --project=component",
     "play:ui": "playwright test --ui",
     "play:report": "playwright show-report",
     "lint": "eslint --fix"
