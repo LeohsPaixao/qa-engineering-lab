@@ -1,14 +1,15 @@
 <template>
-  <footer class="app-footer">
-    <p class="message-footer">© {{ currentYear }} QA Engineering Lab - Todos os direitos reservados</p>
+  <footer data-testid="app-footer" class="app-footer">
+    <p data-testid="message-footer" class="message-footer">© {{ currentYear }} QA Engineering Lab - Todos os direitos reservados</p>
     <a
       href="https://github.com/LeohsPaixao/qa-engineering-lab"
       target="_blank"
       rel="noopener noreferrer"
       class="github-link"
+      data-testid="github-link"
       aria-label="Visitar repositório no GitHub"
     >
-      <img src="@/assets/images/github-mark-white.svg" alt="GitHub" class="github-icon" />
+      <img data-testid="github-icon" src="@/assets/images/github-mark-white.svg" alt="GitHub" class="github-icon" />
     </a>
   </footer>
 </template>
