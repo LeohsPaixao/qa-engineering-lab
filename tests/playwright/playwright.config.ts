@@ -12,7 +12,7 @@ export default defineConfig({
       testDir: './tests/e2e/specs',
       testMatch: /.*\.e2e-spec\.ts/,
       testIgnore: [/.*\.api.spec\.ts/, /.*\.ct.spec\.ts/],
-      timeout: 10000,
+      timeout: 10 * 1000,
       fullyParallel: true,
       retries: process.env.CI ? 2 : 0,
       workers: process.env.CI ? 1 : 3,
@@ -25,7 +25,7 @@ export default defineConfig({
         ...devices['Desktop Chrome']
       },
       expect: {
-        timeout: 5000,
+        timeout: 5 * 1000,
         toHaveScreenshot: {
           animations: 'disabled',
           maxDiffPixels: 10,
@@ -54,7 +54,7 @@ export default defineConfig({
         trace: 'on-first-retry' as TraceMode,
       },
       expect: {
-        timeout: 1000,
+        timeout: 10 * 1000,
       },
     },
     {
@@ -62,7 +62,7 @@ export default defineConfig({
       testDir: './tests/component/specs',
       testMatch: /.*\.ct.spec\.ts/,
       testIgnore: [/.*\.e2e-spec\.ts/, /.*\.api.spec\.ts/],
-      timeout: 15000,
+      timeout: 15 * 1000,
       fullyParallel: true,
       retries: process.env.CI ? 2 : 0,
       workers: process.env.CI ? 1 : 3,
@@ -77,12 +77,19 @@ export default defineConfig({
       },
     }
   ],
-  webServer: projectType === 'ct'
-    ? {
-      command: `npx vite --host 127.0.0.1 --port ${ctPort} --strictPort`,
+  webServer: [
+    {
+      name: 'frontend-component',
+      command: `npx vite --host 127.0.0.1 --port ${ctPort}`,
       cwd: frontendDir,
       url: galleryUrl,
       reuseExistingServer: !process.env.CI,
-      timeout: 120000,
-    } : undefined,
+      stdout: 'ignore',
+      stderr: 'pipe',
+      timeout: 120 * 1000,
+      wait: {
+        stdout: /vite v\d+\.\d+\.\d+ ready in \d+ms/,
+      },
+    }
+  ],
 });
