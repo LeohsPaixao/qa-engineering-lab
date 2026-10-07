@@ -1,15 +1,14 @@
 import { expect, test } from '@playwright/test';
-import type { WithErrorMessage } from '../../../apps/frontend/src/components/LoadingErrorState.story';
 
 test.describe('LoadingErrorState', () => {
-  test('não renderiza nada quando não há loading nem erro', async ({ mount }) => {
+  test('Não deveria renderizar nada quando não há loading nem erro', async ({ mount }) => {
     const component = await mount('components/LoadingErrorState/Default');
 
     await expect(component.getByTestId('loading-container')).toBeHidden();
     await expect(component.getByTestId('error-container')).toBeHidden();
   });
 
-  test('exibe o spinner durante o carregamento', async ({ mount }) => {
+  test('Deveria ser possível exibir o spinner durante o carregamento', async ({ mount }) => {
     const component = await mount('components/LoadingErrorState/Loading');
 
     await expect(component.getByTestId('loading-container')).toBeVisible();
@@ -18,7 +17,7 @@ test.describe('LoadingErrorState', () => {
     await expect(component.getByTestId('error-container')).toBeHidden();
   });
 
-  test('exibe a mensagem de erro padrão', async ({ mount }) => {
+  test('Deveria ser possível exibir a mensagem de erro padrão', async ({ mount }) => {
     const component = await mount('components/LoadingErrorState/WithError');
 
     await expect(component.getByTestId('error-container')).toBeVisible();
@@ -26,16 +25,16 @@ test.describe('LoadingErrorState', () => {
     await expect(component.getByTestId('loading-container')).toBeHidden();
   });
 
-  test('renderiza a mensagem de erro recebida via props', async ({ mount }) => {
-    const component = await mount<typeof WithErrorMessage>('components/LoadingErrorState/WithErrorMessage', {
+  test('Deveria ser possível renderizar a mensagem de erro recebida via props', async ({ mount }) => {
+    const component = await mount('components/LoadingErrorState/WithErrorMessage', {
       errorMessage: 'Falha ao comunicar com o servidor.',
     });
 
     await expect(component.getByTestId('error-message')).toHaveText('Falha ao comunicar com o servidor.');
   });
 
-  test('atualiza a mensagem de erro sem remontar a story', async ({ mount }) => {
-    const component = await mount<typeof WithErrorMessage>('components/LoadingErrorState/WithErrorMessage', {
+  test('Deveria ser possível atualizar a mensagem de erro sem remontar a story', async ({ mount }) => {
+    const component = await mount('components/LoadingErrorState/WithErrorMessage', {
       errorMessage: 'Primeira mensagem.',
     });
 
@@ -46,7 +45,16 @@ test.describe('LoadingErrorState', () => {
     await expect(component.getByTestId('error-message')).toHaveText('Segunda mensagem.');
   });
 
-  test('story desconhecida falha com erro explícito', async ({ mount }) => {
+  test('Deveria ser possível falhar com erro explícito quando a story for desconhecida', async ({ mount }) => {
     await expect(mount('components/LoadingErrorState/Unknown')).rejects.toThrow('Unknown story');
+  });
+
+  test('Deveria priorizar o carregamento sobre o erro quando ambos forem true', async ({ mount }) => {
+    const component = await mount('components/LoadingErrorState/Loading', {
+      isError: true,
+    });
+
+    await expect(component.getByTestId('loading-container')).toBeVisible();
+    await expect(component.getByTestId('error-container')).toBeHidden();
   });
 });
