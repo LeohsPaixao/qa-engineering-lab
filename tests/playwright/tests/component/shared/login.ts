@@ -5,7 +5,7 @@ import { Page } from '@playwright/test';
  * @param page - A instância da página do Playwright onde o mock será aplicado.
  * @returns Objeto com a propriedade requestBody que será preenchida quando a requisição for feita.
  */
-export async function mockLogin(page: Page): Promise<{ requestBody: { email?: string; password?: string } | null }> {
+export async function mockLogin(page: Page): Promise<{ value: {email?: string; password?: string } | null } > {
   const requestBody = { value: { email: undefined, password: undefined } };
 
   await page.route('**/auth/login', async (route) => {

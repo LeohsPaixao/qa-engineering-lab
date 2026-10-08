@@ -6,8 +6,8 @@ test.describe('LoginTemplate', () => {
 
   test.beforeEach(async ({ page }) => {
     requestBody = await mockLogin(page);
-    console.log('requestBody', requestBody);
-  })
+
+  });
 
   test('Deveria ser possível exibir os campos do formulário de login', async ({ mount }) => {
     const component = await mount('modules/auth/components/login/LoginTemplate/Default');
